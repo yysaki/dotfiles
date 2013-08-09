@@ -1,3 +1,16 @@
+# Hyrose/unit_tests 用のユニットテスト
+snippet hyrose_unitttest
+  #include "test_common.h"
+  #ifndef DISABLE_${1:TESTNAME}_TEST
+  
+  using namespace std;
+  
+  BOOST_AUTO_TEST_CASE(${2:METHODNAME}_test){
+    BOOST_CHECK(true);
+  }
+  
+  #endif // DISABLE_${1:TESTNAME}_TEST 
+
 # topcoder includes
 snippet u
   #include <algorithm>
@@ -49,8 +62,15 @@ snippet contest
     int ${2:N}; cin >> ${2};
     for(int i = 0; i < ${2}; i++){
       /* code */
-    }<`5`>
+    }
     cout << solve() << endl;
+    return 0;
+  }
+
+# main
+snippet m
+  int main(int argc, const char* argv[]){
+    ${1:/* code */ }
     return 0;
   }
  
@@ -156,27 +176,28 @@ snippet cin
 ## Iteration
 # for i 
 snippet fori
-	for (int ${2:i} = 0; $2 < ${1:count}; $2${3:++}) {
-		${4:/* code */}
-	}${5}
+	for(int ${1:i} = 0; $1 < ${2:count}; ++$1){
+		${3:/* code */}
+	}
 
-# foreach
-snippet fore
-	for (${1:auto} ${2:i} : ${3:container}) {
-		${4:/* code */}
-	}${5}
 # iterator
-snippet iter
-	for (${1:std::vector}<${2:type}>::${3:const_iterator} ${4:i} = ${5:container}.begin(); $4 != $5.end(); ++$4) {
-		${6}
-	}${7}
+snippet forit
+	for(${1:std::vector<int>}::const_iterator ${2:it} = ${3:container}.begin(); $2 != $3.end(); ++$2){
+		${4}
+	}
 
-# auto iterator
-snippet itera
-	for (auto ${1:i} = $1.begin(); $1 != $1.end(); ++$1) {
-		${2:std::cout << *$1 << std::endl;}
-	}${3}
-##
+## foreach
+#snippet fore
+#	for (${1:auto} ${2:i} : ${3:container}) {
+#		${4:/* code */}
+#	}${5}
+
+## auto iterator
+#snippet itera
+#	for (auto ${1:i} = $1.begin(); $1 != $1.end(); ++$1) {
+#		${2:std::cout << *$1 << std::endl;}
+#	}${3}
+
 ## Lambdas
 # lamda (one line)
 snippet ld
