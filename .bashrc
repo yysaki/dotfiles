@@ -1,13 +1,24 @@
 export LANG=ja_JP.UTF-8
 
+# machine specific
+linux=false
+darwin=false
+cygwin=false
+case "$(uname)" in
+  Linux) linux=true;;
+  Darwin) darwin=true;;
+  CYGWIN*) cygwin=true;;
+esac
+
 # User specific aliases and functions
 ## Dropbox aliases and functions
 alias dbst='dropbox status'
 alias dbfs='dropbox filestatus'
 
 dropbox_backup_dotfiles () {
-  cp ~/.bashrc ~/.bash_profile ~/.bash_logout ~/.vimrc ~/.gvimrc ~/.screenrc ~/Dropbox/Program/dotfiles/
+  cp ~/.bashrc ~/.bash_profile ~/.bash_logout ~/.vimrc ~/.gvimrc ~/.screenrc ~/.tmux.conf ~/Dropbox/Program/dotfiles/
   cp -rf ~/vimfiles/dict \
+  ~/vimfiles/after \
   ~/vimfiles/scripts \
   ~/vimfiles/colors \
   ~/vimfiles/ftplugin \
@@ -15,8 +26,10 @@ dropbox_backup_dotfiles () {
   ~/vimfiles/doc \
   ~/vimfiles/syntax \
   ~/Dropbox/Program/dotfiles/vimfiles/
-  cp ~/.ssh/config ~/Dropbox/Program/dotfiles/.ssh/
 }
+
+## tmux shortcuts
+alias tm='tmux'
 
 ## screen shortcuts
 alias sc='screen'
@@ -32,6 +45,14 @@ alias gvi='gvim'
 if [ -x /usr/bin/vim ]; then
   alias vi='/usr/bin/vim'
 fi
+alias dateMyFormat='date +"%Y%m%d"'
+datevi () {
+  if [ ! -e  ~/Dropbox/work/`dateMyFormat`.md ]; then
+    echo Daily `dateMyFormat` >> ~/Dropbox/work/`dateMyFormat`.md
+  fi
+  vi ~/Dropbox/work/`dateMyFormat`.md
+}
+alias datecp='cat ~/Dropbox/work/`dateMyFormat`.md | pbcopy'
 
 if [ -x /usr/bin/dircolors ]; then
   alias ls='ls -F --color=auto'
@@ -40,7 +61,15 @@ if [ -x /usr/bin/dircolors ]; then
   alias l='ls -CF --color=auto'
   alias grep='grep --color=auto'
   alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'  
+  alias egrep='egrep --color=auto'
+elif $darwin; then
+  alias ls='ls -F -G'
+  alias ll='ls -la -G'
+  alias la='ls -a -G'
+  alias l='ls -CF -G'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
 else
   alias ls='ls -F'
   alias ll='ls -la'
@@ -68,17 +97,8 @@ fi
 
 # set export
 export EDITOR='vi'
-
-# machine specific
-linux=false
-darwin=false
-cygwin=false
-case "$(uname)" in
-  Linux) linux=true;;
-Darwin) darwin=true;;
-  CYGWIN*) cygwin=true;;
-esac
-
+export PATH=$PATH:/usr/local/share/npm/bin
+export NODE_PATH=/usr/local/share/npm/lib/node_modules/jsctags/:$NODE_PATH
 if $linux; then
   ## TODO for yysaki.com
   export JAVA_HOME='/usr/lib/jvm/java-1.6.0-openjdk/' 
@@ -91,8 +111,7 @@ elif $darwin; then
   PATH=$PATH:${HOME}/.rvm/bin # Add RVM to PATH for scripting
 
   if [ -f /Applications/MacVim.app/Contents/MacOS/mvim ]; then
-    alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/mvim "$@"'
-    alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/mvim "$@"'
+    alias gvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/mvim "$@"'
   fi
 elif $cygwin; then
   export PATH=/cygdrive/c/App/vim73-kaoriya-win64:${PATH}
