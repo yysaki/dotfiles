@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd `dirname $0`
+
 DOT_FILES=".bash_profile .bashrc .gvimrc .screenrc .tmux.conf .vimrc"
 VIMFILES=".vim"
 
