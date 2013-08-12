@@ -420,7 +420,8 @@ NeoBundle 'scrooloose/syntastic'         " 汎用
 NeoBundle 'majutsushi/tagbar'            " ctags汎用
 
 "" HTML/CSS
-NeoBundle 'mattn/zencoding-vim'
+" old NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'mattn/emmet-vim'
 
 
 "" neocomplcache
