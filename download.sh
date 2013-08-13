@@ -16,7 +16,7 @@ fi
 cp zenburn.vim ../.vim/colors/
 
 echo "[echo] download japanese vimhelp..."
-wget https://github.com/vim-jp/vimdoc-ja/archive/master.tar.gz
+wget https://github.com/vim-jp/vimdoc-ja/archive/master.tar.gz -O master.tar.gz
 tar zxvf master.tar.gz
 cp -rf vimdoc-ja-master/{doc,syntax} ../.vim/
 
