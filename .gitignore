@@ -1,4 +1,6 @@
 .vim/bundle/
 .vim/doc/
+.vim/syntax/
+tmp/
 *~
 .*.swp
