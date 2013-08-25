@@ -22,8 +22,6 @@ if ! [ -d ~/.vim/bundle/neobundle.vim ]; then
   git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 fi
 
-eval "$(rbenv init -)"
-
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
   . ~/.bashrc
