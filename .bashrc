@@ -109,6 +109,7 @@ elif $darwin; then
   export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 
   export JAVA_HOME='/Library/Java/JavaVirtualMachines/1.6.0_29-b11-402.jdk/Contents/Home'
   PATH=$PATH:${HOME}/.rvm/bin # Add RVM to PATH for scripting
+  export RBENV_ROOT=/usr/local/var/rbenv
 
   if [ -f /Applications/MacVim.app/Contents/MacOS/mvim ]; then
     alias gvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/mvim "$@"'
