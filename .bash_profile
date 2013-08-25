@@ -8,6 +8,10 @@ USERNAME=""
 
 export USERNAME BASH_ENV PATH LESSOPEN
 
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 # update bash settings from Dropbox
 #DIR=$HOME/Dropbox/Program/unix
 #cp $DIR/.bashrc $DIR/.bash_profile $DIR/.bash_logout ./
