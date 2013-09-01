@@ -41,6 +41,8 @@ scx () {
 alias eng='LANG=C LANGUAGE=C LC_ALL=C'
 alias RPE='ruby -pe'
 alias RNE='ruby -ne'
+alias be='bundle exec'
+alias ber='bundle exec rails'
 alias gvi='gvim'
 if [ -x /usr/bin/vim ]; then
   alias vi='/usr/bin/vim'
