@@ -207,3 +207,10 @@ snippet lld
 	[${1}](${2}){
 		${3:/* code */}
 	}${4}
+
+# debug
+snippet dump
+  cerr << "${1}" << " = " << ${1} << endl;
+
+snippet debug
+  cerr << "${1}" << " = " << (${1}) << " (L" << __LINE__ << ")" << " " << __FILE__ << endl;
