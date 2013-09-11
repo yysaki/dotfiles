@@ -423,6 +423,8 @@ NeoBundle 'majutsushi/tagbar'            " ctags汎用
 " old NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'mattn/emmet-vim'
 
+"" topcoder
+NeoBundle 'vim-scripts/VimCoder.jar'
 
 "" neocomplcache
 " Disable AutoComplPop.
