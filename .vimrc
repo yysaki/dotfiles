@@ -258,6 +258,20 @@ let g:surround_custom_mapping.vim= {
 "}}}
 
 "------------------------------------
+" quickrun
+"------------------------------------
+let g:quickrun_config = {}
+let g:quickrun_config['_'] = {"runner": "vimproc", "runner/vimproc/updatetime": 60, "split": "below"}
+
+let g:quickrun_config['make']       = {"command": "make", "exec" : "%c %o",  "outputter": "error:buffer:quickfix"}
+let g:quickrun_config['make.run']   = {"command": "make", "cmdopt": "run",   "outputter": "error:buffer:quickfix"}
+let g:quickrun_config['make.check'] = {"command": "make", "cmdopt": "check", "outputter": "error:buffer:quickfix"}
+let g:quickrun_config['make.test']  = {"command": "make", "cmdopt": "test",  "outputter": "error:buffer:quickfix"}
+
+" Space, q でquickrunする
+silent! map <Space>q <Plug>(quickrun)
+
+"------------------------------------
 " neocomplcache
 "------------------------------------
 " 補完・履歴 neocomplcache "{{{
@@ -423,6 +437,8 @@ NeoBundle 'majutsushi/tagbar'            " ctags汎用
 " old NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'mattn/emmet-vim'
 
+"" topcoder
+NeoBundle 'vim-scripts/VimCoder.jar'
 
 "" neocomplcache
 " Disable AutoComplPop.
