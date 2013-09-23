@@ -437,6 +437,9 @@ NeoBundle 'majutsushi/tagbar'            " ctags汎用
 " old NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'mattn/emmet-vim'
 
+NeoBundle 'kana/vim-altr'
+NeoBundle 'tpope/vim-fugitive'
+
 "" topcoder
 NeoBundle 'vim-scripts/VimCoder.jar'
 
@@ -510,6 +513,9 @@ nnoremap <Leader>s :EvervimSearchByQuery<Space>
 nnoremap <Leader>c :EvervimCreateNote<CR>
 nnoremap <Leader>b :EvervimOpenBrowser<CR>
 
+"" vim-altr
+nmap <Space>a <Plug>(altr-forward)
+
 "" open browser
 nnoremap <Leader>o <Plug>(openbrowser-smart-search) 
 
@@ -566,7 +572,9 @@ set helplang=ja,en
 "ファイル情報の表示
 set laststatus=2 
 set statusline=%F%m%r%h%w\ [TYPE=%Y]\ [FORMAT=%{&ff}]\ [ENC=%{&fileencoding}]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
-"set statusline=%F%m%r%h%w\ [TYPE=%Y]\ [FORMAT=%{&ff}]\ [ENC=%{&fileencoding}]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+
+set listchars=eol:¬,tab:▸\  " 不可視文字の可視化
+set list
 
 if has('win32') || has('win64') || has('win95') || has('win16')
   "/User/yysaki/に移動(win)
