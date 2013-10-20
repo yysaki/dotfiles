@@ -133,20 +133,20 @@ NeoBundleLazy 'ujihisa/unite-rake', {
       \ 'depends' : 'Shougo/unite.vim' }
 NeoBundleLazy 'basyura/unite-rails', {
       \ 'depends' : 'Shjkougo/unite.vim' }
-NeoBundleLazy 'taichouchou2/unite-rails_best_practices', {
-      \ 'depends' : 'Shougo/unite.vim',
-      \ 'build' : {
-      \    'mac': 'gem install rails_best_practices',
-      \    'unix': 'gem install rails_best_practices',
-      \   }
+"NeoBundleLazy 'taichouchou3/unite-rails_best_practices', {
+"      \ 'depends' : 'Shougo/unite.vim',
+"      \ 'build' : {
+"      \    'mac': 'gem install rails_best_practices',
+"      \    'unix': 'gem install rails_best_practices',
+"      \   }
       \ }
-NeoBundleLazy 'taichouchou2/unite-reek', {
-      \ 'build' : {
-      \    'mac': 'gem install reek',
-      \    'unix': 'gem install reek',
-      \ },
-      \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] },
-      \ 'depends' : 'Shougo/unite.vim' }
+"NeoBundleLazy 'taichouchou2/unite-reek', {
+"      \ 'build' : {
+"      \    'mac': 'gem install reek',
+"      \    'unix': 'gem install reek',
+"      \ },
+"      \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] },
+"      \ 'depends' : 'Shougo/unite.vim' }
 NeoBundleLazy 'taichouchou2/alpaca_complete', {
       \ 'depends' : 'tpope/vim-rails',
       \ 'build' : {
@@ -155,7 +155,7 @@ NeoBundleLazy 'taichouchou2/alpaca_complete', {
       \   }
       \ }
 
-let s:bundle_rails = 'unite-rails unite-rails_best_practices unite-rake alpaca_complete'
+let s:bundle_rails = 'unite-rails alpaca_complete'
 
 function! s:bundleLoadDepends(bundle_names) "{{{
   " bundleの読み込み
@@ -389,14 +389,14 @@ aug MyAutoCmd
   au FileType ruby,eruby,ruby.rspec nnoremap <silent><buffer>K  :<C-U>Unite -no-start-insert ref/refe -input=<C-R><C-W><CR>
 aug END
 "}}}
-
-"------------------------------------
-" Unite-reek, Unite-rails_best_practices
-"------------------------------------
-" {{{
-nnoremap <silent> [unite]<C-R>      :<C-u>Unite -no-quit reek<CR>
-nnoremap <silent> [unite]<C-R><C-R> :<C-u>Unite -no-quit rails_best_practices<CR>
-" }}}
+"
+""------------------------------------
+"" Unite-reek, Unite-rails_best_practices
+""------------------------------------
+"" {{{
+"nnoremap <silent> [unite]<C-R>      :<C-u>Unite -no-quit reek<CR>
+"nnoremap <silent> [unite]<C-R><C-R> :<C-u>Unite -no-quit rails_best_practices<CR>
+"" }}}
 "}}}
 """"" /20130410
 
