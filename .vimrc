@@ -429,16 +429,13 @@ NeoBundle 'project.tar.gz'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
 NeoBundle 'jQuery'
 NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'teramako/jscomplete-vim'
+NeoBundle 'teramako/jscomplete-vim'      " javascript complete
+
 NeoBundle 'scrooloose/syntastic'         " 汎用
 NeoBundle 'majutsushi/tagbar'            " ctags汎用
-
-"" HTML/CSS
-" old NeoBundle 'mattn/zencoding-vim'
-NeoBundle 'mattn/emmet-vim'
-
-"" topcoder
-NeoBundle 'vim-scripts/VimCoder.jar'
+NeoBundle 'mattn/emmet-vim'              " zencoding-vim/emmet
+NeoBundle 'vim-scripts/VimCoder.jar'     " topcoder
+NeoBundle 'fuenor/qfixhowm'              " QFixHowm - hitori otegaru wiki modoki
 
 "" neocomplcache
 " Disable AutoComplPop.
@@ -539,6 +536,16 @@ nnoremap <silent> <F7> :TagbarToggle<CR>
      \ 'ctagsbin' : '/usr/local/share/npm/bin/jsctags'
      \ }
 
+
+"" QFixHowm
+" set runtimepath+=~/Dropbox/Files/howm/ " qfixappにruntimepathを通す NeoBundle
+let QFixHowm_FileType    = 'markdown'
+let QFixHowm_Key         = 'g'                       " キーマップリーダー
+let QFixHowm_Title       = '#'                       " タイトル記号
+let howm_dir             = '~/Dropbox/Files/howm'    " howm_dirはファイルを保存したいディレクトリを設定
+let howm_fileencoding    = 'utf-8'
+let howm_fileformat      = 'unix'
+let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.mkd'
 """"""""""""""""""""
 
 """ Generals
