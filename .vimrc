@@ -552,8 +552,7 @@ let howm_fileformat         = 'unix'
 let howm_filename           = '%Y/%m/%Y-%m-%d-%H%M%S.mkd'
 let QFixHowm_FileType       = 'markdown'
 let QFixHowm_Title          = '#'                             " タイトル記号
-let QFixHowm_FoldingPattern = '^[#.*]'                        " 折りたたみのパターン
-
+let QFixHowm_FoldingPattern = '^[#[]'                         " 折りたたみのパターン
 
 """"""""""""""""""""
 """ Generals
