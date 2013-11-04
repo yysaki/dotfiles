@@ -1,4 +1,4 @@
-filetype off
+
 
 " Neobundle
 if has('vim_starting')
@@ -592,6 +592,10 @@ nnoremap bb :ls<CR>:buf
 set t_Co=256 " 256色モード
 set hlsearch " 検索結果をハイライト
 
-"81 桁目以降の色を変える
-"execute"set colorcolumn=" . join(range(81, 9999), ',')
-"set colorcolumn=80 " 80 桁目に印を付ける
+" 81桁目以降の色をトグルする
+noremap <Plug>(ToggleColorColumn)
+            \ :<c-u>let &colorcolumn = len(&colorcolumn) > 0 ? '' :
+            \   join(range(81, 9999), ',')<CR>
+ 
+" ノーマルモードの 'cc' に割り当てる
+nmap cc <Plug>(ToggleColorColumn)
