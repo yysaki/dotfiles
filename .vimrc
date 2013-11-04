@@ -1,21 +1,5 @@
-" todo kaoriya-vimのみ.vim => vimfilesと判断する変数？を導入する
-"if has('kaoriya') && (has('win32')||has('win64')||has('win95')||has('win16'))
-"  let VIMFILES='~/vimfiles'
-"else
-"  let VIMFILES='~/.vim'
-"endif
-
 filetype off
 
-let OSTYPE = system('uname')
-
-if OSTYPE == "Darwin\n"
-  ""ここにMac向けの設定
-elseif OSTYPE == "Linux\n"
-  ""ここにLinux向けの設定
-endif
-
-""" Plugins 
 " Neobundle
 if has('vim_starting')
   if has('kaoriya') && (has('win32')||has('win64')||has('win95')||has('win16'))
@@ -27,6 +11,17 @@ if has('vim_starting')
   endif
 endif
 
+let OSTYPE = system('uname')
+
+if OSTYPE == "Darwin\n"
+  " ここにMac向けの設定
+  set clipboard=unnamed " クリップボード利用設定
+  NeoBundle 'kana/vim-fakeclip'
+elseif OSTYPE == "Linux\n"
+  " ここにLinux向けの設定
+endif
+
+""" Plugins 
 """""  20130410
 " https://gist.github.com/taichouchou2/4521542
 " neobundle"{{{
@@ -552,9 +547,11 @@ let howm_dir             = '~/Dropbox/Files/howm/dir'      " ファイルを保�
 let howm_fileencoding    = 'utf-8'
 let howm_fileformat      = 'unix'
 let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.mkd'
-""""""""""""""""""""
 
-""" Generals
+"------------------------------------
+" Generals
+"------------------------------------
+
 filetype plugin indent on "プラグインをオンにする
 
 if has('win32') || has('win64') || has('win95') || has('win16')
@@ -571,10 +568,7 @@ syntax on "シンタックスハイライト
 set nu "行番号表示
 set expandtab "タブにスペースを使う
 set tabstop=2 shiftwidth=2 softtabstop=2 "インデント幅を2文字に
-
-"helpを日本語化
-"helptags ~/vimfiles/doc/
-set helplang=ja,en                 
+set helplang=ja,en "helpを日本語化, helptags ~/vimfiles/doc/
 
 "ファイル情報の表示
 set laststatus=2 
@@ -584,30 +578,19 @@ set listchars=eol:¬,tab:▸\  " 不可視文字の可視化
 set list
 
 if has('win32') || has('win64') || has('win95') || has('win16')
-  "/User/yysaki/に移動(win)
-  cd $HOME
-endif
-
-if OSTYPE == "Darwin\n"
-  " クリップボード利用設定
-  set clipboard=unnamed
-  NeoBundle 'kana/vim-fakeclip'
+  cd $HOME "/User/yysaki/に移動(win)
 endif
 
 if has('gui_macvim') || has('win32') || has('win64') || has('win95') || has('win16')
   source ~/.gvimrc  " GVimの時 .gvimrcを適用 
 endif
 
-"TODO 文字数カウント
-"vnoremap <C-C> :s/./&/gn<Enter>
-
-" バッファ操作
-" http://kaworu.jpn.org/kaworu/2007-07-26-1.php
+" バッファ操作(http://kaworu.jpn.org/kaworu/2007-07-26-1.php)
 nnoremap bb :ls<CR>:buf
 
-" 256色モード
-set t_Co=256
+set t_Co=256 " 256色モード
+set hlsearch " 検索結果をハイライト
 
-" 検索結果をハイライト
-set hlsearch
-
+"81 桁目以降の色を変える
+"execute"set colorcolumn=" . join(range(81, 9999), ',')
+"set colorcolumn=80 " 80 桁目に印を付ける
