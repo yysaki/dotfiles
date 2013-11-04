@@ -1,18 +1,13 @@
-# ref: http://www.billzajac.com/wordpress/articles/2010/12/28/windows-is-nicer-with-mintty/
-
 BoldAsFont=no
 FontHeight=14
 Font=Ricty
-Transparency=2
-OpaqueWhenFocused=1
-BoldAsColour=1
+Transparency=high
+OpaqueWhenFocused=yes
+BoldAsColour=yes
 Columns=80
 Rows=24
-# Note: you need xterm-256color
 Term=xterm-256color
-CursorType=1
-
-# Zenburn scheme - Source: http://slinky.imukuppi.org/zenburnpage/
+CursorType=underscore
 CursorColour=191,191,191
 ForegroundColour=220,220,204
 BackgroundColour=63,63,63
