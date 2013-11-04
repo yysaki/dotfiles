@@ -538,15 +538,16 @@ nnoremap <silent> <F7> :TagbarToggle<CR>
 
 
 "" QFixHowm
-" set runtimepath+=~/Dropbox/Files/howm/ " qfixappにruntimepathを通す NeoBundle
-let QFixHowm_FileType    = 'markdown'
-let QFixHowm_Key         = 'g'                             " キーマップリーダー
-let QFixHowm_Title       = '#'                             " タイトル記号
-let QFixMRU_Filename     = '~/Dropbox/Files/howm/.qfixmru' " MRUリスト
-let howm_dir             = '~/Dropbox/Files/howm/dir'      " ファイルを保存したいディレクトリ
-let howm_fileencoding    = 'utf-8'
-let howm_fileformat      = 'unix'
-let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.mkd'
+" set runtimepath                                             " NeoBundleの場合不要
+let QFixHowm_Key            = 'g'                             " キーマップリーダー ex.'g,c'
+let QFixMRU_Filename        = '~/Dropbox/Files/howm/.qfixmru' " MRUリスト
+let howm_dir                = '~/Dropbox/Files/howm/dir'      " ファイルを保存したいディレクトリ
+let howm_fileencoding       = 'utf-8'
+let howm_fileformat         = 'unix'
+let howm_filename           = '%Y/%m/%Y-%m-%d-%H%M%S.mkd'
+let QFixHowm_FileType       = 'markdown'
+let QFixHowm_Title          = '#'                             " タイトル記号
+let QFixHowm_FoldingPattern = '^[#[]'                         " 折りたたみのパターン
 
 "------------------------------------
 " Generals
