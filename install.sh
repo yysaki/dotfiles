@@ -2,7 +2,7 @@
 
 cd `dirname $0`
 
-DOT_FILES=".bash_profile .bashrc .gvimrc .screenrc .tmux.conf .vimrc .minttyrc"
+DOT_FILES=".bash_profile .bashrc .gvimrc .screenrc .tmux.conf .vimrc .minttyrc .gitignore .gitconfig"
 VIMFILES=".vim"
 
 link_dot_file () {
