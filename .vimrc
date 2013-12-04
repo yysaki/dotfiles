@@ -1,6 +1,7 @@
+"------------------------------------
+" NeoBundle
+"------------------------------------
 
-
-" Neobundle
 if has('vim_starting')
   if has('kaoriya') && (has('win32')||has('win64')||has('win95')||has('win16'))
     set runtimepath+=~/vimfiles/bundle/neobundle.vim/
@@ -11,38 +12,40 @@ if has('vim_starting')
   endif
 endif
 
-let OSTYPE = system('uname')
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'hallison/vim-markdown'
+NeoBundle 'msanders/cocoa.vim'
 
-if OSTYPE == "Darwin\n"
-  " ここにMac向けの設定
-  set clipboard=unnamed " クリップボード利用設定
-  NeoBundle 'kana/vim-fakeclip'
-elseif OSTYPE == "Linux\n"
-  " ここにLinux向けの設定
-endif
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'vim-scripts/errormarker.vim'
 
-""" Plugins 
-"""""  20130410
-" https://gist.github.com/taichouchou2/4521542
-" neobundle"{{{
-"filetype plugin indent off     " required!
+"" perl
+NeoBundle 'petdance/vim-perl'
+NeoBundle 'hotchpotch/perldoc-vim'
 
-" initialize"{{{
-"if has('vim_starting')
-"  let bundle_dir = '~/.bundle'
-"  if !isdirectory(bundle_dir.'/neobundle.vim')
-"    call system( 'git clone https://github.com/Shougo/neobundle.vim.git '.bundle_dir.'/neobundle.vim')
-"  endif
-"
-"  exe 'set runtimepath+='.bundle_dir.'/neobundle.vim'
-"  call neobundle#rc(bundle_dir)
-"endif
+NeoBundle 'Rip-Rip/clang_complete'
+
+NeoBundle 'project.tar.gz'
+
+"" javascript
+NeoBundle 'jiangmiao/simple-javascript-indenter'
+NeoBundle 'jQuery'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'teramako/jscomplete-vim'      " javascript complete
+
+NeoBundle 'scrooloose/syntastic'         " 汎用
+NeoBundle 'majutsushi/tagbar'            " ctags汎用
+NeoBundle 'mattn/emmet-vim'              " zencoding-vim/emmet
+NeoBundle 'vim-scripts/VimCoder.jar'     " topcoder
+NeoBundle 'fuenor/qfixhowm'              " QFixHowm - hitori otegaru wiki modoki
+NeoBundle 'kana/vim-altr'
+NeoBundle 'tpope/vim-fugitive'
 
 augroup MyNeobundle
   au!
   au Syntax vim syntax keyword vimCommand NeoBundle NeoBundleLazy NeoBundleSource NeoBundleFetch
 augroup END
-"}}}
 
 " 暫定customize {{{
 function! Neo_al(ft) "{{{
@@ -395,44 +398,13 @@ aug END
 "}}}
 """"" /20130410
 
+
+"------------------------------------
+" Other Neobundle Plugins' Setting
+"------------------------------------
+
 " RSense
 let g:rsenseUseOmniFunc = 1
-
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'hallison/vim-markdown'
-NeoBundle 'msanders/cocoa.vim'
-if has('python')
-  NeoBundle 'kakkyz81/evervim'
-endif
-
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'vim-scripts/errormarker.vim'
-
-"" perl
-NeoBundle 'petdance/vim-perl'
-NeoBundle 'hotchpotch/perldoc-vim'
-
-NeoBundle 'Rip-Rip/clang_complete'
-
-"NeoBundle 'Shougo/vimproc'
-"NeoBundle 'Shougo/vimshell'
-
-NeoBundle 'project.tar.gz'
-
-"" javascript http://layzie.hatenablog.com/entry/20130122/1358811539
-NeoBundle 'jiangmiao/simple-javascript-indenter'
-NeoBundle 'jQuery'
-NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'teramako/jscomplete-vim'      " javascript complete
-
-NeoBundle 'scrooloose/syntastic'         " 汎用
-NeoBundle 'majutsushi/tagbar'            " ctags汎用
-NeoBundle 'mattn/emmet-vim'              " zencoding-vim/emmet
-NeoBundle 'vim-scripts/VimCoder.jar'     " topcoder
-NeoBundle 'fuenor/qfixhowm'              " QFixHowm - hitori otegaru wiki modoki
-NeoBundle 'kana/vim-altr'
-NeoBundle 'tpope/vim-fugitive'
 
 "" neocomplcache
 " Disable AutoComplPop.
@@ -445,7 +417,7 @@ let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
- " Use smartcase.
+" Use smartcase.
 let g:neocomplcache_enable_smart_case = 1
 " Use camel case completion.
 let g:neocomplcache_enable_camel_case_completion = 1
@@ -460,10 +432,10 @@ let g:neocomplcache_ctags_arguments_list = {
 let g:neosnippet#snippets_directory = "~/vimfiles/snippets"
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default'    : '',
-    \ 'perl'       : $HOME . '/vimfiles/dict/perl.dict',
-    \ 'cpp'        : $HOME . '/vimfiles/dict/cpp.dict'
-    \ }
+  \ 'default'    : '',
+  \ 'perl'       : $HOME . '/vimfiles/dict/perl.dict',
+  \ 'cpp'        : $HOME . '/vimfiles/dict/cpp.dict'
+  \ }
 
 " Define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
@@ -491,18 +463,9 @@ let g:clang_use_library=1
 " neocomplcache向け
 let g:neocomplcache_force_overwrite_completefunc=1
 if !exists("g:neocomplcache_force_omni_patterns")
-    let g:neocomplcache_force_omni_patterns = {}
+  let g:neocomplcache_force_omni_patterns = {}
 endif
 let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
-
-
-"" Evervim
-let g:evervim_devtoken='S=s14:U=19a7f1:E=1437499124e:C=13c1ce7e64f:P=1cd:A=en-devtoken:H=9c2cea93a3de758b41d2a699bc55920d'
-
-nnoremap <Leader>l :EvervimNotebookList<CR>
-nnoremap <Leader>s :EvervimSearchByQuery<Space>
-nnoremap <Leader>c :EvervimCreateNote<CR>
-nnoremap <Leader>b :EvervimOpenBrowser<CR>
 
 "" vim-altr
 nmap <Space>a <Plug>(altr-forward)
@@ -532,9 +495,9 @@ let g:syntastic_auto_loc_list=2
 
 "" tagbar
 nnoremap <silent> <F7> :TagbarToggle<CR>
- let g:tagbar_type_javascript = {
-     \ 'ctagsbin' : '/usr/local/share/npm/bin/jsctags'
-     \ }
+let g:tagbar_type_javascript = {
+  \ 'ctagsbin' : '/usr/local/share/npm/bin/jsctags'
+  \ }
 
 
 "" QFixHowm
@@ -550,41 +513,51 @@ let QFixHowm_Title          = '#'                             " タイトル記�
 let QFixHowm_FoldingPattern = '^[#[]'                         " 折りたたみのパターン
 
 "------------------------------------
+" OS Type
+"------------------------------------
+
+let OSTYPE = system('uname')
+
+if has('win32') || has('win64') || has('win95') || has('win16') " Win
+  set encoding=sjis
+  cd $HOME "/User/yysaki/に移動(win)
+else
+  set encoding=utf8
+
+  if OSTYPE == "Darwin\n" " Mac
+    set clipboard=unnamed " クリップボード利用設定
+    NeoBundle 'kana/vim-fakeclip'
+  elseif OSTYPE == "Linux\n" " Linux
+  endif
+end
+
+" GVimの時 .gvimrcを使用する
+if has('gui_macvim') || has('win32') || has('win64') || has('win95') || has('win16')
+  source ~/.gvimrc  
+endif
+
+"------------------------------------
 " Generals
 "------------------------------------
 
 filetype plugin indent on "プラグインをオンにする
 
-if has('win32') || has('win64') || has('win95') || has('win16')
-  "TODO sjis-> GUI文字化け無し, UTF-8表示不可
-  "     UTF-8->GUI文字化け, UTF-8表示可能
-  "  source ~/vimfiles/encode.vim
-  set encoding=sjis
-else
-  set encoding=utf8
-endif
+" 文字コード
 set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932
 
-syntax on "シンタックスハイライト
-set nu "行番号表示
-set expandtab "タブにスペースを使う
+syntax on                                "シンタックスハイライト
+set nu                                   "行番号表示
+set expandtab                            "タブにスペースを使う
 set tabstop=2 shiftwidth=2 softtabstop=2 "インデント幅を2文字に
-set helplang=ja,en "helpを日本語化, helptags ~/vimfiles/doc/
+set helplang=ja,en                       "helpを日本語化, helptags ~/vimfiles/doc/
 
 "ファイル情報の表示
-set laststatus=2 
+set laststatus=2
 set statusline=%F%m%r%h%w\ [TYPE=%Y]\ [FORMAT=%{&ff}]\ [ENC=%{&fileencoding}]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
-set listchars=eol:¬,tab:▸\  " 不可視文字の可視化
+" 不可視文字の可視化
 set list
-
-if has('win32') || has('win64') || has('win95') || has('win16')
-  cd $HOME "/User/yysaki/に移動(win)
-endif
-
-if has('gui_macvim') || has('win32') || has('win64') || has('win95') || has('win16')
-  source ~/.gvimrc  " GVimの時 .gvimrcを適用 
-endif
+set listchars=eol:¬,tab:▸\  
 
 " バッファ操作(http://kaworu.jpn.org/kaworu/2007-07-26-1.php)
 nnoremap bb :ls<CR>:buf
@@ -594,8 +567,8 @@ set hlsearch " 検索結果をハイライト
 
 " 81桁目以降の色をトグルする
 noremap <Plug>(ToggleColorColumn)
-            \ :<c-u>let &colorcolumn = len(&colorcolumn) > 0 ? '' :
-            \   join(range(81, 9999), ',')<CR>
+  \ :<c-u>let &colorcolumn = len(&colorcolumn) > 0 ? '' :
+  \   join(range(81, 9999), ',')<CR>
  
 " ノーマルモードの 'cc' に割り当てる
 nmap cc <Plug>(ToggleColorColumn)
