@@ -32,7 +32,7 @@ NeoBundle 'project.tar.gz'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
 NeoBundle 'jQuery'
 NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'teramako/jscomplete-vim'      " javascript complete
+" NeoBundle 'marijnh/tern_for_vim' " そのうち使うかも
 
 NeoBundle 'scrooloose/syntastic'         " 汎用
 NeoBundle 'majutsushi/tagbar'            " ctags汎用
@@ -481,10 +481,6 @@ let g:SimpleJsIndenter_BriefMode = 1
 let g:SimpleJsIndenter_CaseIndentLevel = -1
 "" jQuery
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-
-"" jscomplete-vim
-" DOMとMozilla関連とES6のメソッドを補完
- let g:jscomplete_use = ['dom', 'moz', 'es6th']
 
 "" syntastic
 " このようにするとjshintを必ず使ってチェックしてくれるようになる
