@@ -568,3 +568,6 @@ noremap <Plug>(ToggleColorColumn)
  
 " ノーマルモードの 'cc' に割り当てる
 nmap cc <Plug>(ToggleColorColumn)
+
+" *.redをREDUCEと判断させる
+au BufRead,BufNewFile *.red            set filetype=reduce
