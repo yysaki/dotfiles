@@ -1,0 +1,19 @@
+# debug print
+snippet debugWrite
+	debugWrite("${1:ans}: ", ${1});
+
+# procedure
+snippet procedure
+	procedure ${1}$
+	begin;
+		scalar ${2};
+		${3:% TODO %}
+	end;
+
+# for each
+snippet foreach
+	for each ${1:x} in ${2:lst} ${2};
+
+# if
+snippet if
+	if(${1:t}) then ${2:yes} else ${3:no};
