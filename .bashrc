@@ -99,8 +99,21 @@ fi
 
 # set export
 export EDITOR='vi'
-export PATH=$PATH:/usr/local/share/npm/bin
-export NODE_PATH=/usr/local/share/npm/lib/node_modules/jsctags/:$NODE_PATH
+
+# ocamlbrew
+# how to install : curl -kL https://raw.github.com/hcarty/ocamlbrew/master/ocamlbrew-install | env OCAMLBREW_FLAGS="-r" bash
+# OPAM configuration
+if [ -d ${HOME}/ocamlbrew ] ; then
+  export PATH=${HOME}/ocamlbrew/ocaml-4.01.0/bin:$PATH
+  export OPAMROOT=${HOME}/ocamlbrew/ocaml-4.01.0/.opam
+  eval `opam config env`
+fi
+
+if [ -d /usr/local/share/npm ] ; then
+  export PATH=$PATH:/usr/local/share/npm/bin
+  export NODE_PATH=/usr/local/share/npm/lib/node_modules/jsctags/:$NODE_PATH
+fi
+
 if $linux; then
   ## TODO for yysaki.com
   export JAVA_HOME='/usr/lib/jvm/java-1.6.0-openjdk/' 
