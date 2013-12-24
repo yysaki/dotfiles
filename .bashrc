@@ -106,7 +106,7 @@ export EDITOR='vi'
 if [ -d ${HOME}/ocamlbrew ] ; then
   export PATH=${HOME}/ocamlbrew/ocaml-4.01.0/bin:$PATH
   export OPAMROOT=${HOME}/ocamlbrew/ocaml-4.01.0/.opam
-  eval `opam config env`
+#  eval `opam config env`
 fi
 
 if [ -d /usr/local/share/npm ] ; then
