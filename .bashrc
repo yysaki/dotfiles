@@ -100,13 +100,20 @@ fi
 # set export
 export EDITOR='vi'
 
+# texlive
+if [ -d /usr/local/texlive/2013 ] ; then
+  export MANPATH=/usr/local/texlive/2013/texmf-dist/doc/
+  export INFOPATH=/usr/local/texlive/2013/texmf-dist/doc/info
+  export PATH=/usr/local/texlive/2013/bin/x86_64-linux:$PATH
+fi
+
 # ocamlbrew
 # how to install : curl -kL https://raw.github.com/hcarty/ocamlbrew/master/ocamlbrew-install | env OCAMLBREW_FLAGS="-r" bash
 # OPAM configuration
-if [ -d ${HOME}/ocamlbrew ] ; then
+if [ -d ${HOME}/ocamlbrew -a "$(uname -a | awk '{print $2}')" = metton ] ; then
   export PATH=${HOME}/ocamlbrew/ocaml-4.01.0/bin:$PATH
   export OPAMROOT=${HOME}/ocamlbrew/ocaml-4.01.0/.opam
-#  eval `opam config env`
+  eval `opam config env`
 fi
 
 if [ -d /usr/local/share/npm ] ; then
