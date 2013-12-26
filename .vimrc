@@ -556,8 +556,12 @@ set statusline=%F%m%r%h%w\ [TYPE=%Y]\ [FORMAT=%{&ff}]\ [ENC=%{&fileencoding}]\ [
 set list
 set listchars=eol:¬,tab:▸\  
 
-" バッファ操作(http://kaworu.jpn.org/kaworu/2007-07-26-1.php)
-nnoremap bb :ls<CR>:buf
+" バッファ操作
+nnoremap <Space>b :ls<CR>:buf
+nnoremap [b :bprevious<CR>
+nnoremap ]b :bnext<CR>
+nnoremap [B :bfirst<CR>
+nnoremap ]B :blast<CR>
 
 set t_Co=256 " 256色モード
 set hlsearch " 検索結果をハイライト
