@@ -13,6 +13,7 @@
   default = tracking           # defaultのpush先はtrackingしているリポジトリ
 [core]
   excludesfile = ~/.gitignore  # globalな.gitignoreの指定
+	editor = vim -c \"set fenc=utf-8\"
 #  autocrlf = input             # CRLFを自動変換
 [alias]
   st = status
