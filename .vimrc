@@ -476,5 +476,7 @@ noremap <Plug>(ToggleColorColumn)
 " ノーマルモードの 'cc' に割り当てる
 nmap cc <Plug>(ToggleColorColumn)
 
-au BufRead,BufNewFile *.red set filetype=reduce " *.redをREDUCEと判断
-let g:tex_flavor = "latex"                      " *.texをlatexと判断
+" 拡張子設定
+au BufRead,BufNewFile *.red set filetype=reduce
+au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+let g:tex_flavor = "latex"
