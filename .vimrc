@@ -384,6 +384,9 @@ let g:syntastic_javascript_checker = "jshint"
 "" http://www.daisaru11.jp/blog/2011/09/vimsyntastic%E3%81%A7%E6%96%87%E6%B3%95%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%82%92%E8%87%AA%E5%8B%95%E3%81%A7%E8%A1%8C%E3%81%86/
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=2
+let g:syntastic_mode_map = { 'mode': 'active',
+                             \ 'active_filetypes': [],
+                             \ 'passive_filetypes': ['tex'] } 
 
 "" tagbar
 nnoremap <Space>t :TagbarToggle<CR>
