@@ -472,9 +472,9 @@ set hlsearch " 検索結果をハイライト
 noremap <Plug>(ToggleColorColumn)
   \ :<c-u>let &colorcolumn = len(&colorcolumn) > 0 ? '' :
   \   join(range(81, 9999), ',')<CR>
- 
+
 " ノーマルモードの 'cc' に割り当てる
 nmap cc <Plug>(ToggleColorColumn)
 
-" *.redをREDUCEと判断させる
-au BufRead,BufNewFile *.red            set filetype=reduce
+au BufRead,BufNewFile *.red set filetype=reduce " *.redをREDUCEと判断
+let g:tex_flavor = "latex"                      " *.texをlatexと判断
