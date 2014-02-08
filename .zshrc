@@ -1,6 +1,6 @@
 export LANG=ja_JP.UTF-8
-autoload -U compinit
-compinit
+autoload -Uz compinit
+compinit -u
 
 case ${UID} in
   0)
