@@ -3,7 +3,7 @@
 # User specific environment and startup programs
 
 # rbenv
-if [ -f /usr/local/bin/rbenv ]; then
+if [ -d $HOME/.rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 fi
