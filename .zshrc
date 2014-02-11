@@ -40,15 +40,7 @@ setopt list_packed
 setopt nolistbeep
 setopt multios
 
-alias where="command -v"
-alias j="jobs -l"
-
 zstyle ':completion:*' list-colors ''
-
-########## from .bashrc
-#
-## tmux shortcuts
-alias tm='tmux'
 
 ## screen shortcuts
 alias sc='screen'
@@ -67,11 +59,15 @@ case "$(uname)" in
 esac
 
 ## set aliases
+alias tm='tmux'
+alias where="command -v"
+alias j="jobs -l"
 alias eng='LANG=C LANGUAGE=C LC_ALL=C'
 alias RPE='ruby -pe'
 alias RNE='ruby -ne'
-alias be='bundle exec'
-alias ber='bundle exec rails'
+alias be='noglob bundle exec'
+alias ber='noglob bundle exec rails'
+alias rake="noglob rake"
 alias gvi='gvim'
 if [ -x /usr/bin/vim ]; then
   alias vi='/usr/bin/vim'
