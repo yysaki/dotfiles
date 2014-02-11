@@ -43,7 +43,7 @@ NeoBundle 'msanders/cocoa.vim'
 NeoBundle 'jQuery'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
-NeoBundle 'mattn/emmet-vim'              " zencoding-vim/emmet
+NeoBundle 'mattn/emmet-vim'              " <c-y>, old: zencoding-vim
 
 " other specific situation
 NeoBundle 'project.tar.gz'
