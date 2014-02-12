@@ -59,6 +59,7 @@ case "$(uname)" in
 esac
 
 ## set aliases
+alias rm='rm --preserve-root'
 alias tm='tmux'
 alias where="command -v"
 alias j="jobs -l"
