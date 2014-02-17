@@ -13,22 +13,22 @@ if has('vim_starting')
 endif
 
 NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'tyru/open-browser.vim'
 
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'fuenor/qfixhowm'             " QFixHowm - hitori otegaru wiki modoki
 NeoBundle 'honza/vim-snippets'
+NeoBundle 'kana/vim-altr'               " <Space>a
+NeoBundle 'majutsushi/tagbar'           " <Space>t ctags汎用
+NeoBundle 'scrooloose/syntastic'        " ファイルの構文エラーチェック
+NeoBundle 'sudo.vim'
 NeoBundle 'thinca/vim-quickrun'         " <Space>qでmakeなど
 NeoBundle 'tomtom/tcomment_vim'         " <C-_><C-_>でコメントのトグル
-NeoBundle 'tpope/vim-surround'          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
-
-NeoBundle 'vim-scripts/errormarker.vim'  " flymakeっぽいこと 実態確認 ':autocmd QuickFixCmdPost'
-NeoBundle 'scrooloose/syntastic'         " ファイルの構文エラーチェック
-NeoBundle 'majutsushi/tagbar'            " <Space>t ctags汎用
-NeoBundle 'vim-scripts/VimCoder.jar'     " topcoder
-NeoBundle 'fuenor/qfixhowm'              " QFixHowm - hitori otegaru wiki modoki
-NeoBundle 'kana/vim-altr'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'vim-scripts/VimCoder.jar'    " topcoder
+NeoBundle 'vim-scripts/errormarker.vim' " flymakeっぽいこと 実態確認 ':autocmd QuickFixCmdPost'
 
 "" perl
 NeoBundle 'petdance/vim-perl'
