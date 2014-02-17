@@ -479,6 +479,7 @@ noremap <Plug>(ToggleColorColumn)
 
 " ノーマルモードの 'cc' に割り当てる
 nmap cc <Plug>(ToggleColorColumn)
+set pastetoggle=<F5> " <F5>でペーストモードのトグル
 
 " 拡張子設定
 au BufRead,BufNewFile *.red set filetype=reduce
