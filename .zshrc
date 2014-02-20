@@ -25,6 +25,7 @@ setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
 
 bindkey -v
+bindkey '^R' history-incremental-search-backward
 
 # shortcut for searching history
 autoload history-search-end
