@@ -8,6 +8,7 @@ case "$(uname)" in
   Linux) linux=true;;
   Darwin) darwin=true;;
   CYGWIN*) cygwin=true;;
+  MINGW32*) mingw=true;; # work
 esac
 
 # User specific aliases and functions
@@ -39,6 +40,7 @@ scx () {
 
 ## set aliases
 alias eng='LANG=C LANGUAGE=C LC_ALL=C'
+alias g='git'
 alias RPE='ruby -pe'
 alias RNE='ruby -ne'
 alias be='bundle exec'
@@ -99,6 +101,7 @@ fi
 
 # set export
 export EDITOR='vi'
+export HISTSIZE=100000
 
 # texlive
 if [ -d /usr/local/texlive/2013 ] ; then
@@ -144,4 +147,7 @@ elif $cygwin; then
   }
   # apt like
   alias apt-cyg='apt-cyg -u '
+elif $mingw; then
+  export PATH=/c/Perl64/bin:${PATH}
+  export LESSCHARSET=dos
 fi
