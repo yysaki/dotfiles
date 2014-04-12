@@ -60,6 +60,7 @@ case "$(uname)" in
 esac
 
 ## set aliases
+alias g='git'
 alias tm='tmux'
 alias where="command -v"
 alias j="jobs -l"
