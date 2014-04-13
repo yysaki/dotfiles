@@ -13,7 +13,7 @@
   default = tracking           # defaultのpush先はtrackingしているリポジトリ
 [core]
   excludesfile = ~/.gitignore  # globalな.gitignoreの指定
-	editor = vim -c \"set fenc=utf-8\"
+  editor = vim -c \"set fenc=utf-8\"
 #  autocrlf = input             # CRLFを自動変換
 [alias]
   m = merge
@@ -25,8 +25,8 @@
   up = pull --rebase       # pull rebase
   rb = rebase
   rbm = rebase master      # masterへのrebaseはよく使うのでalias
-	ra = rebase --abort
-	rc = rebase --continue
+  ra = rebase --abort
+  rc = rebase --continue
   ad = add
   ap = add -p
   au = add -u
