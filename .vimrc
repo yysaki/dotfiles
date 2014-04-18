@@ -16,6 +16,7 @@ NeoBundle 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'fuenor/qfixhowm'             " QFixHowm - hitori otegaru wiki modoki
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'kana/vim-altr'               " <Space>a
@@ -376,7 +377,7 @@ let g:SimpleJsIndenter_BriefMode = 1
 " この設定入れるとswitchのインデントがいくらかマシに
 let g:SimpleJsIndenter_CaseIndentLevel = -1
 "" jQuery
-au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+" au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 "" syntastic
 " このようにするとjshintを必ず使ってチェックしてくれるようになる
@@ -420,8 +421,8 @@ let QFixHowm_FoldingPattern = '^[#[]'                         " 折りたたみ�
 let OSTYPE = system('uname')
 
 if has('win32') || has('win64') || has('win95') || has('win16') " Win
-  set encoding=sjis
-  cd $HOME "/User/yysaki/に移動(win)
+"  set encoding=sjis
+"  cd $HOME "/User/yysaki/に移動(win)
 else
   set encoding=utf8
 
@@ -432,10 +433,10 @@ else
   endif
 end
 
-" GVimの時 .gvimrcを使用する
-if has('gui_macvim') || has('win32') || has('win64') || has('win95') || has('win16')
-  source ~/.gvimrc  
-endif
+"" GVimの時 .gvimrcを使用する
+"if has('gui_macvim') || has('win32') || has('win64') || has('win95') || has('win16')
+"  source ~/.gvimrc  
+"endif
 
 "------------------------------------
 " Generals
@@ -460,7 +461,8 @@ set statusline=%F%m%r%h%w\ [TYPE=%Y]\ [FORMAT=%{&ff}]\ [ENC=%{&fileencoding}]\ [
 
 " 不可視文字の可視化
 set list
-set listchars=eol:¬,tab:▸\  
+"set listchars=eol:￢,tab:_.  
+set listchars=tab:._,eol:$
 
 " バッファ操作
 nnoremap <Space>b :ls<CR>:buf
@@ -485,3 +487,6 @@ set pastetoggle=<F5> " <F5>でペーストモードのトグル
 au BufRead,BufNewFile *.red set filetype=reduce
 au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 let g:tex_flavor = "latex"
+
+au BufNewFile,BufRead *.{aspx,ascx,cs} setlocal tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.{aspx,ascx,cs} setlocal noexpandtab softtabstop=4
