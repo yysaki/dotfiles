@@ -6,7 +6,7 @@ set showtabline=2 "常にタブ表示
 "透明度の変更
 if has('win32') || has('win64')
   gui "おまじない
-  set transparency=245
+"  set transparency=245
 elseif has('gui_macvim')
   set transparency=10
 endif
