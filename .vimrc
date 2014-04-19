@@ -390,7 +390,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
                              \ 'passive_filetypes': ['tex'] } 
 
 "" tagbar
-nnoremap <Space>t :TagbarToggle<CR>
+nnoremap <Space>T :TagbarToggle<CR>
 let g:tagbar_type_javascript = {
   \ 'ctagsbin' : '/usr/local/share/npm/bin/jsctags'
   \ }
