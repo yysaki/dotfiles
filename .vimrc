@@ -24,6 +24,7 @@ NeoBundle 'majutsushi/tagbar'           " <Space>t ctags汎用
 NeoBundle 'scrooloose/syntastic'        " ファイルの構文エラーチェック
 NeoBundle 'sudo.vim'
 NeoBundle 'thinca/vim-quickrun'         " <Space>qでmakeなど
+NeoBundle 'thinca/vim-tabrecent'
 NeoBundle 'tomtom/tcomment_vim'         " <C-_><C-_>でコメントのトグル
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
