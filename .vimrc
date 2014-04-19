@@ -471,6 +471,16 @@ nnoremap ]b :bnext<CR>
 nnoremap [B :bfirst<CR>
 nnoremap ]B :blast<CR>
 
+" タブページ操作
+nnoremap [TABCMD]  <nop>
+nmap <Space>t [TABCMD]
+nnoremap <silent> [TABCMD]f :tabfirst<CR>
+nnoremap <silent> [TABCMD]l :tablast<CR>
+nnoremap <silent> [TABCMD]e :tabedit<CR>
+nnoremap <silent> [TABCMD]c :tabclose<CR>
+nnoremap <silent> [TABCMD]o :tabonly<CR>
+nnoremap <silent> [TABCMD]s :tabs<CR>
+
 set t_Co=256 " 256色モード
 set hlsearch " 検索結果をハイライト
 
