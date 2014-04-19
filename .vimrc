@@ -20,6 +20,7 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'fuenor/qfixhowm'             " QFixHowm - hitori otegaru wiki modoki
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'kana/vim-altr'               " <Space>a
+NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'majutsushi/tagbar'           " <Space>t ctags汎用
 NeoBundle 'scrooloose/syntastic'        " ファイルの構文エラーチェック
 NeoBundle 'sudo.vim'
