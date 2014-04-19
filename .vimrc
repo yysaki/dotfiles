@@ -24,7 +24,7 @@ NeoBundle 'majutsushi/tagbar'           " <Space>t ctags汎用
 NeoBundle 'scrooloose/syntastic'        " ファイルの構文エラーチェック
 NeoBundle 'sudo.vim'
 NeoBundle 'thinca/vim-quickrun'         " <Space>qでmakeなど
-NeoBundle 'thinca/vim-tabrecent'
+NeoBundle 'thinca/vim-tabrecent'         " <[TABCMD]r 
 NeoBundle 'tomtom/tcomment_vim'         " <C-_><C-_>でコメントのトグル
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
@@ -481,6 +481,7 @@ nnoremap <silent> [TABCMD]e :tabedit<CR>
 nnoremap <silent> [TABCMD]c :tabclose<CR>
 nnoremap <silent> [TABCMD]o :tabonly<CR>
 nnoremap <silent> [TABCMD]s :tabs<CR>
+nnoremap <silent> [TABCMD]r :TabRecent<CR>
 
 set t_Co=256 " 256色モード
 set hlsearch " 検索結果をハイライト
