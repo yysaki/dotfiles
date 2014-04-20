@@ -496,6 +496,9 @@ noremap <Plug>(ToggleColorColumn)
 nmap cc <Plug>(ToggleColorColumn)
 set pastetoggle=<F5> " <F5>でペーストモードのトグル
 
+" vimrcをオープン
+nnoremap <Space>.  :<C-u>edit $MYVIMRC<CR>
+
 " 拡張子設定
 au BufRead,BufNewFile *.red set filetype=reduce
 au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
