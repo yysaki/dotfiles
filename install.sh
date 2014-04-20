@@ -38,6 +38,13 @@ unlink () {
   done
 }
 
+# git bash用, 修正した変更を集める
+gather () {
+  for DOT_FILE in $DOT_FILES; do
+    cp ~/$DOT_FILE ./$DOT_FILE
+  done
+}
+
 case "$1" in
   link)
     link
@@ -45,7 +52,10 @@ case "$1" in
   unlink)
     unlink
     ;;
+  gather)
+    gather
+    ;;
   *)
-    echo "Usage: sh install.sh {link|unlink}" 
+    echo "Usage: sh install.sh {link|unlink|gather}" 
     link
 esac
