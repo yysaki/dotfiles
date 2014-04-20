@@ -64,6 +64,7 @@
   rc = rebase --continue
   rs = reset
   s = show
+  sa = stash apply
   so = remote show origin
   st = status
   up = pull --rebase       # pull rebase
