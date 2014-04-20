@@ -42,7 +42,7 @@
   ds = diff --staged         # 同上(1.6.1移行)
   dw = diff --color-words    # 単語単位でいろつけてdiff
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`" # mergeの際にconflictが起きたファイルを編集
-  ft = fetch
+  f = fetch
   gn = grep -n
   gr = grep
   la = log --pretty=\"format:%ad %h (%an): %s\" --date=short  # ざっくりログ出す
