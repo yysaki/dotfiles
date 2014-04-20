@@ -29,6 +29,7 @@
   ci = commit              # modifiedなファイルを全てstageへ
   co = checkout
   cob = checkout -b
+  cp = cherry-pick
   d = diff
   d1 = diff HEAD~            # HEADから1つ前とdiff
   d10 = diff HEAD~~~~~~~~~~  # HEADから10前とdiff
