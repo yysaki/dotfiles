@@ -21,8 +21,6 @@ unlink_dot_file () {
 }
 
 link () {
-  git pull origin master
-
   link_dot_file $VIMFILES .vim
   link_dot_file $VIMFILES vimfiles
   for DOT_FILE in $DOT_FILES; do
