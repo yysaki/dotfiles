@@ -16,52 +16,52 @@
   editor = vim -c \"set fenc=utf-8\"
 #  autocrlf = input             # CRLFを自動変換
 [alias]
-  m = merge
-  rs = reset
-  st = status
-  sh = show
-  so = remote show origin
-  ft = fetch
-  up = pull --rebase       # pull rebase
-  rb = rebase
-  rbm = rebase master      # masterへのrebaseはよく使うのでalias
-  ra = rebase --abort
-  rc = rebase --continue
   ad = add
+  add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`" # mergeの際にconflictが起きたファイルをadd
+  amend = commit --amend  # 直前のcommitを修正
   ap = add -p
   au = add -u
-  ci = commit              # modifiedなファイルを全てstageへ
-  amend = commit --amend  # 直前のcommitを修正
-  co = checkout
-  cob = checkout -b
-  br = branch
   ba = branch -a           # originも含めた全てのbranchを表示
   bm = branch --merged     # merge済みのbranchを表示
   bn = branch --no-merged  # mergeしてないbranchを表示
-  wc = whatchanged         # logに変更されたファイルも一緒に出す
-  lg = log
-  ls = log --stat          # logに変更されたファイルも一緒に出す
-  ls = log --stat          # logに変更されたファイルも一緒に出す
-  lp = log -p              # diffも一緒に出す
-  la = log --pretty=\"format:%ad %h (%an): %s\" --date=short  # ざっくりログ出す
-  lr = log origin          # originのlog
-  oneline = log --pretty=oneline
-  ranking = shortlog -s -n --no-merges
-  log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
-  log-all = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
-  log-s = log --oneline --graph --decorate
-  df = diff
-  dm = diff master           # masterとのdiff
-  dw = diff --color-words    # 単語単位でいろつけてdiff
-  dc = diff --cached         # addされているものとのdiff
-  ds = diff --staged         # 同上(1.6.1移行)
+  br = branch
+  ci = commit              # modifiedなファイルを全てstageへ
+  co = checkout
+  cob = checkout -b
   d1 = diff HEAD~            # HEADから1つ前とdiff
+  d10 = diff HEAD~~~~~~~~~~  # HEADから10前とdiff
   d2 = diff HEAD~~           # HEADから2つ前とdiff
   d3 = diff HEAD~~~          # HEADから3つ前とdiff
   d4 = diff HEAD~~~~         # HEADから4つ前とdiff
   d5 = diff HEAD~~~~~        # HEADから5つ前とdiff
-  d10 = diff HEAD~~~~~~~~~~  # HEADから10前とdiff
+  dc = diff --cached         # addされているものとのdiff
+  df = diff
+  dm = diff master           # masterとのdiff
+  ds = diff --staged         # 同上(1.6.1移行)
+  dw = diff --color-words    # 単語単位でいろつけてdiff
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`" # mergeの際にconflictが起きたファイルを編集
-  add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`" # mergeの際にconflictが起きたファイルをadd
-  gr = grep
+  ft = fetch
   gn = grep -n
+  gr = grep
+  la = log --pretty=\"format:%ad %h (%an): %s\" --date=short  # ざっくりログ出す
+  lg = log
+  log-all = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
+  log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
+  log-s = log --oneline --graph --decorate
+  lp = log -p              # diffも一緒に出す
+  lr = log origin          # originのlog
+  ls = log --stat          # logに変更されたファイルも一緒に出す
+  ls = log --stat          # logに変更されたファイルも一緒に出す
+  m = merge
+  oneline = log --pretty=oneline
+  ra = rebase --abort
+  ranking = shortlog -s -n --no-merges
+  rb = rebase
+  rbm = rebase master      # masterへのrebaseはよく使うのでalias
+  rc = rebase --continue
+  rs = reset
+  sh = show
+  so = remote show origin
+  st = status
+  up = pull --rebase       # pull rebase
+  wc = whatchanged         # logに変更されたファイルも一緒に出す
