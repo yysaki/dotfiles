@@ -10,7 +10,7 @@
   interactive = auto
   grep = auto
 [push]
-  default = tracking           # defaultのpush先はtrackingしているリポジトリ
+  default = current
 [core]
   excludesfile = ~/.gitignore  # globalな.gitignoreの指定
   editor = vim -c \"set fenc=utf-8\"
