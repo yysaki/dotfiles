@@ -69,6 +69,7 @@
   sl = stash list
   so = remote show origin
   sp = stash pop
+  ss = stash save
   st = status
   up = pull --rebase       # pull rebase
   wc = whatchanged         # logに変更されたファイルも一緒に出す
