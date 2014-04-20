@@ -65,6 +65,7 @@
   rs = reset
   s = show
   sa = stash apply
+  sd = stash drop
   so = remote show origin
   st = status
   up = pull --rebase       # pull rebase
