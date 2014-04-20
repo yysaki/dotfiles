@@ -23,6 +23,7 @@
   au = add -u
   b = branch
   ba = branch -a           # originも含めた全てのbranchを表示
+  bd = branch -d
   bm = branch --merged     # merge済みのbranchを表示
   bn = branch --no-merged  # mergeしてないbranchを表示
   ci = commit              # modifiedなファイルを全てstageへ
