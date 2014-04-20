@@ -63,7 +63,7 @@
   rbm = rebase master      # masterへのrebaseはよく使うのでalias
   rc = rebase --continue
   rs = reset
-  sh = show
+  s = show
   so = remote show origin
   st = status
   up = pull --rebase       # pull rebase
