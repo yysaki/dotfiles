@@ -21,10 +21,10 @@
   amend = commit --amend  # 直前のcommitを修正
   ap = add -p
   au = add -u
+  b = branch
   ba = branch -a           # originも含めた全てのbranchを表示
   bm = branch --merged     # merge済みのbranchを表示
   bn = branch --no-merged  # mergeしてないbranchを表示
-  br = branch
   ci = commit              # modifiedなファイルを全てstageへ
   co = checkout
   cob = checkout -b
