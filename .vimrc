@@ -1,7 +1,5 @@
-"------------------------------------
-" NeoBundle
-"------------------------------------
-
+" NeoBundle "{{{1
+" Bundles "{{{2
 if has('vim_starting')
   if has('kaoriya') && (has('win32')||has('win64')||has('win95')||has('win16'))
     set runtimepath+=~/vimfiles/bundle/neobundle.vim/
@@ -58,20 +56,19 @@ augroup MyNeobundle
   au Syntax vim syntax keyword vimCommand NeoBundle NeoBundleLazy NeoBundleSource NeoBundleFetch
 augroup END
 
-" 暫定customize {{{
 function! Neo_al(ft) "{{{
   return { 'autoload' : {
       \ 'filetype' : a:ft
       \ }}
-endfunction"}}}
-function! Neo_operator(mappings) "{{{
+endfunction
+function! Neo_operator(mappings)
   return {
         \ 'depends' : 'kana/vim-textobj-user',
         \ 'autoload' : {
         \   'mappings' : a:mappings
         \ }}
-endfunction"}}}
-function! BundleLoadDepends(bundle_names) "{{{
+endfunction
+function! BundleLoadDepends(bundle_names)
   if !exists('g:loaded_bundles')
     let g:loaded_bundles = {}
   endif
@@ -81,18 +78,17 @@ function! BundleLoadDepends(bundle_names) "{{{
     execute 'NeoBundleSource '.a:bundle_names
     let g:loaded_bundles[a:bundle_names] = 1
   endif
-endfunction"}}}
-"}}}
+endfunction
 
 " コマンドを伴うやつの遅延読み込み
-function! BundleWithCmd(bundle_names, cmd) "{{{
+function! BundleWithCmd(bundle_names, cmd)
   call BundleLoadDepends(a:bundle_names)
 
   " コマンドの実行
   if !empty(a:cmd)
     execute a:cmd
   endif
-endfunction "}}}
+endfunction
 
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -104,7 +100,6 @@ NeoBundleLazy 'taichouchou2/vim-endwise.git', {
       \ 'autoload' : {
       \   'insert' : 1,
       \ } }
-" }}}
 
 " ruby/rails
 NeoBundle 'Shougo/neocomplcache-rsense', { 'autoload' : { 'filetypes' : ['ruby'], }, 'depends': 'Shougo/neocomplcache'}
@@ -126,7 +121,7 @@ function! s:bundleLoadDepends(bundle_names) "{{{
   " bundleの読み込み
   execute 'NeoBundleSource '.a:bundle_names
   au! MyAutoCmd
-endfunction"}}}
+endfunction
 aug MyAutoCmd
   au User Rails call <SID>bundleLoadDepends(s:bundle_rails)
 aug END
@@ -141,11 +136,7 @@ NeoBundleLazy 'skwp/vim-rspec', {
       \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
 NeoBundleLazy 'ruby-matchit', {
     \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
-" }}}
 
-" }}}
-
-" Installation check. "{{{
 if neobundle#exists_not_installed_bundles()
   echomsg 'Not installed bundles : ' .
         \ string(neobundle#get_not_installed_bundle_names())
@@ -153,15 +144,11 @@ if neobundle#exists_not_installed_bundles()
   NeoBundleInstall
 endif
 "
-"------------------------------------
-" endwise.vim
-"------------------------------------
+" endwise.vim  {{{2
 
 let g:endwise_no_mappings=1
 
-"------------------------------------
-" vim-surround
-"------------------------------------
+" vim-surround "{{{2
 
 let g:surround_custom_mapping = {}
 let g:surround_custom_mapping._ = {
@@ -204,9 +191,7 @@ let g:surround_custom_mapping.vim= {
       \'f':  "function! \r endfunction"
       \ }
 
-"------------------------------------
-" quickrun
-"------------------------------------
+" quickrun.vim "{{{2
 
 let g:quickrun_config = {}
 let g:quickrun_config['_'] = {"runner": "vimproc", "runner/vimproc/updatetime": 60, "split": "below"}
@@ -220,10 +205,7 @@ let g:quickrun_config['tex']        = {"command": "make", "exec" : "%c %o",  "ou
 " <Space>q でquickrunする
 silent! map <Space>q <Plug>(quickrun)
 
-
-"----------------------------------------
-" neocomplcache
-"----------------------------------------
+" neocomplcache "{{{2
 
 let g:neocomplcache_enable_at_startup = 1
 
@@ -281,10 +263,7 @@ if !exists("g:neocomplcache_force_omni_patterns")
 endif
 let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
 
-
-"------------------------------------
-" neosnippet
-"------------------------------------
+" neosnippet "{{{2
 
 let g:neosnippet#snippets_directory = "~/vimfiles/snippets,~/vimfiles/bundle/vim-snippets/"
 imap <silent><C-F>                <Plug>(neosnippet_expand_or_jump)
@@ -306,10 +285,7 @@ if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 
-"------------------------------------
-" vim-rails
-"------------------------------------
-""{{{
+" vim-rails "{{{2
 "有効化
 let g:rails_default_file='config/database.yml'
 let g:rails_level = 4
@@ -338,11 +314,8 @@ aug END
 aug RailsDictSetting
   au!
 aug END
-"}}}
 
-"----------------------------------------
-" vim-ref
-"----------------------------------------
+" vim-ref "{{{2
 "
 let g:ref_open                    = 'split'
 let g:ref_refe_cmd                = expand('~/vimfiles/ref/ruby-ref1.9.2/refe-1_9_2')
@@ -355,9 +328,7 @@ aug MyAutoCmd
   au FileType ruby,eruby,ruby.rspec nnoremap <silent><buffer>K  :<C-U>Unite -no-start-insert ref/refe -input=<C-R><C-W><CR>
 aug END
 
-"------------------------------------
-" Other Neobundle Plugins' Setting
-"------------------------------------
+" Other Neobundle Plugins' Setting "{{{2
 
 " RSense
 let g:rsenseUseOmniFunc = 1
@@ -416,9 +387,7 @@ let QFixHowm_FileType       = 'markdown'
 let QFixHowm_Title          = '#'                             " タイトル記号
 let QFixHowm_FoldingPattern = '^[#[]'                         " 折りたたみのパターン
 
-"------------------------------------
-" OS Type
-"------------------------------------
+" OS Type "{{{1
 
 let OSTYPE = system('uname')
 
@@ -440,9 +409,7 @@ end
 "  source ~/.gvimrc  
 "endif
 "
-"------------------------------------
-" Functions
-"------------------------------------
+" Functions "{{{1
 "
 let s:FALSE = 0
 let s:TRUE = !s:FALSE
@@ -630,9 +597,7 @@ function! s:emulate_meta_esc_behavior_in_terminal()
   endfor
 endfunction
 
-"------------------------------------
-" Mappings
-"------------------------------------
+" Mappings "{{{1
 
 command! -nargs=+ Allmap
 \   execute 'map' <q-args>
@@ -684,9 +649,7 @@ noremap <Plug>(ToggleColorColumn)
 nmap cc <Plug>(ToggleColorColumn)
 set pastetoggle=<F5> " <F5>でペーストモードのトグル
 
-"------------------------------------
-" Generals
-"------------------------------------
+" Generals "{{{1
 
 filetype plugin indent on "プラグインをオンにする
 
