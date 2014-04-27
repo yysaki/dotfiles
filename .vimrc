@@ -480,6 +480,16 @@ function! s:combinations(pool, r)
   return result
 endfunction
 
+function! s:all_combinations(xs)
+  let cs = []
+
+  for r in range(1, len(a:xs))
+    call extend(cs, s:combinations(a:xs, r))
+  endfor
+
+  return cs
+endfunction
+
 "------------------------------------
 " Mappings
 "------------------------------------
