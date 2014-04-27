@@ -455,6 +455,7 @@ command! -nargs=+ Allnoremap
 " <Esc>の代替
 Allnoremap <C-@>  <Esc>
 cnoremap <C-@>  <C-c>
+Allmap <C-Space>  <C-@>
 
 " vimrcをオープン, リロード
 nnoremap <Space>.  :<C-u>edit $MYVIMRC<CR>
