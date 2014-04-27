@@ -439,6 +439,40 @@ end
 "if has('gui_macvim') || has('win32') || has('win64') || has('win95') || has('win16')
 "  source ~/.gvimrc  
 "endif
+"
+"------------------------------------
+" Mappings
+"------------------------------------
+" バッファ操作
+nnoremap <Space>b :ls<CR>:buf
+nnoremap [b :bprevious<CR>
+nnoremap ]b :bnext<CR>
+nnoremap [B :bfirst<CR>
+nnoremap ]B :blast<CR>
+
+" タブページ操作
+nnoremap [TABCMD]  <nop>
+nmap <Space>t [TABCMD]
+nnoremap <silent> [TABCMD]f :tabfirst<CR>
+nnoremap <silent> [TABCMD]l :tablast<CR>
+nnoremap <silent> [TABCMD]e :tabedit<CR>
+nnoremap <silent> [TABCMD]c :tabclose<CR>
+nnoremap <silent> [TABCMD]o :tabonly<CR>
+nnoremap <silent> [TABCMD]s :tabs<CR>
+nnoremap <silent> [TABCMD]r :TabRecent<CR>
+
+" 81桁目以降の色をトグルする
+noremap <Plug>(ToggleColorColumn)
+  \ :<c-u>let &colorcolumn = len(&colorcolumn) > 0 ? '' :
+  \   join(range(81, 9999), ',')<CR>
+
+" ノーマルモードの 'cc' に割り当てる
+nmap cc <Plug>(ToggleColorColumn)
+set pastetoggle=<F5> " <F5>でペーストモードのトグル
+
+" vimrcをオープン, リロード
+nnoremap <Space>.  :<C-u>edit $MYVIMRC<CR>
+nnoremap <Space>s. :<C-u>source $MYVIMRC<CR>
 
 "------------------------------------
 " Generals
@@ -466,39 +500,8 @@ set list
 "set listchars=eol:￢,tab:_.  
 set listchars=tab:._,eol:$
 
-" バッファ操作
-nnoremap <Space>b :ls<CR>:buf
-nnoremap [b :bprevious<CR>
-nnoremap ]b :bnext<CR>
-nnoremap [B :bfirst<CR>
-nnoremap ]B :blast<CR>
-
-" タブページ操作
-nnoremap [TABCMD]  <nop>
-nmap <Space>t [TABCMD]
-nnoremap <silent> [TABCMD]f :tabfirst<CR>
-nnoremap <silent> [TABCMD]l :tablast<CR>
-nnoremap <silent> [TABCMD]e :tabedit<CR>
-nnoremap <silent> [TABCMD]c :tabclose<CR>
-nnoremap <silent> [TABCMD]o :tabonly<CR>
-nnoremap <silent> [TABCMD]s :tabs<CR>
-nnoremap <silent> [TABCMD]r :TabRecent<CR>
-
 set t_Co=256 " 256色モード
 set hlsearch " 検索結果をハイライト
-
-" 81桁目以降の色をトグルする
-noremap <Plug>(ToggleColorColumn)
-  \ :<c-u>let &colorcolumn = len(&colorcolumn) > 0 ? '' :
-  \   join(range(81, 9999), ',')<CR>
-
-" ノーマルモードの 'cc' に割り当てる
-nmap cc <Plug>(ToggleColorColumn)
-set pastetoggle=<F5> " <F5>でペーストモードのトグル
-
-" vimrcをオープン, リロード
-nnoremap <Space>.  :<C-u>edit $MYVIMRC<CR>
-nnoremap <Space>s. :<C-u>source $MYVIMRC<CR>
 
 " 拡張子設定
 au BufRead,BufNewFile *.red set filetype=reduce
