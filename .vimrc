@@ -457,6 +457,9 @@ Allnoremap <C-@>  <Esc>
 cnoremap <C-@>  <C-c>
 Allmap <C-Space>  <C-@>
 
+" <Esc>{x} to <C-w>{x}
+nmap <Esc>  <C-w>
+
 " vimrcをオープン, リロード
 nnoremap <Space>.  :<C-u>edit $MYVIMRC<CR>
 nnoremap <Space>s. :<C-u>source $MYVIMRC<CR>
