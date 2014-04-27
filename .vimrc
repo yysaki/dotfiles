@@ -490,6 +490,11 @@ function! s:all_combinations(xs)
   return cs
 endfunction
 
+function! s:modifier_combinations(modifiers)
+  let prefixes = map(range(len(a:modifiers)), 'a:modifiers[v:val] . "-"')
+  return s:all_combinations(prefixes)
+endfunction
+
 "------------------------------------
 " Mappings
 "------------------------------------
