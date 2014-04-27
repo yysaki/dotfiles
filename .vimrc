@@ -444,6 +444,10 @@ end
 " Mappings
 "------------------------------------
 
+command! -nargs=+ Allnoremap
+\   execute 'noremap' <q-args>
+\ | execute 'noremap!' <q-args>
+
 " vimrcをオープン, リロード
 nnoremap <Space>.  :<C-u>edit $MYVIMRC<CR>
 nnoremap <Space>s. :<C-u>source $MYVIMRC<CR>
