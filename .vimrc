@@ -444,6 +444,10 @@ end
 " Mappings
 "------------------------------------
 
+command! -nargs=+ Allmap
+\   execute 'map' <q-args>
+\ | execute 'map!' <q-args>
+
 command! -nargs=+ Allnoremap
 \   execute 'noremap' <q-args>
 \ | execute 'noremap!' <q-args>
