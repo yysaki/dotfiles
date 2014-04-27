@@ -443,6 +443,11 @@ end
 "------------------------------------
 " Mappings
 "------------------------------------
+
+" vimrcをオープン, リロード
+nnoremap <Space>.  :<C-u>edit $MYVIMRC<CR>
+nnoremap <Space>s. :<C-u>source $MYVIMRC<CR>
+
 " バッファ操作
 nnoremap <Space>b :ls<CR>:buf
 nnoremap [b :bprevious<CR>
@@ -470,9 +475,6 @@ noremap <Plug>(ToggleColorColumn)
 nmap cc <Plug>(ToggleColorColumn)
 set pastetoggle=<F5> " <F5>でペーストモードのトグル
 
-" vimrcをオープン, リロード
-nnoremap <Space>.  :<C-u>edit $MYVIMRC<CR>
-nnoremap <Space>s. :<C-u>source $MYVIMRC<CR>
 
 "------------------------------------
 " Generals
