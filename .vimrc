@@ -441,8 +441,217 @@ end
 "endif
 "
 "------------------------------------
+" Functions
+"------------------------------------
+"
+let s:FALSE = 0
+let s:TRUE = !s:FALSE
+
+function! s:combinations(pool, r)
+  let n = len(a:pool)
+  if n < a:r || a:r <= 0
+    return []
+  endif
+
+  let result = []
+
+  let indices = range(a:r)
+  call add(result, join(map(copy(indices), 'a:pool[v:val]'), ''))
+
+  while s:TRUE
+    let broken_p = s:FALSE
+    for i in reverse(range(a:r))
+      if indices[i] != i + n - a:r
+        let broken_p = s:TRUE
+        break
+      endif
+    endfor
+    if !broken_p
+      break
+    endif
+
+    let indices[i] += 1
+    for j in range(i + 1, a:r - 1)
+      let indices[j] = indices[j-1] + 1
+    endfor
+    call add(result, join(map(copy(indices), 'a:pool[v:val]'), ''))
+  endwhile
+
+  return result
+endfunction
+
+function! s:all_combinations(xs)
+  let cs = []
+
+  for r in range(1, len(a:xs))
+    call extend(cs, s:combinations(a:xs, r))
+  endfor
+
+  return cs
+endfunction
+
+function! s:modifier_combinations(modifiers)
+  let prefixes = map(range(len(a:modifiers)), 'a:modifiers[v:val] . "-"')
+  return s:all_combinations(prefixes)
+endfunction
+
+" <M-{x}> => <Esc>x
+function! s:emulate_meta_esc_behavior_in_terminal()
+  " [key, acceptable-modifiers-except-meta]  "{{{
+  let keys = [
+  \   ['!', ''],
+  \   ['"', ''],
+  \   ['#', ''],
+  \   ['$', ''],
+  \   ['%', ''],
+  \   ['&', ''],
+  \   ['''', ''],
+  \   ['(', ''],
+  \   [')', ''],
+  \   ['*', ''],
+  \   ['+', ''],
+  \   [',', ''],
+  \   ['-', ''],
+  \   ['.', ''],
+  \   ['0', ''],
+  \   ['1', ''],
+  \   ['2', ''],
+  \   ['3', ''],
+  \   ['4', ''],
+  \   ['5', ''],
+  \   ['6', ''],
+  \   ['7', ''],
+  \   ['8', ''],
+  \   ['9', ''],
+  \   [':', ''],
+  \   [';', ''],
+  \   ['<BS>', 'CS'],
+  \   ['<Bar>', ''],
+  \   ['<Bslash>', 'C'],
+  \   ['<Del>', 'CS'],
+  \   ['<Down>', 'CS'],
+  \   ['<End>', 'CS'],
+  \   ['<Esc>', 'CS'],
+  \   ['<F10>', 'CS'],
+  \   ['<F11>', 'CS'],
+  \   ['<F12>', 'CS'],
+  \   ['<F1>', 'CS'],
+  \   ['<F2>', 'CS'],
+  \   ['<F3>', 'CS'],
+  \   ['<F4>', 'CS'],
+  \   ['<F5>', 'CS'],
+  \   ['<F6>', 'CS'],
+  \   ['<F7>', 'CS'],
+  \   ['<F9>', 'CS'],
+  \   ['<F9>', 'CS'],
+  \   ['<Home>', 'CS'],
+  \   ['<LT>', ''],
+  \   ['<Left>', 'CS'],
+  \   ['<PageDown>', 'CS'],
+  \   ['<PageUp>', 'CS'],
+  \   ['<Return>', 'CS'],
+  \   ['<Right>', 'CS'],
+  \   ['<Space>', 'CS'],
+  \   ['<Tab>', 'CS'],
+  \   ['<Up>', 'CS'],
+  \   ['=', ''],
+  \   ['>', ''],
+  \   ['@', 'C'],
+  \   ['A', ''],
+  \   ['B', ''],
+  \   ['C', ''],
+  \   ['D', ''],
+  \   ['E', ''],
+  \   ['F', ''],
+  \   ['G', ''],
+  \   ['H', ''],
+  \   ['I', ''],
+  \   ['J', ''],
+  \   ['K', ''],
+  \   ['L', ''],
+  \   ['M', ''],
+  \   ['N', ''],
+  \   ['O', ''],
+  \   ['P', ''],
+  \   ['Q', ''],
+  \   ['R', ''],
+  \   ['S', ''],
+  \   ['T', ''],
+  \   ['U', ''],
+  \   ['V', ''],
+  \   ['W', ''],
+  \   ['X', ''],
+  \   ['Y', ''],
+  \   ['Z', ''],
+  \   ['[', 'C'],
+  \   [']', 'C'],
+  \   ['^', 'C'],
+  \   ['_', 'C'],
+  \   ['`', ''],
+  \   ['a', 'C'],
+  \   ['b', 'C'],
+  \   ['c', 'C'],
+  \   ['d', 'C'],
+  \   ['e', 'C'],
+  \   ['f', 'C'],
+  \   ['g', 'C'],
+  \   ['h', 'C'],
+  \   ['i', 'C'],
+  \   ['j', 'C'],
+  \   ['k', 'C'],
+  \   ['l', 'C'],
+  \   ['m', 'C'],
+  \   ['n', 'C'],
+  \   ['o', 'C'],
+  \   ['p', 'C'],
+  \   ['q', 'C'],
+  \   ['r', 'C'],
+  \   ['s', 'C'],
+  \   ['t', 'C'],
+  \   ['u', 'C'],
+  \   ['v', 'C'],
+  \   ['w', 'C'],
+  \   ['x', 'C'],
+  \   ['y', 'C'],
+  \   ['z', 'C'],
+  \   ['{', ''],
+  \   ['}', ''],
+  \   ['~', ''],
+  \ ]
+  "}}}
+
+  for [key, modifiers] in keys
+    let k = substitute(key, '\v^\<(.*)\>$', '\1', '')
+
+    execute 'Allmap' '<M-'.k.'>'  '<Esc>'.key
+    for m in s:modifier_combinations(modifiers)
+      execute 'Allmap' '<M-'.m.k.'>'  '<Esc><'.m.k.'>'
+    endfor
+  endfor
+endfunction
+
+"------------------------------------
 " Mappings
 "------------------------------------
+
+command! -nargs=+ Allmap
+\   execute 'map' <q-args>
+\ | execute 'map!' <q-args>
+
+command! -nargs=+ Allnoremap
+\   execute 'noremap' <q-args>
+\ | execute 'noremap!' <q-args>
+
+" <Esc>の代替
+Allnoremap <C-@>  <Esc>
+cnoremap <C-@>  <C-c>
+Allmap <C-Space>  <C-@>
+
+" <Esc>{x} to <C-w>{x}
+nmap <Esc>  <C-w>
+
+" <M-{x}> => <Esc>x if has('gui_running')
+call s:emulate_meta_esc_behavior_in_terminal()
 
 " vimrcをオープン, リロード
 nnoremap <Space>.  :<C-u>edit $MYVIMRC<CR>
