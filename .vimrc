@@ -447,6 +447,39 @@ end
 let s:FALSE = 0
 let s:TRUE = !s:FALSE
 
+function! s:combinations(pool, r)
+  let n = len(a:pool)
+  if n < a:r || a:r <= 0
+    return []
+  endif
+
+  let result = []
+
+  let indices = range(a:r)
+  call add(result, join(map(copy(indices), 'a:pool[v:val]'), ''))
+
+  while s:TRUE
+    let broken_p = s:FALSE
+    for i in reverse(range(a:r))
+      if indices[i] != i + n - a:r
+        let broken_p = s:TRUE
+        break
+      endif
+    endfor
+    if !broken_p
+      break
+    endif
+
+    let indices[i] += 1
+    for j in range(i + 1, a:r - 1)
+      let indices[j] = indices[j-1] + 1
+    endfor
+    call add(result, join(map(copy(indices), 'a:pool[v:val]'), ''))
+  endwhile
+
+  return result
+endfunction
+
 "------------------------------------
 " Mappings
 "------------------------------------
