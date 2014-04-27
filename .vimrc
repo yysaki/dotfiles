@@ -46,7 +46,7 @@ NeoBundle 'msanders/cocoa.vim'
 NeoBundle 'jQuery'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
-NeoBundle 'mattn/emmet-vim'              " <c-y>, old: zencoding-vim
+NeoBundle 'mattn/emmet-vim'              " <C-y>, old: zencoding-vim
 
 " other specific situation
 NeoBundle 'project.tar.gz'
@@ -463,7 +463,7 @@ nnoremap <silent> [TABCMD]r :TabRecent<CR>
 
 " 81桁目以降の色をトグルする
 noremap <Plug>(ToggleColorColumn)
-  \ :<c-u>let &colorcolumn = len(&colorcolumn) > 0 ? '' :
+  \ :<C-u>let &colorcolumn = len(&colorcolumn) > 0 ? '' :
   \   join(range(81, 9999), ',')<CR>
 
 " ノーマルモードの 'cc' に割り当てる
