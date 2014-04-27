@@ -449,22 +449,22 @@ nnoremap <Space>.  :<C-u>edit $MYVIMRC<CR>
 nnoremap <Space>s. :<C-u>source $MYVIMRC<CR>
 
 " バッファ操作
-nnoremap <Space>b :ls<CR>:buf
-nnoremap [b :bprevious<CR>
-nnoremap ]b :bnext<CR>
-nnoremap [B :bfirst<CR>
-nnoremap ]B :blast<CR>
+nnoremap <Space>b :<C-u>ls<CR>:buf
+nnoremap [b :<C-u>bprevious<CR>
+nnoremap ]b :<C-u>bnext<CR>
+nnoremap [B :<C-u>bfirst<CR>
+nnoremap ]B :<C-u>blast<CR>
 
 " タブページ操作
 nnoremap [TABCMD]  <nop>
 nmap <Space>t [TABCMD]
-nnoremap <silent> [TABCMD]f :tabfirst<CR>
-nnoremap <silent> [TABCMD]l :tablast<CR>
-nnoremap <silent> [TABCMD]e :tabedit<CR>
-nnoremap <silent> [TABCMD]c :tabclose<CR>
-nnoremap <silent> [TABCMD]o :tabonly<CR>
-nnoremap <silent> [TABCMD]s :tabs<CR>
-nnoremap <silent> [TABCMD]r :TabRecent<CR>
+nnoremap <silent> [TABCMD]f :<C-u>tabfirst<CR>
+nnoremap <silent> [TABCMD]l :<C-u>tablast<CR>
+nnoremap <silent> [TABCMD]e :<C-u>tabedit<CR>
+nnoremap <silent> [TABCMD]c :<C-u>tabclose<CR>
+nnoremap <silent> [TABCMD]o :<C-u>tabonly<CR>
+nnoremap <silent> [TABCMD]s :<C-u>tabs<CR>
+nnoremap <silent> [TABCMD]r :<C-u>TabRecent<CR>
 
 " 81桁目以降の色をトグルする
 noremap <Plug>(ToggleColorColumn)
@@ -474,7 +474,6 @@ noremap <Plug>(ToggleColorColumn)
 " ノーマルモードの 'cc' に割り当てる
 nmap cc <Plug>(ToggleColorColumn)
 set pastetoggle=<F5> " <F5>でペーストモードのトグル
-
 
 "------------------------------------
 " Generals
