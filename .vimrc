@@ -650,6 +650,9 @@ Allmap <C-Space>  <C-@>
 " <Esc>{x} to <C-w>{x}
 nmap <Esc>  <C-w>
 
+" <M-{x}> => <Esc>x if has('gui_running')
+call s:emulate_meta_esc_behavior_in_terminal()
+
 " vimrcをオープン, リロード
 nnoremap <Space>.  :<C-u>edit $MYVIMRC<CR>
 nnoremap <Space>s. :<C-u>source $MYVIMRC<CR>
