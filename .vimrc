@@ -620,7 +620,11 @@ call s:emulate_meta_esc_behavior_in_terminal()
 
 " vimrcをオープン, リロード
 nnoremap <Space>.  :<C-u>edit $MYVIMRC<CR>
-nnoremap <Space>s. :<C-u>source $MYVIMRC<CR>
+if has('gui_running')
+  nnoremap <Space>s. :<C-u>source $MYVIMRC<CR> :<C-u>source $MYGVIMRC<CR>
+else
+  nnoremap <Space>s. :<C-u>source $MYVIMRC<CR>
+endif
 
 " バッファ操作
 nnoremap <Space>b :<C-u>ls<CR>:buf
