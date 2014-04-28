@@ -3,6 +3,8 @@ colorscheme zenburn "カラースキーマを設定
 set antialias
 set showtabline=2 "常にタブ表示
 
+set guioptions='grLtT' " default: 'egmrLtT'
+
 " タブの表示設定
 function! GuiTabLabel()
   let l:label = ''
