@@ -330,6 +330,25 @@ aug MyAutoCmd
   au FileType ruby,eruby,ruby.rspec nnoremap <silent><buffer>K  :<C-U>Unite -no-start-insert ref/refe -input=<C-R><C-W><CR>
 aug END
 
+" Unite.vim "{{{2
+
+call unite#custom#substitute('file', '\$\w\+', '\=eval(submatch(0))', 200)
+call unite#custom#substitute('file', '[^~.]\zs/', '*/*', 20)
+call unite#custom#substitute('file', '/\ze[^*]', '/*', 10)
+call unite#custom#substitute('file', '^@@', '\=fnamemodify(expand("#"), ":p:h")."/*"', 2)
+call unite#custom#substitute('file', '^@', '\=getcwd()."/*"', 1)
+call unite#custom#substitute('file', '^\\', '~/*')
+call unite#custom#substitute('file', '^;v', '~/.vim/*')
+call unite#custom#substitute('file', '^;r', '\=$VIMRUNTIME."/*"')
+if has('win32') || has('win64')
+  call unite#custom#substitute('file', '^;p', 'C:/Program Files/*')
+endif
+
+call unite#custom#substitute('file', '\*\*\+', '*', -1)
+call unite#custom#substitute('file', '^\~', escape($HOME, '\'), -2)
+call unite#custom#substitute('file', '\\\@<! ', '\\ ', -20)
+call unite#custom#substitute('file', '\\ \@!', '/', -30)
+
 " Other Neobundle Plugins' Setting "{{{2
 
 " RSense
