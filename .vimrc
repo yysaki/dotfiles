@@ -17,6 +17,7 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'           " :Unite file_mru
+NeoBundle 'h1mesuke/unite-outline'      " :Unite outline
 NeoBundle 'fuenor/qfixhowm'             " QFixHowm - hitori otegaru wiki modoki
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'kana/vim-altr'               " <Space>a
@@ -340,6 +341,7 @@ nnoremap [Unite]<Space>  :<C-u>Unite
 nnoremap <silent> [Unite]b  :<C-u>Unite buffer<CR>
 nnoremap <silent> [Unite]f  :<C-u>Unite file<CR>
 nnoremap <silent> [Unite]m  :<C-u>Unite file_mru<CR>
+nnoremap <silent> [Unite]o  :<C-u>Unite outline<CR>
 nnoremap <silent> [Unite]r  :<C-u>Unite file_rec<CR>
 nnoremap <silent> [Unite]t  :<C-u>Unite buffer_tab<CR>
 
