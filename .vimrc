@@ -332,6 +332,17 @@ aug END
 
 " Unite.vim "{{{2
 
+let g:unite_enable_start_insert=1
+
+nnoremap [Unite]  <nop>
+nmap <Space>u [Unite]
+nnoremap [Unite]<Space>  :<C-u>Unite 
+nnoremap <silent> [Unite]b  :<C-u>Unite buffer<CR>
+nnoremap <silent> [Unite]f  :<C-u>Unite file<CR>
+nnoremap <silent> [Unite]m  :<C-u>Unite file_mru<CR>
+nnoremap <silent> [Unite]r  :<C-u>Unite file_rec<CR>
+nnoremap <silent> [Unite]t  :<C-u>Unite buffer_tab<CR>
+
 call unite#custom#substitute('file', '\$\w\+', '\=eval(submatch(0))', 200)
 call unite#custom#substitute('file', '[^~.]\zs/', '*/*', 20)
 call unite#custom#substitute('file', '/\ze[^*]', '/*', 10)
