@@ -697,6 +697,9 @@ set infercase
 " 文字コード
 set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932
 
+set iminsert=0 " 入力モードで自動的に日本語入力を使わない
+set imsearch=0 " 挿入モードで自動的に日本語入力を使わない
+
 syntax on                                "シンタックスハイライト
 set nu                                   "行番号表示
 set expandtab                            "タブにスペースを使う
