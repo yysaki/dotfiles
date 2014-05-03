@@ -47,7 +47,6 @@ unlink_dot_file () {
 link_impl () {
   if $mingw; then
     $1 $VIMFILES vimfiles
-
     # TODO .vimrcを設定して.vimのlnを外す
     $1 $VIMFILES .vim
   else
@@ -57,7 +56,6 @@ link_impl () {
     $1 $DOT_FILE $DOT_FILE
   done
 }
-  
 
 link () {
   link_impl link_dot_file
