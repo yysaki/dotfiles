@@ -30,18 +30,18 @@ DOT_FILES="
 VIMFILES=".vim"
 
 link_dot_file () {
-  if [ ! -L $HOME/$2 ]; then
-    echo "Make Symlink $HOME/$2"
-    if [ -f $HOME/$2 -o -d $HOME/$2 ]; then
-      mv $HOME/$2 $HOME/$2.bak
+  if [ ! -L ~/$2 ]; then
+    echo "Make Symlink ~/$2"
+    if [ -f ~/$2 -o -d ~/$2 ]; then
+      mv ~/$2 ~/$2.bak
     fi 
-    ln -s $PWD/$1 $HOME/$2
+    ln -s $PWD/$1 ~/$2
   fi
 }
 
 unlink_dot_file () {
-  echo "Remove Symlink $HOME/$1"
-  rm $HOME/$1
+  echo "Remove Symlink ~/$1"
+  rm ~/$1
 }
 
 link_impl () {
