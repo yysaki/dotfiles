@@ -34,3 +34,5 @@ set background=dark
 let g:solarized_contrast="high"
 let g:solarized_italic=0
 colorscheme solarized
+
+set guifont=Ricty:h13
