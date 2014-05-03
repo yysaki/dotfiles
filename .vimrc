@@ -33,6 +33,7 @@ NeoBundle 'tpope/vim-surround'          " <オペレータ>s<デリミタ> or �
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'vim-scripts/VimCoder.jar'    " topcoder
 NeoBundle 'vim-scripts/errormarker.vim' " flymakeっぽいこと 実態確認 ':autocmd QuickFixCmdPost'
+NeoBundle 'altercation/vim-colors-solarized' " solarized.vim
 
 "" perl
 NeoBundle 'petdance/vim-perl'
