@@ -14,7 +14,19 @@ esac
 
 cd `dirname $0`
 
-DOT_FILES=".bash_profile .bashrc .zprofile .zshrc .gvimrc .screenrc .tmux.conf .vimrc .minttyrc .gitignore .gitconfig"
+DOT_FILES="
+.bash_profile
+.bashrc
+.gitconfig
+.gitignore
+.gvimrc
+.minttyrc
+.screenrc
+.tmux.conf
+.vimrc
+.zprofile
+.zshrc
+"
 VIMFILES=".vim"
 
 link_dot_file () {
