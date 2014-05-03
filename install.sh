@@ -70,7 +70,7 @@ unlink () {
 # git bash用, 修正した変更を集める
 gather () {
   for DOT_FILE in $DOT_FILES; do
-    cp ~/$DOT_FILE ./$DOT_FILE
+    cp ~/$DOT_FILE $PWD/$DOT_FILE
   done
 }
 
