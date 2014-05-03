@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# machine specific
+linux=false
+darwin=false
+cygwin=false
+mingw=false
+case "$(uname)" in
+  Linux) linux=true;;
+  Darwin) darwin=true;;
+  CYGWIN*) cygwin=true;;
+  MINGW32*) mingw=true;; # work
+esac
+
 cd `dirname $0`
 
 DOT_FILES=".bash_profile .bashrc .zprofile .zshrc .gvimrc .screenrc .tmux.conf .vimrc .minttyrc .gitignore .gitconfig"
