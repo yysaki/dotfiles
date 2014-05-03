@@ -29,3 +29,8 @@ function! GuiTabLabel()
 endfunction
 set guitablabel=%N:\ %{GuiTabLabel()}
 
+" solarizedの設定
+set background=dark
+let g:solarized_contrast="high"
+let g:solarized_italic=0
+colorscheme solarized
