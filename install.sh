@@ -55,5 +55,4 @@ case "$1" in
     ;;
   *)
     echo "Usage: sh install.sh {link|unlink|gather}" 
-    link
 esac
