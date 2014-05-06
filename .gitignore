@@ -3,6 +3,7 @@
 .vim/doc/
 .vim/syntax/
 tmp/
+**/tags
 *~
 .*.swp
 .DS_Store
