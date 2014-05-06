@@ -1,5 +1,9 @@
 # .bash_profile
 
+case "$(uname)" in
+  MINGW32*) mingw=true;; # work
+esac
+
 # User specific environment and startup programs
 
 # addpath $HOME/bin
@@ -19,9 +23,16 @@ fi
 #cp $DIR/.bashrc $DIR/.bash_profile $DIR/.bash_logout ./
 #cp $DIR/../vim/.vimrc $DIR/../vim/.gvimrc ./
 #cp -rf $DIR/../vim/.vim/colors ./.vim/
-if ! [ -d ~/.vim/bundle/neobundle.vim ]; then
-  echo "echo) get neobundle"
-  git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+if $mingw; then
+  if ! [ -d ~/vimfiles/bundle/neobundle.vim ]; then
+    echo "echo) get neobundle"
+    git clone https://github.com/Shougo/neobundle.vim ~/vimfiles/bundle/neobundle.vim
+  fi
+else
+  if ! [ -d ~/.vim/bundle/neobundle.vim ]; then
+    echo "echo) get neobundle"
+    git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+  fi
 fi
 
 # Get the aliases and functions
