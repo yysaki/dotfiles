@@ -4,7 +4,6 @@ set novisualbell
 set visualbell t_vb=
 
 set t_Co=256
-colorscheme zenburn "カラースキーマを設定
 set antialias
 set showtabline=2 "常にタブ表示
 
