@@ -1,7 +1,7 @@
 " NeoBundle "{{{1
 " Bundles "{{{2
 if has('vim_starting')
-  if has('kaoriya') && (has('win32')||has('win64')||has('win95')||has('win16'))
+  if !has('unix') " if $mingw
     set runtimepath+=~/vimfiles/bundle/neobundle.vim/
     call neobundle#rc(expand('~/vimfiles/bundle/'))
   else
