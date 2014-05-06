@@ -706,6 +706,8 @@ noremap <Plug>(ToggleColorColumn)
 nmap cc <Plug>(ToggleColorColumn)
 set pastetoggle=<F5> " <F5>でペーストモードのトグル
 
+nnoremap <F5>  :!ctags -R<CR>
+
 " Generals "{{{1
 
 filetype plugin indent on "プラグインをオンにする
