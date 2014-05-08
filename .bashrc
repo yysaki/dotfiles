@@ -40,7 +40,13 @@ scx () {
 
 ## set aliases
 alias eng='LANG=C LANGUAGE=C LC_ALL=C'
+alias f='find'
 alias g='git'
+alias gr='grep'
+alias h='head'
+alias t='tail'
+alias v='vim'
+alias x='xargs'
 alias RPE='ruby -pe'
 alias RNE='ruby -ne'
 alias be='bundle exec'
