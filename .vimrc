@@ -27,7 +27,7 @@ NeoBundle 'scrooloose/syntastic'        " ファイルの構文エラーチェ�
 NeoBundle 'sudo.vim'
 NeoBundle 'thinca/vim-quickrun'         " <Space>qでmakeなど
 NeoBundle 'thinca/vim-tabrecent'         " <[TABCMD]r 
-NeoBundle 'tomtom/tcomment_vim'         " <C-_><C-_>でコメントのトグル
+NeoBundle 'tpope/vim-commentary'         " gc{motion}, gcc でコメントのトグル
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
 NeoBundle 'tyru/open-browser.vim'
