@@ -1,3 +1,5 @@
+set nocompatible
+
 " NeoBundle "{{{1
 " Bundles "{{{2
 if has('vim_starting')
