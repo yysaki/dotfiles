@@ -451,16 +451,19 @@ let QFixHowm_FoldingPattern = '^[#[]'                         " 折りたたみ�
 
 let OSTYPE = system('uname')
 
-if has('win32') || has('win64') || has('win95') || has('win16') " Win
+if has('kaoriya') && !has('unix')
+  set encoding=utf8
+  scriptencoding cp932
+elseif !has('unix')
+  set encoding=cp932
 else
   set encoding=utf8
-
-  if OSTYPE == "Darwin\n" " Mac
-    set clipboard=unnamed " クリップボード利用設定
-    NeoBundle 'kana/vim-fakeclip'
-  elseif OSTYPE == "Linux\n" " Linux
+    if OSTYPE == "Darwin\n" " Mac
+      set clipboard=unnamed " クリップボード利用設定
+        NeoBundle 'kana/vim-fakeclip'
+    elseif OSTYPE == "Linux\n" " Linux
   endif
-end
+endif
 
 " Functions "{{{1
 "
