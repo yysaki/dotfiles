@@ -123,13 +123,6 @@ NeoBundle 'taichouchou2/rsense-0.3', {
       \    'unix': 'ruby etc/config.rb > ~/.rsense',
       \ } }
 NeoBundle 'tpope/vim-rails'
-NeoBundleLazy 'taichouchou2/alpaca_complete', {
-      \ 'depends' : 'tpope/vim-rails',
-      \ 'build' : {
-      \    'mac':  'gem install alpaca_complete',
-      \    'unix': 'gem install alpaca_complete',
-      \   }
-      \ }
 
 function! s:bundleLoadDepends(bundle_names) "{{{
   " bundleの読み込み
