@@ -709,6 +709,10 @@ set pastetoggle=<F5> " <F5>でペーストモードのトグル
 
 nnoremap <F5>  :!ctags -R<CR>
 
+" &コマンドの修正
+nnoremap &  :&&<CR>
+xnoremap &  :&&<CR>
+
 " Generals "{{{1
 
 filetype plugin indent on "プラグインをオンにする
