@@ -35,6 +35,19 @@ NeoBundle 'vim-scripts/VimCoder.jar'    " topcoder
 NeoBundle 'vim-scripts/errormarker.vim' " flymakeっぽいこと 実態確認 ':autocmd QuickFixCmdPost'
 NeoBundle 'altercation/vim-colors-solarized' " solarized.vim
 NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-textobj-datetime'  " ada, ida
+NeoBundle 'kana/vim-textobj-diff'  " adf, idf
+NeoBundle 'kana/vim-textobj-entire'   " ae, ie
+NeoBundle 'kana/vim-textobj-fold'  " az, iz
+NeoBundle 'kana/vim-textobj-function' " af, if, aF, iF
+NeoBundle 'kana/vim-textobj-indent'  " ai, ii
+NeoBundle 'kana/vim-textobj-jabraces' " ajb, ijb
+NeoBundle 'kana/vim-textobj-lastpat'  " a/, i/
+NeoBundle 'kana/vim-textobj-line'     " al, il
+NeoBundle 'kana/vim-textobj-syntax'   " ay, iy
+NeoBundle 'kana/vim-textobj-underscore' " a_, i_
+NeoBundle 'thinca/vim-textobj-comment' " ac, ic
 
 "" perl
 NeoBundle 'petdance/vim-perl'
