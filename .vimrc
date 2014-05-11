@@ -444,8 +444,6 @@ let QFixHowm_FoldingPattern = '^[#[]'                         " 折りたたみ�
 let OSTYPE = system('uname')
 
 if has('win32') || has('win64') || has('win95') || has('win16') " Win
-"  set encoding=sjis
-"  cd $HOME "/User/yysaki/に移動(win)
 else
   set encoding=utf8
 
@@ -456,11 +454,6 @@ else
   endif
 end
 
-"" GVimの時 .gvimrcを使用する
-"if has('gui_macvim') || has('win32') || has('win64') || has('win95') || has('win16')
-"  source ~/.gvimrc  
-"endif
-"
 " Functions "{{{1
 "
 let s:FALSE = 0
