@@ -1,3 +1,4 @@
+" Basics "{{{1
 set nocompatible
 
 " Encoding "{{{2
