@@ -758,6 +758,11 @@ let g:tex_flavor = "latex"
 au BufNewFile,BufRead *.{aspx,ascx,cs} setlocal tabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.{aspx,ascx,cs} setlocal noexpandtab softtabstop=4
 
+autocmd FileType *
+\   if &l:omnifunc == ''
+\ |   setlocal omnifunc=syntaxcomplete#Complete
+\ | endif
+
 " __END__  "{{{1
 " vim: expandtab softtabstop=2 shiftwidth=2
 " vim: foldmethod=marker
