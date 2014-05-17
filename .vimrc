@@ -49,6 +49,7 @@ NeoBundle 'vim-scripts/VimCoder.jar'    " topcoder
 NeoBundle 'vim-scripts/errormarker.vim' " flymakeっぽいこと 実態確認 ':autocmd QuickFixCmdPost'
 NeoBundle 'altercation/vim-colors-solarized' " solarized.vim
 NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'tpope/vim-unimpaired'        " [q, ]qなど
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-datetime'  " ada, ida
 NeoBundle 'kana/vim-textobj-diff'  " adf, idf
@@ -689,10 +690,6 @@ endif
 
 " バッファ操作
 nnoremap <Space>b :<C-u>ls<CR>:buf
-nnoremap [b :<C-u>bprevious<CR>
-nnoremap ]b :<C-u>bnext<CR>
-nnoremap [B :<C-u>bfirst<CR>
-nnoremap ]B :<C-u>blast<CR>
 
 " タブページ操作
 nnoremap [TABCMD]  <nop>
