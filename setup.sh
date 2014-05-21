@@ -24,6 +24,7 @@ DOT_FILES="
 .screenrc
 .tmux.conf
 .vimrc
+.vsvimrc
 .zprofile
 .zshrc
 "
