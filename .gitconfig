@@ -74,5 +74,3 @@
   t = tag
   up = pull --rebase       # pull rebase
   wc = whatchanged         # logに変更されたファイルも一緒に出す
-[gui]
-  encoding = utf-8
