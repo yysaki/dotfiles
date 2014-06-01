@@ -89,14 +89,16 @@ augroup MyNeobundle
   au Syntax vim syntax keyword vimCommand NeoBundle NeoBundleLazy NeoBundleSource NeoBundleFetch
 augroup END
 
-NeoBundleLazy 'nosami/Omnisharp', {
-\   'autoload': {'filetypes': ['cs']},
-\   'build': {
-\     'windows': 'MSBuild.exe server/OmniSharp.sln /p:Platform="Any CPU"',
-\     'mac': 'xbuild server/OmniSharp.sln',
-\     'unix': 'xbuild server/OmniSharp.sln',
-\   }
-\ }
+if has('kaoriya') && !has('unix')
+  NeoBundleLazy 'nosami/Omnisharp', {
+  \   'autoload': {'filetypes': ['cs']},
+  \   'build': {
+  \     'windows': 'MSBuild.exe server/OmniSharp.sln /p:Platform="Any CPU"',
+  \     'mac': 'xbuild server/OmniSharp.sln',
+  \     'unix': 'xbuild server/OmniSharp.sln',
+  \   }
+  \ }
+endif
 
 function! Neo_al(ft) "{{{
   return { 'autoload' : {
