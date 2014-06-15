@@ -77,7 +77,7 @@ NeoBundle 'msanders/cocoa.vim'
 NeoBundle 'jQuery'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
-NeoBundle 'mattn/emmet-vim'              " <C-y>, old: zencoding-vim
+NeoBundle 'mattn/emmet-vim'              " <C-z>, old: zencoding-vim
 
 " other specific situation
 NeoBundle 'project.tar.gz'
@@ -184,6 +184,9 @@ endif
 " endwise.vim  {{{2
 
 let g:endwise_no_mappings=1
+
+" emmet.vim {{{2
+let g:user_emmet_leader_key='<C-z>'
 
 " vim-surround "{{{2
 
