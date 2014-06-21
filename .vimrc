@@ -749,6 +749,7 @@ xnoremap &  :&&<CR>
 
 filetype plugin indent on "プラグインをオンにする
 
+set ignorecase
 set infercase
 
 " ctags用
