@@ -745,6 +745,9 @@ nnoremap <F5>  :!ctags -R<CR>
 nnoremap &  :&&<CR>
 xnoremap &  :&&<CR>
 
+" ビジュアルモードで選択した文字列を検索
+vnoremap * "zy:let @/ = @z<CR>n
+
 " Generals "{{{1
 
 filetype plugin indent on "プラグインをオンにする
