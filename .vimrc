@@ -739,7 +739,7 @@ noremap <Plug>(ToggleColorColumn)
   \   join(range(81, 9999), ',')<CR>
 
 " ノーマルモードの 'cc' に割り当てる
-nmap cc <Plug>(ToggleColorColumn)
+nmap <Space>c <Plug>(ToggleColorColumn)
 set pastetoggle=<F5> " <F5>でペーストモードのトグル
 
 nnoremap <F5>  :!ctags -R<CR>
