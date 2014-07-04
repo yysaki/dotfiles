@@ -710,6 +710,9 @@ endif
 " バッファ操作
 nnoremap <Space>b :<C-u>ls<CR>:buf
 
+" gitコマンドのショートカット
+nnoremap <Space>g :<C-u>!git 
+
 " タブページ操作
 nnoremap [TABCMD]  <nop>
 nmap <Space>t [TABCMD]
