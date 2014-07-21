@@ -8,6 +8,7 @@ if has('kaoriya') && !has('unix')
   scriptencoding cp932
 elseif !has('unix')
   set encoding=cp932
+  set termencoding=cp932
 else
   set encoding=utf8
 endif
