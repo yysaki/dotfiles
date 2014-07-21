@@ -711,6 +711,10 @@ endif
 " バッファ操作
 nnoremap <Space>b :<C-u>ls<CR>:buf
 
+" UTF-8 として読み込む
+nnoremap <Space>f  :<C-u>e ++enc=utf-8<CR>
+nnoremap <Space>F  :<C-u>e! ++enc=utf-8<CR>
+
 " gitコマンドのショートカット
 nnoremap <Space>g :<C-u>!git 
 
