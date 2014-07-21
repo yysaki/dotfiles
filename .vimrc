@@ -4,13 +4,13 @@ set nocompatible
 " Encoding "{{{2
 
 if has('kaoriya') && !has('unix')
-  set encoding=utf8
+  set encoding=utf-8
   scriptencoding cp932
 elseif !has('unix')
   set encoding=cp932
   set termencoding=cp932
 else
-  set encoding=utf8
+  set encoding=utf-8
 endif
 
 " NeoBundle "{{{1
