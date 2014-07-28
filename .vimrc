@@ -800,6 +800,8 @@ set hlsearch " 検索結果をハイライト
 
 set showmatch
 
+set history=10000
+
 " 拡張子設定
 au BufRead,BufNewFile *.red set filetype=reduce
 au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
