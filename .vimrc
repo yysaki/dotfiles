@@ -800,6 +800,8 @@ set hlsearch " 検索結果をハイライト
 
 set showmatch
 
+set shellslash
+
 set history=10000
 
 " 拡張子設定
