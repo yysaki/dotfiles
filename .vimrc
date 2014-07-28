@@ -764,8 +764,12 @@ filetype plugin indent on "プラグインをオンにする
 " ファイル処理関連
 set confirm
 set hidden
+
+" 検索/置換
 set ignorecase
 set infercase
+set smartcase
+set wrapscan
 
 " ctags用
 set tags=./tags,tags
