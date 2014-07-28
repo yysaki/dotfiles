@@ -761,6 +761,9 @@ vnoremap * "zy:let @/ = @z<CR>n
 
 filetype plugin indent on "プラグインをオンにする
 
+" ファイル処理関連
+set confirm
+set hidden
 set ignorecase
 set infercase
 
