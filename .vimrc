@@ -798,6 +798,8 @@ set listchars=tab:._,eol:$
 set t_Co=256 " 256色モード
 set hlsearch " 検索結果をハイライト
 
+set showmatch
+
 " 拡張子設定
 au BufRead,BufNewFile *.red set filetype=reduce
 au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
