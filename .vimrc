@@ -716,7 +716,8 @@ nnoremap <Space>f  :<C-u>e ++enc=utf-8<CR>
 nnoremap <Space>F  :<C-u>e! ++enc=utf-8<CR>
 
 " gitコマンドのショートカット
-nnoremap <Space>g :<C-u>!git 
+nnoremap <Space>g :<C-u>Git! 
+nnoremap <Space>G :<C-u>Git 
 
 " タブページ操作
 nnoremap [TABCMD]  <nop>
