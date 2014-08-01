@@ -48,6 +48,7 @@ NeoBundle 'tpope/vim-surround'          " <オペレータ>s<デリミタ> or �
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'vim-scripts/VimCoder.jar'    " topcoder
 NeoBundle 'vim-scripts/errormarker.vim' " flymakeっぽいこと 実態確認 ':autocmd QuickFixCmdPost'
+NeoBundle 'vim-scripts/matchit.zip'
 NeoBundle 'altercation/vim-colors-solarized' " solarized.vim
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-unimpaired'        " [q, ]qなど
@@ -812,9 +813,10 @@ au BufRead,BufNewFile *.red set filetype=reduce
 au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 let g:tex_flavor = "latex"
 
-au BufNewFile,BufRead *.{aspx,ascx,cs} setlocal tabstop=4 shiftwidth=4
-au BufNewFile,BufRead *.{aspx,ascx,cs} setlocal noexpandtab softtabstop=4
-au BufNewFile,BufRead *.{aspx,ascx,cs} setlocal foldmethod=syntax
+au BufNewFile,BufRead *.{aspx,ascx} set filetype=html
+au BufNewFile,BufRead *.{aspx,ascx,cs,html} setlocal tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.{aspx,ascx,cs,html} setlocal noexpandtab softtabstop=4
+au BufNewFile,BufRead *.{aspx,ascx,cs,html} setlocal foldmethod=syntax
 
 autocmd FileType *
 \   if &l:omnifunc == ''
