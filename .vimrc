@@ -813,6 +813,7 @@ au BufRead,BufNewFile *.red set filetype=reduce
 au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 let g:tex_flavor = "latex"
 
+au BufNewFile,BufRead *.{aspx,ascx} set filetype=html
 au BufNewFile,BufRead *.{aspx,ascx,cs,html} setlocal tabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.{aspx,ascx,cs,html} setlocal noexpandtab softtabstop=4
 au BufNewFile,BufRead *.{aspx,ascx,cs,html} setlocal foldmethod=syntax
