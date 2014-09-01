@@ -471,6 +471,9 @@ let OSTYPE = system('uname')
 
 if OSTYPE == "Darwin\n" " Mac
   set clipboard=unnamed " クリップボード利用設定
+  if has('gui_running')
+    set macmeta
+  endif
   NeoBundle 'kana/vim-fakeclip'
 elseif OSTYPE == "Linux\n" " Linux
 endif
