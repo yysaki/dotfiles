@@ -388,6 +388,7 @@ nnoremap <silent> [Unite]m  :<C-u>Unite file_mru<CR>
 nnoremap <silent> [Unite]o  :<C-u>Unite outline<CR>
 nnoremap <silent> [Unite]r  :<C-u>Unite file_rec<CR>
 nnoremap <silent> [Unite]t  :<C-u>Unite buffer_tab<CR>
+nnoremap <silent> [Unite]u  :<C-u>UniteWithCurrentDir file_mru<CR>
 
 call unite#custom#substitute('file', '\$\w\+', '\=eval(submatch(0))', 200)
 call unite#custom#substitute('file', '[^~.]\zs/', '*/*', 20)
