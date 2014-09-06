@@ -66,6 +66,7 @@ NeoBundle 'kana/vim-textobj-line'     " al, il
 NeoBundle 'kana/vim-textobj-syntax'   " ay, iy
 NeoBundle 'kana/vim-textobj-underscore' " a_, i_
 NeoBundle 'thinca/vim-textobj-comment' " ac, ic
+NeoBundle 'LeafCage/yankround.vim'
 
 "" perl
 NeoBundle 'petdance/vim-perl'
@@ -406,6 +407,17 @@ call unite#custom#substitute('file', '\*\*\+', '*', -1)
 call unite#custom#substitute('file', '^\~', escape($HOME, '\'), -2)
 call unite#custom#substitute('file', '\\\@<! ', '\\ ', -20)
 call unite#custom#substitute('file', '\\ \@!', '/', -30)
+
+" yankround.vim "{{{2
+
+nmap p <Plug>(yankround-p)
+xmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap gp <Plug>(yankround-gp)
+xmap gp <Plug>(yankround-gp)
+nmap gP <Plug>(yankround-gP)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
 
 " Other Neobundle Plugins' Setting "{{{2
 
