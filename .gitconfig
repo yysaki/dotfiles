@@ -63,6 +63,7 @@
   rb = rebase
   rbm = rebase master      # masterへのrebaseはよく使うのでalias
   rc = rebase --continue
+  ri = "!f() { git rebase -i \"HEAD~${1:-10}\"; }; f"
   rs = reset
   s = show
   s1 = show HEAD~1
