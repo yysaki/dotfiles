@@ -34,6 +34,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'           " :Unite file_mru
 NeoBundle 'h1mesuke/unite-outline'      " :Unite outline
 NeoBundle 'fuenor/qfixhowm'             " QFixHowm - hitori otegaru wiki modoki
+NeoBundle 'gregsexton/gitv'             " :Gitv, 要fugitive
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'kana/vim-altr'               " <Space>a
 NeoBundle 'kana/vim-tabpagecd'
@@ -67,6 +68,7 @@ NeoBundle 'kana/vim-textobj-syntax'   " ay, iy
 NeoBundle 'kana/vim-textobj-underscore' " a_, i_
 NeoBundle 'thinca/vim-textobj-comment' " ac, ic
 NeoBundle 'LeafCage/yankround.vim'
+
 
 "" perl
 NeoBundle 'petdance/vim-perl'
