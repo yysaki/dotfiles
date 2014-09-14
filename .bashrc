@@ -29,41 +29,7 @@ dropbox_backup_dotfiles () {
   ~/Dropbox/Program/dotfiles/vimfiles/
 }
 
-## tmux shortcuts
-alias tm='tmux'
-
-## screen shortcuts
-alias sc='screen'
-scx () {
-  screen -x $1
-}
-
 ## set aliases
-alias eng='LANG=C LANGUAGE=C LC_ALL=C'
-alias f='find'
-alias g='git'
-alias gr='grep'
-alias h='head'
-alias t='tail'
-alias v='vim'
-alias x='xargs'
-alias RPE='ruby -pe'
-alias RNE='ruby -ne'
-alias be='bundle exec'
-alias ber='bundle exec rails'
-alias gvi='gvim'
-if [ -x /usr/bin/vim ]; then
-  alias vi='/usr/bin/vim'
-fi
-alias dateMyFormat='date +"%Y%m%d"'
-datevi () {
-  if [ ! -e  ~/Dropbox/work/`dateMyFormat`.md ]; then
-    echo Daily `dateMyFormat` >> ~/Dropbox/work/`dateMyFormat`.md
-  fi
-  vi ~/Dropbox/work/`dateMyFormat`.md
-}
-alias datecp='cat ~/Dropbox/work/`dateMyFormat`.md | pbcopy'
-
 if [ -x /usr/bin/dircolors ]; then
   alias ls='ls -F --color=auto'
   alias ll='ls -la --color=auto'
@@ -86,6 +52,30 @@ else
   alias la='ls -a'
   alias l='ls -CF'
 fi
+
+alias b='bundle'
+alias bc='bundle exec compass'
+alias be='bundle exec'
+alias beg='bundle exec guard'
+alias bn='bundle exec nanoc'
+alias br='bundle exec rails'
+alias eng='LANG=C LANGUAGE=C LC_ALL=C'
+alias f='find'
+alias g='git'
+alias gr='grep'
+alias gvi='gvim'
+alias h='head'
+alias sc='screen'
+alias t='tail'
+alias tm='tmux'
+alias v='vim'
+alias vi='vim'
+alias x='xargs'
+
+## screen shortcuts
+scx () {
+  screen -x $1
+}
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
