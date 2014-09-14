@@ -67,16 +67,13 @@ alias sc='screen'
 alias t='tail'
 alias tm='tmux'
 alias v='vim'
+alias vi='vim'
 alias x='xargs'
 
 ## screen shortcuts
 scx () {
   screen -x $1
 }
-
-if [ -x /usr/bin/vim ]; then
-  alias vi='/usr/bin/vim'
-fi
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
