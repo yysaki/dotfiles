@@ -77,14 +77,6 @@ scx () {
 if [ -x /usr/bin/vim ]; then
   alias vi='/usr/bin/vim'
 fi
-alias dateMyFormat='date +"%Y%m%d"'
-datevi () {
-  if [ ! -e  ~/Dropbox/work/`dateMyFormat`.md ]; then
-    echo Daily `dateMyFormat` >> ~/Dropbox/work/`dateMyFormat`.md
-  fi
-  vi ~/Dropbox/work/`dateMyFormat`.md
-}
-alias datecp='cat ~/Dropbox/work/`dateMyFormat`.md | pbcopy'
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
