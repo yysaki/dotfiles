@@ -54,6 +54,7 @@ else
 fi
 
 alias be='bundle exec'
+alias bn='bundle exec nanoc'
 alias ber='bundle exec rails'
 alias eng='LANG=C LANGUAGE=C LC_ALL=C'
 alias f='find'
