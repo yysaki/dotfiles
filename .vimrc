@@ -151,13 +151,6 @@ NeoBundleLazy 'taichouchou2/vim-endwise.git', {
       \   'insert' : 1,
       \ } }
 
-" ruby/rails
-NeoBundle 'Shougo/neocomplcache-rsense', { 'autoload' : { 'filetypes' : ['ruby'], }, 'depends': 'Shougo/neocomplcache'}
-NeoBundle 'taichouchou2/rsense-0.3', {
-      \ 'build' : {
-      \    'mac': 'ruby etc/config.rb > ~/.rsense',
-      \    'unix': 'ruby etc/config.rb > ~/.rsense',
-      \ } }
 NeoBundle 'tpope/vim-rails'
 
 function! s:bundleLoadDepends(bundle_names) "{{{
@@ -256,7 +249,6 @@ silent! map <Space>q <Plug>(quickrun)
 let g:neocomplcache_enable_at_startup = 1
 
 let g:neocomplcache_force_overwrite_completefunc = 1
-let g:neocomplcache#sources#rsense#home_directory = expand('~/vimfiles/bundle/rsense-0.3')
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_skip_auto_completion_time = '0.3'
@@ -422,9 +414,6 @@ nmap <C-p> <Plug>(yankround-prev)
 nmap <C-n> <Plug>(yankround-next)
 
 " Other Neobundle Plugins' Setting "{{{2
-
-" RSense
-let g:rsenseUseOmniFunc = 1
 
 "" clang_complete
 let g:clang_complete_auto=0
