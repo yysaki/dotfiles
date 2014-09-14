@@ -53,6 +53,7 @@ else
   alias l='ls -CF'
 fi
 
+alias bc='bundle exec compass'
 alias be='bundle exec'
 alias beg='bundle exec guard'
 alias bn='bundle exec nanoc'
