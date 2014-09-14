@@ -53,38 +53,7 @@ setopt multios
 
 zstyle ':completion:*' list-colors ''
 
-## screen shortcuts
-alias sc='screen'
-scx () {
-  screen -x $1
-}
-
-# machine specific
-linux=false
-darwin=false
-cygwin=false
-case "$(uname)" in
-  Linux) linux=true;;
-  Darwin) darwin=true;;
-  CYGWIN*) cygwin=true;;
-esac
-
 ## set aliases
-alias g='git'
-alias tm='tmux'
-alias where="command -v"
-alias j="jobs -l"
-alias eng='LANG=C LANGUAGE=C LC_ALL=C'
-alias RPE='ruby -pe'
-alias RNE='ruby -ne'
-alias be='noglob bundle exec'
-alias ber='noglob bundle exec rails'
-alias rake="noglob rake"
-alias gvi='gvim'
-if [ -x /usr/bin/vim ]; then
-  alias vi='/usr/bin/vim'
-fi
-
 if [ -x /usr/bin/dircolors ]; then
   alias ls='ls -F --color=auto'
   alias ll='ls -la --color=auto'
@@ -107,6 +76,31 @@ else
   alias la='ls -a'
   alias l='ls -CF'
 fi
+
+alias b='bundle'
+alias bc='bundle exec compass'
+alias be='bundle exec'
+alias beg='bundle exec guard'
+alias bn='bundle exec nanoc'
+alias br='bundle exec rails'
+alias eng='LANG=C LANGUAGE=C LC_ALL=C'
+alias f='find'
+alias g='git'
+alias gr='grep'
+alias gvi='gvim'
+alias h='head'
+alias sc='screen'
+alias t='tail'
+alias tm='tmux'
+alias v='vim'
+alias vi='vim'
+alias x='xargs'
+
+## screen shortcuts
+scx () {
+  screen -x $1
+}
+
 
 # set export
 export EDITOR='vi'
