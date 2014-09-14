@@ -29,29 +29,28 @@ dropbox_backup_dotfiles () {
   ~/Dropbox/Program/dotfiles/vimfiles/
 }
 
-## tmux shortcuts
-alias tm='tmux'
 
 ## screen shortcuts
-alias sc='screen'
 scx () {
   screen -x $1
 }
 
 ## set aliases
+alias RNE='ruby -ne'
+alias RPE='ruby -pe'
+alias be='bundle exec'
+alias ber='bundle exec rails'
 alias eng='LANG=C LANGUAGE=C LC_ALL=C'
 alias f='find'
 alias g='git'
 alias gr='grep'
+alias gvi='gvim'
 alias h='head'
+alias sc='screen'
 alias t='tail'
+alias tm='tmux'
 alias v='vim'
 alias x='xargs'
-alias RPE='ruby -pe'
-alias RNE='ruby -ne'
-alias be='bundle exec'
-alias ber='bundle exec rails'
-alias gvi='gvim'
 if [ -x /usr/bin/vim ]; then
   alias vi='/usr/bin/vim'
 fi
