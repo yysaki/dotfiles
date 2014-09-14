@@ -53,8 +53,6 @@ else
   alias l='ls -CF'
 fi
 
-alias RNE='ruby -ne'
-alias RPE='ruby -pe'
 alias be='bundle exec'
 alias ber='bundle exec rails'
 alias eng='LANG=C LANGUAGE=C LC_ALL=C'
