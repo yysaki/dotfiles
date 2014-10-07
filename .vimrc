@@ -469,6 +469,13 @@ let QFixHowm_FileType       = 'markdown'
 let QFixHowm_Title          = '#'                             " タイトル記号
 let QFixHowm_FoldingPattern = '^[#[]'                         " 折りたたみのパターン
 
+"" gitv
+" prevent folding when first dispaying gitv
+augroup git
+    au!
+    autocmd FileType git :setlocal foldlevel=99
+augroup END
+
 " OS Type "{{{1
 
 let OSTYPE = system('uname')
