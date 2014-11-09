@@ -70,6 +70,7 @@ NeoBundle 'thinca/vim-textobj-comment' " ac, ic
 " NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'deris/vim-shot-f'  " f highlighting
 NeoBundle 'Lokaltog/vim-easymotion' " <Space>f
+NeoBundle 'kana/vim-smartinput'
 
 
 "" perl
