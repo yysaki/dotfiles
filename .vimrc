@@ -307,7 +307,7 @@ let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
 let g:neosnippet#snippets_directory = "~/vimfiles/snippets,~/vimfiles/bundle/vim-snippets/"
 imap <silent><C-F>                <Plug>(neosnippet_expand_or_jump)
 inoremap <silent><C-U>            <ESC>:<C-U>Unite snippet<CR>
-nnoremap <silent><Space>e         :<C-U>NeoSnippetEdit -split<CR>
+" nnoremap <silent><Space>e         :<C-U>NeoSnippetEdit -split<CR>
 smap <silent><C-F>                <Plug>(neosnippet_expand_or_jump)
 " xmap <silent>o                    <Plug>(neosnippet_register_oneshot_snippet)
 
