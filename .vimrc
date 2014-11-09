@@ -69,6 +69,7 @@ NeoBundle 'kana/vim-textobj-underscore' " a_, i_
 NeoBundle 'thinca/vim-textobj-comment' " ac, ic
 " NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'deris/vim-shot-f'  " f highlighting
+NeoBundle 'Lokaltog/vim-easymotion' " <Space>f
 
 
 "" perl
@@ -476,6 +477,11 @@ augroup git
     au!
     autocmd FileType git :setlocal foldlevel=99
 augroup END
+
+"" vim-easymotion
+let g:EasyMotion_do_mapping = 0
+nmap <Space>f <Plug>(easymotion-s2)
+let g:EasyMotion_smartcase = 1
 
 " OS Type "{{{1
 
