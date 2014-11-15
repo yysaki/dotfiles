@@ -5,7 +5,7 @@
 # rbenv
 if [ -d $HOME/.rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
+  eval "$(rbenv init - zsh)"
 fi
 
 if ! [ -d ~/.vim/bundle/neobundle.vim ]; then

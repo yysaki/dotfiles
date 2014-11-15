@@ -134,7 +134,7 @@ fi
 if $linux; then
   ## TODO for yysaki.com
   export JAVA_HOME='/usr/lib/jvm/java-1.6.0-openjdk/' 
-  alias rm='rm --preserve-root'
+#  alias rm='rm --preserve-root'
 elif $darwin; then
   alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags' # avoid BSD ctags
   export PATH=${PATH}:~/.vim/scripts
@@ -155,7 +155,7 @@ elif $cygwin; then
   }
   # apt like
   alias apt-cyg='apt-cyg -u '
-  alias rm='rm --preserve-root'
+#  alias rm='rm --preserve-root'
 fi
 
 # peco
