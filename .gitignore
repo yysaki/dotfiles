@@ -8,3 +8,8 @@ tmp/
 *~
 .*.swp
 .DS_Store
+
+tools/IEDriverServer.exe
+tools/selenium-server-standalone-*.*.*.jar
+
+PrecompiledWeb
