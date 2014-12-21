@@ -14,18 +14,19 @@ else
 endif
 
 " NeoBundle "{{{1
-" Bundles "{{{2
 let $BUNDLE_PATH = has('unix')
   \ ? '~/.vim/bundle/'
   \ : '~/vimfiles/bundle/' " if $mingw
 
 if has('vim_starting')
   set runtimepath+=$BUNDLE_PATH/neobundle.vim/
-  call neobundle#rc(expand($BUNDLE_PATH))
 endif
 
-NeoBundle 'Shougo/neobundle.vim'
+call neobundle#begin(expand($BUNDLE_PATH))
 
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Bundles "{{{2
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -91,6 +92,7 @@ NeoBundle 'mattn/emmet-vim'              " <C-z>, old: zencoding-vim
 NeoBundle 'project.tar.gz'
 NeoBundle 'hallison/vim-markdown'
 
+call neobundle#end()
 
 augroup MyNeobundle
   au!
