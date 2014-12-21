@@ -15,14 +15,13 @@ endif
 
 " NeoBundle "{{{1
 " Bundles "{{{2
+let $BUNDLE_PATH = has('unix')
+  \ ? '~/.vim/bundle/'
+  \ : '~/vimfiles/bundle/' " if $mingw
+
 if has('vim_starting')
-  if !has('unix') " if $mingw
-    set runtimepath+=~/vimfiles/bundle/neobundle.vim/
-    call neobundle#rc(expand('~/vimfiles/bundle/'))
-  else
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
-    call neobundle#rc(expand('~/.vim/bundle/'))
-  endif
+  set runtimepath+=$BUNDLE_PATH/neobundle.vim/
+  call neobundle#rc(expand($BUNDLE_PATH))
 endif
 
 NeoBundle 'Shougo/neobundle.vim'
