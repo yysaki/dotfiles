@@ -9,7 +9,7 @@
 [core]
   excludesfile = ~/.gitignore  # globalな.gitignoreの指定
   editor = vim -c \"set fenc=utf-8\"
-  pager = less
+  pager = less -+S
 #  autocrlf = input             # CRLFを自動変換
 [alias]
   ad = add
