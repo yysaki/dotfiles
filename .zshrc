@@ -2,6 +2,8 @@ export LANG=ja_JP.UTF-8
 autoload -Uz compinit
 compinit -u
 
+stty stop undef
+
 case ${UID} in
   0)
     PROMPT="%B%{[31m%}%m:%n#%{[m%}%b "
@@ -37,6 +39,7 @@ setopt share_history        # share command history data
 bindkey -d
 bindkey -e
 bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
 
 # shortcut for searching history
 autoload history-search-end
