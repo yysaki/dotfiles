@@ -31,6 +31,7 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/tabpagebuffer.vim'
 NeoBundle 'Shougo/neomru.vim'           " :Unite file_mru
 NeoBundle 'h1mesuke/unite-outline'      " :Unite outline
 NeoBundle 'fuenor/qfixhowm'             " QFixHowm - hitori otegaru wiki modoki
