@@ -466,7 +466,7 @@ let g:tcomment_types['reduce'] = '%% %s'
 " set runtimepath                                             " NeoBundleの場合不要
 let QFixHowm_Key            = 'g'                             " キーマップリーダー ex.'g,c'
 let QFixMRU_Filename        = '~/.qfixmru'                    " MRUリスト
-let howm_dir                = '~/Dropbox/Files/howm/dir'      " ファイルを保存したいディレクトリ
+let howm_dir                = '~/howm/dir'      " ファイルを保存したいディレクトリ
 let howm_fileencoding       = 'utf-8'
 let howm_fileformat         = 'unix'
 let howm_filename           = '%Y/%m/%Y-%m-%d-%H%M%S.mkd'
