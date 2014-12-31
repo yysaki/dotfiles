@@ -781,9 +781,13 @@ nnoremap <F5>  :!ctags -R<CR>
 nnoremap &  :&&<CR>
 xnoremap &  :&&<CR>
 
-" Search for the selected text. by kana/config
-vnoremap *  <SID>search_the_selected_text_literaly('n')
-vnoremap #  <SID>search_the_selected_text_literaly('N')
+" ビジュアルモードで選択した文字列を検索
+vnoremap * "zy:let @/ = @z<CR>n
+vnoremap # "zy:let @/ = @z<CR>N
+
+" " Search for the selected text. by kana/config
+" vnoremap *  <SID>search_the_selected_text_literaly('n')
+" vnoremap #  <SID>search_the_selected_text_literaly('N')
 
 function! s:search_the_selected_text_literaly(search_command)
   let reg_0 = [@0, getregtype('0')]
