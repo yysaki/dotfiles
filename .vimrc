@@ -813,6 +813,7 @@ set ignorecase
 set infercase
 set smartcase
 set wrapscan
+set incsearch
 
 " ctags用
 set tags=./tags,tags
