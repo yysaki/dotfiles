@@ -246,6 +246,11 @@ let g:quickrun_config['make.run']   = {"command": "make", "cmdopt": "run",   "ou
 let g:quickrun_config['make.test']  = {"command": "make", "cmdopt": "test",  "outputter": "error:buffer:quickfix"}
 let g:quickrun_config['tex']        = {"command": "make", "exec" : "%c %o",  "outputter": "error:buffer:quickfix"}
 
+if executable("clang++")
+  let g:quickrun_config['cpp/clang++11'] = {'cmdopt': '--std=c++11 --stdlib=libc++', 'type': 'cpp/clang++'}
+  let g:quickrun_config['cpp'] = {'type': 'cpp/clang++11'}
+endif
+
 " <Space>q でquickrunする
 silent! map <Space>q <Plug>(quickrun)
 
