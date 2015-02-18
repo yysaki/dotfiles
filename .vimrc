@@ -72,6 +72,7 @@ NeoBundle 'thinca/vim-textobj-comment' " ac, ic
 " NeoBundle 'deris/vim-shot-f'  " f highlighting
 NeoBundle 'Lokaltog/vim-easymotion' " <Space>f
 NeoBundle 'kana/vim-smartinput'
+NeoBundle 'junegunn/vim-easy-align'
 
 
 "" perl
@@ -495,6 +496,14 @@ augroup END
 let g:EasyMotion_do_mapping = 0
 nmap <Space>f <Plug>(easymotion-s2)
 let g:EasyMotion_smartcase = 1
+
+"" vim-easy-align'
+
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " OS Type "{{{1
 
