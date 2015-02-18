@@ -69,7 +69,7 @@ NeoBundle 'kana/vim-textobj-syntax'   " ay, iy
 NeoBundle 'kana/vim-textobj-underscore' " a_, i_
 NeoBundle 'thinca/vim-textobj-comment' " ac, ic
 " NeoBundle 'LeafCage/yankround.vim'
-NeoBundle 'deris/vim-shot-f'  " f highlighting
+" NeoBundle 'deris/vim-shot-f'  " f highlighting
 NeoBundle 'Lokaltog/vim-easymotion' " <Space>f
 NeoBundle 'kana/vim-smartinput'
 
