@@ -414,6 +414,13 @@ call unite#custom#substitute('file', '^\~', escape($HOME, '\'), -2)
 call unite#custom#substitute('file', '\\\@<! ', '\\ ', -20)
 call unite#custom#substitute('file', '\\ \@!', '/', -30)
 
+" unite grep に ag(The Silver Searcher) を使う
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+
 "" yankround.vim "{{{2
 "
 "nmap p <Plug>(yankround-p)
