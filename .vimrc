@@ -73,6 +73,7 @@ NeoBundle 'thinca/vim-textobj-comment' " ac, ic
 NeoBundle 'Lokaltog/vim-easymotion' " <Space>f
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'rking/ag.vim'
 
 
 "" perl
