@@ -35,6 +35,7 @@ NeoBundle 'Shougo/tabpagebuffer.vim'
 NeoBundle 'Shougo/neomru.vim'           " :Unite file_mru
 NeoBundle 'h1mesuke/unite-outline'      " :Unite outline
 NeoBundle 'fuenor/qfixhowm'             " QFixHowm - hitori otegaru wiki modoki
+NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'gregsexton/gitv'             " :Gitv, 要fugitive
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'kana/vim-altr'               " <Space>a
