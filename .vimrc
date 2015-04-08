@@ -820,29 +820,6 @@ nnoremap <F5>  :!ctags -R<CR>
 nnoremap &  :&&<CR>
 xnoremap &  :&&<CR>
 
-" ビジュアルモードで選択した文字列を検索
-vnoremap * "zy:let @/ = @z<CR>n
-vnoremap # "zy:let @/ = @z<CR>N
-
-" " Search for the selected text. by kana/config
-" vnoremap *  <SID>search_the_selected_text_literaly('n')
-" vnoremap #  <SID>search_the_selected_text_literaly('N')
-
-function! s:search_the_selected_text_literaly(search_command)
-  let reg_0 = [@0, getregtype('0')]
-  let reg_u = [@", getregtype('"')]
-
-  normal! gvy
-  let @/ = '\V' . escape(@0, '\')
-  call histadd('/', @/)
-  execute 'normal!' a:search_command
-  let v:searchforward = a:search_command ==# 'n'
-
-  call setreg('0', reg_0[0], reg_0[1])
-  call setreg('"', reg_u[0], reg_u[1])
-endfunction
-
-
 " Generals "{{{1
 
 filetype plugin indent on "プラグインをオンにする
