@@ -75,6 +75,7 @@ NeoBundle 'Lokaltog/vim-easymotion' " <Space>f
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'rking/ag.vim'
+NeoBundle 'haya14busa/vim-asterisk'
 
 
 "" perl
@@ -513,6 +514,16 @@ vmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+"" vim-asterisk
+vmap *   <Plug>(asterisk-*)
+vmap #   <Plug>(asterisk-#)
+vmap g*  <Plug>(asterisk-g*)
+vmap g#  <Plug>(asterisk-g#)
+map z*  <Plug>(asterisk-z*)
+map gz* <Plug>(asterisk-gz*)
+map z#  <Plug>(asterisk-z#)
+map gz# <Plug>(asterisk-gz#)
 
 " OS Type "{{{1
 
