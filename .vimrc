@@ -76,6 +76,7 @@ NeoBundle 'kana/vim-smartinput'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'haya14busa/vim-asterisk'
+NeoBundle 'sjl/gundo.vim'
 
 
 "" perl
@@ -866,6 +867,10 @@ set showmatch
 set shellslash
 
 set history=10000
+
+" undofile
+set undofile
+set undodir='~/tmp/vim-undofile'
 
 " 拡張子設定
 au BufRead,BufNewFile *.red set filetype=reduce
