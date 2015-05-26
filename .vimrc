@@ -77,6 +77,7 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'haya14busa/vim-asterisk'
 NeoBundle 'sjl/gundo.vim'
+NeoBundle 'digitaltoad/vim-jade'
 
 
 "" perl
