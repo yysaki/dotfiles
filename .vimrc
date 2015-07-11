@@ -822,6 +822,25 @@ nnoremap <F5>  :!ctags -R<CR>
 nnoremap &  :&&<CR>
 xnoremap &  :&&<CR>
 
+" コマンドラインモード用
+set wildmode=longest:full,full
+cnoremap <C-a> <Home>
+cnoremap <C-b> <Left>
+" cnoremap <C-d> <Del>
+cnoremap <C-e> <End>
+cnoremap <C-f> <Right>
+cnoremap <C-n> <Down>
+cnoremap <C-p> <Up>
+cnoremap <M-b> <S-Left>
+cnoremap <M-f> <S-Right>
+
+" 検索時のエスケープ
+cnoremap <expr> / (getcmdtype() == '/') ? '\/' : '/'
+cnoremap <expr> ? (getcmdtype() == '?') ? '\?' : '?'
+
+" 検索時単語境界の付与
+cnoremap <C-o> <C-\>e(getcmdtype() == '/' <Bar><Bar> getcmdtype() == '?') ? '\<' . getcmdline() . '\>' : getcmdline()<CR>
+
 " Generals "{{{1
 
 filetype plugin indent on "プラグインをオンにする
