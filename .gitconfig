@@ -1,7 +1,7 @@
 # ref: http://yuroyoro.hatenablog.com/entry/20101008/1286531851
 [user]
   name = yysaki
-  email = yysaki@yysaki.com
+  email = yysaki@mail.yysaki.com
 [color]
   ui = auto
 [push]
@@ -82,3 +82,5 @@
   wc = whatchanged         # logに変更されたファイルも一緒に出す
 [gui]
   encoding = utf-8
+[include]
+	path = ~/.gitconfig.local
