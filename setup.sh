@@ -10,6 +10,7 @@ case "$(uname)" in
   Darwin) darwin=true;;
   CYGWIN*) cygwin=true;;
   MINGW32*) mingw=true;; # work
+  MINGW64*) mingw=true;;
 esac
 
 cd `dirname $0`
@@ -36,7 +37,11 @@ link_dot_file () {
     if [ -f ~/$2 -o -d ~/$2 ]; then
       mv ~/$2 ~/$2.bak
     fi 
-    ln -s $PWD/$1 ~/$2
+    if $mingw; then
+      cp -rf $PWD/$1 ~/$2
+    else
+      ln -s $PWD/$1 ~/$2
+    fi
   fi
 }
 
