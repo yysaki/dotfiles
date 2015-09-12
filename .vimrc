@@ -1,6 +1,8 @@
 " Basics "{{{1
 set nocompatible
 
+let OSTYPE = system('uname')
+
 " Encoding "{{{2
 
 if has('kaoriya') && !has('unix')
@@ -99,12 +101,29 @@ NeoBundle 'mattn/emmet-vim'              " <C-z>, old: zencoding-vim
 NeoBundle 'project.tar.gz'
 NeoBundle 'hallison/vim-markdown'
 
-call neobundle#end()
+" reference環境
+NeoBundleLazy 'vim-ruby/vim-ruby', {
+    \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
+NeoBundleLazy 'taka84u9/vim-ref-ri', {
+      \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref'],
+      \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
+NeoBundleLazy 'skwp/vim-rspec', {
+      \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
+NeoBundleLazy 'ruby-matchit', {
+    \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
 
-augroup MyNeobundle
-  au!
-  au Syntax vim syntax keyword vimCommand NeoBundle NeoBundleLazy NeoBundleSource NeoBundleFetch
-augroup END
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+NeoBundleLazy 'taichouchou2/vim-endwise.git', {
+      \ 'autoload' : {
+      \   'insert' : 1,
+      \ } }
+
+NeoBundle 'tpope/vim-rails'
 
 NeoBundleLazy 'nosami/Omnisharp', {
 \   'build': {
@@ -113,6 +132,17 @@ NeoBundleLazy 'nosami/Omnisharp', {
 \     'unix': 'xbuild server/OmniSharp.sln',
 \   }
 \ }
+
+if OSTYPE == "Darwin\n" " Mac
+  NeoBundle 'kana/vim-fakeclip'
+endif
+
+call neobundle#end()
+
+augroup MyNeobundle
+  au!
+  au Syntax vim syntax keyword vimCommand NeoBundle NeoBundleLazy NeoBundleSource NeoBundleFetch
+augroup END
 
 function! Neo_al(ft) "{{{
   return { 'autoload' : {
@@ -148,19 +178,6 @@ function! BundleWithCmd(bundle_names, cmd)
   endif
 endfunction
 
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-NeoBundleLazy 'taichouchou2/vim-endwise.git', {
-      \ 'autoload' : {
-      \   'insert' : 1,
-      \ } }
-
-NeoBundle 'tpope/vim-rails'
-
 function! s:bundleLoadDepends(bundle_names) "{{{
   " bundleの読み込み
   execute 'NeoBundleSource '.a:bundle_names
@@ -169,17 +186,6 @@ endfunction
 aug MyAutoCmd
   au User Rails call <SID>bundleLoadDepends(s:bundle_rails)
 aug END
-
-" reference環境
-NeoBundleLazy 'vim-ruby/vim-ruby', {
-    \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
-NeoBundleLazy 'taka84u9/vim-ref-ri', {
-      \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref'],
-      \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
-NeoBundleLazy 'skwp/vim-rspec', {
-      \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
-NeoBundleLazy 'ruby-matchit', {
-    \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
 
 if neobundle#exists_not_installed_bundles()
   echomsg 'Not installed bundles : ' .
@@ -526,14 +532,11 @@ map gz# <Plug>(asterisk-gz#)
 
 " OS Type "{{{1
 
-let OSTYPE = system('uname')
-
 if OSTYPE == "Darwin\n" " Mac
   set clipboard=unnamed " クリップボード利用設定
   if has('gui_running')
     set macmeta
   endif
-  NeoBundle 'kana/vim-fakeclip'
 elseif OSTYPE == "Linux\n" " Linux
 endif
 
