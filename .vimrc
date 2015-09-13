@@ -1,7 +1,7 @@
 " Basics "{{{1
 set nocompatible
 
-let OSTYPE = system('uname')
+let OSTYPE = 'MINGW64_NT'
 
 " Encoding "{{{2
 
