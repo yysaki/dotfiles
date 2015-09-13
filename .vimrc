@@ -16,9 +16,10 @@ else
 endif
 
 " NeoBundle "{{{1
-let $BUNDLE_PATH = has('unix')
-  \ ? '~/.vim/bundle/'
-  \ : '~/vimfiles/bundle/' " if $mingw
+let $BUNDLE_PATH =
+  \ (has("win32unix") || has ("win64unix") || has("win32") || has ("win64"))
+  \ ? '~/vimfiles/bundle/'
+  \ : '~/.vim/bundle/'
 
 if has('vim_starting')
   set runtimepath+=$BUNDLE_PATH/neobundle.vim/
@@ -880,7 +881,6 @@ set list
 "set listchars=eol:￢,tab:_.  
 set listchars=tab:._,eol:$
 
-set t_Co=256 " 256色モード
 set hlsearch " 検索結果をハイライト
 
 set mouse=a
