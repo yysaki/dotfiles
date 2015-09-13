@@ -44,7 +44,7 @@ NeoBundle 'honza/vim-snippets'
 NeoBundle 'kana/vim-altr'               " <Space>a
 NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'majutsushi/tagbar'           " <Space>t ctags汎用
-NeoBundle 'scrooloose/syntastic'        " ファイルの構文エラーチェック
+" NeoBundle 'scrooloose/syntastic'        " ファイルの構文エラーチェック
 NeoBundle 'sudo.vim'
 NeoBundle 'thinca/vim-quickrun'         " <Space>qでmakeなど
 NeoBundle 'thinca/vim-tabrecent'         " <[TABCMD]r 
