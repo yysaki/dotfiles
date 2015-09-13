@@ -883,7 +883,6 @@ set list
 "set listchars=eol:￢,tab:_.  
 set listchars=tab:._,eol:$
 
-set t_Co=256 " 256色モード
 set hlsearch " 検索結果をハイライト
 
 set mouse=a
