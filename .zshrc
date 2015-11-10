@@ -158,6 +158,9 @@ elif $cygwin; then
   alias rm='rm --preserve-root'
 fi
 
+# node
+export PATH=$PATH:./node_modules/.bin
+
 # peco
 pcd () {
   local PCD_FILE=$HOME/.peco/.peco-cd
