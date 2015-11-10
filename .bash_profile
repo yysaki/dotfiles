@@ -2,6 +2,7 @@
 
 case "$(uname)" in
   MINGW32*) mingw=true;; # work
+  MINGW64*) mingw=true;; # work
 esac
 
 # User specific environment and startup programs

@@ -9,6 +9,7 @@ case "$(uname)" in
   Darwin) darwin=true;;
   CYGWIN*) cygwin=true;;
   MINGW32*) mingw=true;; # work
+  MINGW64*) mingw=true;; # work
 esac
 
 # User specific aliases and functions

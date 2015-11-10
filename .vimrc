@@ -16,9 +16,10 @@ else
 endif
 
 " NeoBundle "{{{1
-let $BUNDLE_PATH = has('unix')
-  \ ? '~/.vim/bundle/'
-  \ : '~/vimfiles/bundle/' " if $mingw
+let $BUNDLE_PATH =
+  \ (has("win32unix") || has ("win64unix") || has("win32") || has ("win64"))
+  \ ? '~/vimfiles/bundle/'
+  \ : '~/.vim/bundle/'
 
 if has('vim_starting')
   set runtimepath+=$BUNDLE_PATH/neobundle.vim/
@@ -112,12 +113,15 @@ NeoBundleLazy 'skwp/vim-rspec', {
 NeoBundleLazy 'ruby-matchit', {
     \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
 
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
+if !(has("win32unix") || has ("win64unix") || has("win32") || has ("win64"))
+  NeoBundle 'Shougo/vimproc', {
+        \ 'build' : {
+        \     'mac' : 'make -f make_mac.mak',
+        \     'unix' : 'make -f make_unix.mak',
+        \    },
+        \ }
+endif
+
 NeoBundleLazy 'taichouchou2/vim-endwise.git', {
       \ 'autoload' : {
       \   'insert' : 1,
@@ -883,7 +887,6 @@ set list
 "set listchars=eol:￢,tab:_.  
 set listchars=tab:._,eol:$
 
-set t_Co=256 " 256色モード
 set hlsearch " 検索結果をハイライト
 
 set mouse=a
