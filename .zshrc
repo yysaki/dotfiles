@@ -161,6 +161,12 @@ fi
 # node
 export PATH=$PATH:./node_modules/.bin
 
+# go
+if [ -d $HOME/go ] ; then
+  export GOPATH=$HOME/go
+  export PATH=$PATH:$GOPATH/bin
+fi
+
 # peco
 pcd () {
   local PCD_FILE=$HOME/.peco/.peco-cd
