@@ -150,6 +150,9 @@ elif $mingw; then
   export LESSCHARSET=dos
 fi
 
+# node
+export PATH=$PATH:./node_modules/.bin
+
 # Setup ssh-agent
 if [ -f ~/.ssh-agent ]; then
     . ~/.ssh-agent
