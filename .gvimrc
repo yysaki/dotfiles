@@ -29,6 +29,7 @@ function! GuiTabLabel()
 endfunction
 set guitablabel=%N:\ %{GuiTabLabel()}
 
+set background=dark
 colorscheme hybrid
 
 set guifont=Ricty:h13

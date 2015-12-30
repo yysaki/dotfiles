@@ -50,6 +50,7 @@ NeoBundle 'thinca/vim-quickrun'         " <Space>qでmakeなど
 NeoBundle 'thinca/vim-tabrecent'         " <[TABCMD]r 
 NeoBundle 'tpope/vim-commentary'         " gc{motion}, gcc でコメントのトグル
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'kmnk/vim-unite-giti'
 NeoBundle 'tpope/vim-surround'          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'vim-scripts/VimCoder.jar'    " topcoder
@@ -513,6 +514,49 @@ augroup git
     au!
     autocmd FileType git :setlocal foldlevel=99
 augroup END
+
+" giti {{{3
+"
+" giti prefix key
+nmap <Space>id <SID>(git-diff-cached)
+nmap <Space>iD <SID>(git-diff)
+nmap <Space>if <SID>(git-fetch-now)
+nmap <Space>iF <SID>(git-fetch)
+nmap <Space>ip <SID>(git-push-now)
+nmap <Space>iP <SID>(git-pull-now)
+nmap <Space>il <SID>(git-log-line)
+nmap <Space>iL <SID>(git-log)
+
+" unite prefix key
+nmap [Unite]gg    <SID>(giti-sources)
+nmap [Unite]gst   <SID>(git-status)
+nmap [Unite]gb    <SID>(git-branch)
+nmap [Unite]gB    <SID>(git-branch_all)
+nmap [Unite]gc    <SID>(git-config)
+nmap [Unite]gl    <SID>(git-log)
+nmap [Unite]gL    <SID>(git-log-this-file)
+
+let g:giti_log_default_line_count = 100
+nnoremap <expr><silent> <SID>(git-diff)        ':<C-u>GitiDiff ' . expand('%:p') . '<CR>'
+nnoremap <expr><silent> <SID>(git-diff-cached) ':<C-u>GitiDiffCached ' . expand('%:p') .  '<CR>'
+nnoremap       <silent> <SID>(git-fetch-now)    :<C-u>GitiFetch<CR>
+nnoremap       <silent> <SID>(git-fetch)        :<C-u>GitiFetch
+nnoremap <expr><silent> <SID>(git-push-now)    ':<C-u>GitiPushWithSettingUpstream origin ' . giti#branch#current_name() . '<CR>'
+nnoremap       <silent> <SID>(git-push)         :<C-u>GitiPush
+nnoremap       <silent> <SID>(git-pull-now)     :<C-u>GitiPull<CR>
+nnoremap       <silent> <SID>(git-pull)         :<C-u>GitiPull
+nnoremap       <silent> <SID>(git-log-line)     :<C-u>GitiLogLine ' . expand('%:p') . '<CR>'
+nnoremap       <silent> <SID>(git-log)          :<C-u>GitiLog ' . expand('%:p') . '<CR>'
+
+nnoremap <silent> <SID>(giti-sources)   :<C-u>Unite giti<CR>
+nnoremap <silent> <SID>(git-status)     :<C-u>Unite giti/status<CR>
+nnoremap <silent> <SID>(git-branch)     :<C-u>Unite giti/branch<CR>
+nnoremap <silent> <SID>(git-branch_all) :<C-u>Unite giti/branch_all<CR>
+nnoremap <silent> <SID>(git-config)     :<C-u>Unite giti/config<CR>
+nnoremap <silent> <SID>(git-log)        :<C-u>Unite giti/log<CR>
+
+nnoremap <silent><expr> <SID>(git-log-this-file) ':<C-u>Unite giti/log:' . expand('%:p') . '<CR>'
+" }}}
 
 "" vim-easymotion
 let g:EasyMotion_do_mapping = 0
