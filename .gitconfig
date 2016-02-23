@@ -49,6 +49,8 @@
   lgrr = !git --no-pager lg -n20
   lgrrr = !git --no-pager lg -n30
   lgrrrr = !git --no-pager lg -n40
+  lo = log --oneline
+  lod = log --oneline --decorate
   log-all = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
   log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
   log-s = log --oneline --graph --decorate
@@ -58,6 +60,7 @@
   ls = log --stat          # logに変更されたファイルも一緒に出す
   m = merge
   oneline = log --pretty=oneline
+  pls = "!f() { git log ${1:-HEAD} --oneline --decorate -- ${2:-.} | peco | awk '{print \"git show \" $1}' | sh ; }; f"
   ra = rebase --abort
   ranking = shortlog -s -n --no-merges
   rb = rebase
