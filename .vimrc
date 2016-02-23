@@ -31,7 +31,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Bundles "{{{2
 NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/tabpagebuffer.vim'
