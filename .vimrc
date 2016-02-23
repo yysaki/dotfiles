@@ -290,25 +290,20 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
 " neosnippet "{{{2
 
-let g:neosnippet#snippets_directory = "~/vimfiles/snippets,~/vimfiles/bundle/vim-snippets/"
-imap <silent><C-F>                <Plug>(neosnippet_expand_or_jump)
-inoremap <silent><C-U>            <ESC>:<C-U>Unite snippet<CR>
-" nnoremap <silent><Space>e         :<C-U>NeoSnippetEdit -split<CR>
-smap <silent><C-F>                <Plug>(neosnippet_expand_or_jump)
-" xmap <silent>o                    <Plug>(neosnippet_register_oneshot_snippet)
-
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ? \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-" For snippet_complete marker.
+" For conceal markers.
 if has('conceal')
-  set conceallevel=2 concealcursor=i
+  set conceallevel=2 concealcursor=niv
 endif
+
+let g:neosnippet#snippets_directory = "~/vimfiles/snippets,~/vimfiles/bundle/vim-snippets/"
 
 " Omnisharp "{{{2
 
