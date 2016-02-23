@@ -30,7 +30,6 @@ call neobundle#begin(expand($BUNDLE_PATH))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Bundles "{{{2
-NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
@@ -270,63 +269,6 @@ endif
 
 " <Space>q でquickrunする
 silent! map <Space>q <Plug>(quickrun)
-
-" neocomplcache "{{{2
-
-let g:neocomplcache_enable_at_startup = 1
-
-let g:neocomplcache_force_overwrite_completefunc = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_skip_auto_completion_time = '0.3'
-
-imap <expr><C-g>     neocomplcache#undo_completion()
-imap <expr><CR>      neocomplcache#smart_close_popup() . "<CR>" . "<Plug>DiscretionaryEnd"
-imap <silent><expr><S-TAB> pumvisible() ? "\<C-P>" : "\<S-TAB>"
-" imap <silent><expr><TAB>   pumvisible() ? "\<C-N>" : "\<TAB>"
-imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-
-"" neocomplcache
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 1
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
-" Select with <TAB>
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-let g:neocomplcache_ctags_arguments_list = {
-  \ 'perl' : '-R -h ".pm"'
-  \ }
-
-" Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-  \ 'default'    : '',
-  \ 'perl'       : $HOME . '/vimfiles/dict/perl.dict',
-  \ 'cpp'        : $HOME . '/vimfiles/dict/cpp.dict'
-  \ }
-
-" Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-  let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-" neocomplcache向け
-let g:neocomplcache_force_overwrite_completefunc=1
-if !exists("g:neocomplcache_force_omni_patterns")
-  let g:neocomplcache_force_omni_patterns = {}
-endif
-let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|::'
 
 " neosnippet "{{{2
 
