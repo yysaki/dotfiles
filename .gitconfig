@@ -60,6 +60,7 @@
   ls = log --stat          # logに変更されたファイルも一緒に出す
   m = merge
   oneline = log --pretty=oneline
+  pls = "!f() { git log ${1:-HEAD} --oneline --decorate -- ${2:-.} | peco | awk '{print \"git show \" $1}' | sh ; }; f"
   ra = rebase --abort
   ranking = shortlog -s -n --no-merges
   rb = rebase
