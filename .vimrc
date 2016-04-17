@@ -452,13 +452,22 @@ let g:tcomment_types['reduce'] = '%% %s'
 " set runtimepath                                             " NeoBundleの場合不要
 let QFixHowm_Key            = 'g'                             " キーマップリーダー ex.'g,c'
 let QFixMRU_Filename        = '~/.qfixmru'                    " MRUリスト
-let howm_dir                = '~/Dropbox/Files/howm/dir'      " ファイルを保存したいディレクトリ
 let howm_fileencoding       = 'utf-8'
 let howm_fileformat         = 'unix'
 let howm_filename           = '%Y/%m/%Y-%m-%d-%H%M%S.mkd'
 let QFixHowm_FileType       = 'markdown'
 let QFixHowm_Title          = '#'                             " タイトル記号
 let QFixHowm_FoldingPattern = '^[#[]'                         " 折りたたみのパターン
+
+let QFixHowm_ChDir = '~/Dropbox/Files/howm'
+let QFixHowm_RootDir = '~/Dropbox/Files/howm'
+
+" 現メモディレクトリ表示
+nnoremap <silent> g,hh :echo howm_dir<CR>
+" 環境変更コマンド
+nnoremap <silent> g,ha :call HowmChEnv('',            'time', '#')<CR>
+nnoremap <silent> g,hp :call HowmChEnv('private-mkd', 'time', '#')<CR>
+nnoremap <silent> g,hw :call HowmChEnv('work-mkd',    'day',  '#')<CR>
 
 "" gitv
 " prevent folding when first dispaying gitv
