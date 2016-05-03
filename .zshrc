@@ -4,6 +4,18 @@ compinit -u
 
 stty stop undef
 
+# machine specific
+linux=false
+darwin=false
+cygwin=false
+case "$(uname)" in
+  Linux) linux=true;;
+  Darwin) darwin=true;;
+  CYGWIN*) cygwin=true;;
+  MINGW32*) mingw=true;; # work
+  MINGW64*) mingw=true;; # work
+esac
+
 case ${UID} in
   0)
     PROMPT="%B%{[31m%}%m:%n#%{[m%}%b "
