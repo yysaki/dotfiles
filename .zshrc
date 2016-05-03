@@ -4,6 +4,18 @@ compinit -u
 
 stty stop undef
 
+# machine specific
+linux=false
+darwin=false
+cygwin=false
+case "$(uname)" in
+  Linux) linux=true;;
+  Darwin) darwin=true;;
+  CYGWIN*) cygwin=true;;
+  MINGW32*) mingw=true;; # work
+  MINGW64*) mingw=true;; # work
+esac
+
 case ${UID} in
   0)
     PROMPT="%B%{[31m%}%m:%n#%{[m%}%b "
@@ -94,6 +106,7 @@ alias gr='grep'
 alias gvi='gvim'
 alias h='head'
 alias p='peco'
+alias pg='cd $(ghq root)/$(ghq list | peco)'
 alias sc='screen'
 alias t='tail'
 alias tm='tmux'
@@ -140,7 +153,7 @@ elif $darwin; then
   export PATH=${PATH}:~/.vim/scripts
   export CC=gcc-4.2 # avoid llvm
   export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 
-  export JAVA_HOME='/Library/Java/JavaVirtualMachines/1.6.0_29-b11-402.jdk/Contents/Home'
+  export JAVA_HOME=$(/usr/libexec/java_home)
   PATH=$PATH:${HOME}/.rvm/bin # Add RVM to PATH for scripting
   export RBENV_ROOT=/usr/local/var/rbenv
 

@@ -73,8 +73,6 @@ NeoBundle 'kana/vim-textobj-line'     " al, il
 NeoBundle 'kana/vim-textobj-syntax'   " ay, iy
 NeoBundle 'kana/vim-textobj-underscore' " a_, i_
 NeoBundle 'thinca/vim-textobj-comment' " ac, ic
-" NeoBundle 'LeafCage/yankround.vim'
-" NeoBundle 'deris/vim-shot-f'  " f highlighting
 NeoBundle 'Lokaltog/vim-easymotion' " <Space>f
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'junegunn/vim-easy-align'
@@ -82,11 +80,6 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'haya14busa/vim-asterisk'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'digitaltoad/vim-jade'
-
-
-"" perl
-NeoBundle 'petdance/vim-perl'
-NeoBundle 'hotchpotch/perldoc-vim'
 
 "" objective-c/iOS
 NeoBundle 'Rip-Rip/clang_complete'
@@ -103,17 +96,6 @@ NeoBundle 'mattn/emmet-vim'              " <C-z>, old: zencoding-vim
 NeoBundle 'project.tar.gz'
 NeoBundle 'hallison/vim-markdown'
 
-" reference環境
-NeoBundleLazy 'vim-ruby/vim-ruby', {
-    \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
-NeoBundleLazy 'taka84u9/vim-ref-ri', {
-      \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref'],
-      \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
-NeoBundleLazy 'skwp/vim-rspec', {
-      \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
-NeoBundleLazy 'ruby-matchit', {
-    \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
-
 if !(has("win32unix") || has ("win64unix") || has("win32") || has ("win64"))
   NeoBundle 'Shougo/vimproc', {
         \ 'build' : {
@@ -127,8 +109,6 @@ NeoBundleLazy 'taichouchou2/vim-endwise.git', {
       \ 'autoload' : {
       \   'insert' : 1,
       \ } }
-
-NeoBundle 'tpope/vim-rails'
 
 if has('kaoriya') && !has('unix')
   NeoBundleLazy 'nosami/Omnisharp', {
@@ -146,54 +126,6 @@ if OSTYPE == "Darwin\n" " Mac
 endif
 
 call neobundle#end()
-
-augroup MyNeobundle
-  au!
-  au Syntax vim syntax keyword vimCommand NeoBundle NeoBundleLazy NeoBundleSource NeoBundleFetch
-augroup END
-
-function! Neo_al(ft) "{{{
-  return { 'autoload' : {
-      \ 'filetype' : a:ft
-      \ }}
-endfunction
-function! Neo_operator(mappings)
-  return {
-        \ 'depends' : 'kana/vim-textobj-user',
-        \ 'autoload' : {
-        \   'mappings' : a:mappings
-        \ }}
-endfunction
-function! BundleLoadDepends(bundle_names)
-  if !exists('g:loaded_bundles')
-    let g:loaded_bundles = {}
-  endif
-
-  " bundleの読み込み
-  if !has_key( g:loaded_bundles, a:bundle_names )
-    execute 'NeoBundleSource '.a:bundle_names
-    let g:loaded_bundles[a:bundle_names] = 1
-  endif
-endfunction
-
-" コマンドを伴うやつの遅延読み込み
-function! BundleWithCmd(bundle_names, cmd)
-  call BundleLoadDepends(a:bundle_names)
-
-  " コマンドの実行
-  if !empty(a:cmd)
-    execute a:cmd
-  endif
-endfunction
-
-function! s:bundleLoadDepends(bundle_names) "{{{
-  " bundleの読み込み
-  execute 'NeoBundleSource '.a:bundle_names
-  au! MyAutoCmd
-endfunction
-aug MyAutoCmd
-  au User Rails call <SID>bundleLoadDepends(s:bundle_rails)
-aug END
 
 if neobundle#exists_not_installed_bundles()
   echomsg 'Not installed bundles : ' .
@@ -312,45 +244,10 @@ if !exists('g:neocomplcache_force_omni_patterns')
 endif
 let g:neocomplcache_force_omni_patterns.cs = '[^.]\.\%(\u\{2,}\)\?'
 
-" vim-rails "{{{2
-"有効化
-let g:rails_default_file='config/database.yml'
-let g:rails_level = 4
-let g:rails_mappings=1
-let g:rails_modelines=0
-" let g:rails_some_option = 1
-" let g:rails_statusline = 1
-" let g:rails_subversion=0
-" let g:rails_syntax = 1
-" let g:rails_url='http://localhost:3000'
-" let g:rails_ctags_arguments='--languages=-javascript'
-" let g:rails_ctags_arguments = ''
-function! SetUpRailsSetting()
-  nnoremap <buffer><Space>r :R<CR>
-  nnoremap <buffer><Space>a :A<CR>
-  nnoremap <buffer><Space>m :Rmodel<Space>
-  nnoremap <buffer><Space>c :Rcontroller<Space>
-  nnoremap <buffer><Space>v :Rview<Space>
-  nnoremap <buffer><Space>p :Rpreview<CR>
-endfunction
-
-aug MyAutoCmd
-  au User Rails call SetUpRailsSetting()
-aug END
-
-aug RailsDictSetting
-  au!
-aug END
-
 " vim-ref "{{{2
 "
 let g:ref_open                    = 'split'
 let g:ref_refe_cmd                = expand('~/vimfiles/ref/ruby-ref1.9.2/refe-1_9_2')
-
-aug MyAutoCmd
-  au FileType ruby,eruby,ruby.rspec nnoremap <silent><buffer>KK :<C-U>Unite -no-start-insert ref/ri   -input=<C-R><C-W><CR>
-  au FileType ruby,eruby,ruby.rspec nnoremap <silent><buffer>K  :<C-U>Unite -no-start-insert ref/refe -input=<C-R><C-W><CR>
-aug END
 
 " Unite.vim "{{{2
 
@@ -391,16 +288,6 @@ if executable('ag')
   let g:unite_source_grep_recursive_opt = ''
 endif
 
-"" yankround.vim "{{{2
-"
-"nmap p <Plug>(yankround-p)
-"xmap p <Plug>(yankround-p)
-"nmap P <Plug>(yankround-P)
-"nmap gp <Plug>(yankround-gp)
-"xmap gp <Plug>(yankround-gp)
-"nmap gP <Plug>(yankround-gP)
-"nmap <C-p> <Plug>(yankround-prev)
-"nmap <C-n> <Plug>(yankround-next)
 
 " Other Neobundle Plugins' Setting "{{{2
 
