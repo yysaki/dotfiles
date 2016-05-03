@@ -152,7 +152,7 @@ elif $darwin; then
   export PATH=${PATH}:~/.vim/scripts
   export CC=gcc-4.2 # avoid llvm
   export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 
-  export JAVA_HOME='/Library/Java/JavaVirtualMachines/1.6.0_29-b11-402.jdk/Contents/Home'
+  export JAVA_HOME=$(/usr/libexec/java_home)
   PATH=$PATH:${HOME}/.rvm/bin # Add RVM to PATH for scripting
   export RBENV_ROOT=/usr/local/var/rbenv
 
