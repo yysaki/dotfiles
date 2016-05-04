@@ -665,6 +665,7 @@ Allmap <C-Space>  <C-@>
 if has('gui_running')
   nmap <Esc>  <C-w>
 elseif has('unix')
+  " this function is imported from https://gist.github.com/thinca/1518874/
   " Use meta keys in console.
   function! s:use_meta_keys()
     for i in map(
