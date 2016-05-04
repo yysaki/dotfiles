@@ -495,6 +495,9 @@ function! s:modifier_combinations(modifiers)
   return s:all_combinations(prefixes)
 endfunction
 
+" <M-{x}> => <Esc>x
+function! s:emulate_meta_esc_behavior_in_terminal()
+
 " git-diff-aware version of gf commands.
 function! s:do_git_diff_aware_gf(command)
   let target_path = expand('<cfile>')
@@ -511,8 +514,6 @@ function! s:do_git_diff_aware_gf(command)
   endif
 endfunction
 
-" <M-{x}> => <Esc>x
-function! s:emulate_meta_esc_behavior_in_terminal()
   " [key, acceptable-modifiers-except-meta]  "{{{
   let keys = [
   \   ['!', ''],
@@ -662,16 +663,7 @@ cnoremap <C-@>  <C-c>
 Allmap <C-Space>  <C-@>
 
 " <Esc>{x} to <C-w>{x}
-" nmap <Esc>  <C-w>
-nmap s <C-w>
-nmap <M-h>   <C-w>h
-nmap <M-j>   <C-w>j
-nmap <M-k>   <C-w>k
-nmap <M-l>   <C-w>l
-nmap <Esc>H   <C-w>H
-nmap <Esc>J   <C-w>J
-nmap <Esc>K   <C-w>K
-nmap <Esc>L   <C-w>L
+nmap <Esc>  <C-w>
 
 " <M-{x}> => <Esc>x if has('gui_running')
 call s:emulate_meta_esc_behavior_in_terminal()
