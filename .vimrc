@@ -682,7 +682,7 @@ elseif has('unix')
   call s:use_meta_keys()
 endif
 
-" <M-{x}> => <Esc>x if has('gui_running')
+" <M-{x}> to <Esc>{x}
 call s:emulate_meta_esc_behavior_in_terminal()
 
 " vimrcをオープン, リロード
