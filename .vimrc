@@ -495,9 +495,6 @@ function! s:modifier_combinations(modifiers)
   return s:all_combinations(prefixes)
 endfunction
 
-" <M-{x}> => <Esc>x
-function! s:emulate_meta_esc_behavior_in_terminal()
-
 " git-diff-aware version of gf commands.
 function! s:do_git_diff_aware_gf(command)
   let target_path = expand('<cfile>')
@@ -514,6 +511,8 @@ function! s:do_git_diff_aware_gf(command)
   endif
 endfunction
 
+" <M-{x}> => <Esc>x
+function! s:emulate_meta_esc_behavior_in_terminal()
   " [key, acceptable-modifiers-except-meta]  "{{{
   let keys = [
   \   ['!', ''],
