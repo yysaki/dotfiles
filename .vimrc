@@ -130,13 +130,16 @@ NeoBundleLazy 'taichouchou2/vim-endwise.git', {
 
 NeoBundle 'tpope/vim-rails'
 
-NeoBundleLazy 'nosami/Omnisharp', {
-\   'build': {
-\     'windows': 'MSBuild.exe server/OmniSharp.sln /p:Platform="Any CPU"',
-\     'mac': 'xbuild server/OmniSharp.sln',
-\     'unix': 'xbuild server/OmniSharp.sln',
-\   }
-\ }
+if has('kaoriya') && !has('unix')
+  NeoBundleLazy 'nosami/Omnisharp', {
+  \   'autoload': {'filetypes': ['cs']},
+  \   'build': {
+  \     'windows': 'MSBuild.exe server/OmniSharp.sln /p:Platform="Any CPU"',
+  \     'mac': 'xbuild server/OmniSharp.sln',
+  \     'unix': 'xbuild server/OmniSharp.sln',
+  \   }
+  \ }
+endif
 
 if OSTYPE == "Darwin\n" " Mac
   NeoBundle 'kana/vim-fakeclip'
