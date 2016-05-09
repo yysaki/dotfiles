@@ -80,6 +80,7 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'haya14busa/vim-asterisk'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'digitaltoad/vim-jade'
+" NeoBundleLazy 'nosami/Omnisharp' TODO 軽快に使う用法を見つけるまで
 
 "" objective-c/iOS
 NeoBundle 'Rip-Rip/clang_complete'
@@ -109,17 +110,6 @@ NeoBundleLazy 'taichouchou2/vim-endwise.git', {
       \ 'autoload' : {
       \   'insert' : 1,
       \ } }
-
-if has('kaoriya') && !has('unix')
-  NeoBundleLazy 'nosami/Omnisharp', {
-  \   'autoload': {'filetypes': ['cs']},
-  \   'build': {
-  \     'windows': 'MSBuild.exe server/OmniSharp.sln /p:Platform="Any CPU"',
-  \     'mac': 'xbuild server/OmniSharp.sln',
-  \     'unix': 'xbuild server/OmniSharp.sln',
-  \   }
-  \ }
-endif
 
 if OSTYPE == "Darwin\n" " Mac
   NeoBundle 'kana/vim-fakeclip'
@@ -236,13 +226,6 @@ if has('conceal')
 endif
 
 let g:neosnippet#snippets_directory = "~/vimfiles/snippets,~/vimfiles/bundle/vim-snippets/"
-
-" Omnisharp "{{{2
-
-if !exists('g:neocomplcache_force_omni_patterns')
-  let g:neocomplcache_force_omni_patterns = {}
-endif
-let g:neocomplcache_force_omni_patterns.cs = '[^.]\.\%(\u\{2,}\)\?'
 
 " vim-ref "{{{2
 "
