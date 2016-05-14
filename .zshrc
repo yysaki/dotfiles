@@ -218,3 +218,7 @@ function pghq () {
 }
 zle -N pghq
 bindkey '^]' pghq
+
+# __END__  "{{{1
+# vim: expandtab softtabstop=2 shiftwidth=2
+# vim: foldmethod=marker
