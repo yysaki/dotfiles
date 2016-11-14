@@ -149,6 +149,7 @@ if $linux; then
   export JAVA_HOME='/usr/lib/jvm/java-1.6.0-openjdk/' 
 #  alias rm='rm --preserve-root'
 elif $darwin; then
+  export PATH=$PATH:${HOME}/bin
   alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags' # avoid BSD ctags
   export PATH=${PATH}:~/.vim/scripts
   export CC=gcc-4.2 # avoid llvm
