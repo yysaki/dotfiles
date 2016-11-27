@@ -67,6 +67,7 @@ alias gr='grep'
 alias gvi='gvim'
 alias h='head'
 alias p='peco'
+alias pg='cd $(ghq root)/$(ghq list | peco)'
 alias sc='screen'
 alias t='tail'
 alias tm='tmux'
@@ -195,13 +196,6 @@ pcd () {
 
   if [ $PCD_RETURN ]; then
     cd $PCD_RETURN
-  fi
-}
-
-pg () {
-  local dir="$( ghq list --full-path | peco )"
-  if [ ! -z "$dir" ] ; then
-    cd "$dir"
   fi
 }
 
