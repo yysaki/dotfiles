@@ -216,6 +216,10 @@ pg () {
   fi
 }
 
+if [ -x ~/.ghq/github.com/rupa/z ]; then
+  source ~/.ghq/github.com/rupa/z/z.sh
+fi
+
 # __END__  "{{{1
 # vim: expandtab softtabstop=2 shiftwidth=2
 # vim: foldmethod=marker
