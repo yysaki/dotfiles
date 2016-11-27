@@ -198,6 +198,13 @@ pcd () {
   fi
 }
 
+pg () {
+  local dir="$( ghq list --full-path | peco )"
+  if [ ! -z "$dir" ] ; then
+    cd "$dir"
+  fi
+}
+
 # cdの引数を絶対パスにしてコマンドヒストリに残す
 # ref: http://inaz2.hatenablog.com/entry/2014/12/11/015125
 if [[ -n "$PS1" ]]; then
