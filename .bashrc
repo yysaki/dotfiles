@@ -205,6 +205,10 @@ pg () {
   fi
 }
 
+if [ -x ~/.ghq/github.com/rupa/z ]; then
+  source ~/.ghq/github.com/rupa/z/z.sh
+fi
+
 # cdの引数を絶対パスにしてコマンドヒストリに残す
 # ref: http://inaz2.hatenablog.com/entry/2014/12/11/015125
 if [[ -n "$PS1" ]]; then
