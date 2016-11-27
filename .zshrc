@@ -209,6 +209,13 @@ pcd () {
   fi
 }
 
+pg () {
+  local dir="$( ghq list --full-path | peco )"
+  if [ ! -z "$dir" ] ; then
+    cd "$dir"
+  fi
+}
+
 function pghq () {
     local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
