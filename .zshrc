@@ -209,13 +209,6 @@ pcd () {
   fi
 }
 
-pg () {
-  local dir="$( ghq list --full-path | peco )"
-  if [ ! -z "$dir" ] ; then
-    cd "$dir"
-  fi
-}
-
 if [ -x ~/.ghq/github.com/rupa/z ]; then
   source ~/.ghq/github.com/rupa/z/z.sh
 fi
