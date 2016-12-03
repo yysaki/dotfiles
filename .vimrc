@@ -76,6 +76,7 @@ NeoBundle 'thinca/vim-textobj-comment' " ac, ic
 NeoBundle 'Lokaltog/vim-easymotion' " <Space>f
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'Konfekt/FastFold'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'haya14busa/vim-asterisk'
 NeoBundle 'sjl/gundo.vim'
