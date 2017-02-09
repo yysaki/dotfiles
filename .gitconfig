@@ -39,9 +39,11 @@
   ds = diff --staged         # 同上(1.6.1移行)
   dw = diff --color-words    # 単語単位でいろつけてdiff
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`" # mergeの際にconflictが起きたファイルを編集
+
   f = fetch
   gn = grep -n
   gr = grep
+  # include-topic = "!f() { git lg $1~..HEAD | grep -B200 $1 | grep \"(origin/\" | tail -n1 | sed -e \"s/.*\(origin\/i[a-z0-9]*\)).*/\1/g\"; }; f"
   la = log --pretty=\"format:%ad %h (%an): %s\" --date=short  # ざっくりログ出す
   l = log
   lg = log --oneline --graph --decorate --abbrev-commit
@@ -83,6 +85,7 @@
   t = tag
   up = pull --rebase       # pull rebase
   wc = whatchanged         # logに変更されたファイルも一緒に出す
+  include = "!f() { git log --oneline --decorate ${1:-HEAD}~..HEAD | grep -B200 ${1:HEAD} | grep \"(origin/\" | tail -n1 | awk '{print $2}'; }; f"
 [gui]
   encoding = utf-8
 [include]
