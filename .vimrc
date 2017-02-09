@@ -364,9 +364,9 @@ let QFixHowm_FoldingPattern = '^[#[]'                         " 折りたたみ�
 let QFixHowm_ChDir = '~/Dropbox/Files/howm'
 let QFixHowm_RootDir = '~/Dropbox/Files/howm'
 
-if executable('grep')
-  let mygrepprg = 'grep'
-endif
+" if executable('grep')
+"   let mygrepprg = 'grep'
+" endif
 
 " 現メモディレクトリ表示
 nnoremap <silent> g,hh :echo howm_dir<CR>
