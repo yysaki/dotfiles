@@ -94,7 +94,6 @@ else
 fi
 
 alias b='bundle'
-alias bc='bundle exec compass'
 alias be='bundle exec'
 alias beg='bundle exec guard'
 alias bn='bundle exec nanoc'
@@ -149,6 +148,7 @@ if $linux; then
   export JAVA_HOME='/usr/lib/jvm/java-1.6.0-openjdk/' 
   alias rm='rm --preserve-root'
 elif $darwin; then
+  export PATH=$PATH:${HOME}/bin
   alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags' # avoid BSD ctags
   export PATH=${PATH}:~/.vim/scripts
   export CC=gcc-4.2 # avoid llvm
@@ -208,17 +208,12 @@ pcd () {
   fi
 }
 
-function pghq () {
-    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
-    fi
-    zle clear-screen
-}
-zle -N pghq
-bindkey '^]' pghq
+if [ -x ~/.ghq/github.com/rupa/z ]; then
+  source ~/.ghq/github.com/rupa/z/z.sh
+fi
 
 # __END__  "{{{1
 # vim: expandtab softtabstop=2 shiftwidth=2
 # vim: foldmethod=marker
+
+source ${HOME}/.zprofile

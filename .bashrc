@@ -55,7 +55,6 @@ else
 fi
 
 alias b='bundle'
-alias bc='bundle exec compass'
 alias be='bundle exec'
 alias beg='bundle exec guard'
 alias bn='bundle exec nanoc'
@@ -67,6 +66,7 @@ alias gr='grep'
 alias gvi='gvim'
 alias h='head'
 alias p='peco'
+alias pg='cd $(ghq root)/$(ghq list | peco)'
 alias sc='screen'
 alias t='tail'
 alias tm='tmux'
@@ -197,6 +197,10 @@ pcd () {
     cd $PCD_RETURN
   fi
 }
+
+if [ -x ~/.ghq/github.com/rupa/z ]; then
+  source ~/.ghq/github.com/rupa/z/z.sh
+fi
 
 # cdの引数を絶対パスにしてコマンドヒストリに残す
 # ref: http://inaz2.hatenablog.com/entry/2014/12/11/015125

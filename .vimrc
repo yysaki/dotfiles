@@ -76,6 +76,7 @@ NeoBundle 'thinca/vim-textobj-comment' " ac, ic
 NeoBundle 'Lokaltog/vim-easymotion' " <Space>f
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'Konfekt/FastFold'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'haya14busa/vim-asterisk'
 NeoBundle 'sjl/gundo.vim'
@@ -263,6 +264,16 @@ nnoremap <silent> [Unite]o  :<C-u>Unite outline<CR>
 nnoremap <silent> [Unite]r  :<C-u>Unite file_rec<CR>
 nnoremap <silent> [Unite]t  :<C-u>Unite buffer_tab<CR>
 nnoremap <silent> [Unite]u  :<C-u>UniteWithCurrentDir file_mru<CR>
+nnoremap <silent> [Unite]g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> [Unite]cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+nnoremap <silent> [Unite]rg  :<C-u>UniteResume search-buffer<CR>
+
+if executable('pt')
+  let g:unite_source_grep_command = 'pt'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+  let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_grep_encoding = 'utf-8'
+endif
 
 call unite#custom#substitute('file', '\$\w\+', '\=eval(submatch(0))', 200)
 call unite#custom#substitute('file', '[^~.]\zs/', '*/*', 20)
@@ -297,6 +308,7 @@ let g:clang_use_library=1
 
 "" vim-altr
 nmap <Space>a <Plug>(altr-forward)
+call altr#define('%.xaml', '%.xaml.cs')
 
 "" open browser
 nnoremap <Leader>o <Plug>(openbrowser-smart-search) 
@@ -827,6 +839,9 @@ au BufNewFile,BufRead *.{aspx,ascx} set filetype=html
 au BufNewFile,BufRead *.{aspx,ascx,cs,html,master} setlocal tabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.{aspx,ascx,cs,html,master} setlocal noexpandtab softtabstop=4
 au BufNewFile,BufRead *.{aspx,ascx,cs,html,master} setlocal foldmethod=syntax
+
+au BufNewFile,BufRead *.{xaml} set filetype=xml
+au BufNewFile,BufRead *.{xaml,ascx,cs,html,master} setlocal tabstop=4 shiftwidth=4
 
 autocmd FileType *
 \   if &l:omnifunc == ''
