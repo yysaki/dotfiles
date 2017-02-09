@@ -281,6 +281,7 @@ let g:clang_use_library=1
 
 "" vim-altr
 nmap <Space>a <Plug>(altr-forward)
+call altr#define('%.xaml', '%.xaml.cs')
 
 "" open browser
 nnoremap <Leader>o <Plug>(openbrowser-smart-search) 
@@ -807,6 +808,9 @@ au BufNewFile,BufRead *.{aspx,ascx} set filetype=html
 au BufNewFile,BufRead *.{aspx,ascx,cs,html,master} setlocal tabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.{aspx,ascx,cs,html,master} setlocal noexpandtab softtabstop=4
 au BufNewFile,BufRead *.{aspx,ascx,cs,html,master} setlocal foldmethod=syntax
+
+au BufNewFile,BufRead *.{xaml} set filetype=xml
+au BufNewFile,BufRead *.{xaml,ascx,cs,html,master} setlocal tabstop=4 shiftwidth=4
 
 autocmd FileType *
 \   if &l:omnifunc == ''
