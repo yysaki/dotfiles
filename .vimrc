@@ -56,6 +56,7 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'vim-scripts/VimCoder.jar'    " topcoder
 NeoBundle 'vim-scripts/errormarker.vim' " flymakeっぽいこと 実態確認 ':autocmd QuickFixCmdPost'
 NeoBundle 'vim-scripts/matchit.zip'
+NeoBundle 'vim-scripts/vim-niji'
 NeoBundle 'altercation/vim-colors-solarized' " solarized.vim
 NeoBundle 'w0ng/vim-hybrid' " :colorscheme hybrid
 NeoBundle 'tpope/vim-dispatch'
