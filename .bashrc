@@ -147,7 +147,8 @@ elif $cygwin; then
   alias apt-cyg='apt-cyg -u '
 elif $mingw; then
   export PATH=/c/Perl64/bin:${PATH}
-  export PATH=/c/Program\ Files\ \(x86\)/Vim/vim74:${PATH}
+  export PATH=/c/Program\ Files\ \(x86\)/Vim/vim80:${PATH}
+  export PATH=/cmd/:${PATH}
   export LESSCHARSET=dos
 fi
 

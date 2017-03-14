@@ -56,6 +56,7 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'vim-scripts/VimCoder.jar'    " topcoder
 NeoBundle 'vim-scripts/errormarker.vim' " flymakeっぽいこと 実態確認 ':autocmd QuickFixCmdPost'
 NeoBundle 'vim-scripts/matchit.zip'
+NeoBundle 'vim-scripts/vim-niji'
 NeoBundle 'altercation/vim-colors-solarized' " solarized.vim
 NeoBundle 'w0ng/vim-hybrid' " :colorscheme hybrid
 NeoBundle 'tpope/vim-dispatch'
@@ -258,6 +259,7 @@ nnoremap [Unite]  <nop>
 nmap <Space>u [Unite]
 nnoremap [Unite]<Space>  :<C-u>Unite 
 nnoremap <silent> [Unite]b  :<C-u>Unite buffer<CR>
+nnoremap <silent> [Unite]d  :<C-u>Unite directory_mru -default-action=cd<CR>
 nnoremap <silent> [Unite]f  :<C-u>Unite file<CR>
 nnoremap <silent> [Unite]m  :<C-u>Unite file_mru<CR>
 nnoremap <silent> [Unite]o  :<C-u>Unite outline<CR>
