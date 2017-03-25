@@ -1,7 +1,14 @@
 " Basics "{{{1
 set nocompatible
 
-let OSTYPE = system('uname')
+
+let OSTYPE = system("uname")
+
+if OSTYPE == "Darwin\n" " Mac
+elseif OSTYPE == "Linux\n" " Linux
+else
+  let OSTYPE = 'MINGW64_NT'
+endif
 
 " Encoding "{{{2
 
