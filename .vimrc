@@ -93,7 +93,17 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'haya14busa/vim-asterisk'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'digitaltoad/vim-jade'
-" NeoBundleLazy 'nosami/Omnisharp' TODO 軽快に使う用法を見つけるまで
+
+if OSTYPE != 'MINGW64_NT'
+  NeoBundleLazy 'OmniSharp/omnisharp-vim', {
+  \   'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] },
+  \   'build': {
+  \     'windows' : 'msbuild server/OmniSharp.sln',
+  \     'mac': 'xbuild server/OmniSharp.sln',
+  \     'unix': 'xbuild server/OmniSharp.sln',
+  \   },
+  \ }
+endif
 
 "" objective-c/iOS
 NeoBundle 'Rip-Rip/clang_complete'
