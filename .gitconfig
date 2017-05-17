@@ -41,6 +41,8 @@
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`" # mergeの際にconflictが起きたファイルを編集
 
   f = fetch
+  g = !git git
+  git = "!f() { echo 'typo'; }; f"
   gn = grep -n
   gr = grep
   # include-topic = "!f() { git lg $1~..HEAD | grep -B200 $1 | grep \"(origin/\" | tail -n1 | sed -e \"s/.*\(origin\/i[a-z0-9]*\)).*/\1/g\"; }; f"
