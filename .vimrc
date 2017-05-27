@@ -94,6 +94,7 @@ NeoBundle 'haya14busa/vim-asterisk'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'haruyama/vim-matchopen'
+NeoBundle 'osyo-manga/vim-over'
 
 if OSTYPE != 'MINGW64_NT'
   NeoBundleLazy 'OmniSharp/omnisharp-vim', {
