@@ -836,6 +836,9 @@ cnoremap <expr> ? (getcmdtype() == '?') ? '\?' : '?'
 " 検索時単語境界の付与
 cnoremap <C-o> <C-\>e(getcmdtype() == '/' <Bar><Bar> getcmdtype() == '?') ? '\<' . getcmdline() . '\>' : getcmdline()<CR>
 
+noremap ;  :
+noremap :  ;
+
 " Generals "{{{1
 
 filetype plugin indent on "プラグインをオンにする
