@@ -885,6 +885,8 @@ set shellslash
 
 set history=10000
 
+set backspace=indent,eol,start
+
 " undofile
 set undofile
 set undodir='~/tmp/vim-undofile'
