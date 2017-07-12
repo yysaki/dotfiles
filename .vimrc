@@ -839,6 +839,8 @@ cnoremap <C-o> <C-\>e(getcmdtype() == '/' <Bar><Bar> getcmdtype() == '?') ? '\<'
 noremap ;  :
 noremap :  ;
 
+nnoremap <C-h> :<C-u>help<Space>
+
 " Generals "{{{1
 
 filetype plugin indent on "プラグインをオンにする
