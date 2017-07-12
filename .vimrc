@@ -896,6 +896,8 @@ set backspace=indent,eol,start
 set undofile
 set undodir='~/tmp/vim-undofile'
 
+set helplang=en,ja
+
 " 拡張子設定
 au BufRead,BufNewFile *.red set filetype=reduce
 au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
