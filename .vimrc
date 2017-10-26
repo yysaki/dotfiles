@@ -97,6 +97,7 @@ NeoBundle 'haruyama/vim-matchopen'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'PProvost/vim-ps1'
 NeoBundle 'sorah/unite-ghq'
+NeoBundle 'haya14busa/vim-migemo'
 
 if OSTYPE != 'MINGW64_NT'
   NeoBundleLazy 'OmniSharp/omnisharp-vim', {
@@ -494,6 +495,7 @@ nnoremap <silent><expr> <SID>(git-log-this-file) ':<C-u>Unite giti/log:' . expan
 let g:EasyMotion_do_mapping = 0
 nmap <Space>f <Plug>(easymotion-s2)
 let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_migemo = 1
 
 "" vim-easy-align'
 
