@@ -729,6 +729,41 @@ function! s:emulate_meta_esc_behavior_in_terminal()
   endfor
 endfunction
 
+if OSTYPE == 'MINGW64_NT'
+  function! GitBash()
+      let l:oldlang = $LANG
+      let $LANG = systemlist('"C:/Program Files/Git/usr/bin/locale.exe" -iU')[0]
+
+      let l:oldgvim = $GVIM
+      let l:oldvimserver = $VIM_SERVERNAME
+      let $GVIM = $VIMRUNTIME
+      let $VIM_SERVERNAME = v:servername
+
+      let l:oldvim = $VIM
+      let l:oldvimruntime = $VIMRUNTIME
+      let l:oldmyvimrc = $MYVIMRC
+      let l:oldmygvimrc = $MYGVIMRC
+      let $VIM = ''
+      let $VIMRUNTIME = ''
+      let $MYVIMRC = ''
+      let $MYGVIMRC = ''
+
+      if has('clientserver')
+          let $VIM_SERVERNAME = v:servername
+      endif
+
+      terminal ++close C:/Program Files/Git/bin/bash.exe -l
+
+      let $LANG = l:oldlang
+      let $GVIM = l:oldgvim
+      let $VIM_SERVERNAME = l:oldvimserver
+      let $VIM = l:oldvim
+      let $VIMRUNTIME = l:oldvimruntime
+      let $MYVIMRC = l:oldmyvimrc
+      let $MYGVIMRC = l:oldmygvimrc
+  endfunction
+endif
+
 " Mappings "{{{1
 
 command! -nargs=+ Allmap
