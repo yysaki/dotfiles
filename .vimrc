@@ -327,6 +327,7 @@ nnoremap <silent> [Unite]d  :<C-u>Unite directory_mru -default-action=cd<CR>
 nnoremap <silent> [Unite]f  :<C-u>Unite file<CR>
 nnoremap <silent> [Unite]m  :<C-u>Unite file_mru<CR>
 nnoremap <silent> [Unite]o  :<C-u>Unite outline<CR>
+nnoremap <silent> [Unite]q  :<C-u>Unite ghq<CR>
 nnoremap <silent> [Unite]r  :<C-u>Unite file_rec<CR>
 nnoremap <silent> [Unite]t  :<C-u>Unite buffer_tab<CR>
 nnoremap <silent> [Unite]u  :<C-u>UniteWithCurrentDir file_mru<CR>
