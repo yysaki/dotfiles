@@ -7,7 +7,7 @@ set t_Co=256
 set antialias
 set showtabline=2 "常にタブ表示
 
-set guioptions='grLtT' " default: 'egmrLtT'
+set guioptions='grLt'
 
 " タブの表示設定
 function! GuiTabLabel()
