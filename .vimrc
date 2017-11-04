@@ -85,7 +85,7 @@ NeoBundle 'kana/vim-textobj-line'     " al, il
 NeoBundle 'kana/vim-textobj-syntax'   " ay, iy
 NeoBundle 'kana/vim-textobj-underscore' " a_, i_
 NeoBundle 'thinca/vim-textobj-comment' " ac, ic
-NeoBundle 'Lokaltog/vim-easymotion' " <Space>f
+NeoBundle 'easymotion/vim-easymotion' " <Space>f
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'Konfekt/FastFold'
@@ -494,7 +494,7 @@ nnoremap <silent><expr> <SID>(git-log-this-file) ':<C-u>Unite giti/log:' . expan
 
 "" vim-easymotion
 let g:EasyMotion_do_mapping = 0
-nmap <Space>f <Plug>(easymotion-s2)
+nmap <Space>f <Plug>(easymotion-overwin-f2)
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_migemo = 1
 
