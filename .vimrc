@@ -494,7 +494,18 @@ nnoremap <silent><expr> <SID>(git-log-this-file) ':<C-u>Unite giti/log:' . expan
 
 "" vim-easymotion
 let g:EasyMotion_do_mapping = 0
-nmap <Space>f <Plug>(easymotion-overwin-f2)
+map  <Space>f <Plug>(easymotion-bd-f)
+nmap <Space>f <Plug>(easymotion-overwin-f)
+
+nmap <Space>s <Plug>(easymotion-overwin-f2)
+vmap <Space>s <Plug>(easymotion-bd-f2)
+
+map <Space>L <Plug>(easymotion-bd-jk)
+nmap <Space>L <Plug>(easymotion-overwin-line)
+
+map  <Space>w <Plug>(easymotion-bd-w)
+nmap <Space>w <Plug>(easymotion-overwin-w)
+
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_migemo = 1
 
