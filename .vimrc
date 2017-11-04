@@ -99,6 +99,7 @@ NeoBundle 'PProvost/vim-ps1'
 NeoBundle 'sorah/unite-ghq'
 NeoBundle 'haya14busa/vim-migemo'
 NeoBundle 'cocopon/iceberg.vim'
+NeoBundle 'lambdalisue/gina.vim'
 
 if OSTYPE != 'MINGW64_NT'
   NeoBundleLazy 'OmniSharp/omnisharp-vim', {
