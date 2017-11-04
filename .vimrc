@@ -971,6 +971,10 @@ autocmd FileType *
 \ |   setlocal omnifunc=syntaxcomplete#Complete
 \ | endif
 
+"スペルチェックを有効にする(ただし日本語は除外する)
+set spelllang+=cjk
+" set spell
+
 " __END__  "{{{1
 " vim: expandtab softtabstop=2 shiftwidth=2
 " vim: foldmethod=marker
