@@ -809,9 +809,9 @@ call s:emulate_meta_esc_behavior_in_terminal()
 nnoremap <Space>.  :<C-u>edit $MYVIMRC<CR>
 if has('gui_running')
   nnoremap <Space>,  :<C-u>edit $MYGVIMRC<CR>
-  nnoremap <Space>s. :<C-u>source $MYVIMRC<CR> :<C-u>source $MYGVIMRC<CR>
+  nnoremap <Space>v. :<C-u>source $MYVIMRC<CR> :<C-u>source $MYGVIMRC<CR>
 else
-  nnoremap <Space>s. :<C-u>source $MYVIMRC<CR>
+  nnoremap <Space>v. :<C-u>source $MYVIMRC<CR>
 endif
 
 " バッファ操作
