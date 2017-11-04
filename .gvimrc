@@ -30,6 +30,6 @@ endfunction
 set guitablabel=%N:\ %{GuiTabLabel()}
 
 set background=dark
-colorscheme hybrid
+colorscheme iceberg
 
 set guifont=Ricty:h13
