@@ -977,6 +977,10 @@ autocmd FileType *
 set spelllang+=cjk
 " set spell
 
+if !has('gui_running') && &t_Co == 256
+  colorscheme iceberg
+end
+
 " __END__  "{{{1
 " vim: expandtab softtabstop=2 shiftwidth=2
 " vim: foldmethod=marker
