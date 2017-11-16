@@ -842,6 +842,9 @@ nnoremap <Space>E  :<C-u>e! ++enc=utf-8<CR>
 nnoremap <Space>g :<C-u>Git! 
 nnoremap <Space>G :<C-u>Git 
 
+nnoremap <Space>n :<C-u>Gina 
+nnoremap <Space>N :<C-u>Gina! 
+
 " タブページ操作
 nnoremap [TABCMD]  <nop>
 nmap <Space>t [TABCMD]
