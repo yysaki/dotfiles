@@ -389,7 +389,7 @@ let g:SimpleJsIndenter_BriefMode = 1
 " この設定入れるとswitchのインデントがいくらかマシに
 let g:SimpleJsIndenter_CaseIndentLevel = -1
 "" jQuery
-" au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+" autocmd BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 "" syntastic
 " このようにするとjshintを必ず使ってチェックしてくれるようになる
@@ -956,17 +956,17 @@ set undodir='~/tmp/vim-undofile'
 set helplang=en,ja
 
 " 拡張子設定
-au BufRead,BufNewFile *.red set filetype=reduce
-au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+autocmd BufRead,BufNewFile *.red set filetype=reduce
+autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 let g:tex_flavor = "latex"
 
-au BufNewFile,BufRead *.{aspx,ascx} set filetype=html
-au BufNewFile,BufRead *.{aspx,ascx,cs,html,master} setlocal tabstop=4 shiftwidth=4
-au BufNewFile,BufRead *.{aspx,ascx,cs,html,master} setlocal noexpandtab softtabstop=4
-au BufNewFile,BufRead *.{aspx,ascx,cs,html,master} setlocal foldmethod=syntax
+autocmd BufNewFile,BufRead *.{aspx,ascx} set filetype=html
+autocmd BufNewFile,BufRead *.{aspx,ascx,cs,html,master} setlocal tabstop=4 shiftwidth=4
+autocmd BufNewFile,BufRead *.{aspx,ascx,cs,html,master} setlocal noexpandtab softtabstop=4
+autocmd BufNewFile,BufRead *.{aspx,ascx,cs,html,master} setlocal foldmethod=syntax
 
-au BufNewFile,BufRead *.{xaml} set filetype=xml
-au BufNewFile,BufRead *.{xaml,ascx,cs,html,master} setlocal tabstop=4 shiftwidth=4
+autocmd BufNewFile,BufRead *.{xaml} set filetype=xml
+autocmd BufNewFile,BufRead *.{xaml,ascx,cs,html,master} setlocal tabstop=4 shiftwidth=4
 
 autocmd FileType *
 \   if &l:omnifunc == ''
@@ -974,7 +974,7 @@ autocmd FileType *
 \ | endif
 
 augroup git
-    au!
+    autocmd!
     autocmd FileType git :setlocal foldlevel=99 tabstop=8
 augroup END
 
