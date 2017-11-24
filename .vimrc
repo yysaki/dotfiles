@@ -444,13 +444,6 @@ nnoremap <silent> g,ha :call HowmChEnv('',            'time', '#')<CR>
 nnoremap <silent> g,hp :call HowmChEnv('private-mkd', 'time', '#')<CR>
 nnoremap <silent> g,hw :call HowmChEnv('work-mkd',    'day',  '#')<CR>
 
-"" gitv
-" prevent folding when first dispaying gitv
-augroup git
-    au!
-    autocmd FileType git :setlocal foldlevel=99
-augroup END
-
 " giti {{{3
 "
 " giti prefix key
@@ -979,6 +972,11 @@ autocmd FileType *
 \   if &l:omnifunc == ''
 \ |   setlocal omnifunc=syntaxcomplete#Complete
 \ | endif
+
+augroup git
+    au!
+    autocmd FileType git :setlocal foldlevel=99 tabstop=8
+augroup END
 
 "スペルチェックを有効にする(ただし日本語は除外する)
 set spelllang+=cjk
