@@ -1,6 +1,4 @@
 " Basics "{{{1
-set nocompatible
-
 
 let OSTYPE = system("uname")
 
