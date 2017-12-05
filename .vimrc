@@ -9,16 +9,8 @@ else
 endif
 
 " Encoding "{{{2
-
-if has('kaoriya') && !has('unix')
-  set encoding=utf-8
-  scriptencoding cp932
-elseif !has('unix')
-  set encoding=cp932
-  set termencoding=cp932
-else
-  set encoding=utf-8
-endif
+"
+set encoding=utf-8
 
 " NeoBundle "{{{1
 let $BUNDLE_PATH =
