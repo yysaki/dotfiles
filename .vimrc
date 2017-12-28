@@ -939,6 +939,8 @@ set history=10000
 
 set backspace=indent,eol,start
 
+set ambiwidth=double
+
 " undofile
 set undofile
 set undodir='~/tmp/vim-undofile'
