@@ -90,6 +90,7 @@ NeoBundle 'sorah/unite-ghq'
 NeoBundle 'haya14busa/vim-migemo'
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'lambdalisue/gina.vim'
+NeoBundle 'osyo-manga/vim-anzu'
 
 if OSTYPE != 'MINGW64_NT'
   NeoBundleLazy 'OmniSharp/omnisharp-vim', {
@@ -526,15 +527,24 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-"" vim-asterisk
-vmap *   <Plug>(asterisk-*)
-vmap #   <Plug>(asterisk-#)
-vmap g*  <Plug>(asterisk-g*)
-vmap g#  <Plug>(asterisk-g#)
-map z*  <Plug>(asterisk-z*)
-map gz* <Plug>(asterisk-gz*)
-map z#  <Plug>(asterisk-z#)
-map gz# <Plug>(asterisk-gz#)
+"" vim-asterisk vim-anzu
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+
+vmap *   <Plug>(asterisk-*)<Plug>(anzu-update-search-status-with-echo)
+vmap #   <Plug>(asterisk-#)<Plug>(anzu-update-search-status-with-echo)
+vmap g*  <Plug>(asterisk-g*)<Plug>(anzu-update-search-status-with-echo)
+vmap g#  <Plug>(asterisk-g#)<Plug>(anzu-update-search-status-with-echo)
+
+nmap *   <Plug>(anzu-star-with-echo)
+nmap #   <Plug>(anzu-sharp-with-echo)
+nmap g*  <Plug>(anzu-star-with-echo)
+nmap g#  <Plug>(anzu-sharp-with-echo)
+
+map z*  <Plug>(asterisk-z*)<Plug>(anzu-update-search-status-with-echo)
+map gz* <Plug>(asterisk-gz*)<Plug>(anzu-update-search-status-with-echo)
+map z#  <Plug>(asterisk-z#)<Plug>(anzu-update-search-status-with-echo)
+map gz# <Plug>(asterisk-gz#)<Plug>(anzu-update-search-status-with-echo)
 
 " OS Type "{{{1
 
