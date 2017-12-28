@@ -753,7 +753,7 @@ if OSTYPE == 'MINGW64_NT'
           let $VIM_SERVERNAME = v:servername
       endif
 
-      terminal ++close C:/Program Files/Git/bin/bash.exe -l
+      terminal ++close ++curwin C:/Program Files/Git/bin/bash.exe -l
 
       let $LANG = l:oldlang
       let $GVIM = l:oldgvim
