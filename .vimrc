@@ -92,16 +92,14 @@ NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'lambdalisue/gina.vim'
 NeoBundle 'osyo-manga/vim-anzu'
 
-if OSTYPE != 'MINGW64_NT'
-  NeoBundleLazy 'OmniSharp/omnisharp-vim', {
-  \   'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] },
-  \   'build': {
-  \     'windows' : 'msbuild server/OmniSharp.sln',
-  \     'mac': 'xbuild server/OmniSharp.sln',
-  \     'unix': 'xbuild server/OmniSharp.sln',
-  \   },
-  \ }
-endif
+NeoBundleLazy 'OmniSharp/omnisharp-vim', {
+\   'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] },
+\   'build': {
+\     'windows' : 'msbuild server/OmniSharp.sln',
+\     'mac': 'xbuild server/OmniSharp.sln',
+\     'unix': 'xbuild server/OmniSharp.sln',
+\   },
+\ }
 
 "" objective-c/iOS
 NeoBundle 'Rip-Rip/clang_complete'
