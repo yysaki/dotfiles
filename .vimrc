@@ -42,9 +42,7 @@ NeoBundle 'kana/vim-altr'               " <Space>a
 NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'majutsushi/tagbar'           " <Space>t ctags汎用
 
-if OSTYPE != 'MINGW64_NT'
-  NeoBundle 'scrooloose/syntastic'        " ファイルの構文エラーチェック
-endif
+NeoBundle 'scrooloose/syntastic'        " ファイルの構文エラーチェック
 
 NeoBundle 'sudo.vim'
 NeoBundle 'thinca/vim-quickrun'         " <Space>qでmakeなど
