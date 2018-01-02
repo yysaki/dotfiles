@@ -995,6 +995,7 @@ set spelllang+=cjk
 " set spell
 
 if !has('gui_running') && &t_Co == 256
+  set termguicolors
   colorscheme iceberg
 end
 
