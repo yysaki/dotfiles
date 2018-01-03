@@ -55,6 +55,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('hallison/vim-markdown')
   call dein#add('haruyama/vim-matchopen')
   call dein#add('haya14busa/vim-asterisk')
+  call dein#add('haya14busa/vim-edgemotion')
   call dein#add('haya14busa/vim-migemo')
   call dein#add('honza/vim-snippets')
   call dein#add('jelera/vim-javascript-syntax')
@@ -431,6 +432,10 @@ nnoremap <silent> g,hh :echo howm_dir<CR>
 nnoremap <silent> g,ha :call HowmChEnv('',            'time', '#')<CR>
 nnoremap <silent> g,hp :call HowmChEnv('private-mkd', 'time', '#')<CR>
 nnoremap <silent> g,hw :call HowmChEnv('work-mkd',    'day',  '#')<CR>
+
+" vim-edgemotion
+map <C-j> <Plug>(edgemotion-j)
+map <C-k> <Plug>(edgemotion-k)
 
 " giti {{{3
 "
