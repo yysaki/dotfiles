@@ -60,6 +60,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('jelera/vim-javascript-syntax')
   call dein#add('jiangmiao/simple-javascript-indenter')
   call dein#add('junegunn/vim-easy-align')
+  call dein#add('justinmk/vim-dirvish')
   call dein#add('kana/vim-altr')               " <Space>a
   call dein#add('kana/vim-smartinput')
   call dein#add('kana/vim-tabpagecd')
