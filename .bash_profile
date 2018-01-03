@@ -25,14 +25,14 @@ fi
 #cp $DIR/../vim/.vimrc $DIR/../vim/.gvimrc ./
 #cp -rf $DIR/../vim/.vim/colors ./.vim/
 if $mingw; then
-  if ! [ -d ~/vimfiles/bundle/neobundle.vim ]; then
-    echo "echo) get neobundle"
-    git clone https://github.com/Shougo/neobundle.vim ~/vimfiles/bundle/neobundle.vim
+  if ! [ -d ~/.vim/dein/repos/github.com/Shougo/dein.vim ]; then
+    echo "echo) get dein"
+    git clone https://github.com/Shougo/dein.vim.git ~/.vim/dein/repos/github.com/Shougo/dein.vim
   fi
 else
-  if ! [ -d ~/.vim/bundle/neobundle.vim ]; then
-    echo "echo) get neobundle"
-    git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+  if ! [ -d ~/.vim/dein/repos/github.com/Shougo/dein.vim ]; then
+    echo "echo) get dein"
+    git clone https://github.com/Shougo/dein.vim.git ~/.vim/dein/repos/github.com/Shougo/dein.vim
   fi
 fi
 

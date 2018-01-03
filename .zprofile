@@ -8,9 +8,9 @@ if [ -d $HOME/.rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
-if ! [ -d ~/.vim/bundle/neobundle.vim ]; then
-  echo "echo) get neobundle"
-  git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+if ! [ -d ~/.vim/dein/repos/github.com/Shougo/dein.vim ]; then
+  echo "echo) get dein"
+  git clone https://github.com/Shougo/dein.vim.git ~/.vim/dein/repos/github.com/Shougo/dein.vim
 fi
 
 if [ /usr/bin/gcc ]; then

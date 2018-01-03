@@ -15,124 +15,119 @@ set encoding=utf-8
 " NeoBundle "{{{1
 let $BUNDLE_PATH =
   \ (has("win32unix") || has ("win64unix") || has("win32") || has ("win64"))
-  \ ? '~/vimfiles/bundle/'
-  \ : '~/.vim/bundle/'
+  \ ? '~/vimfiles/dein/'
+  \ : '~/.vim/dein/'
 
 if has('vim_starting')
-  set runtimepath+=$BUNDLE_PATH/neobundle.vim/
+  set runtimepath+=$BUNDLE_PATH/repos/github.com/Shougo/dein.vim
 endif
-
-call neobundle#begin(expand($BUNDLE_PATH))
-
-NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Bundles "{{{2
-NeoBundle 'jQuery'
-NeoBundle 'project.tar.gz'
-NeoBundle 'sudo.vim'
 
-NeoBundle 'Konfekt/FastFold'
-NeoBundle 'PProvost/vim-ps1'
-NeoBundle 'Rip-Rip/clang_complete'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neomru.vim'           " :Unite file_mru
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/tabpagebuffer.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'altercation/vim-colors-solarized' " solarized.vim
-NeoBundle 'cocopon/iceberg.vim'
-NeoBundle 'digitaltoad/vim-jade'
-NeoBundle 'easymotion/vim-easymotion' " <Space>f
-NeoBundle 'fuenor/qfixgrep'
-NeoBundle 'fuenor/qfixhowm'             " QFixHowm - hitori otegaru wiki modoki
-NeoBundle 'gregsexton/gitv'             " :Gitv, 要fugitive
-NeoBundle 'h1mesuke/unite-outline'      " :Unite outline
-NeoBundle 'hallison/vim-markdown'
-NeoBundle 'haruyama/vim-matchopen'
-NeoBundle 'haya14busa/vim-asterisk'
-NeoBundle 'haya14busa/vim-migemo'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'jiangmiao/simple-javascript-indenter'
-NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'kana/vim-altr'               " <Space>a
-NeoBundle 'kana/vim-smartinput'
-NeoBundle 'kana/vim-tabpagecd'
-NeoBundle 'kana/vim-textobj-datetime'  " ada, ida
-NeoBundle 'kana/vim-textobj-diff'  " adf, idf
-NeoBundle 'kana/vim-textobj-entire'   " ae, ie
-NeoBundle 'kana/vim-textobj-fold'  " az, iz
-NeoBundle 'kana/vim-textobj-function' " af, if, aF, iF
-NeoBundle 'kana/vim-textobj-indent'  " ai, ii
-NeoBundle 'kana/vim-textobj-jabraces' " ajb, ijb
-NeoBundle 'kana/vim-textobj-lastpat'  " a/, i/
-NeoBundle 'kana/vim-textobj-line'     " al, il
-NeoBundle 'kana/vim-textobj-syntax'   " ay, iy
-NeoBundle 'kana/vim-textobj-underscore' " a_, i_
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kmnk/vim-unite-giti'
-NeoBundle 'lambdalisue/gina.vim'
-NeoBundle 'majutsushi/tagbar'           " <Space>t ctags汎用
-NeoBundle 'mattn/emmet-vim'              " <C-z>, old: zencoding-vim
-NeoBundle 'msanders/cocoa.vim'
-NeoBundle 'osyo-manga/vim-anzu'
-NeoBundle 'osyo-manga/vim-over'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'scrooloose/syntastic'        " ファイルの構文エラーチェック
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'sorah/unite-ghq'
-NeoBundle 'thinca/vim-quickrun'         " <Space>qでmakeなど
-NeoBundle 'thinca/vim-tabrecent'         " <[TABCMD]r 
-NeoBundle 'thinca/vim-textobj-comment' " ac, ic
-NeoBundle 'tpope/vim-commentary'         " gc{motion}, gcc でコメントのトグル
-NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-surround'          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
-NeoBundle 'tpope/vim-unimpaired'        " [q, ]qなど
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'vim-scripts/VimCoder.jar'    " topcoder
-NeoBundle 'vim-scripts/errormarker.vim' " flymakeっぽいこと 実態確認 ':autocmd QuickFixCmdPost'
-NeoBundle 'vim-scripts/matchit.zip'
-NeoBundle 'vim-scripts/vim-niji'
-NeoBundle 'w0ng/vim-hybrid' " :colorscheme hybrid
+if dein#load_state(expand($BUNDLE_PATH))
+  call dein#begin(expand($BUNDLE_PATH))
 
-if !(has("win32unix") || has ("win64unix") || has("win32") || has ("win64"))
-  NeoBundle 'Shougo/vimproc', {
-        \ 'build' : {
-        \     'mac' : 'make -f make_mac.mak',
-        \     'unix' : 'make -f make_unix.mak',
-        \    },
-        \ }
+  call dein#add('Shougo/dein.vim')
+  call dein#add('Shougo/deoplete.nvim')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
+
+  call dein#add('vim-scripts/jQuery')
+  call dein#add('vim-scripts/project.tar.gz')
+  call dein#add('vim-scripts/sudo.vim')
+
+  call dein#add('Konfekt/FastFold')
+  call dein#add('PProvost/vim-ps1')
+  call dein#add('Rip-Rip/clang_complete')
+  call dein#add('Shougo/neocomplete.vim')
+  call dein#add('Shougo/neomru.vim')           " :Unite file_mru
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/tabpagebuffer.vim')
+  call dein#add('Shougo/unite.vim')
+  call dein#add('altercation/vim-colors-solarized') " solarized.vim
+  call dein#add('cocopon/iceberg.vim')
+  call dein#add('digitaltoad/vim-jade')
+  call dein#add('easymotion/vim-easymotion') " <Space>f
+  call dein#add('fuenor/qfixgrep')
+  call dein#add('fuenor/qfixhowm')             " QFixHowm - hitori otegaru wiki modoki
+  call dein#add('gregsexton/gitv')             " :Gitv, 要fugitive
+  call dein#add('h1mesuke/unite-outline')      " :Unite outline
+  call dein#add('hallison/vim-markdown')
+  call dein#add('haruyama/vim-matchopen')
+  call dein#add('haya14busa/vim-asterisk')
+  call dein#add('haya14busa/vim-migemo')
+  call dein#add('honza/vim-snippets')
+  call dein#add('jelera/vim-javascript-syntax')
+  call dein#add('jiangmiao/simple-javascript-indenter')
+  call dein#add('junegunn/vim-easy-align')
+  call dein#add('kana/vim-altr')               " <Space>a
+  call dein#add('kana/vim-smartinput')
+  call dein#add('kana/vim-tabpagecd')
+  call dein#add('kana/vim-textobj-datetime')  " ada, ida
+  call dein#add('kana/vim-textobj-diff')  " adf, idf
+  call dein#add('kana/vim-textobj-entire')   " ae, ie
+  call dein#add('kana/vim-textobj-fold')  " az, iz
+  call dein#add('kana/vim-textobj-function') " af, if, aF, iF
+  call dein#add('kana/vim-textobj-indent')  " ai, ii
+  call dein#add('kana/vim-textobj-jabraces') " ajb, ijb
+  call dein#add('kana/vim-textobj-lastpat')  " a/, i/
+  call dein#add('kana/vim-textobj-line')     " al, il
+  call dein#add('kana/vim-textobj-syntax')   " ay, iy
+  call dein#add('kana/vim-textobj-underscore') " a_, i_
+  call dein#add('kana/vim-textobj-user')
+  call dein#add('kmnk/vim-unite-giti')
+  call dein#add('lambdalisue/gina.vim')
+  call dein#add('majutsushi/tagbar')           " <Space>t ctags汎用
+  call dein#add('mattn/emmet-vim')              " <C-z>, old: zencoding-vim
+  call dein#add('msanders/cocoa.vim')
+  call dein#add('osyo-manga/vim-anzu')
+  call dein#add('osyo-manga/vim-over')
+  call dein#add('rking/ag.vim')
+  call dein#add('scrooloose/syntastic')        " ファイルの構文エラーチェック
+  call dein#add('sjl/gundo.vim')
+  call dein#add('sorah/unite-ghq')
+  call dein#add('thinca/vim-quickrun')         " <Space>qでmakeなど
+  call dein#add('thinca/vim-tabrecent')         " <[TABCMD]r 
+  call dein#add('thinca/vim-textobj-comment') " ac, ic
+  call dein#add('tpope/vim-commentary')         " gc{motion}, gcc でコメントのトグル
+  call dein#add('tpope/vim-dispatch')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('tpope/vim-surround')          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
+  call dein#add('tpope/vim-unimpaired')        " [q, ]qなど
+  call dein#add('tyru/open-browser.vim')
+  call dein#add('vim-scripts/VimCoder.jar')    " topcoder
+  call dein#add('vim-scripts/errormarker.vim') " flymakeっぽいこと 実態確認 ':autocmd QuickFixCmdPost'
+  call dein#add('vim-scripts/matchit.zip')
+  call dein#add('vim-scripts/vim-niji')
+  call dein#add('w0ng/vim-hybrid') " :colorscheme hybrid
+
+  call dein#add('Shougo/vimproc', {
+  \ 'build' :
+  \   has('mac') ? 'make -f make_mac.mak' :
+  \   has('unix') ? 'make' : ''
+  \ })
+
+  if OSTYPE == "Darwin\n" " Mac
+    call dein#add('kana/vim-fakeclip')
+  endif
+
+  call dein#add('OmniSharp/omnisharp-vim', {
+  \   'on_ft' : [ 'cs', 'csi', 'csx' ],
+  \   'build' :
+  \     has('mac') ? 'xbuild server/OmniSharp.sln' :
+  \     has('unix') ? 'xbuild server/OmniSharp.sln' :
+  \     'omnisharp-roslyn/build.cmd',
+  \ })
+
+  call dein#add('taichouchou2/vim-endwise.git', {'on_event': 'InsertEnter'})
+
+  call dein#end()
+  call dein#save_state()
 endif
 
-if OSTYPE == "Darwin\n" " Mac
-  NeoBundle 'kana/vim-fakeclip'
-endif
-
-NeoBundleLazy 'OmniSharp/omnisharp-vim', {
-\   'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] },
-\   'build': {
-\     'windows' : 'msbuild server/OmniSharp.sln',
-\     'mac': 'xbuild server/OmniSharp.sln',
-\     'unix': 'xbuild server/OmniSharp.sln',
-\   },
-\ }
-
-NeoBundleLazy 'taichouchou2/vim-endwise.git', {
-      \ 'autoload' : {
-      \   'insert' : 1,
-      \ } }
-
-call neobundle#end()
-
-if neobundle#exists_not_installed_bundles()
-  echomsg 'Not installed bundles : ' .
-        \ string(neobundle#get_not_installed_bundle_names())
-  echomsg 'Install Plugins'
-  NeoBundleInstall
-endif
-"
 " endwise.vim  {{{2
 
 let g:endwise_no_mappings=1
