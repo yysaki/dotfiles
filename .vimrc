@@ -27,38 +27,38 @@ call neobundle#begin(expand($BUNDLE_PATH))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Bundles "{{{2
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/tabpagebuffer.vim'
-NeoBundle 'Shougo/neomru.vim'           " :Unite file_mru
-NeoBundle 'h1mesuke/unite-outline'      " :Unite outline
-NeoBundle 'fuenor/qfixhowm'             " QFixHowm - hitori otegaru wiki modoki
-NeoBundle 'fuenor/qfixgrep'
-NeoBundle 'gregsexton/gitv'             " :Gitv, 要fugitive
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'kana/vim-altr'               " <Space>a
-NeoBundle 'kana/vim-tabpagecd'
-NeoBundle 'majutsushi/tagbar'           " <Space>t ctags汎用
-NeoBundle 'scrooloose/syntastic'        " ファイルの構文エラーチェック
+NeoBundle 'jQuery'
+NeoBundle 'project.tar.gz'
 NeoBundle 'sudo.vim'
-NeoBundle 'thinca/vim-quickrun'         " <Space>qでmakeなど
-NeoBundle 'thinca/vim-tabrecent'         " <[TABCMD]r 
-NeoBundle 'tpope/vim-commentary'         " gc{motion}, gcc でコメントのトグル
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'kmnk/vim-unite-giti'
-NeoBundle 'tpope/vim-surround'          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'vim-scripts/VimCoder.jar'    " topcoder
-NeoBundle 'vim-scripts/errormarker.vim' " flymakeっぽいこと 実態確認 ':autocmd QuickFixCmdPost'
-NeoBundle 'vim-scripts/matchit.zip'
-NeoBundle 'vim-scripts/vim-niji'
+
+NeoBundle 'Konfekt/FastFold'
+NeoBundle 'PProvost/vim-ps1'
+NeoBundle 'Rip-Rip/clang_complete'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neomru.vim'           " :Unite file_mru
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/tabpagebuffer.vim'
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'altercation/vim-colors-solarized' " solarized.vim
-NeoBundle 'w0ng/vim-hybrid' " :colorscheme hybrid
-NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'tpope/vim-unimpaired'        " [q, ]qなど
-NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'cocopon/iceberg.vim'
+NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'easymotion/vim-easymotion' " <Space>f
+NeoBundle 'fuenor/qfixgrep'
+NeoBundle 'fuenor/qfixhowm'             " QFixHowm - hitori otegaru wiki modoki
+NeoBundle 'gregsexton/gitv'             " :Gitv, 要fugitive
+NeoBundle 'h1mesuke/unite-outline'      " :Unite outline
+NeoBundle 'hallison/vim-markdown'
+NeoBundle 'haruyama/vim-matchopen'
+NeoBundle 'haya14busa/vim-asterisk'
+NeoBundle 'haya14busa/vim-migemo'
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'jiangmiao/simple-javascript-indenter'
+NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'kana/vim-altr'               " <Space>a
+NeoBundle 'kana/vim-smartinput'
+NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'kana/vim-textobj-datetime'  " ada, ida
 NeoBundle 'kana/vim-textobj-diff'  " adf, idf
 NeoBundle 'kana/vim-textobj-entire'   " ae, ie
@@ -70,31 +70,32 @@ NeoBundle 'kana/vim-textobj-lastpat'  " a/, i/
 NeoBundle 'kana/vim-textobj-line'     " al, il
 NeoBundle 'kana/vim-textobj-syntax'   " ay, iy
 NeoBundle 'kana/vim-textobj-underscore' " a_, i_
-NeoBundle 'thinca/vim-textobj-comment' " ac, ic
-NeoBundle 'easymotion/vim-easymotion' " <Space>f
-NeoBundle 'kana/vim-smartinput'
-NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'Konfekt/FastFold'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'haya14busa/vim-asterisk'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'digitaltoad/vim-jade'
-NeoBundle 'haruyama/vim-matchopen'
-NeoBundle 'osyo-manga/vim-over'
-NeoBundle 'PProvost/vim-ps1'
-NeoBundle 'sorah/unite-ghq'
-NeoBundle 'haya14busa/vim-migemo'
-NeoBundle 'cocopon/iceberg.vim'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kmnk/vim-unite-giti'
 NeoBundle 'lambdalisue/gina.vim'
-NeoBundle 'osyo-manga/vim-anzu'
-NeoBundle 'Rip-Rip/clang_complete'
-NeoBundle 'msanders/cocoa.vim'
-NeoBundle 'jQuery'
-NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'jiangmiao/simple-javascript-indenter'
+NeoBundle 'majutsushi/tagbar'           " <Space>t ctags汎用
 NeoBundle 'mattn/emmet-vim'              " <C-z>, old: zencoding-vim
-NeoBundle 'project.tar.gz'
-NeoBundle 'hallison/vim-markdown'
+NeoBundle 'msanders/cocoa.vim'
+NeoBundle 'osyo-manga/vim-anzu'
+NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'rking/ag.vim'
+NeoBundle 'scrooloose/syntastic'        " ファイルの構文エラーチェック
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'sorah/unite-ghq'
+NeoBundle 'thinca/vim-quickrun'         " <Space>qでmakeなど
+NeoBundle 'thinca/vim-tabrecent'         " <[TABCMD]r 
+NeoBundle 'thinca/vim-textobj-comment' " ac, ic
+NeoBundle 'tpope/vim-commentary'         " gc{motion}, gcc でコメントのトグル
+NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
+NeoBundle 'tpope/vim-unimpaired'        " [q, ]qなど
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'vim-scripts/VimCoder.jar'    " topcoder
+NeoBundle 'vim-scripts/errormarker.vim' " flymakeっぽいこと 実態確認 ':autocmd QuickFixCmdPost'
+NeoBundle 'vim-scripts/matchit.zip'
+NeoBundle 'vim-scripts/vim-niji'
+NeoBundle 'w0ng/vim-hybrid' " :colorscheme hybrid
 
 if !(has("win32unix") || has ("win64unix") || has("win32") || has ("win64"))
   NeoBundle 'Shougo/vimproc', {
