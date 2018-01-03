@@ -12,7 +12,7 @@ endif
 "
 set encoding=utf-8
 
-" NeoBundle "{{{1
+" dein.vim "{{{1
 let $BUNDLE_PATH =
   \ (has("win32unix") || has ("win64unix") || has("win32") || has ("win64"))
   \ ? '~/vimfiles/dein/'
@@ -362,7 +362,7 @@ if executable('ag')
 endif
 
 
-" Other Neobundle Plugins' Setting "{{{2
+" Other dein.vim Plugins' Setting "{{{2
 
 "" clang_complete
 let g:clang_complete_auto=0
@@ -407,7 +407,7 @@ let g:tcomment_types['reduce'] = '%% %s'
 
 
 "" QFixHowm
-" set runtimepath                                             " NeoBundleの場合不要
+" set runtimepath                                             " dein.vimの場合不要
 let QFixHowm_Key            = 'g'                             " キーマップリーダー ex.'g,c'
 let QFixMRU_Filename        = '~/.qfixmru'                    " MRUリスト
 let howm_fileencoding       = 'utf-8'
