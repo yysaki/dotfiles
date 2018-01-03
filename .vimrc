@@ -1,13 +1,5 @@
 " Basics "{{{1
 
-let OSTYPE = system("uname")
-
-if OSTYPE == "Darwin\n" " Mac
-elseif OSTYPE == "Linux\n" " Linux
-else
-  let OSTYPE = 'MINGW64_NT'
-endif
-
 let s:is_windows = has("win32unix") || has ("win64unix") || has("win32") || has("win64")
 
 " Encoding "{{{2
@@ -115,7 +107,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   \   has('unix') ? 'make' : ''
   \ })
 
-  if OSTYPE == "Darwin\n" " Mac
+  if has('mac')
     call dein#add('kana/vim-fakeclip')
   endif
 
@@ -532,12 +524,11 @@ map gz# <Plug>(asterisk-gz#)<Plug>(anzu-update-search-status-with-echo)
 
 " OS Type "{{{1
 
-if OSTYPE == "Darwin\n" " Mac
+if has('mac')
   set clipboard=unnamed " クリップボード利用設定
   if has('gui_running')
     set macmeta
   endif
-elseif OSTYPE == "Linux\n" " Linux
 endif
 
 " Functions "{{{1
