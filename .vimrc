@@ -8,13 +8,15 @@ else
   let OSTYPE = 'MINGW64_NT'
 endif
 
+let s:is_windows = has("win32unix") || has ("win64unix") || has("win32") || has("win64")
+
 " Encoding "{{{2
 "
 set encoding=utf-8
 
 " dein.vim "{{{1
 let $BUNDLE_PATH =
-  \ (has("win32unix") || has ("win64unix") || has("win32") || has ("win64"))
+  \ s:is_windows
   \ ? '~/vimfiles/dein/'
   \ : '~/.vim/dein/'
 
@@ -347,7 +349,7 @@ call unite#custom#substitute('file', '^@', '\=getcwd()."/*"', 1)
 call unite#custom#substitute('file', '^\\', '~/*')
 call unite#custom#substitute('file', '^;v', '~/.vim/*')
 call unite#custom#substitute('file', '^;r', '\=$VIMRUNTIME."/*"')
-if has('win32') || has('win64')
+if s:is_windows
   call unite#custom#substitute('file', '^;p', 'C:/Program Files/*')
 endif
 
@@ -422,7 +424,7 @@ let QFixHowm_FoldingPattern = '^[#[]'                         " 折りたたみ�
 let QFixHowm_ChDir = '~/Dropbox/Files/howm'
 let QFixHowm_RootDir = '~/Dropbox/Files/howm'
 
-if OSTYPE == "MINGW64_NT"
+if s:is_windows
   let mygrepprg = 'grep'
 endif
 
@@ -742,7 +744,7 @@ function! s:emulate_meta_esc_behavior_in_terminal()
   endfor
 endfunction
 
-if OSTYPE == 'MINGW64_NT'
+if s:is_windows
   function! GitBash()
       let l:oldlang = $LANG
       let $LANG = systemlist('"C:/Program Files/Git/usr/bin/locale.exe" -iU')[0]
@@ -795,7 +797,7 @@ Allmap <C-Space>  <C-@>
 " <Esc>{x} to <C-w>{x}
 if has('gui_running')
   nmap <Esc>  <C-w>
-elseif has('unix') || (has("win32unix") || has ("win64unix") || has("win32") || has ("win64"))
+elseif has('unix') || s:is_windows
   " this function is imported from https://gist.github.com/thinca/1518874/
   " Use meta keys in console.
   function! s:use_meta_keys()
