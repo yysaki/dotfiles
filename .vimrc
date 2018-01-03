@@ -41,9 +41,7 @@ NeoBundle 'honza/vim-snippets'
 NeoBundle 'kana/vim-altr'               " <Space>a
 NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'majutsushi/tagbar'           " <Space>t ctags汎用
-
 NeoBundle 'scrooloose/syntastic'        " ファイルの構文エラーチェック
-
 NeoBundle 'sudo.vim'
 NeoBundle 'thinca/vim-quickrun'         " <Space>qでmakeなど
 NeoBundle 'thinca/vim-tabrecent'         " <[TABCMD]r 
@@ -89,28 +87,12 @@ NeoBundle 'haya14busa/vim-migemo'
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'lambdalisue/gina.vim'
 NeoBundle 'osyo-manga/vim-anzu'
-
-NeoBundleLazy 'OmniSharp/omnisharp-vim', {
-\   'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] },
-\   'build': {
-\     'windows' : 'msbuild server/OmniSharp.sln',
-\     'mac': 'xbuild server/OmniSharp.sln',
-\     'unix': 'xbuild server/OmniSharp.sln',
-\   },
-\ }
-
-"" objective-c/iOS
 NeoBundle 'Rip-Rip/clang_complete'
 NeoBundle 'msanders/cocoa.vim'
-
-"" javascript/HTML
-" NeoBundle 'marijnh/tern_for_vim' " そのうち使うかも
 NeoBundle 'jQuery'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
 NeoBundle 'mattn/emmet-vim'              " <C-z>, old: zencoding-vim
-
-" other specific situation
 NeoBundle 'project.tar.gz'
 NeoBundle 'hallison/vim-markdown'
 
@@ -123,14 +105,23 @@ if !(has("win32unix") || has ("win64unix") || has("win32") || has ("win64"))
         \ }
 endif
 
+if OSTYPE == "Darwin\n" " Mac
+  NeoBundle 'kana/vim-fakeclip'
+endif
+
+NeoBundleLazy 'OmniSharp/omnisharp-vim', {
+\   'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] },
+\   'build': {
+\     'windows' : 'msbuild server/OmniSharp.sln',
+\     'mac': 'xbuild server/OmniSharp.sln',
+\     'unix': 'xbuild server/OmniSharp.sln',
+\   },
+\ }
+
 NeoBundleLazy 'taichouchou2/vim-endwise.git', {
       \ 'autoload' : {
       \   'insert' : 1,
       \ } }
-
-if OSTYPE == "Darwin\n" " Mac
-  NeoBundle 'kana/vim-fakeclip'
-endif
 
 call neobundle#end()
 
