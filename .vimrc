@@ -34,10 +34,6 @@ if dein#load_state(expand($BUNDLE_PATH))
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
 
-  call dein#add('vim-scripts/jQuery')
-  call dein#add('vim-scripts/project.tar.gz')
-  call dein#add('vim-scripts/sudo.vim')
-
   call dein#add('Konfekt/FastFold')
   call dein#add('PProvost/vim-ps1')
   call dein#add('Rip-Rip/clang_complete')
@@ -89,6 +85,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('scrooloose/syntastic')        " ファイルの構文エラーチェック
   call dein#add('sjl/gundo.vim')
   call dein#add('sorah/unite-ghq')
+  call dein#add('taichouchou2/vim-endwise.git', {'on_event': 'InsertEnter'})
   call dein#add('thinca/vim-quickrun')         " <Space>qでmakeなど
   call dein#add('thinca/vim-tabrecent')         " <[TABCMD]r 
   call dein#add('thinca/vim-textobj-comment') " ac, ic
@@ -100,7 +97,10 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('tyru/open-browser.vim')
   call dein#add('vim-scripts/VimCoder.jar')    " topcoder
   call dein#add('vim-scripts/errormarker.vim') " flymakeっぽいこと 実態確認 ':autocmd QuickFixCmdPost'
+  call dein#add('vim-scripts/jQuery')
   call dein#add('vim-scripts/matchit.zip')
+  call dein#add('vim-scripts/project.tar.gz')
+  call dein#add('vim-scripts/sudo.vim')
   call dein#add('vim-scripts/vim-niji')
   call dein#add('w0ng/vim-hybrid') " :colorscheme hybrid
 
@@ -121,8 +121,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   \     has('unix') ? 'xbuild server/OmniSharp.sln' :
   \     'omnisharp-roslyn/build.cmd',
   \ })
-
-  call dein#add('taichouchou2/vim-endwise.git', {'on_event': 'InsertEnter'})
 
   call dein#end()
   call dein#save_state()
