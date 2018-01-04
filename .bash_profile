@@ -19,11 +19,6 @@ if [ -f /usr/local/bin/rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
-# update bash settings from Dropbox
-#DIR=$HOME/Dropbox/Program/unix
-#cp $DIR/.bashrc $DIR/.bash_profile $DIR/.bash_logout ./
-#cp $DIR/../vim/.vimrc $DIR/../vim/.gvimrc ./
-#cp -rf $DIR/../vim/.vim/colors ./.vim/
 if $mingw; then
   if ! [ -d ~/vimfiles/dein/repos/github.com/Shougo/dein.vim ]; then
     echo "echo) get dein"
