@@ -127,7 +127,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   \   'build' :
   \     has('mac') ? 'xbuild server/OmniSharp.sln' :
   \     has('unix') ? 'xbuild server/OmniSharp.sln' :
-  \     'omnisharp-roslyn/build.cmd',
+  \     'msbuild server/OmniSharp.sln',
   \ })
 
   call dein#end()
