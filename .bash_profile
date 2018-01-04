@@ -25,9 +25,9 @@ fi
 #cp $DIR/../vim/.vimrc $DIR/../vim/.gvimrc ./
 #cp -rf $DIR/../vim/.vim/colors ./.vim/
 if $mingw; then
-  if ! [ -d ~/.vim/dein/repos/github.com/Shougo/dein.vim ]; then
+  if ! [ -d ~/vimfiles/dein/repos/github.com/Shougo/dein.vim ]; then
     echo "echo) get dein"
-    git clone https://github.com/Shougo/dein.vim.git ~/.vim/dein/repos/github.com/Shougo/dein.vim
+    git clone https://github.com/Shougo/dein.vim.git ~/vimfiles/dein/repos/github.com/Shougo/dein.vim
   fi
 else
   if ! [ -d ~/.vim/dein/repos/github.com/Shougo/dein.vim ]; then
