@@ -1,6 +1,6 @@
 .vim/.netrwhist
-.vim/bundle/
 .vim/colors/
+.vim/dein/
 .vim/doc/
 .vim/syntax/
 tmp/
