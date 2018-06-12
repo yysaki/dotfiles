@@ -43,6 +43,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('Konfekt/FastFold')
   call dein#add('PProvost/vim-ps1')
   call dein#add('Rip-Rip/clang_complete')
+  call dein#add('fatih/vim-go')
   call dein#add('Shougo/neocomplete.vim')
   call dein#add('Shougo/neomru.vim')           " :Unite file_mru
   call dein#add('Shougo/neosnippet-snippets')
