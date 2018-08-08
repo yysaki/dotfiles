@@ -178,6 +178,7 @@ export PATH=$PATH:./node_modules/.bin
 if [ -d $HOME/go ] ; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOPATH/bin
+  export GHQ_ROOT=$GOPATH/src
 fi
 
 # peco
