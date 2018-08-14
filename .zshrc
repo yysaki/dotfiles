@@ -210,8 +210,8 @@ pcd () {
   fi
 }
 
-if [ -x ~/.ghq/github.com/rupa/z ]; then
-  source ~/.ghq/github.com/rupa/z/z.sh
+if [ -x $GHQ_ROOT/github.com/rupa/z ]; then
+  source $GHQ_ROOT/github.com/rupa/z/z.sh
 fi
 
 # __END__  "{{{1
