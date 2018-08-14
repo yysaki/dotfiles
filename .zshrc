@@ -138,11 +138,6 @@ if [ -d ${HOME}/ocamlbrew -a "$(uname -a | awk '{print $2}')" = metton ] ; then
   eval `opam config env`
 fi
 
-if [ -d /usr/local/share/npm ] ; then
-  export PATH=$PATH:/usr/local/share/npm/bin
-  export NODE_PATH=/usr/local/share/npm/lib/node_modules/jsctags/:$NODE_PATH
-fi
-
 if $linux; then
   ## TODO for yysaki.com
   export JAVA_HOME='/usr/lib/jvm/java-1.6.0-openjdk/' 
