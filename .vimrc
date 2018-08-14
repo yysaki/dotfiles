@@ -91,6 +91,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('msanders/cocoa.vim')
   call dein#add('osyo-manga/vim-anzu')
   call dein#add('osyo-manga/vim-over')
+  call dein#add('pangloss/vim-javascript')
   call dein#add('rking/ag.vim')
   call dein#add('scrooloose/syntastic')        " ファイルの構文エラーチェック
   call dein#add('sjl/gundo.vim')
