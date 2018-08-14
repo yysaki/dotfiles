@@ -43,7 +43,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('Konfekt/FastFold')
   call dein#add('PProvost/vim-ps1')
   call dein#add('Rip-Rip/clang_complete')
-  call dein#add('fatih/vim-go')
   call dein#add('Shougo/neocomplete.vim')
   call dein#add('Shougo/neomru.vim')           " :Unite file_mru
   call dein#add('Shougo/neosnippet-snippets')
@@ -55,6 +54,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('cocopon/iceberg.vim')
   call dein#add('digitaltoad/vim-jade')
   call dein#add('easymotion/vim-easymotion') " <Space>f
+  call dein#add('fatih/vim-go')
   call dein#add('fuenor/qfixgrep')
   call dein#add('fuenor/qfixhowm')             " QFixHowm - hitori otegaru wiki modoki
   call dein#add('gregsexton/gitv')             " :Gitv, 要fugitive
