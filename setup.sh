@@ -22,6 +22,7 @@ DOT_FILES="
 .gitignore
 .gvimrc
 .minttyrc
+.npmrc
 .screenrc
 .tmux.conf
 .vimrc

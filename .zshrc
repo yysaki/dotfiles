@@ -170,7 +170,6 @@ fi
 export PATH=$PATH:./node_modules/.bin
 
 if [ -d $HOME/.nodebrew ]; then
-  # implies: `mkdir ~/.npm-global && npm config set prefix '~/.npm-global'`
   export PATH=$HOME/.nodebrew/current/bin:$PATH
   export PATH=$HOME/.npm-global/bin:$PATH
 fi
