@@ -16,6 +16,7 @@ esac
 cd `dirname $0`
 
 DOT_FILES="
+.amethyst
 .bash_profile
 .bashrc
 .gitconfig
