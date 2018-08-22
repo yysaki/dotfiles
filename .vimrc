@@ -50,7 +50,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('Shougo/tabpagebuffer.vim')
   call dein#add('Shougo/unite.vim')
   call dein#add('altercation/vim-colors-solarized') " solarized.vim
-  call dein#add('arnar/vim-matchopen')
   call dein#add('cespare/vim-toml')
   call dein#add('cocopon/iceberg.vim')
   call dein#add('digitaltoad/vim-jade')
