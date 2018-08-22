@@ -91,6 +91,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('osyo-manga/vim-anzu')
   call dein#add('osyo-manga/vim-over')
   call dein#add('pangloss/vim-javascript')
+  call dein#add('posva/vim-vue')
   call dein#add('rking/ag.vim')
   call dein#add('scrooloose/syntastic')        " ファイルの構文エラーチェック
   call dein#add('sjl/gundo.vim')
@@ -977,6 +978,11 @@ autocmd BufNewFile,BufRead *.{aspx,ascx,cs,html,master} setlocal foldmethod=synt
 
 autocmd BufNewFile,BufRead *.{xaml} set filetype=xml
 autocmd BufNewFile,BufRead *.{xaml,ascx,cs,html,master} setlocal tabstop=4 shiftwidth=4
+
+augroup vue
+  autocmd!
+  autocmd FileType vue syntax sync fromstart
+augroup END
 
 autocmd FileType *
 \   if &l:omnifunc == ''
