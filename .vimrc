@@ -93,7 +93,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('pangloss/vim-javascript')
   call dein#add('posva/vim-vue')
   call dein#add('rking/ag.vim')
-  call dein#add('scrooloose/syntastic')        " ファイルの構文エラーチェック
   call dein#add('sjl/gundo.vim')
   call dein#add('sorah/unite-ghq')
   call dein#add('taichouchou2/vim-endwise.git', {'on_event': 'InsertEnter'})
@@ -114,6 +113,13 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('vim-scripts/sudo.vim')
   call dein#add('vim-scripts/vim-niji')
   call dein#add('w0ng/vim-hybrid') " :colorscheme hybrid
+
+  " ファイルの構文エラーチェック
+  if has('job') && has('channel') && has('timers')
+    call dein#add('w0rp/ale')
+  else
+    call dein#add('scrooloose/syntastic')
+  endif
 
   call dein#add('Shougo/vimproc', {
   \ 'build' :
@@ -394,13 +400,22 @@ let g:SimpleJsIndenter_CaseIndentLevel = -1
 "" jQuery
 " autocmd BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
-"" syntastic
+if dein#tap('ale')
+  let g:ale_lint_on_enter = 0
 
-let g:syntastic_cs_checkers = ['syntax']
+  nmap <silent> [w <Plug>(ale_previous)
+  nmap <silent> ]w <Plug>(ale_next)
+  nmap <silent> [W <Plug>(ale_toggle)
+  nmap <silent> ]W <Plug>(ale_toggle)
+endif
 
-if executable("clang++")
-  let g:syntastic_cpp_compiler = 'clang++'
-  let g:syntastic_cpp_compiler_options = '--std=c++11 --stdlib=libc++'
+if dein#tap('syntastic')
+  let g:syntastic_cs_checkers = ['syntax']
+
+  if executable("clang++")
+    let g:syntastic_cpp_compiler = 'clang++'
+    let g:syntastic_cpp_compiler_options = '--std=c++11 --stdlib=libc++'
+  endif
 endif
 
 "" tagbar
