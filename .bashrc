@@ -225,3 +225,7 @@ function share_history {
 }
 PROMPT_COMMAND='share_history'
 shopt -u histappend
+
+if [ -f "${HOME}/.bashrc_local" ]; then
+  source "${HOME}/.bashrc_local"
+fi

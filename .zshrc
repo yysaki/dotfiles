@@ -213,6 +213,10 @@ if [ -x $GHQ_ROOT/github.com/rupa/z ]; then
   source $GHQ_ROOT/github.com/rupa/z/z.sh
 fi
 
+if [ -f "${HOME}/.zshrc_local" ]; then
+  source "${HOME}/.zshrc_local"
+fi
+
 # __END__  "{{{1
 # vim: expandtab softtabstop=2 shiftwidth=2
 # vim: foldmethod=marker
