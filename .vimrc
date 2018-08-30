@@ -563,6 +563,14 @@ if executable('typescript-language-server')
       \ 'whitelist': ['typescript', 'javascript', 'javascript.jsx'],
       \ })
 endif
+if executable('vls')
+    autocmd User lsp_setup call lsp#register_server({
+      \ 'name': 'vue-language-server',
+      \ 'cmd': {server_info->['vls']},
+      \ 'whitelist': ['vue'],
+      \ })
+endif
+
 let g:lsp_async_completion = 1
 autocmd FileType typescript setlocal omnifunc=lsp#complete
 
