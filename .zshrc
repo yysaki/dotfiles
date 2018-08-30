@@ -217,8 +217,8 @@ if [ -f "${HOME}/.zshrc_local" ]; then
   source "${HOME}/.zshrc_local"
 fi
 
+source ${HOME}/.zprofile
+
 # __END__  "{{{1
 # vim: expandtab softtabstop=2 shiftwidth=2
 # vim: foldmethod=marker
-
-source ${HOME}/.zprofile
