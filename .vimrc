@@ -85,6 +85,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('kana/vim-textobj-user')
   call dein#add('kmnk/vim-unite-giti')
   call dein#add('lambdalisue/gina.vim')
+  call dein#add('leafgarland/typescript-vim')
   call dein#add('majutsushi/tagbar')           " <Space>t ctags汎用
   call dein#add('mattn/emmet-vim')              " <C-z>, old: zencoding-vim
   call dein#add('msanders/cocoa.vim')
@@ -1007,6 +1008,7 @@ autocmd BufNewFile,BufRead *.{aspx,ascx,cs,html,master} setlocal foldmethod=synt
 
 autocmd BufNewFile,BufRead *.{xaml} set filetype=xml
 autocmd BufNewFile,BufRead *.{xaml,ascx,cs,html,master} setlocal tabstop=4 shiftwidth=4
+autocmd BufNewFile,BufRead *.ts set filetype=typescript
 
 augroup vue
   autocmd!
