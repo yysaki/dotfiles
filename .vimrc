@@ -92,6 +92,8 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('osyo-manga/vim-over')
   call dein#add('pangloss/vim-javascript')
   call dein#add('posva/vim-vue')
+  call dein#add('prabirshrestha/async.vim')
+  call dein#add('prabirshrestha/vim-lsp')
   call dein#add('rking/ag.vim')
   call dein#add('sjl/gundo.vim')
   call dein#add('sorah/unite-ghq')
@@ -550,6 +552,18 @@ map z*  <Plug>(asterisk-z*)<Plug>(anzu-update-search-status-with-echo)
 map gz* <Plug>(asterisk-gz*)<Plug>(anzu-update-search-status-with-echo)
 map z#  <Plug>(asterisk-z#)<Plug>(anzu-update-search-status-with-echo)
 map gz# <Plug>(asterisk-gz#)<Plug>(anzu-update-search-status-with-echo)
+
+" vim-lsp
+if executable('typescript-language-server')
+    autocmd User lsp_setup call lsp#register_server({
+      \ 'name': 'typescript-language-server',
+      \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+      \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+      \ 'whitelist': ['typescript', 'javascript', 'javascript.jsx'],
+      \ })
+endif
+let g:lsp_async_completion = 1
+autocmd FileType typescript setlocal omnifunc=lsp#complete
 
 " OS Type "{{{1
 
