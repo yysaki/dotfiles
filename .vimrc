@@ -100,7 +100,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('sorah/unite-ghq')
   call dein#add('taichouchou2/vim-endwise.git', {'on_event': 'InsertEnter'})
   call dein#add('thinca/vim-quickrun')         " <Space>qでmakeなど
-  call dein#add('thinca/vim-tabrecent')         " <[TABCMD]r 
+  call dein#add('thinca/vim-tabrecent')         " <[TABCMD]r
   call dein#add('thinca/vim-textobj-comment') " ac, ic
   call dein#add('tpope/vim-commentary')         " gc{motion}, gcc でコメントのトグル
   call dein#add('tpope/vim-dispatch')
@@ -392,7 +392,7 @@ nmap <Space>a <Plug>(altr-forward)
 call altr#define('%.xaml', '%.xaml.cs')
 
 "" open browser
-nnoremap <Leader>o <Plug>(openbrowser-smart-search) 
+nnoremap <Leader>o <Plug>(openbrowser-smart-search)
 
 """ javascript
 "" simple-javascript-indenter
@@ -981,7 +981,7 @@ set statusline=%F%m%r%h%w\ [TYPE=%Y]\ [FORMAT=%{&ff}]\ [ENC=%{&fileencoding}]\ [
 
 " 不可視文字の可視化
 set list
-"set listchars=eol:￢,tab:_.  
+"set listchars=eol:￢,tab:_.
 set listchars=tab:._,eol:$
 
 set hlsearch " 検索結果をハイライト
