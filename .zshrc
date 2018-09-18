@@ -169,11 +169,6 @@ fi
 # node
 export PATH=$PATH:./node_modules/.bin
 
-if [ -d $HOME/.nodebrew ]; then
-  export PATH=$HOME/.nodebrew/current/bin:$PATH
-  export PATH=$HOME/.npm-global/bin:$PATH
-fi
-
 # go
 if [ -d $HOME/go ] ; then
   export GOPATH=$HOME/go

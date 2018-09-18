@@ -16,3 +16,8 @@ fi
 if [ /usr/bin/gcc ]; then
   export CC=/usr/bin/gcc
 fi
+
+if [ -d $HOME/.anyenv ]; then
+  export PATH="$HOME/.anyenv/bin:$PATH"
+  eval "$(anyenv init -)"
+fi
