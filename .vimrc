@@ -146,14 +146,16 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#save_state()
 endif
 
-" endwise.vim  {{{2
+" Plugins Settings {{{2
+"" endwise.vim
 
 let g:endwise_no_mappings=1
 
-" emmet.vim {{{2
+"" emmet.vim
+
 let g:user_emmet_leader_key='<C-z>'
 
-" vim-surround "{{{2
+"" vim-surround
 
 let g:surround_custom_mapping = {}
 let g:surround_custom_mapping._ = {
@@ -196,7 +198,7 @@ let g:surround_custom_mapping.vim= {
       \'f':  "function! \r endfunction"
       \ }
 
-" quickrun.vim "{{{2
+" quickrun.vim
 
 let g:quickrun_config = {}
 let g:quickrun_config['_'] = {"runner": "vimproc", "runner/vimproc/updatetime": 60, "split": "below"}
@@ -215,10 +217,8 @@ endif
 " <Space>q でquickrunする
 silent! map <Space>q <Plug>(quickrun)
 
-" neocomplete "{{{2
+"" neocomplete
 
-" https://github.com/OmniSharp/omnisharp-vim/wiki/Example-NeoComplete-settings/3c2bcab59a7dc980829719070a8b4eb0991b1b5e
-"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 let g:acp_enableAtStartup = 0 " Disable AutoComplPop.
 let g:neocomplete#enable_at_startup = 1 " Use neocomplete.
 let g:neocomplete#enable_smart_case = 1 " Use smartcase.
@@ -265,36 +265,7 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
 
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
-
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplete#enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplete#enable_insert_char_pre = 1
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
 augroup omnifunc
@@ -307,9 +278,9 @@ augroup omnifunc
   autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 augroup END
 
-" neosnippet "{{{2
-
+"" neosnippet
 " Plugin key-mappings.
+
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
@@ -324,12 +295,12 @@ endif
 
 let g:neosnippet#snippets_directory = "~/vimfiles/snippets,~/vimfiles/bundle/vim-snippets/"
 
-" vim-ref "{{{2
-"
+"" vim-ref
+
 let g:ref_open                    = 'split'
 let g:ref_refe_cmd                = expand('~/vimfiles/ref/ruby-ref1.9.2/refe-1_9_2')
 
-" Unite.vim "{{{2
+"" Unite.vim
 
 let g:unite_enable_start_insert=1
 
@@ -373,35 +344,30 @@ call unite#custom#substitute('file', '^\~', escape($HOME, '\'), -2)
 call unite#custom#substitute('file', '\\\@<! ', '\\ ', -20)
 call unite#custom#substitute('file', '\\ \@!', '/', -30)
 
-" unite grep に ag(The Silver Searcher) を使う
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
 
-
-" Other dein.vim Plugins' Setting "{{{2
-
 "" clang_complete
+
 let g:clang_complete_auto=0
 let g:clang_use_library=1
 
 "" vim-altr
+
 nmap <Space>a <Plug>(altr-forward)
 call altr#define('%.xaml', '%.xaml.cs')
 
 "" open browser
+
 nnoremap <Leader>o <Plug>(openbrowser-smart-search)
 
-""" javascript
 "" simple-javascript-indenter
-" この設定入れるとshiftwidthを1にしてインデントしてくれる
+
 let g:SimpleJsIndenter_BriefMode = 1
-" この設定入れるとswitchのインデントがいくらかマシに
 let g:SimpleJsIndenter_CaseIndentLevel = -1
-"" jQuery
-" autocmd BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 if dein#tap('ale')
   let g:ale_lint_on_enter = 0
@@ -422,12 +388,14 @@ if dein#tap('syntastic')
 endif
 
 "" tagbar
+
 nnoremap <Space>T :TagbarToggle<CR>
 let g:tagbar_type_javascript = {
   \ 'ctagsbin' : '/usr/local/share/npm/bin/jsctags'
   \ }
 
 "" tComment
+
 if !exists('g:tcomment_types')
   let g:tcomment_types = {}
 endif
@@ -435,7 +403,7 @@ let g:tcomment_types['reduce'] = '%% %s'
 
 
 "" QFixHowm
-" set runtimepath                                             " dein.vimの場合不要
+
 let QFixHowm_Key            = 'g'                             " キーマップリーダー ex.'g,c'
 let QFixMRU_Filename        = '~/.qfixmru'                    " MRUリスト
 let howm_fileencoding       = 'utf-8'
@@ -452,19 +420,18 @@ if s:is_windows
   let mygrepprg = 'grep'
 endif
 
-" 現メモディレクトリ表示
 nnoremap <silent> g,hh :echo howm_dir<CR>
-" 環境変更コマンド
 nnoremap <silent> g,ha :call HowmChEnv('',            'time', '#')<CR>
 nnoremap <silent> g,hp :call HowmChEnv('private-mkd', 'time', '#')<CR>
 nnoremap <silent> g,hw :call HowmChEnv('work-mkd',    'day',  '#')<CR>
 
-" vim-edgemotion
+"" vim-edgemotion
+
 map <C-j> <Plug>(edgemotion-j)
 map <C-k> <Plug>(edgemotion-k)
 
-" giti {{{3
-"
+"" giti
+
 " giti prefix key
 nmap <Space>id <SID>(git-diff-cached)
 nmap <Space>iD <SID>(git-diff)
@@ -504,9 +471,9 @@ nnoremap <silent> <SID>(git-config)     :<C-u>Unite giti/config<CR>
 nnoremap <silent> <SID>(git-log)        :<C-u>Unite giti/log<CR>
 
 nnoremap <silent><expr> <SID>(git-log-this-file) ':<C-u>Unite giti/log:' . expand('%:p') . '<CR>'
-" }}}
 
 "" vim-easymotion
+
 let g:EasyMotion_do_mapping = 0
 map  <Space>f <Plug>(easymotion-bd-f)
 nmap <Space>f <Plug>(easymotion-bd-f)
@@ -529,13 +496,11 @@ let g:EasyMotion_use_migemo = 1
 
 "" vim-easy-align'
 
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
 "" vim-asterisk vim-anzu
+
 nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
 
@@ -554,7 +519,8 @@ map gz* <Plug>(asterisk-gz*)<Plug>(anzu-update-search-status-with-echo)
 map z#  <Plug>(asterisk-z#)<Plug>(anzu-update-search-status-with-echo)
 map gz# <Plug>(asterisk-gz#)<Plug>(anzu-update-search-status-with-echo)
 
-" vim-lsp
+"" vim-lsp
+
 if executable('typescript-language-server')
     autocmd User lsp_setup call lsp#register_server({
       \ 'name': 'typescript-language-server',
@@ -584,7 +550,7 @@ if has('mac')
 endif
 
 " Functions "{{{1
-"
+
 let s:FALSE = 0
 let s:TRUE = !s:FALSE
 
@@ -636,7 +602,6 @@ function! s:modifier_combinations(modifiers)
   return s:all_combinations(prefixes)
 endfunction
 
-" git-diff-aware version of gf commands.
 function! s:do_git_diff_aware_gf(command)
   let target_path = expand('<cfile>')
   if target_path =~# '^[ab]/'  " with a peculiar prefix of git-diff(1)?
