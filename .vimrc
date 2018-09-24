@@ -689,6 +689,12 @@ noremap :  ;
 
 nnoremap <C-h> :<C-u>help<Space>
 
+noremap <C-@> <Esc>
+noremap! <C-@> <Esc>
+
+map <C-Space> <C-@>
+map! <C-Space> <C-@>
+
 " Generals "{{{1
 
 filetype plugin indent on "プラグインをオンにする
