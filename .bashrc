@@ -126,7 +126,9 @@ if $linux; then
   ## TODO for yysaki.com
   export JAVA_HOME='/usr/lib/jvm/java-1.6.0-openjdk/' 
 elif $darwin; then
-  alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags' # avoid BSD ctags
+  if [ -d /usr/local/Cellar/ctags/5.8/ ] ; then
+    alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags' # avoid BSD ctags
+  fi
   export PATH=${PATH}:~/.vim/scripts
   export CC=gcc-4.2 # avoid llvm
   export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 
