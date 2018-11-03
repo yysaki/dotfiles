@@ -376,6 +376,12 @@ if dein#tap('ale')
   nmap <silent> ]w <Plug>(ale_next)
   nmap <silent> [W <Plug>(ale_toggle)
   nmap <silent> ]W <Plug>(ale_toggle)
+
+  let g:ale_fixers = {
+  \   'javascript': ['prettier', 'eslint'],
+  \   'vue': ['prettier', 'eslint'],
+  \}
+  let g:ale_fix_on_save = 1
 endif
 
 if dein#tap('syntastic')
