@@ -21,3 +21,7 @@ if [ -d $HOME/.anyenv ]; then
   export PATH="$HOME/.anyenv/bin:$PATH"
   eval "$(anyenv init -)"
 fi
+
+if [ -d $HOME/.npm-global ]; then
+  export PATH=$HOME/.npm-global/bin:$PATH
+fi
