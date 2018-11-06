@@ -101,6 +101,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('taichouchou2/vim-endwise.git', {'on_event': 'InsertEnter'})
   call dein#add('thinca/vim-quickrun')         " <Space>qでmakeなど
   call dein#add('thinca/vim-tabrecent')         " <[TABCMD]r
+  call dein#add('thinca/vim-textobj-between')
   call dein#add('thinca/vim-textobj-comment') " ac, ic
   call dein#add('tpope/vim-commentary')         " gc{motion}, gcc でコメントのトグル
   call dein#add('tpope/vim-dispatch')
@@ -197,6 +198,14 @@ let g:surround_custom_mapping.python = {
 let g:surround_custom_mapping.vim= {
       \'f':  "function! \r endfunction"
       \ }
+
+" textobj
+let g:textobj_between_no_default_key_mappings = 1
+
+omap iB <Plug>(textobj-between-i)
+omap aB <Plug>(textobj-between-a)
+vmap iB <Plug>(textobj-between-i)
+vmap aB <Plug>(textobj-between-a)
 
 " quickrun.vim
 
