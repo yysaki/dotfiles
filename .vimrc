@@ -311,52 +311,54 @@ let g:ref_refe_cmd                = expand('~/vimfiles/ref/ruby-ref1.9.2/refe-1_
 
 "" Unite.vim
 
-let g:unite_enable_start_insert=1
+if dein#tap('unite')
+  let g:unite_enable_start_insert=1
 
-nnoremap [Unite]  <nop>
-nmap <Space>u [Unite]
-nnoremap [Unite]<Space>  :<C-u>Unite 
-nnoremap <silent> [Unite]b  :<C-u>Unite buffer<CR>
-nnoremap <silent> [Unite]d  :<C-u>Unite directory_mru -default-action=cd<CR>
-nnoremap <silent> [Unite]f  :<C-u>Unite file<CR>
-nnoremap <silent> [Unite]m  :<C-u>Unite file_mru<CR>
-nnoremap <silent> [Unite]o  :<C-u>Unite outline<CR>
-nnoremap <silent> [Unite]q  :<C-u>Unite ghq<CR>
-nnoremap <silent> [Unite]r  :<C-u>Unite file_rec<CR>
-nnoremap <silent> [Unite]t  :<C-u>Unite buffer_tab<CR>
-nnoremap <silent> [Unite]u  :<C-u>UniteWithCurrentDir file_mru<CR>
-nnoremap <silent> [Unite]g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-nnoremap <silent> [Unite]cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-nnoremap <silent> [Unite]rg  :<C-u>UniteResume search-buffer<CR>
+  nnoremap [Unite]  <nop>
+  nmap <Space>u [Unite]
+  nnoremap [Unite]<Space>  :<C-u>Unite 
+  nnoremap <silent> [Unite]b  :<C-u>Unite buffer<CR>
+  nnoremap <silent> [Unite]d  :<C-u>Unite directory_mru -default-action=cd<CR>
+  nnoremap <silent> [Unite]f  :<C-u>Unite file<CR>
+  nnoremap <silent> [Unite]m  :<C-u>Unite file_mru<CR>
+  nnoremap <silent> [Unite]o  :<C-u>Unite outline<CR>
+  nnoremap <silent> [Unite]q  :<C-u>Unite ghq<CR>
+  nnoremap <silent> [Unite]r  :<C-u>Unite file_rec<CR>
+  nnoremap <silent> [Unite]t  :<C-u>Unite buffer_tab<CR>
+  nnoremap <silent> [Unite]u  :<C-u>UniteWithCurrentDir file_mru<CR>
+  nnoremap <silent> [Unite]g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+  nnoremap <silent> [Unite]cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+  nnoremap <silent> [Unite]rg  :<C-u>UniteResume search-buffer<CR>
 
-if executable('pt')
-  let g:unite_source_grep_command = 'pt'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-  let g:unite_source_grep_recursive_opt = ''
-  let g:unite_source_grep_encoding = 'utf-8'
-endif
+  if executable('pt')
+    let g:unite_source_grep_command = 'pt'
+    let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+    let g:unite_source_grep_recursive_opt = ''
+    let g:unite_source_grep_encoding = 'utf-8'
+  endif
 
-call unite#custom#substitute('file', '\$\w\+', '\=eval(submatch(0))', 200)
-call unite#custom#substitute('file', '[^~.]\zs/', '*/*', 20)
-call unite#custom#substitute('file', '/\ze[^*]', '/*', 10)
-call unite#custom#substitute('file', '^@@', '\=fnamemodify(expand("#"), ":p:h")."/*"', 2)
-call unite#custom#substitute('file', '^@', '\=getcwd()."/*"', 1)
-call unite#custom#substitute('file', '^\\', '~/*')
-call unite#custom#substitute('file', '^;v', '~/.vim/*')
-call unite#custom#substitute('file', '^;r', '\=$VIMRUNTIME."/*"')
-if s:is_windows
-  call unite#custom#substitute('file', '^;p', 'C:/Program Files/*')
-endif
+  call unite#custom#substitute('file', '\$\w\+', '\=eval(submatch(0))', 200)
+  call unite#custom#substitute('file', '[^~.]\zs/', '*/*', 20)
+  call unite#custom#substitute('file', '/\ze[^*]', '/*', 10)
+  call unite#custom#substitute('file', '^@@', '\=fnamemodify(expand("#"), ":p:h")."/*"', 2)
+  call unite#custom#substitute('file', '^@', '\=getcwd()."/*"', 1)
+  call unite#custom#substitute('file', '^\\', '~/*')
+  call unite#custom#substitute('file', '^;v', '~/.vim/*')
+  call unite#custom#substitute('file', '^;r', '\=$VIMRUNTIME."/*"')
+  if s:is_windows
+    call unite#custom#substitute('file', '^;p', 'C:/Program Files/*')
+  endif
 
-call unite#custom#substitute('file', '\*\*\+', '*', -1)
-call unite#custom#substitute('file', '^\~', escape($HOME, '\'), -2)
-call unite#custom#substitute('file', '\\\@<! ', '\\ ', -20)
-call unite#custom#substitute('file', '\\ \@!', '/', -30)
+  call unite#custom#substitute('file', '\*\*\+', '*', -1)
+  call unite#custom#substitute('file', '^\~', escape($HOME, '\'), -2)
+  call unite#custom#substitute('file', '\\\@<! ', '\\ ', -20)
+  call unite#custom#substitute('file', '\\ \@!', '/', -30)
 
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-  let g:unite_source_grep_recursive_opt = ''
+  if executable('ag')
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+    let g:unite_source_grep_recursive_opt = ''
+  endif
 endif
 
 "" clang_complete
@@ -458,34 +460,37 @@ nmap <Space>il <SID>(git-log-line)
 nmap <Space>iL <SID>(git-log)
 
 " unite prefix key
-nmap [Unite]gg    <SID>(giti-sources)
-nmap [Unite]gst   <SID>(git-status)
-nmap [Unite]gb    <SID>(git-branch)
-nmap [Unite]gB    <SID>(git-branch_all)
-nmap [Unite]gc    <SID>(git-config)
-nmap [Unite]gl    <SID>(git-log)
-nmap [Unite]gL    <SID>(git-log-this-file)
+"
+if dein#tap('unite')
+  nmap [Unite]gg    <SID>(giti-sources)
+  nmap [Unite]gst   <SID>(git-status)
+  nmap [Unite]gb    <SID>(git-branch)
+  nmap [Unite]gB    <SID>(git-branch_all)
+  nmap [Unite]gc    <SID>(git-config)
+  nmap [Unite]gl    <SID>(git-log)
+  nmap [Unite]gL    <SID>(git-log-this-file)
 
-let g:giti_log_default_line_count = 100
-nnoremap <expr><silent> <SID>(git-diff)        ':<C-u>GitiDiff ' . expand('%:p') . '<CR>'
-nnoremap <expr><silent> <SID>(git-diff-cached) ':<C-u>GitiDiffCached ' . expand('%:p') .  '<CR>'
-nnoremap       <silent> <SID>(git-fetch-now)    :<C-u>GitiFetch<CR>
-nnoremap       <silent> <SID>(git-fetch)        :<C-u>GitiFetch
-nnoremap <expr><silent> <SID>(git-push-now)    ':<C-u>GitiPushWithSettingUpstream origin ' . giti#branch#current_name() . '<CR>'
-nnoremap       <silent> <SID>(git-push)         :<C-u>GitiPush
-nnoremap       <silent> <SID>(git-pull-now)     :<C-u>GitiPull<CR>
-nnoremap       <silent> <SID>(git-pull)         :<C-u>GitiPull
-nnoremap       <silent> <SID>(git-log-line)     :<C-u>GitiLogLine ' . expand('%:p') . '<CR>'
-nnoremap       <silent> <SID>(git-log)          :<C-u>GitiLog ' . expand('%:p') . '<CR>'
+  let g:giti_log_default_line_count = 100
+  nnoremap <expr><silent> <SID>(git-diff)        ':<C-u>GitiDiff ' . expand('%:p') . '<CR>'
+  nnoremap <expr><silent> <SID>(git-diff-cached) ':<C-u>GitiDiffCached ' . expand('%:p') .  '<CR>'
+  nnoremap       <silent> <SID>(git-fetch-now)    :<C-u>GitiFetch<CR>
+  nnoremap       <silent> <SID>(git-fetch)        :<C-u>GitiFetch
+  nnoremap <expr><silent> <SID>(git-push-now)    ':<C-u>GitiPushWithSettingUpstream origin ' . giti#branch#current_name() . '<CR>'
+  nnoremap       <silent> <SID>(git-push)         :<C-u>GitiPush
+  nnoremap       <silent> <SID>(git-pull-now)     :<C-u>GitiPull<CR>
+  nnoremap       <silent> <SID>(git-pull)         :<C-u>GitiPull
+  nnoremap       <silent> <SID>(git-log-line)     :<C-u>GitiLogLine ' . expand('%:p') . '<CR>'
+  nnoremap       <silent> <SID>(git-log)          :<C-u>GitiLog ' . expand('%:p') . '<CR>'
 
-nnoremap <silent> <SID>(giti-sources)   :<C-u>Unite giti<CR>
-nnoremap <silent> <SID>(git-status)     :<C-u>Unite giti/status<CR>
-nnoremap <silent> <SID>(git-branch)     :<C-u>Unite giti/branch<CR>
-nnoremap <silent> <SID>(git-branch_all) :<C-u>Unite giti/branch_all<CR>
-nnoremap <silent> <SID>(git-config)     :<C-u>Unite giti/config<CR>
-nnoremap <silent> <SID>(git-log)        :<C-u>Unite giti/log<CR>
+  nnoremap <silent> <SID>(giti-sources)   :<C-u>Unite giti<CR>
+  nnoremap <silent> <SID>(git-status)     :<C-u>Unite giti/status<CR>
+  nnoremap <silent> <SID>(git-branch)     :<C-u>Unite giti/branch<CR>
+  nnoremap <silent> <SID>(git-branch_all) :<C-u>Unite giti/branch_all<CR>
+  nnoremap <silent> <SID>(git-config)     :<C-u>Unite giti/config<CR>
+  nnoremap <silent> <SID>(git-log)        :<C-u>Unite giti/log<CR>
 
-nnoremap <silent><expr> <SID>(git-log-this-file) ':<C-u>Unite giti/log:' . expand('%:p') . '<CR>'
+  nnoremap <silent><expr> <SID>(git-log-this-file) ':<C-u>Unite giti/log:' . expand('%:p') . '<CR>'
+endif
 
 "" vim-easymotion
 
