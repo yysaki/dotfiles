@@ -84,6 +84,7 @@ fi
 # set export
 export EDITOR='vi'
 export HISTSIZE=100000
+export PS1="\[\e[31m\]\u@\h \W\$ \[\e[0m\]"
 
 # texlive
 if [ -d /usr/local/texlive/2013 ] ; then
