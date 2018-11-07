@@ -13,22 +13,6 @@ case "$(uname)" in
 esac
 
 # User specific aliases and functions
-## Dropbox aliases and functions
-alias dbst='dropbox status'
-alias dbfs='dropbox filestatus'
-
-dropbox_backup_dotfiles () {
-  cp ~/.bashrc ~/.bash_profile ~/.bash_logout ~/.vimrc ~/.gvimrc ~/.screenrc ~/.tmux.conf ~/Dropbox/Program/dotfiles/
-  cp -rf ~/vimfiles/dict \
-  ~/vimfiles/after \
-  ~/vimfiles/scripts \
-  ~/vimfiles/colors \
-  ~/vimfiles/ftplugin \
-  ~/vimfiles/snippets \
-  ~/vimfiles/doc \
-  ~/vimfiles/syntax \
-  ~/Dropbox/Program/dotfiles/vimfiles/
-}
 
 ## set aliases
 if [ -x /usr/bin/dircolors ]; then
