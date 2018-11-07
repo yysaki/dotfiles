@@ -368,8 +368,10 @@ let g:clang_use_library=1
 
 "" vim-altr
 
-nmap <Space>a <Plug>(altr-forward)
-call altr#define('%.xaml', '%.xaml.cs')
+if dein#tap('altr')
+  nmap <Space>a <Plug>(altr-forward)
+  call altr#define('%.xaml', '%.xaml.cs')
+endif
 
 "" open browser
 
