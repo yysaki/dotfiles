@@ -18,13 +18,13 @@ esac
 
 case ${UID} in
   0)
-    PROMPT="%B%{[31m%}%m:%n#%{[m%}%b "
+    PROMPT="%B%{[31m%}%n@%m#%{[m%}%b "
     RPROMPT="%B%{[32m%}[%~]%{[m%}%b"
     PROMPT2="%B%{[31m%}%_#%{[m%}%b "
     SPROMPT="%B%{[31m%}%r is correct? [n,y,a,e]:%{[m%}%b "
     ;;
   *)
-    PROMPT="%{[31m%}%m:%n%%%{[m%} "
+    PROMPT="%{[31m%}%n@%m%%%{[m%} "
     RPROMPT="%{[32m%}[%/]%{[m%}"
     PROMPT2="%{[31m%}%_%%%{[m%} "
     SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
