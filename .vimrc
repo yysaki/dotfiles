@@ -311,7 +311,7 @@ let g:ref_refe_cmd                = expand('~/vimfiles/ref/ruby-ref1.9.2/refe-1_
 
 "" Unite.vim
 
-if dein#tap('unite')
+if dein#tap('unite.vim')
   let g:unite_enable_start_insert=1
 
   nnoremap [Unite]  <nop>
@@ -368,7 +368,7 @@ let g:clang_use_library=1
 
 "" vim-altr
 
-if dein#tap('altr')
+if dein#tap('vim-altr')
   nmap <Space>a <Plug>(altr-forward)
   call altr#define('%.xaml', '%.xaml.cs')
 endif
