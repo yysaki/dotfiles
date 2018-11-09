@@ -497,6 +497,9 @@ endif
 "" vim-easymotion
 
 let g:EasyMotion_do_mapping = 0
+
+nmap s <Plug>(easymotion-overwin-f2)
+
 map  <Space>f <Plug>(easymotion-bd-f)
 nmap <Space>f <Plug>(easymotion-bd-f)
 map  <Space>F <Plug>(easymotion-bd-f)
