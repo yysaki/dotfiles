@@ -796,6 +796,12 @@ autocmd BufNewFile,BufRead *.{xaml} set filetype=xml
 autocmd BufNewFile,BufRead *.{xaml,ascx,cs,html,master} setlocal tabstop=4 shiftwidth=4
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
 
+augroup php
+  autocmd!
+  autocmd BufNewFile,BufRead *.php setlocal tabstop=4 shiftwidth=4
+  autocmd BufNewFile,BufRead *.php setlocal expandtab softtabstop=4
+augroup END
+
 augroup vue
   autocmd!
   autocmd FileType vue syntax sync fromstart
