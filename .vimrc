@@ -645,7 +645,7 @@ else
 endif
 
 " バッファ操作
-nnoremap <Space>b :<C-u>ls<CR>:buf
+nnoremap <Space>b :<C-u>Buffers<CR>
 
 " UTF-8 として読み込む
 nnoremap <Space>e  :<C-u>e ++enc=utf-8<CR>
