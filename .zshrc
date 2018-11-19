@@ -219,3 +219,5 @@ source ${HOME}/.zprofile
 # __END__  "{{{1
 # vim: expandtab softtabstop=2 shiftwidth=2
 # vim: foldmethod=marker
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

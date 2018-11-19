@@ -216,3 +216,5 @@ shopt -u histappend
 if [ -f "${HOME}/.bashrc_local" ]; then
   source "${HOME}/.bashrc_local"
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
