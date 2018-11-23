@@ -789,18 +789,25 @@ autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 let g:tex_flavor = "latex"
 
 autocmd BufNewFile,BufRead *.{aspx,ascx} set filetype=html
-autocmd BufNewFile,BufRead *.{aspx,ascx,cs,html,master} setlocal tabstop=4 shiftwidth=4
-autocmd BufNewFile,BufRead *.{aspx,ascx,cs,html,master} setlocal noexpandtab softtabstop=4
-autocmd BufNewFile,BufRead *.{aspx,ascx,cs,html,master} setlocal foldmethod=syntax
+autocmd BufNewFile,BufRead *.{aspx,ascx,cs,master} setlocal tabstop=4 shiftwidth=4
+autocmd BufNewFile,BufRead *.{aspx,ascx,cs,master} setlocal noexpandtab softtabstop=4
+autocmd BufNewFile,BufRead *.{aspx,ascx,cs,master} setlocal foldmethod=syntax
 
 autocmd BufNewFile,BufRead *.{xaml} set filetype=xml
-autocmd BufNewFile,BufRead *.{xaml,ascx,cs,html,master} setlocal tabstop=4 shiftwidth=4
+autocmd BufNewFile,BufRead *.{xaml,ascx,cs,master} setlocal tabstop=4 shiftwidth=4
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
 
 augroup php
   autocmd!
   autocmd BufNewFile,BufRead *.php setlocal tabstop=4 shiftwidth=4
   autocmd BufNewFile,BufRead *.php setlocal expandtab softtabstop=4
+augroup END
+
+augroup html
+  autocmd!
+  autocmd BufNewFile,BufRead *.html setlocal tabstop=4 shiftwidth=4
+  autocmd BufNewFile,BufRead *.html setlocal noexpandtab softtabstop=4
+  autocmd BufNewFile,BufRead *.html setlocal foldmethod=syntax
 augroup END
 
 augroup vim
