@@ -826,11 +826,6 @@ autocmd FileType *
 \ |   setlocal omnifunc=syntaxcomplete#Complete
 \ | endif
 
-augroup git
-    autocmd!
-    autocmd FileType git :setlocal foldlevel=99 tabstop=8
-augroup END
-
 "スペルチェックを有効にする(ただし日本語は除外する)
 set spelllang+=cjk
 " set spell
