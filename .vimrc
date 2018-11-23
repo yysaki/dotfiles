@@ -422,8 +422,6 @@ let g:tagbar_type_javascript = {
 if !exists('g:tcomment_types')
   let g:tcomment_types = {}
 endif
-let g:tcomment_types['reduce'] = '%% %s'
-
 
 "" QFixHowm
 
@@ -784,7 +782,6 @@ set undodir='~/tmp/vim-undofile'
 set helplang=en,ja
 
 " 拡張子設定
-autocmd BufRead,BufNewFile *.red set filetype=reduce
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 let g:tex_flavor = "latex"
 
