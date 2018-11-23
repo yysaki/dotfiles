@@ -803,6 +803,12 @@ augroup php
   autocmd BufNewFile,BufRead *.php setlocal expandtab softtabstop=4
 augroup END
 
+augroup vim
+  autocmd!
+  autocmd BufWritePost .vimrc source $MYVIMRC
+  autocmd BufWritePost .gvimrc source $MYGVIMRC
+augroup END
+
 augroup vue
   autocmd!
   autocmd FileType vue syntax sync fromstart
