@@ -567,6 +567,14 @@ endif
 let g:lsp_async_completion = 1
 autocmd FileType typescript setlocal omnifunc=lsp#complete
 
+"" fzf
+
+if dein#tap('fzf.vim')
+  command! -nargs=* -complete=dir Pg call fzf#run(fzf#wrap(
+    \ {'source': 'ghq list --full-path',
+    \  'sink': 'cd' }))
+endif
+
 " OS Type "{{{1
 
 if has('mac')
