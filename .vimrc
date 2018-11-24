@@ -91,6 +91,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('leafgarland/typescript-vim')
   call dein#add('majutsushi/tagbar')           " <Space>t ctags汎用
   call dein#add('mattn/emmet-vim')              " <C-z>, old: zencoding-vim
+  call dein#add('mhinz/vim-startify')
   call dein#add('msanders/cocoa.vim')
   call dein#add('osyo-manga/vim-anzu')
   call dein#add('osyo-manga/vim-over')
