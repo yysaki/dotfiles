@@ -212,6 +212,31 @@ if [ -x $GHQ_ROOT/github.com/rupa/z ]; then
   source $GHQ_ROOT/github.com/rupa/z/z.sh
 fi
 
+# install latest vim. required homebrew installed lua, python3
+if $darwin; then
+  function makeInstallLatestVim() {
+    ghq get vim/vim --update;
+    pushd `ghq list vim/vim --full-path`;
+    git checkout master;
+
+    ./configure \
+      --with-features=huge \
+      --enable-luainterp \
+      --with-lua-prefix=/usr/local \
+      --enable-perlinterp \
+      --enable-pythoninterp \
+      --enable-python3interp \
+      --enable-rubyinterp \
+      --enable-fail-if-missing;
+
+    make;
+    sudo make install;
+    popd
+  }
+
+  alias vup=makeInstallLatestVim
+fi
+
 if [ -f "${HOME}/.zshrc_local" ]; then
   source "${HOME}/.zshrc_local"
 fi
