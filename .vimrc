@@ -224,6 +224,12 @@ let g:quickrun_config['make.check'] = {"command": "make", "cmdopt": "check", "ou
 let g:quickrun_config['make.run']   = {"command": "make", "cmdopt": "run",   "outputter": "error:buffer:quickfix"}
 let g:quickrun_config['make.test']  = {"command": "make", "cmdopt": "test",  "outputter": "error:buffer:quickfix"}
 let g:quickrun_config['tex']        = {"command": "make", "exec" : "%c %o",  "outputter": "error:buffer:quickfix"}
+let g:quickrun_config['php']        = {
+\ 'hook/cd/directory'              : '/Users/sasaki/go/src/vcs00.timedia.co.jp/gitbucket/git/sasaki/kanagawa-moodle/tmp',
+\ 'command'                        : 'sh',
+\ 'exec'                           : '%c quickrun.sh',
+\ 'outputter/quickfix/errorformat' : '%f:%l',
+\}
 
 if executable("clang++")
   let g:quickrun_config['cpp/clang++11'] = {'cmdopt': '--std=c++11 --stdlib=libc++', 'type': 'cpp/clang++'}
