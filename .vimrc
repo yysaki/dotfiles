@@ -125,6 +125,13 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('vim-scripts/vim-niji')
   call dein#add('w0ng/vim-hybrid') " :colorscheme hybrid
 
+  if executable('composer')
+    call dein#add('phpactor/phpactor', {
+    \ 'on_ft': ['php'],
+    \ 'build': 'composer install'
+    \ })
+  endif
+
   " ファイルの構文エラーチェック
   if has('job') && has('channel') && has('timers')
     call dein#add('w0rp/ale')
@@ -298,6 +305,7 @@ augroup omnifunc
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
   autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+  autocmd FileType php setlocal omnifunc=phpactor#Complete
 augroup END
 
 "" neosnippet
