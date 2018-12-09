@@ -104,6 +104,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('sorah/unite-ghq')
   call dein#add('taichouchou2/vim-endwise.git', {'on_event': 'InsertEnter'})
   call dein#add('thinca/vim-prettyprint')
+  call dein#add('thinca/vim-qfreplace')
   call dein#add('thinca/vim-quickrun')         " <Space>qでmakeなど
   call dein#add('thinca/vim-tabrecent')         " <[TABCMD]r
   call dein#add('thinca/vim-textobj-between')
