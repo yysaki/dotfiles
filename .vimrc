@@ -588,7 +588,7 @@ autocmd FileType typescript setlocal omnifunc=lsp#complete
 "" fzf
 
 if dein#tap('fzf.vim')
-  command! -nargs=* -complete=dir Pg call fzf#run(fzf#wrap(
+  command! -nargs=* -complete=dir Fq call fzf#run(fzf#wrap(
     \ {'source': 'ghq list --full-path',
     \  'sink': 'cd' }))
 endif
