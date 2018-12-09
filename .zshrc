@@ -241,6 +241,10 @@ if [ -f "${HOME}/.zshrc_local" ]; then
   source "${HOME}/.zshrc_local"
 fi
 
+fq() {
+  cd $(ghq root)/$(ghq list | fzf)
+}
+
 # fbr - checkout git branch
 fb() {
   local branches branch
