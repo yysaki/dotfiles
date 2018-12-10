@@ -457,10 +457,6 @@ let QFixHowm_FoldingPattern = '^[#[]'                         " 折りたたみ�
 let QFixHowm_ChDir = '~/Dropbox/Files/howm'
 let QFixHowm_RootDir = '~/Dropbox/Files/howm'
 
-if s:is_windows
-  let mygrepprg = 'grep'
-endif
-
 nnoremap <silent> g,hh :echo howm_dir<CR>
 nnoremap <silent> g,ha :call HowmChEnv('',            'time', '#')<CR>
 nnoremap <silent> g,hp :call HowmChEnv('private-mkd', 'time', '#')<CR>
@@ -766,6 +762,11 @@ filetype plugin indent on "プラグインをオンにする
 " ファイル処理関連
 set confirm
 set hidden
+
+if executable("rg")
+  set grepprg=rg\ --vimgrep\ --no-heading
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
 
 " 検索/置換
 set ignorecase
