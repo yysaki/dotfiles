@@ -675,8 +675,11 @@ else
   nnoremap <Space>v. :<C-u>source $MYVIMRC<CR>
 endif
 
-" バッファ操作
-nnoremap <Space>b :<C-u>Buffers<CR>
+" fzf.vim
+if dein#tap('fzf.vim')
+  nnoremap <Space>b :<C-u>Buffers<CR>
+  nnoremap <Space>r :<C-u>Rg 
+endif
 
 " UTF-8 として読み込む
 nnoremap <Space>e  :<C-u>e ++enc=utf-8<CR>
