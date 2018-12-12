@@ -751,6 +751,8 @@ cnoremap <C-o> <C-\>e(getcmdtype() == '/' <Bar><Bar> getcmdtype() == '?') ? '\<'
 noremap ;  :
 noremap :  ;
 
+noremap Y y$
+
 nnoremap <C-h> :<C-u>help<Space>
 
 noremap <C-@> <Esc>
