@@ -678,6 +678,7 @@ endif
 " fzf.vim
 if dein#tap('fzf.vim')
   nnoremap <Space>b :<C-u>Buffers<CR>
+  nnoremap <Space>h :<C-u>History<CR>
   nnoremap <Space>r :<C-u>Rg 
 endif
 
