@@ -101,7 +101,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('prabirshrestha/async.vim')
   call dein#add('prabirshrestha/vim-lsp')
   call dein#add('rking/ag.vim')
-  call dein#add('tsuyoshicho/vim-slumlord')
   call dein#add('sjl/gundo.vim')
   call dein#add('sorah/unite-ghq')
   call dein#add('taichouchou2/vim-endwise.git', {'on_event': 'InsertEnter'})
@@ -116,9 +115,11 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-surround')          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
   call dein#add('tpope/vim-unimpaired')        " [q, ]qなど
+  call dein#add('tsuyoshicho/vim-slumlord')
   call dein#add('tweekmonster/fzf-filemru')
   call dein#add('twitvim/twitvim')
   call dein#add('tyru/open-browser.vim')
+  call dein#add('vim-jp/vimdoc-ja')
   call dein#add('vim-scripts/VimCoder.jar')    " topcoder
   call dein#add('vim-scripts/errormarker.vim') " flymakeっぽいこと 実態確認 ':autocmd QuickFixCmdPost'
   call dein#add('vim-scripts/jQuery')
