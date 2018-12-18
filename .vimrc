@@ -824,8 +824,6 @@ set ambiwidth=double
 set undofile
 set undodir='~/tmp/vim-undofile'
 
-set helplang=en,ja
-
 " 拡張子設定
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 let g:tex_flavor = "latex"
