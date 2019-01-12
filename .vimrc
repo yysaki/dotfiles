@@ -100,6 +100,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('posva/vim-vue')
   call dein#add('prabirshrestha/async.vim')
   call dein#add('prabirshrestha/vim-lsp')
+  call dein#add('rhysd/clever-f.vim')
   call dein#add('rking/ag.vim')
   call dein#add('sjl/gundo.vim')
   call dein#add('sorah/unite-ghq')
@@ -600,6 +601,10 @@ if dein#tap('twitvim')
   endif
   let twitvim_count = 50
 endif
+
+"" clever-f.vim
+
+let g:clever_f_use_migemo = 1
 
 " OS Type "{{{1
 
