@@ -736,7 +736,9 @@ nnoremap &  :&&<CR>
 xnoremap &  :&&<CR>
 
 " コマンドラインモード用
+set wildmenu
 set wildmode=longest:full,full
+
 cnoremap <C-a> <Home>
 cnoremap <C-b> <Left>
 " cnoremap <C-d> <Del>
