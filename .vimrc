@@ -43,10 +43,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('Konfekt/FastFold')
   call dein#add('PProvost/vim-ps1')
   call dein#add('Rip-Rip/clang_complete')
-  call dein#add('Shougo/neocomplete.vim')
-  call dein#add('Shougo/neomru.vim')           " :Unite file_mru
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/tabpagebuffer.vim')
   call dein#add('Shougo/unite.vim')
   call dein#add('Shougo/vimfiler')
@@ -100,6 +96,10 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('pangloss/vim-javascript')
   call dein#add('posva/vim-vue')
   call dein#add('prabirshrestha/async.vim')
+  call dein#add('prabirshrestha/async.vim')
+  call dein#add('prabirshrestha/asyncomplete-lsp.vim')
+  call dein#add('prabirshrestha/asyncomplete-ultisnips.vim')
+  call dein#add('prabirshrestha/asyncomplete.vim')
   call dein#add('prabirshrestha/vim-lsp')
   call dein#add('rhysd/clever-f.vim')
   call dein#add('rking/ag.vim')
@@ -140,7 +140,7 @@ if dein#load_state(expand($BUNDLE_PATH))
 
   " ファイルの構文エラーチェック
   if has('job') && has('channel') && has('timers')
-    call dein#add('w0rp/ale')
+    " call dein#add('w0rp/ale')
   else
     call dein#add('scrooloose/syntastic')
   endif
@@ -252,56 +252,6 @@ endif
 " <Space>q でquickrunする
 silent! map <Space>q <Plug>(quickrun)
 
-"" neocomplete
-
-let g:acp_enableAtStartup = 0 " Disable AutoComplPop.
-let g:neocomplete#enable_at_startup = 1 " Use neocomplete.
-let g:neocomplete#enable_smart_case = 1 " Use smartcase.
-let g:neocomplete#sources#syntax#min_keyword_length = 3 " Set minimum syntax keyword length.
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-  \ 'default' : '',
-  \ 'vimshell' : $HOME.'/.vimshell_hist',
-  \ 'scheme' : $HOME.'/.gosh_completions'
-  \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-  let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-
-let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
-
 " Enable omni completion.
 augroup omnifunc
   autocmd!
@@ -310,26 +260,8 @@ augroup omnifunc
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-  autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
   autocmd FileType php setlocal omnifunc=phpactor#Complete
 augroup END
-
-"" neosnippet
-" Plugin key-mappings.
-
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ? \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
-
-let g:neosnippet#snippets_directory = "~/vimfiles/snippets,~/vimfiles/bundle/vim-snippets/"
 
 "" vim-ref
 
@@ -582,6 +514,22 @@ if executable('vls')
       \ 'whitelist': ['vue'],
       \ })
 endif
+
+if executable('solargraph')
+    " gem install solargraph
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'solargraph',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+        \ 'initialization_options': {"diagnostics": "true"},
+        \ 'whitelist': ['ruby'],
+        \ })
+endif
+
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('~/vim-lsp.log')
+
+" for asyncomplete.vim log
+let g:asyncomplete_log_file = expand('~/asyncomplete.log')
 
 let g:lsp_async_completion = 1
 autocmd FileType typescript setlocal omnifunc=lsp#complete
