@@ -40,31 +40,19 @@ if dein#load_state(expand($BUNDLE_PATH))
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
 
-  call dein#add('Konfekt/FastFold')
-  call dein#add('PProvost/vim-ps1')
-  call dein#add('Rip-Rip/clang_complete')
-  call dein#add('Shougo/tabpagebuffer.vim')
   call dein#add('Shougo/unite.vim')
-  call dein#add('Shougo/vimfiler')
   call dein#add('airblade/vim-gitgutter')
-  call dein#add('aklt/plantuml-syntax')
   call dein#add('altercation/vim-colors-solarized') " solarized.vim
-  call dein#add('cespare/vim-toml')
   call dein#add('cocopon/iceberg.vim')
-  call dein#add('digitaltoad/vim-jade')
   call dein#add('easymotion/vim-easymotion') " <Space>f
   call dein#add('fatih/vim-go')
   call dein#add('fuenor/qfixgrep')
   call dein#add('fuenor/qfixhowm')             " QFixHowm - hitori otegaru wiki modoki
-  call dein#add('gregsexton/gitv')             " :Gitv, 要fugitive
-  call dein#add('h1mesuke/unite-outline')      " :Unite outline
   call dein#add('hallison/vim-markdown')
   call dein#add('haya14busa/vim-asterisk')
-  call dein#add('haya14busa/vim-edgemotion')
   call dein#add('haya14busa/vim-migemo')
   call dein#add('honza/vim-snippets')
   call dein#add('jelera/vim-javascript-syntax')
-  call dein#add('jiangmiao/simple-javascript-indenter')
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
   call dein#add('junegunn/vim-easy-align')
@@ -72,30 +60,16 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('kana/vim-altr')               " <Space>a
   call dein#add('kana/vim-smartinput')
   call dein#add('kana/vim-tabpagecd')
-  call dein#add('kana/vim-textobj-datetime')  " ada, ida
-  call dein#add('kana/vim-textobj-diff')  " adf, idf
   call dein#add('kana/vim-textobj-entire')   " ae, ie
-  call dein#add('kana/vim-textobj-fold')  " az, iz
-  call dein#add('kana/vim-textobj-function') " af, if, aF, iF
   call dein#add('kana/vim-textobj-indent')  " ai, ii
-  call dein#add('kana/vim-textobj-jabraces') " ajb, ijb
-  call dein#add('kana/vim-textobj-lastpat')  " a/, i/
-  call dein#add('kana/vim-textobj-line')     " al, il
-  call dein#add('kana/vim-textobj-syntax')   " ay, iy
-  call dein#add('kana/vim-textobj-underscore') " a_, i_
   call dein#add('kana/vim-textobj-user')
-  call dein#add('kmnk/vim-unite-giti')
   call dein#add('lambdalisue/gina.vim')
-  call dein#add('leafgarland/typescript-vim')
-  call dein#add('majutsushi/tagbar')           " <Space>t ctags汎用
   call dein#add('mattn/emmet-vim')              " <C-z>, old: zencoding-vim
   call dein#add('mhinz/vim-startify')
   call dein#add('msanders/cocoa.vim')
   call dein#add('osyo-manga/vim-anzu')
-  call dein#add('osyo-manga/vim-over')
   call dein#add('pangloss/vim-javascript')
   call dein#add('posva/vim-vue')
-  call dein#add('prabirshrestha/async.vim')
   call dein#add('prabirshrestha/async.vim')
   call dein#add('prabirshrestha/asyncomplete-lsp.vim')
   call dein#add('prabirshrestha/asyncomplete-ultisnips.vim')
@@ -103,8 +77,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('prabirshrestha/vim-lsp')
   call dein#add('rhysd/clever-f.vim')
   call dein#add('rking/ag.vim')
-  call dein#add('sjl/gundo.vim')
-  call dein#add('sorah/unite-ghq')
   call dein#add('taichouchou2/vim-endwise.git', {'on_event': 'InsertEnter'})
   call dein#add('thinca/vim-prettyprint')
   call dein#add('thinca/vim-qfreplace')
@@ -117,19 +89,14 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-surround')          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
   call dein#add('tpope/vim-unimpaired')        " [q, ]qなど
-  call dein#add('tsuyoshicho/vim-slumlord')
   call dein#add('tweekmonster/fzf-filemru')
-  call dein#add('twitvim/twitvim')
-  call dein#add('tyru/open-browser.vim')
   call dein#add('vim-jp/vimdoc-ja')
-  call dein#add('vim-scripts/VimCoder.jar')    " topcoder
   call dein#add('vim-scripts/errormarker.vim') " flymakeっぽいこと 実態確認 ':autocmd QuickFixCmdPost'
   call dein#add('vim-scripts/jQuery')
   call dein#add('vim-scripts/matchit.zip')
   call dein#add('vim-scripts/project.tar.gz')
   call dein#add('vim-scripts/sudo.vim')
   call dein#add('vim-scripts/vim-niji')
-  call dein#add('w0ng/vim-hybrid') " :colorscheme hybrid
 
   if executable('composer')
     call dein#add('phpactor/phpactor', {
@@ -141,8 +108,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   " ファイルの構文エラーチェック
   if has('job') && has('channel') && has('timers')
     " call dein#add('w0rp/ale')
-  else
-    call dein#add('scrooloose/syntastic')
   endif
 
   call dein#add('Shougo/vimproc', {
@@ -154,14 +119,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   if has('mac')
     call dein#add('kana/vim-fakeclip')
   endif
-
-  call dein#add('OmniSharp/omnisharp-vim', {
-  \   'on_ft' : [ 'cs', 'csi', 'csx' ],
-  \   'build' :
-  \     has('mac') ? 'xbuild server/OmniSharp.sln' :
-  \     has('unix') ? 'xbuild server/OmniSharp.sln' :
-  \     'msbuild server/OmniSharp.sln',
-  \ })
 
   call dein#end()
   call dein#save_state()
@@ -244,11 +201,6 @@ let g:quickrun_config['php']        = {
 \ 'outputter/quickfix/errorformat' : '%f:%l',
 \}
 
-if executable("clang++")
-  let g:quickrun_config['cpp/clang++11'] = {'cmdopt': '--std=c++11 --stdlib=libc++', 'type': 'cpp/clang++'}
-  let g:quickrun_config['cpp'] = {'type': 'cpp/clang++11'}
-endif
-
 " <Space>q でquickrunする
 silent! map <Space>q <Plug>(quickrun)
 
@@ -280,8 +232,6 @@ if dein#tap('unite.vim')
   nnoremap <silent> [Unite]d  :<C-u>Unite directory_mru -default-action=cd<CR>
   nnoremap <silent> [Unite]f  :<C-u>Unite file<CR>
   nnoremap <silent> [Unite]m  :<C-u>Unite file_mru<CR>
-  nnoremap <silent> [Unite]o  :<C-u>Unite outline<CR>
-  nnoremap <silent> [Unite]q  :<C-u>Unite ghq<CR>
   nnoremap <silent> [Unite]r  :<C-u>Unite file_rec<CR>
   nnoremap <silent> [Unite]t  :<C-u>Unite buffer_tab<CR>
   nnoremap <silent> [Unite]u  :<C-u>UniteWithCurrentDir file_mru<CR>
@@ -320,21 +270,12 @@ if dein#tap('unite.vim')
   endif
 endif
 
-"" clang_complete
-
-let g:clang_complete_auto=0
-let g:clang_use_library=1
-
 "" vim-altr
 
 if dein#tap('vim-altr')
   nmap <Space>a <Plug>(altr-forward)
   call altr#define('%.xaml', '%.xaml.cs')
 endif
-
-"" open browser
-
-nnoremap <Leader>o <Plug>(openbrowser-smart-search)
 
 "" simple-javascript-indenter
 
@@ -356,28 +297,6 @@ if dein#tap('ale')
   let g:ale_fix_on_save = 1
 endif
 
-if dein#tap('syntastic')
-  let g:syntastic_cs_checkers = ['syntax']
-
-  if executable("clang++")
-    let g:syntastic_cpp_compiler = 'clang++'
-    let g:syntastic_cpp_compiler_options = '--std=c++11 --stdlib=libc++'
-  endif
-endif
-
-"" tagbar
-
-nnoremap <Space>T :TagbarToggle<CR>
-let g:tagbar_type_javascript = {
-  \ 'ctagsbin' : '/usr/local/share/npm/bin/jsctags'
-  \ }
-
-"" tComment
-
-if !exists('g:tcomment_types')
-  let g:tcomment_types = {}
-endif
-
 "" QFixHowm
 
 let QFixHowm_Key            = 'g'                             " キーマップリーダー ex.'g,c'
@@ -397,54 +316,15 @@ nnoremap <silent> g,ha :call HowmChEnv('',            'time', '#')<CR>
 nnoremap <silent> g,hp :call HowmChEnv('private-mkd', 'time', '#')<CR>
 nnoremap <silent> g,hw :call HowmChEnv('work-mkd',    'day',  '#')<CR>
 
-"" vim-edgemotion
-
-map <C-j> <Plug>(edgemotion-j)
-map <C-k> <Plug>(edgemotion-k)
-
-"" giti
-
-" giti prefix key
-nmap <Space>id <SID>(git-diff-cached)
-nmap <Space>iD <SID>(git-diff)
-nmap <Space>if <SID>(git-fetch-now)
-nmap <Space>iF <SID>(git-fetch)
-nmap <Space>ip <SID>(git-push-now)
-nmap <Space>iP <SID>(git-pull-now)
-nmap <Space>il <SID>(git-log-line)
-nmap <Space>iL <SID>(git-log)
-
 " unite prefix key
 "
 if dein#tap('unite')
-  nmap [Unite]gg    <SID>(giti-sources)
   nmap [Unite]gst   <SID>(git-status)
   nmap [Unite]gb    <SID>(git-branch)
   nmap [Unite]gB    <SID>(git-branch_all)
   nmap [Unite]gc    <SID>(git-config)
   nmap [Unite]gl    <SID>(git-log)
   nmap [Unite]gL    <SID>(git-log-this-file)
-
-  let g:giti_log_default_line_count = 100
-  nnoremap <expr><silent> <SID>(git-diff)        ':<C-u>GitiDiff ' . expand('%:p') . '<CR>'
-  nnoremap <expr><silent> <SID>(git-diff-cached) ':<C-u>GitiDiffCached ' . expand('%:p') .  '<CR>'
-  nnoremap       <silent> <SID>(git-fetch-now)    :<C-u>GitiFetch<CR>
-  nnoremap       <silent> <SID>(git-fetch)        :<C-u>GitiFetch
-  nnoremap <expr><silent> <SID>(git-push-now)    ':<C-u>GitiPushWithSettingUpstream origin ' . giti#branch#current_name() . '<CR>'
-  nnoremap       <silent> <SID>(git-push)         :<C-u>GitiPush
-  nnoremap       <silent> <SID>(git-pull-now)     :<C-u>GitiPull<CR>
-  nnoremap       <silent> <SID>(git-pull)         :<C-u>GitiPull
-  nnoremap       <silent> <SID>(git-log-line)     :<C-u>GitiLogLine ' . expand('%:p') . '<CR>'
-  nnoremap       <silent> <SID>(git-log)          :<C-u>GitiLog ' . expand('%:p') . '<CR>'
-
-  nnoremap <silent> <SID>(giti-sources)   :<C-u>Unite giti<CR>
-  nnoremap <silent> <SID>(git-status)     :<C-u>Unite giti/status<CR>
-  nnoremap <silent> <SID>(git-branch)     :<C-u>Unite giti/branch<CR>
-  nnoremap <silent> <SID>(git-branch_all) :<C-u>Unite giti/branch_all<CR>
-  nnoremap <silent> <SID>(git-config)     :<C-u>Unite giti/config<CR>
-  nnoremap <silent> <SID>(git-log)        :<C-u>Unite giti/log<CR>
-
-  nnoremap <silent><expr> <SID>(git-log-this-file) ':<C-u>Unite giti/log:' . expand('%:p') . '<CR>'
 endif
 
 "" vim-easymotion
@@ -780,9 +660,10 @@ set ambiwidth=double
 set undofile
 set undodir='~/tmp/vim-undofile'
 
+let g:tex_flavor = "latex"
+
 " 拡張子設定
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-let g:tex_flavor = "latex"
 
 autocmd BufNewFile,BufRead *.{aspx,ascx} set filetype=html
 autocmd BufNewFile,BufRead *.{aspx,ascx,cs,master} setlocal tabstop=4 shiftwidth=4
