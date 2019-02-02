@@ -100,7 +100,7 @@ if dein#load_state(expand($BUNDLE_PATH))
 
   " ファイルの構文エラーチェック
   if has('job') && has('channel') && has('timers')
-    " call dein#add('w0rp/ale')
+    call dein#add('w0rp/ale')
   endif
 
   call dein#add('Shougo/vimproc', {
