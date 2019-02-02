@@ -43,6 +43,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('Shougo/unite.vim')
   call dein#add('airblade/vim-gitgutter')
   call dein#add('cocopon/iceberg.vim')
+  call dein#add('cohama/lexima.vim')
   call dein#add('easymotion/vim-easymotion') " <Space>f
   call dein#add('fatih/vim-go')
   call dein#add('fuenor/qfixgrep')
@@ -57,7 +58,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('junegunn/vim-easy-align')
   call dein#add('justinmk/vim-dirvish')
   call dein#add('kana/vim-altr')               " <Space>a
-  call dein#add('kana/vim-smartinput')
   call dein#add('kana/vim-tabpagecd')
   call dein#add('kana/vim-textobj-entire')   " ae, ie
   call dein#add('kana/vim-textobj-indent')  " ai, ii
