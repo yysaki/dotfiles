@@ -42,7 +42,6 @@ if dein#load_state(expand($BUNDLE_PATH))
 
   call dein#add('Shougo/unite.vim')
   call dein#add('airblade/vim-gitgutter')
-  call dein#add('altercation/vim-colors-solarized') " solarized.vim
   call dein#add('cocopon/iceberg.vim')
   call dein#add('easymotion/vim-easymotion') " <Space>f
   call dein#add('fatih/vim-go')
@@ -66,7 +65,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('lambdalisue/gina.vim')
   call dein#add('mattn/emmet-vim')              " <C-z>, old: zencoding-vim
   call dein#add('mhinz/vim-startify')
-  call dein#add('msanders/cocoa.vim')
   call dein#add('osyo-manga/vim-anzu')
   call dein#add('pangloss/vim-javascript')
   call dein#add('posva/vim-vue')
@@ -76,25 +74,20 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('prabirshrestha/asyncomplete.vim')
   call dein#add('prabirshrestha/vim-lsp')
   call dein#add('rhysd/clever-f.vim')
-  call dein#add('rking/ag.vim')
   call dein#add('taichouchou2/vim-endwise.git', {'on_event': 'InsertEnter'})
-  call dein#add('thinca/vim-prettyprint')
   call dein#add('thinca/vim-qfreplace')
   call dein#add('thinca/vim-quickrun')         " <Space>qでmakeなど
   call dein#add('thinca/vim-tabrecent')         " <[TABCMD]r
   call dein#add('thinca/vim-textobj-between')
   call dein#add('thinca/vim-textobj-comment') " ac, ic
   call dein#add('tpope/vim-commentary')         " gc{motion}, gcc でコメントのトグル
-  call dein#add('tpope/vim-dispatch')
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-surround')          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
   call dein#add('tpope/vim-unimpaired')        " [q, ]qなど
   call dein#add('tweekmonster/fzf-filemru')
   call dein#add('vim-jp/vimdoc-ja')
   call dein#add('vim-scripts/errormarker.vim') " flymakeっぽいこと 実態確認 ':autocmd QuickFixCmdPost'
-  call dein#add('vim-scripts/jQuery')
   call dein#add('vim-scripts/matchit.zip')
-  call dein#add('vim-scripts/project.tar.gz')
   call dein#add('vim-scripts/sudo.vim')
   call dein#add('vim-scripts/vim-niji')
 
@@ -262,12 +255,6 @@ if dein#tap('unite.vim')
   call unite#custom#substitute('file', '^\~', escape($HOME, '\'), -2)
   call unite#custom#substitute('file', '\\\@<! ', '\\ ', -20)
   call unite#custom#substitute('file', '\\ \@!', '/', -30)
-
-  if executable('ag')
-    let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-    let g:unite_source_grep_recursive_opt = ''
-  endif
 endif
 
 "" vim-altr
@@ -276,11 +263,6 @@ if dein#tap('vim-altr')
   nmap <Space>a <Plug>(altr-forward)
   call altr#define('%.xaml', '%.xaml.cs')
 endif
-
-"" simple-javascript-indenter
-
-let g:SimpleJsIndenter_BriefMode = 1
-let g:SimpleJsIndenter_CaseIndentLevel = -1
 
 if dein#tap('ale')
   let g:ale_lint_on_enter = 0
@@ -420,15 +402,6 @@ if dein#tap('fzf.vim')
   command! -nargs=* -complete=dir Fq call fzf#run(fzf#wrap(
     \ {'source': 'ghq list --full-path',
     \  'sink': 'cd' }))
-endif
-
-"" twitvim"
-
-if dein#tap('twitvim')
-  if has('python')
-    let twitvim_enable_python = 1
-  endif
-  let twitvim_count = 50
 endif
 
 "" clever-f.vim
