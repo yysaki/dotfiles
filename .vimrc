@@ -571,6 +571,9 @@ noremap! <C-@> <Esc>
 map <C-Space> <C-@>
 map! <C-Space> <C-@>
 
+" カーソル下のunixtimeをタイムスタンプに変換
+nmap <Space>d m"ciw<C-r>=strftime("%Y/%m/%d %T", @m)<CR><Esc>
+
 " Generals "{{{1
 
 filetype plugin indent on "プラグインをオンにする
