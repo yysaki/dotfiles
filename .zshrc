@@ -219,13 +219,17 @@ if $darwin; then
     pushd `ghq list vim/vim --full-path`;
     git checkout master;
 
+    make distclean;
+
     ./configure \
       --with-features=huge \
       --enable-luainterp \
       --with-lua-prefix=/usr/local \
       --enable-perlinterp \
       --enable-pythoninterp \
+      --with-python-config-dir=/usr/lib/python2.7/config \
       --enable-python3interp \
+      --with-python3-config-dir=/usr/local/opt/python/Frameworks/Python.framework/Versions/3.7/lib/python3.7/config-3.7m-darwin \
       --enable-rubyinterp \
       --enable-fail-if-missing;
 
