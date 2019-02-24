@@ -61,6 +61,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('kana/vim-tabpagecd')
   call dein#add('kana/vim-textobj-entire')   " ae, ie
   call dein#add('kana/vim-textobj-indent')  " ai, ii
+  call dein#add('kana/vim-textobj-line')     " al, il
   call dein#add('kana/vim-textobj-user')
   call dein#add('lambdalisue/gina.vim')
   call dein#add('mattn/emmet-vim')              " <C-z>, old: zencoding-vim
