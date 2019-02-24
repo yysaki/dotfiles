@@ -65,7 +65,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('kana/vim-textobj-user')
   call dein#add('lambdalisue/gina.vim')
   call dein#add('mattn/emmet-vim')              " <C-z>, old: zencoding-vim
-  call dein#add('mhinz/vim-startify')
   call dein#add('osyo-manga/vim-anzu')
   call dein#add('pangloss/vim-javascript')
   call dein#add('posva/vim-vue')
@@ -87,7 +86,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('tpope/vim-unimpaired')        " [q, ]qなど
   call dein#add('tweekmonster/fzf-filemru')
   call dein#add('vim-jp/vimdoc-ja')
-  call dein#add('vim-scripts/errormarker.vim') " flymakeっぽいこと 実態確認 ':autocmd QuickFixCmdPost'
   call dein#add('vim-scripts/matchit.zip')
   call dein#add('vim-scripts/sudo.vim')
   call dein#add('vim-scripts/vim-niji')
