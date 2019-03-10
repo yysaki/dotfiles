@@ -116,6 +116,90 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#save_state()
 endif
 
+" Programming Language Settings {{{2
+
+"" vim-lsp
+
+if executable('typescript-language-server')
+    autocmd User lsp_setup call lsp#register_server({
+      \ 'name': 'typescript-language-server',
+      \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+      \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+      \ 'whitelist': ['typescript', 'javascript', 'javascript.jsx'],
+      \ })
+endif
+if executable('vls')
+    autocmd User lsp_setup call lsp#register_server({
+      \ 'name': 'vue-language-server',
+      \ 'cmd': {server_info->['vls']},
+      \ 'whitelist': ['vue'],
+      \ })
+endif
+
+if executable('solargraph')
+    " gem install solargraph
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'solargraph',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+        \ 'initialization_options': {"diagnostics": "true"},
+        \ 'whitelist': ['ruby'],
+        \ })
+endif
+
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('~/vim-lsp.log')
+
+" for asyncomplete.vim log
+let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+
+let g:lsp_async_completion = 1
+autocmd FileType typescript setlocal omnifunc=lsp#complete
+
+" ale.vim
+if dein#tap('ale')
+  let g:ale_lint_on_enter = 0
+
+  nmap <silent> [w <Plug>(ale_previous)
+  nmap <silent> ]w <Plug>(ale_next)
+  nmap <silent> [W <Plug>(ale_toggle)
+  nmap <silent> ]W <Plug>(ale_toggle)
+
+  let g:ale_fixers = {
+  \   'javascript': ['prettier', 'eslint'],
+  \   'ruby': ['rubocop'],
+  \   'vue': ['prettier', 'eslint'],
+  \}
+  let g:ale_fix_on_save = 1
+endif
+
+" quickrun.vim
+
+let g:quickrun_config = {}
+let g:quickrun_config['_'] = {"runner": "vimproc", "runner/vimproc/updatetime": 60, "split": "below"}
+let g:quickrun_config['make']       = {"command": "make", "exec" : "%c %o",  "outputter": "error:buffer:quickfix"}
+let g:quickrun_config['make.check'] = {"command": "make", "cmdopt": "check", "outputter": "error:buffer:quickfix"}
+let g:quickrun_config['make.run']   = {"command": "make", "cmdopt": "run",   "outputter": "error:buffer:quickfix"}
+let g:quickrun_config['make.test']  = {"command": "make", "cmdopt": "test",  "outputter": "error:buffer:quickfix"}
+let g:quickrun_config['tex']        = {"command": "make", "exec" : "%c %o",  "outputter": "error:buffer:quickfix"}
+let g:quickrun_config['php']        = {
+\ 'hook/cd/directory'              : '/Users/sasaki/go/src/vcs00.timedia.co.jp/gitbucket/git/sasaki/kanagawa-moodle/tmp',
+\ 'command'                        : 'sh',
+\ 'exec'                           : '%c quickrun.sh',
+\ 'outputter/quickfix/errorformat' : '%f:%l',
+\}
+
+
+" Enable omni completion.
+augroup omnifunc
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  autocmd FileType php setlocal omnifunc=phpactor#Complete
+augroup END
+
 " Plugins Settings {{{2
 "" endwise.vim
 
@@ -178,34 +262,8 @@ vmap aB <Plug>(textobj-between-a)
 
 " quickrun.vim
 
-let g:quickrun_config = {}
-let g:quickrun_config['_'] = {"runner": "vimproc", "runner/vimproc/updatetime": 60, "split": "below"}
-
-let g:quickrun_config['make']       = {"command": "make", "exec" : "%c %o",  "outputter": "error:buffer:quickfix"}
-let g:quickrun_config['make.check'] = {"command": "make", "cmdopt": "check", "outputter": "error:buffer:quickfix"}
-let g:quickrun_config['make.run']   = {"command": "make", "cmdopt": "run",   "outputter": "error:buffer:quickfix"}
-let g:quickrun_config['make.test']  = {"command": "make", "cmdopt": "test",  "outputter": "error:buffer:quickfix"}
-let g:quickrun_config['tex']        = {"command": "make", "exec" : "%c %o",  "outputter": "error:buffer:quickfix"}
-let g:quickrun_config['php']        = {
-\ 'hook/cd/directory'              : '/Users/sasaki/go/src/vcs00.timedia.co.jp/gitbucket/git/sasaki/kanagawa-moodle/tmp',
-\ 'command'                        : 'sh',
-\ 'exec'                           : '%c quickrun.sh',
-\ 'outputter/quickfix/errorformat' : '%f:%l',
-\}
-
 " <Space>q でquickrunする
 silent! map <Space>q <Plug>(quickrun)
-
-" Enable omni completion.
-augroup omnifunc
-  autocmd!
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-  autocmd FileType php setlocal omnifunc=phpactor#Complete
-augroup END
 
 "" vim-ref
 
@@ -261,22 +319,6 @@ endif
 if dein#tap('vim-altr')
   nmap <Space>a <Plug>(altr-forward)
   call altr#define('%.xaml', '%.xaml.cs')
-endif
-
-if dein#tap('ale')
-  let g:ale_lint_on_enter = 0
-
-  nmap <silent> [w <Plug>(ale_previous)
-  nmap <silent> ]w <Plug>(ale_next)
-  nmap <silent> [W <Plug>(ale_toggle)
-  nmap <silent> ]W <Plug>(ale_toggle)
-
-  let g:ale_fixers = {
-  \   'javascript': ['prettier', 'eslint'],
-  \   'ruby': ['rubocop'],
-  \   'vue': ['prettier', 'eslint'],
-  \}
-  let g:ale_fix_on_save = 1
 endif
 
 "" QFixHowm
@@ -358,43 +400,6 @@ map z*  <Plug>(asterisk-z*)<Plug>(anzu-update-search-status-with-echo)
 map gz* <Plug>(asterisk-gz*)<Plug>(anzu-update-search-status-with-echo)
 map z#  <Plug>(asterisk-z#)<Plug>(anzu-update-search-status-with-echo)
 map gz# <Plug>(asterisk-gz#)<Plug>(anzu-update-search-status-with-echo)
-
-"" vim-lsp
-
-if executable('typescript-language-server')
-    autocmd User lsp_setup call lsp#register_server({
-      \ 'name': 'typescript-language-server',
-      \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-      \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-      \ 'whitelist': ['typescript', 'javascript', 'javascript.jsx'],
-      \ })
-endif
-if executable('vls')
-    autocmd User lsp_setup call lsp#register_server({
-      \ 'name': 'vue-language-server',
-      \ 'cmd': {server_info->['vls']},
-      \ 'whitelist': ['vue'],
-      \ })
-endif
-
-if executable('solargraph')
-    " gem install solargraph
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'solargraph',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
-        \ 'initialization_options': {"diagnostics": "true"},
-        \ 'whitelist': ['ruby'],
-        \ })
-endif
-
-let g:lsp_log_verbose = 1
-let g:lsp_log_file = expand('~/vim-lsp.log')
-
-" for asyncomplete.vim log
-let g:asyncomplete_log_file = expand('~/asyncomplete.log')
-
-let g:lsp_async_completion = 1
-autocmd FileType typescript setlocal omnifunc=lsp#complete
 
 "" fzf
 
