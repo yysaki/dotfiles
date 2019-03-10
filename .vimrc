@@ -357,11 +357,6 @@ let g:EasyMotion_do_mapping = 0
 
 nmap s <Plug>(easymotion-overwin-f2)
 
-map  <Space>f <Plug>(easymotion-bd-f)
-nmap <Space>f <Plug>(easymotion-bd-f)
-map  <Space>F <Plug>(easymotion-bd-f)
-nmap <Space>F <Plug>(easymotion-overwin-f)
-
 nmap <Space>s <Plug>(easymotion-bd-f2)
 vmap <Space>s <Plug>(easymotion-bd-f2)
 nmap <Space>S <Plug>(easymotion-overwin-f2)
@@ -408,6 +403,7 @@ if dein#tap('fzf.vim')
     \ {'source': 'ghq list --full-path',
     \  'sink': 'cd' }))
 endif
+nnoremap <silent> <Space>F :<C-u>Fq<CR>
 
 "" clever-f.vim
 
@@ -493,6 +489,7 @@ if dein#tap('fzf.vim')
   nnoremap <Space>b :<C-u>Buffers<CR>
   nnoremap <Space>h :<C-u>History<CR>
   nnoremap <Space>r :<C-u>Rg 
+  nnoremap <Space>f :<C-u>GFiles<CR>
 endif
 
 " UTF-8 として読み込む
