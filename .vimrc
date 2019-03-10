@@ -40,6 +40,7 @@ if dein#load_state(expand($BUNDLE_PATH))
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
 
+  call dein#add('OmniSharp/omnisharp-vim')
   call dein#add('Shougo/unite.vim')
   call dein#add('airblade/vim-gitgutter')
   call dein#add('cocopon/iceberg.vim')
