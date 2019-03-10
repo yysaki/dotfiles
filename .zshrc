@@ -149,6 +149,7 @@ elif $darwin; then
   if [ -d /usr/local/Cellar/ctags/5.8 ] ; then
     alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags' # avoid BSD ctags
   fi
+  export PATH=${PATH}:/usr/local/share/dotnet/
   export PATH=${PATH}:~/.vim/scripts
   export CC=gcc-4.2 # avoid llvm
   export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 
