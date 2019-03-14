@@ -560,6 +560,8 @@ set helplang=ja,en                       "helpを日本語化, helptags ~/vimfil
 set laststatus=2
 set statusline=%F%m%r%h%w\ [TYPE=%Y]\ [FORMAT=%{&ff}]\ [ENC=%{&fileencoding}]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
+set showtabline=2
+
 " 不可視文字の可視化
 set list
 "set listchars=eol:￢,tab:_.
