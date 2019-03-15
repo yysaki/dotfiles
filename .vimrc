@@ -563,59 +563,62 @@ set statusline=%F%m%r%h%w\ [TYPE=%Y]\ [FORMAT=%{&ff}]\ [ENC=%{&fileencoding}]\ [
 
 set showtabline=2
 
-function! MyTabLine()
-  let s = ''
-  for i in range(tabpagenr('$'))
-    " 強調表示グループの選択
-    if i + 1 == tabpagenr()
-      let s .= '%#TabLineSel#'
-    else
-      let s .= '%#TabLine#'
+if dein#tap('vital.vim')
+  " from :help setting-tabline
+  function! MyTabLine()
+    let s = ''
+    for i in range(tabpagenr('$'))
+      " 強調表示グループの選択
+      if i + 1 == tabpagenr()
+        let s .= '%#TabLineSel#'
+      else
+        let s .= '%#TabLine#'
+      endif
+
+      " タブページ番号の設定 (マウスクリック用)
+      let s .= '%' . (i + 1) . 'T'
+
+      " ラベルは MyTabLabel() で作成する
+      let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
+    endfor
+
+    " 最後のタブページの後は TabLineFill で埋め、タブページ番号をリセッ
+    " トする
+    let s .= '%#TabLineFill#%T'
+
+    " カレントタブページを閉じるボタンのラベルを右添えで作成
+    if tabpagenr('$') > 1
+      let s .= '%=%#TabLine#%999Xclose'
     endif
 
-    " タブページ番号の設定 (マウスクリック用)
-    let s .= '%' . (i + 1) . 'T'
+    return s
+  endfunction
 
-    " ラベルは MyTabLabel() で作成する
-    let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
-  endfor
+  function! s:displayLabelName(path)
+    let l:f = vital#vital#import('System.Filepath')
+    let l:current = l:f.basename(a:path)
+    let l:parent = l:f.basename(f.dirname(a:path))
+    return l:f.join(l:parent, l:current)
+  endfunction
 
-  " 最後のタブページの後は TabLineFill で埋め、タブページ番号をリセッ
-  " トする
-  let s .= '%#TabLineFill#%T'
+  function! MyTabLabel(n)
+    let l:f = vital#vital#import('System.Filepath')
+    let l:buflist = tabpagebuflist(a:n)
+    let l:winnr = tabpagewinnr(a:n)
+    let l:name = l:f.abspath(bufname(l:buflist[l:winnr - 1]))
 
-  " カレントタブページを閉じるボタンのラベルを右添えで作成
-  if tabpagenr('$') > 1
-    let s .= '%=%#TabLine#%999Xclose'
-  endif
+    let l:n = l:name
+    while l:f.dirname(l:n) != l:n
+      if isdirectory(l:f.join(l:n, '.git'))
+        return s:displayLabelName(l:n)
+      endif
+      let l:n = l:f.dirname(l:n)
+    endwhile
+    return s:displayLabelName(l:name)
+  endfunction
 
-  return s
-endfunction
-
-function! s:displayLabelName(path)
-  let l:f = vital#vital#import('System.Filepath')
-  let l:current = l:f.basename(a:path)
-  let l:parent = l:f.basename(f.dirname(a:path))
-  return l:f.join(l:parent, l:current)
-endfunction
-
-function! MyTabLabel(n)
-  let l:f = vital#vital#import('System.Filepath')
-  let l:buflist = tabpagebuflist(a:n)
-  let l:winnr = tabpagewinnr(a:n)
-  let l:name = l:f.abspath(bufname(l:buflist[l:winnr - 1]))
-
-  let l:n = l:name
-  while l:f.dirname(l:n) != l:n
-    if isdirectory(l:f.join(l:n, '.git'))
-      return s:displayLabelName(l:n)
-    endif
-    let l:n = l:f.dirname(l:n)
-  endwhile
-  return s:displayLabelName(l:name)
-endfunction
-
-set tabline=%!MyTabLine()
+  set tabline=%!MyTabLine()
+endif
 
 " 不可視文字の可視化
 set list
