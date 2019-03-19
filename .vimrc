@@ -45,6 +45,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('cocopon/iceberg.vim')
   call dein#add('cohama/lexima.vim')
   call dein#add('easymotion/vim-easymotion') " <Space>f
+  call dein#add('editorconfig/editorconfig-vim')
   call dein#add('fatih/vim-go')
   call dein#add('fuenor/qfixgrep')
   call dein#add('fuenor/qfixhowm')             " QFixHowm - hitori otegaru wiki modoki
