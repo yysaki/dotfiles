@@ -93,6 +93,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('vim-scripts/sudo.vim')
   call dein#add('vim-scripts/vim-niji')
 
+
   if executable('composer')
     call dein#add('phpactor/phpactor', {
     \ 'on_ft': ['php'],
@@ -648,16 +649,14 @@ set undodir='~/tmp/vim-undofile'
 let g:tex_flavor = "latex"
 
 " 拡張子設定
-autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup filetype
+  autocmd!
 
-autocmd BufNewFile,BufRead *.{aspx,ascx} set filetype=html
-autocmd BufNewFile,BufRead *.{aspx,ascx,cs,master} setlocal tabstop=4 shiftwidth=4
-autocmd BufNewFile,BufRead *.{aspx,ascx,cs,master} setlocal noexpandtab softtabstop=4
-autocmd BufNewFile,BufRead *.{aspx,ascx,cs,master} setlocal foldmethod=syntax
-
-autocmd BufNewFile,BufRead *.{xaml} set filetype=xml
-autocmd BufNewFile,BufRead *.{xaml,ascx,cs,master} setlocal tabstop=4 shiftwidth=4
-autocmd BufNewFile,BufRead *.ts set filetype=typescript
+  autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+  autocmd BufNewFile,BufRead *.{aspx,ascx} set filetype=html
+  autocmd BufNewFile,BufRead *.{xaml} set filetype=xml
+  autocmd BufNewFile,BufRead *.ts set filetype=typescript
+augroup END
 
 augroup php
   autocmd!
