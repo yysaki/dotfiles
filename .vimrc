@@ -75,6 +75,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('prabirshrestha/asyncomplete.vim')
   call dein#add('prabirshrestha/vim-lsp')
   call dein#add('rhysd/clever-f.vim')
+  call dein#add('scrooloose/nerdtree')
   call dein#add('taichouchou2/vim-endwise.git', {'on_event': 'InsertEnter'})
   call dein#add('thinca/vim-qfreplace')
   call dein#add('thinca/vim-quickrun')         " <Space>qでmakeなど
