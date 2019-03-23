@@ -87,6 +87,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('tpope/vim-surround')          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
   call dein#add('tpope/vim-unimpaired')        " [q, ]qなど
   call dein#add('tweekmonster/fzf-filemru')
+  call dein#add('tyru/capture.vim')
   call dein#add('vim-jp/vimdoc-ja')
   call dein#add('vim-jp/vital.vim')
   call dein#add('vim-scripts/matchit.zip')
