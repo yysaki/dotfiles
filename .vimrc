@@ -151,6 +151,10 @@ if executable('solargraph')
         \ })
 endif
 
+if dein#tap('lexima.vim')
+  call lexima#add_rule({'char': '<%', 'input_after': '%>', 'filetype': 'eruby'})
+endif
+
 let g:lsp_log_verbose = 1
 let g:lsp_log_file = expand('~/vim-lsp.log')
 
