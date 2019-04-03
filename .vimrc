@@ -84,6 +84,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('thinca/vim-textobj-comment') " ac, ic
   call dein#add('tpope/vim-commentary')         " gc{motion}, gcc でコメントのトグル
   call dein#add('tpope/vim-fugitive')
+  call dein#add('tpope/vim-rails')
   call dein#add('tpope/vim-surround')          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
   call dein#add('tpope/vim-unimpaired')        " [q, ]qなど
   call dein#add('tweekmonster/fzf-filemru')
