@@ -324,6 +324,12 @@ nnoremap <silent> <Space>F :<C-u>Fq<CR>
 
 let g:clever_f_use_migemo = 1
 
+"" vim-surround
+
+let g:surround_{char2nr("-")} = "<% \r %>"
+let g:surround_{char2nr("=")} = "<%= \r %>"
+let g:surround_{char2nr("#")} = "<%# \r %>"
+
 " OS Type "{{{1
 
 if has('mac')
