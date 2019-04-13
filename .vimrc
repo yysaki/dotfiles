@@ -95,14 +95,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('vim-scripts/sudo.vim')
   call dein#add('vim-scripts/vim-niji')
 
-
-  if executable('composer')
-    call dein#add('phpactor/phpactor', {
-    \ 'on_ft': ['php'],
-    \ 'build': 'composer install'
-    \ })
-  endif
-
   " swift
   call dein#add('bumaociyuan/vim-swift')
 
@@ -194,13 +186,6 @@ let g:quickrun_config['make.check'] = {"command": "make", "cmdopt": "check", "ou
 let g:quickrun_config['make.run']   = {"command": "make", "cmdopt": "run",   "outputter": "error:buffer:quickfix"}
 let g:quickrun_config['make.test']  = {"command": "make", "cmdopt": "test",  "outputter": "error:buffer:quickfix"}
 let g:quickrun_config['tex']        = {"command": "make", "exec" : "%c %o",  "outputter": "error:buffer:quickfix"}
-let g:quickrun_config['php']        = {
-\ 'hook/cd/directory'              : '/Users/sasaki/go/src/vcs00.timedia.co.jp/gitbucket/git/sasaki/kanagawa-moodle/tmp',
-\ 'command'                        : 'sh',
-\ 'exec'                           : '%c quickrun.sh',
-\ 'outputter/quickfix/errorformat' : '%f:%l',
-\}
-
 
 " Enable omni completion.
 augroup omnifunc
@@ -210,7 +195,6 @@ augroup omnifunc
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-  autocmd FileType php setlocal omnifunc=phpactor#Complete
 augroup END
 
 " Plugins Settings {{{2
@@ -628,12 +612,6 @@ augroup filetype
   autocmd BufNewFile,BufRead *.{aspx,ascx} set filetype=html
   autocmd BufNewFile,BufRead *.{xaml} set filetype=xml
   autocmd BufNewFile,BufRead *.ts set filetype=typescript
-augroup END
-
-augroup php
-  autocmd!
-  autocmd BufNewFile,BufRead *.php setlocal tabstop=4 shiftwidth=4
-  autocmd BufNewFile,BufRead *.php setlocal expandtab softtabstop=4
 augroup END
 
 augroup html
