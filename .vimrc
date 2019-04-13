@@ -146,10 +146,6 @@ if executable('solargraph')
         \ })
 endif
 
-if dein#tap('lexima.vim')
-  call lexima#add_rule({'char': '<%', 'input_after': '%>', 'filetype': 'eruby'})
-endif
-
 let g:lsp_log_verbose = 1
 let g:lsp_log_file = expand('~/vim-lsp.log')
 
@@ -174,6 +170,11 @@ if dein#tap('ale')
   \   'vue': ['prettier', 'eslint'],
   \}
   let g:ale_fix_on_save = 1
+endif
+
+" lexima.vim
+if dein#tap('lexima.vim')
+  call lexima#add_rule({'char': '<%', 'input_after': '%>'})
 endif
 
 " quickrun.vim
