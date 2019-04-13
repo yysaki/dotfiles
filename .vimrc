@@ -40,20 +40,17 @@ if dein#load_state(expand($BUNDLE_PATH))
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
 
-  call dein#add('OmniSharp/omnisharp-vim')
   call dein#add('airblade/vim-gitgutter')
   call dein#add('cocopon/iceberg.vim')
   call dein#add('cohama/lexima.vim')
   call dein#add('easymotion/vim-easymotion') " <Space>f
   call dein#add('editorconfig/editorconfig-vim')
-  call dein#add('fatih/vim-go')
   call dein#add('fuenor/qfixgrep')
   call dein#add('fuenor/qfixhowm')             " QFixHowm - hitori otegaru wiki modoki
   call dein#add('hallison/vim-markdown')
   call dein#add('haya14busa/vim-asterisk')
   call dein#add('haya14busa/vim-migemo')
   call dein#add('honza/vim-snippets')
-  call dein#add('jelera/vim-javascript-syntax')
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
   call dein#add('junegunn/vim-easy-align')
@@ -65,10 +62,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('kana/vim-textobj-line')     " al, il
   call dein#add('kana/vim-textobj-user')
   call dein#add('lambdalisue/gina.vim')
-  call dein#add('mattn/emmet-vim')              " <C-z>, old: zencoding-vim
   call dein#add('osyo-manga/vim-anzu')
-  call dein#add('pangloss/vim-javascript')
-  call dein#add('posva/vim-vue')
   call dein#add('prabirshrestha/async.vim')
   call dein#add('prabirshrestha/asyncomplete-lsp.vim')
   call dein#add('prabirshrestha/asyncomplete-ultisnips.vim')
@@ -83,7 +77,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('thinca/vim-textobj-comment') " ac, ic
   call dein#add('tpope/vim-commentary')         " gc{motion}, gcc でコメントのトグル
   call dein#add('tpope/vim-fugitive')
-  call dein#add('tpope/vim-rails')
   call dein#add('tpope/vim-surround')          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
   call dein#add('tpope/vim-unimpaired')        " [q, ]qなど
   call dein#add('tweekmonster/fzf-filemru')
@@ -94,8 +87,25 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('vim-scripts/sudo.vim')
   call dein#add('vim-scripts/vim-niji')
 
+  " go
+  call dein#add('fatih/vim-go')
+
+  " csharp
+  call dein#add('OmniSharp/omnisharp-vim')
+
   " swift
   call dein#add('bumaociyuan/vim-swift')
+
+  " ruby
+  call dein#add('tpope/vim-rails')
+
+  " html
+  call dein#add('mattn/emmet-vim') " <C-z>,
+
+  " javascript
+  call dein#add('pangloss/vim-javascript')
+  call dein#add('jelera/vim-javascript-syntax')
+  call dein#add('posva/vim-vue')
 
   " ファイルの構文エラーチェック
   if has('job') && has('channel') && has('timers')
