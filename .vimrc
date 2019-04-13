@@ -64,9 +64,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('lambdalisue/gina.vim')
   call dein#add('osyo-manga/vim-anzu')
   call dein#add('prabirshrestha/async.vim')
-  call dein#add('prabirshrestha/asyncomplete-lsp.vim')
-  call dein#add('prabirshrestha/asyncomplete-ultisnips.vim')
-  call dein#add('prabirshrestha/asyncomplete.vim')
   call dein#add('prabirshrestha/vim-lsp')
   call dein#add('rhysd/clever-f.vim')
   call dein#add('scrooloose/nerdtree')
@@ -155,15 +152,6 @@ if executable('solargraph')
         \ 'whitelist': ['ruby'],
         \ })
 endif
-
-let g:lsp_log_verbose = 1
-let g:lsp_log_file = expand('~/vim-lsp.log')
-
-" for asyncomplete.vim log
-let g:asyncomplete_log_file = expand('~/asyncomplete.log')
-
-let g:lsp_async_completion = 1
-autocmd FileType typescript setlocal omnifunc=lsp#complete
 
 " ale.vim
 if dein#tap('ale')
