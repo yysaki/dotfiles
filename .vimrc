@@ -39,7 +39,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('thinca/vim-qfreplace')
   call dein#add('tyru/capture.vim')
   call dein#add('vim-jp/vital.vim')
-  call dein#add('junegunn/vim-easy-align')
+  call dein#add('godlygeek/tabular')
 
   " essential
   call dein#add('tpope/vim-unimpaired')        " [q, ]qなど
