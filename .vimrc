@@ -34,11 +34,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#begin(expand($BUNDLE_PATH))
 
   call dein#add('Shougo/dein.vim')
-  call dein#add('Shougo/deoplete.nvim')
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
 
   call dein#add('honza/vim-snippets')
   call dein#add('thinca/vim-qfreplace')
