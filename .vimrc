@@ -40,55 +40,81 @@ if dein#load_state(expand($BUNDLE_PATH))
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
 
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('cocopon/iceberg.vim')
-  call dein#add('cohama/lexima.vim')
-  call dein#add('easymotion/vim-easymotion') " <Space>f
-  call dein#add('editorconfig/editorconfig-vim')
-  call dein#add('fuenor/qfixgrep')
-  call dein#add('fuenor/qfixhowm')             " QFixHowm - hitori otegaru wiki modoki
-  call dein#add('hallison/vim-markdown')
-  call dein#add('haya14busa/vim-asterisk')
-  call dein#add('haya14busa/vim-migemo')
   call dein#add('honza/vim-snippets')
-  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
-  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+  call dein#add('thinca/vim-qfreplace')
+  call dein#add('tyru/capture.vim')
+  call dein#add('vim-jp/vital.vim')
   call dein#add('junegunn/vim-easy-align')
+
+  " essential
+  call dein#add('tpope/vim-unimpaired')        " [q, ]qなど
+  call dein#add('cohama/lexima.vim')
+  call dein#add('vim-scripts/matchit.zip')
+  call dein#add('vim-scripts/sudo.vim')
+  call dein#add('thinca/vim-quickrun')         " <Space>qでmakeなど
+
+  " work as project
+  call dein#add('editorconfig/editorconfig-vim')
+
+  " syntax highlight
+  call dein#add('vim-scripts/vim-niji')
+
+  " colorscheme
+  call dein#add('cocopon/iceberg.vim')
+
+  " file explorer
+  call dein#add('scrooloose/nerdtree')
   call dein#add('justinmk/vim-dirvish')
   call dein#add('kana/vim-altr')               " <Space>a
+
+  " operator
+  call dein#add('tpope/vim-surround')          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
+  call dein#add('tpope/vim-commentary')         " gc{motion}, gcc でコメントのトグル
+
+  " motion
+  call dein#add('easymotion/vim-easymotion') " <Space>f
+  call dein#add('rhysd/clever-f.vim')
+  call dein#add('osyo-manga/vim-anzu')
+  call dein#add('haya14busa/vim-asterisk')
+
+  " tabpage
   call dein#add('kana/vim-tabpagecd')
+  call dein#add('thinca/vim-tabrecent')         " <[TABCMD]r
+
+  " japanese
+  call dein#add('haya14busa/vim-migemo')
+  call dein#add('vim-jp/vimdoc-ja')
+
+  " git
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('lambdalisue/gina.vim')
+  call dein#add('airblade/vim-gitgutter')
+
+  " fzf
+  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
+  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+  call dein#add('tweekmonster/fzf-filemru')
+
+  " textobj-user
+  call dein#add('kana/vim-textobj-user')
   call dein#add('kana/vim-textobj-entire')   " ae, ie
   call dein#add('kana/vim-textobj-indent')  " ai, ii
   call dein#add('kana/vim-textobj-line')     " al, il
-  call dein#add('kana/vim-textobj-user')
-  call dein#add('lambdalisue/gina.vim')
-  call dein#add('osyo-manga/vim-anzu')
-  call dein#add('prabirshrestha/async.vim')
-  call dein#add('prabirshrestha/vim-lsp')
-  call dein#add('rhysd/clever-f.vim')
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('thinca/vim-qfreplace')
-  call dein#add('thinca/vim-quickrun')         " <Space>qでmakeなど
-  call dein#add('thinca/vim-tabrecent')         " <[TABCMD]r
   call dein#add('thinca/vim-textobj-between')
   call dein#add('thinca/vim-textobj-comment') " ac, ic
-  call dein#add('tpope/vim-commentary')         " gc{motion}, gcc でコメントのトグル
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('tpope/vim-surround')          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
-  call dein#add('tpope/vim-unimpaired')        " [q, ]qなど
-  call dein#add('tweekmonster/fzf-filemru')
-  call dein#add('tyru/capture.vim')
-  call dein#add('vim-jp/vimdoc-ja')
-  call dein#add('vim-jp/vital.vim')
-  call dein#add('vim-scripts/matchit.zip')
-  call dein#add('vim-scripts/sudo.vim')
-  call dein#add('vim-scripts/vim-niji')
 
-  " go
-  call dein#add('fatih/vim-go')
+  " lsp
+  call dein#add('prabirshrestha/vim-lsp')
+  call dein#add('prabirshrestha/async.vim')
 
   " csharp
   call dein#add('OmniSharp/omnisharp-vim')
+
+  " markdown
+  call dein#add('hallison/vim-markdown')
+
+  " go
+  call dein#add('fatih/vim-go')
 
   " swift
   call dein#add('bumaociyuan/vim-swift')
@@ -104,7 +130,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('jelera/vim-javascript-syntax')
   call dein#add('posva/vim-vue')
 
-  " ファイルの構文エラーチェック
+  " lint
   if has('job') && has('channel') && has('timers')
     call dein#add('w0rp/ale')
   endif
@@ -114,6 +140,10 @@ if dein#load_state(expand($BUNDLE_PATH))
   \   has('mac') ? 'make -f make_mac.mak' :
   \   has('unix') ? 'make' : ''
   \ })
+
+  " howm - not used
+  call dein#add('fuenor/qfixgrep')
+  call dein#add('fuenor/qfixhowm')             " QFixHowm - hitori otegaru wiki modoki
 
   if has('mac')
     call dein#add('kana/vim-fakeclip')
