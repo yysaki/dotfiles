@@ -125,6 +125,10 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('jelera/vim-javascript-syntax')
   call dein#add('posva/vim-vue')
 
+  " terraform
+  call dein#add('hashivim/vim-terraform')
+  call dein#add('juliosueiras/vim-terraform-completion')
+
   " lint
   if has('job') && has('channel') && has('timers')
     call dein#add('w0rp/ale')
@@ -219,6 +223,10 @@ augroup omnifunc
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup END
+
+" terraform
+"
+let g:terraform_fmt_on_save = 1
 
 " Plugins Settings {{{2
 "" endwise.vim
