@@ -266,6 +266,10 @@ fbr() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
+if type hub > /dev/null 2>&1; then
+  eval "$(hub alias -s)"
+fi
+
 source ${HOME}/.zprofile
 
 # __END__  "{{{1
