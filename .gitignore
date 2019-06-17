@@ -6,6 +6,6 @@
 tmp/
 **/tags
 *~
-.*.swp
-.*.swo
+.*.sw?
+.sw?
 .DS_Store
