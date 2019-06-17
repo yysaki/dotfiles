@@ -35,7 +35,6 @@ if dein#load_state(expand($BUNDLE_PATH))
 
   call dein#add('Shougo/dein.vim')
 
-  call dein#add('honza/vim-snippets')
   call dein#add('thinca/vim-qfreplace')
   call dein#add('tyru/capture.vim')
   call dein#add('vim-jp/vital.vim')
@@ -97,6 +96,10 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('kana/vim-textobj-line')     " al, il
   call dein#add('thinca/vim-textobj-between')
   call dein#add('thinca/vim-textobj-comment') " ac, ic
+
+  " snippet
+  call dein#add('honza/vim-snippets')
+  call dein#add('SirVer/ultisnips')
 
   " lsp
   call dein#add('prabirshrestha/vim-lsp')
@@ -344,6 +347,12 @@ let g:clever_f_use_migemo = 1
 let g:surround_{char2nr("-")} = "<% \r %>"
 let g:surround_{char2nr("=")} = "<%= \r %>"
 let g:surround_{char2nr("#")} = "<%# \r %>"
+
+"  UltiSnips
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " OS Type "{{{1
 
