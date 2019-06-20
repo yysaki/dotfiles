@@ -292,6 +292,13 @@ if $darwin; then
   enable-docker-complete
 fi
 
+# zplug
+if [ ! -d ~/.zplug ]; then
+  git clone https://github.com/zplug/zplug ~/.zplug
+fi
+
+source ~/.zplug/init.zsh
+
 source ${HOME}/.zprofile
 
 # __END__  "{{{1
