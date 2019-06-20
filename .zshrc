@@ -270,6 +270,28 @@ if type hub > /dev/null 2>&1; then
   eval "$(hub alias -s)"
 fi
 
+# docker completion
+
+enable-docker-complete() {
+  etc=/Applications/Docker.app/Contents/Resources/etc
+  dir=/usr/local/share/zsh/site-functions
+  if [ ! -e $dir/_docker ]; then
+    ln -s $etc/docker.zsh-completion $dir/_docker
+  fi
+
+  if [ ! -e $dir/_docker-machine ]; then
+    ln -s $etc/docker-machine.zsh-completion $dir/_docker-machine
+  fi
+
+  if [ ! -e $dir/_docker-compose ]; then
+    ln -s $etc/docker-compose.zsh-completion $dir/_docker-compose
+  fi
+}
+
+if $darwin; then
+  enable-docker-complete
+fi
+
 source ${HOME}/.zprofile
 
 # __END__  "{{{1
