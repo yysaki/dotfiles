@@ -297,6 +297,10 @@ if [ ! -d ~/.zplug ]; then
   git clone https://github.com/zplug/zplug ~/.zplug
 fi
 
+if [ -x pyenv ]; then
+  eval "$(pyenv init -)"
+fi
+
 source ~/.zplug/init.zsh
 
 source ${HOME}/.zprofile
