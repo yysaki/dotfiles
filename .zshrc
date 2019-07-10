@@ -227,10 +227,7 @@ if $darwin; then
       --enable-luainterp \
       --with-lua-prefix=/usr/local \
       --enable-perlinterp \
-      --enable-pythoninterp \
-      --with-python-config-dir=/usr/lib/python2.7/config \
       --enable-python3interp \
-      --with-python3-config-dir=/usr/local/opt/python/Frameworks/Python.framework/Versions/3.7/lib/python3.7/config-3.7m-darwin \
       --enable-rubyinterp \
       --enable-fail-if-missing;
 
