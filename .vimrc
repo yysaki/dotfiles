@@ -99,7 +99,6 @@ if dein#load_state(expand($BUNDLE_PATH))
 
   " snippet
   call dein#add('honza/vim-snippets')
-  call dein#add('SirVer/ultisnips')
 
   " lsp
   call dein#add('prabirshrestha/vim-lsp')
