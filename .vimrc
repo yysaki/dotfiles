@@ -78,6 +78,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   " japanese
   call dein#add('haya14busa/vim-migemo')
   call dein#add('vim-jp/vimdoc-ja')
+  call dein#add('haya14busa/vim-gtrans') " (go get github.com/haya14busa/gtrans)
 
   " git
   call dein#add('tpope/vim-fugitive')
