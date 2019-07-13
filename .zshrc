@@ -239,6 +239,12 @@ if $darwin; then
   alias vup=makeInstallLatestVim
 fi
 
+ide() {
+  tmux split-window -v -p 30
+  tmux split-window -h -p 66
+  tmux split-window -h -p 50
+}
+
 if [ -f "${HOME}/.zshrc_local" ]; then
   source "${HOME}/.zshrc_local"
 fi
