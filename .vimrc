@@ -249,6 +249,11 @@ omap aB <Plug>(textobj-between-a)
 vmap iB <Plug>(textobj-between-i)
 vmap aB <Plug>(textobj-between-a)
 
+" lightline
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+
 " quickrun.vim
 
 " <Space>q でquickrunする
