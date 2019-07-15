@@ -56,6 +56,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   " colorscheme
   call dein#add('cocopon/iceberg.vim')
   call dein#add('itchyny/lightline.vim')
+  call dein#add('edkolev/tmuxline.vim')
 
   " file explorer
   call dein#add('scrooloose/nerdtree')
