@@ -26,6 +26,7 @@ DOT_FILES="
 .npmrc
 .screenrc
 .tmux.conf
+.tmuxline.conf
 .vimrc
 .vsvimrc
 .zprofile

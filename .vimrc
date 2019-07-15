@@ -250,10 +250,23 @@ omap aB <Plug>(textobj-between-a)
 vmap iB <Plug>(textobj-between-i)
 vmap aB <Plug>(textobj-between-a)
 
-" lightline
+" lightline.vim
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
+
+" tmuxline.vim
+let g:tmuxline_powerline_separators = 0
+let g:tmuxline_theme = 'lightline'
+let g:tmuxline_preset = {
+      \ 'a'       : '#S',
+      \ 'b'       : ['#(whoami)'],
+      \ 'win'     : ['#I', '#W'],
+      \ 'cwin'    : ['#I', '#W', '#F'],
+      \ 'y'       : ['%Y/%m/%d(%a) %H:%M'],
+      \ 'z'       : '#H',
+      \ 'options' : { 'status-justify': 'left' },
+      \  }
 
 " quickrun.vim
 
