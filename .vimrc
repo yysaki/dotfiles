@@ -66,6 +66,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   " operator
   call dein#add('tpope/vim-surround')          " <オペレータ>s<デリミタ> or ビジュアルモードでS<デリミタ>
   call dein#add('tpope/vim-commentary')         " gc{motion}, gcc でコメントのトグル
+  call dein#add('machakann/vim-swap')
 
   " motion
   call dein#add('easymotion/vim-easymotion') " <Space>f
@@ -249,6 +250,12 @@ omap iB <Plug>(textobj-between-i)
 omap aB <Plug>(textobj-between-a)
 vmap iB <Plug>(textobj-between-i)
 vmap aB <Plug>(textobj-between-a)
+
+"" vim-swap textobject
+omap i, <Plug>(swap-textobject-i)
+xmap i, <Plug>(swap-textobject-i)
+omap a, <Plug>(swap-textobject-a)
+xmap a, <Plug>(swap-textobject-a)
 
 " lightline.vim
 let g:lightline = {
