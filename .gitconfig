@@ -16,7 +16,6 @@
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`" # mergeの際にconflictが起きたファイルをadd
   alias = !git config --get-regexp alias | grep -v aliases | sed 's/^alias.//g' | sed 's/ / = /1' | sort
   aliases = !git alias
-  amend = commit --amend  # 直前のcommitを修正
   ap = add -p
   au = add -u
   b = branch
@@ -43,6 +42,9 @@
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`" # mergeの際にconflictが起きたファイルを編集
 
   f = fetch
+  fix = commit --amend
+  fixup = !git fu
+  fu = commit --amend -C HEAD
   g = !git git
   git = "!f() { echo 'typo'; }; f"
   gn = grep -n
