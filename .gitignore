@@ -7,6 +7,8 @@ tmp/
 **/tags
 *~
 .*.sw?
+.*.sv?
 .sw?
+.sv?
 .DS_Store
 tags
