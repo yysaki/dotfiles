@@ -53,9 +53,9 @@
   la = log --pretty=\"format:%ad %h (%an): %s\" --date=short  # ざっくりログ出す
   l = log
   lg = log --oneline --graph --decorate --abbrev-commit
-  lgr = !git --no-pager lg -n10
-  lgrr = !git --no-pager lg -n20
-  lgrrr = !git --no-pager lg -n30
+  lgr = !git --no-pager lg -n5
+  lgrr = !git --no-pager lg -n10
+  lgrrr = !git --no-pager lg -n20
   lgrrrr = !git --no-pager lg -n40
   lo = log --oneline
   lod = log --oneline --decorate
