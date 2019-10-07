@@ -4,6 +4,8 @@
   email = mail@yysaki.com
 [color]
   ui = auto
+[credential]
+  helper = cache
 [push]
   default = current
 [core]
