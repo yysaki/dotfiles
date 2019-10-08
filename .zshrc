@@ -69,6 +69,11 @@ setopt multios
 
 zstyle ':completion:*' list-colors ''
 
+autoload -Uz select-word-style
+select-word-style default
+zstyle ':zle:*' word-chars " _-./;@"
+zstyle ':zle:*' word-style unspecified
+
 ## set aliases
 if [ -x /usr/bin/dircolors ]; then
   alias ls='ls -F --color=auto'
