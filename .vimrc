@@ -122,6 +122,7 @@ if dein#load_state(expand($BUNDLE_PATH))
 
   " ruby
   call dein#add('tpope/vim-rails')
+  call dein#add('slim-template/vim-slim.git')
 
   " html
   call dein#add('mattn/emmet-vim') " <C-z>,
@@ -684,6 +685,7 @@ augroup filetype
   autocmd BufNewFile,BufRead *.{aspx,ascx} set filetype=html
   autocmd BufNewFile,BufRead *.{xaml} set filetype=xml
   autocmd BufNewFile,BufRead *.ts set filetype=typescript
+  autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 augroup END
 
 augroup html
