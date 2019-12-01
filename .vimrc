@@ -132,6 +132,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('jelera/vim-javascript-syntax')
   call dein#add('posva/vim-vue')
   call dein#add('jparise/vim-graphql')
+  call dein#add('ryanolsonx/vim-lsp-typescript')
 
   " terraform
   call dein#add('hashivim/vim-terraform')
