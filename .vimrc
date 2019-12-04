@@ -3,15 +3,10 @@
 if has('vim_starting')
   set encoding=utf-8
 
-  " 利用可能な場合は true color を有効化する
-  if !has('gui_running')
-        \ && exists('&termguicolors')
-        \ && $COLORTERM ==# 'truecolor'
-    if !has('nvim')
-      let &t_8f = "\e[38;2;%lu;%lu;%lum"
-      let &t_8b = "\e[48;2;%lu;%lu;%lum"
-    endif
-    set termguicolors       " use truecolor in term
+  if !has('gui_running') && exists('&termguicolors') && $COLORTERM ==# 'truecolor'
+    let &t_8f = "\e[38;2;%lu;%lu;%lum"
+    let &t_8b = "\e[48;2;%lu;%lu;%lum"
+    set termguicolors
   endif
 endif
 
@@ -19,10 +14,7 @@ let s:is_windows = has("win32unix") || has ("win64unix") || has("win32") || has(
 
 " dein.vim "{{{1
 let g:vimproc#download_windows_dll = 1
-let $BUNDLE_PATH =
-  \ s:is_windows
-  \ ? '~/vimfiles/dein/'
-  \ : '~/.vim/dein/'
+let $BUNDLE_PATH = s:is_windows ? '~/vimfiles/dein/' : '~/.vim/dein/'
 
 if has('vim_starting')
   set runtimepath+=$BUNDLE_PATH/repos/github.com/Shougo/dein.vim
@@ -419,41 +411,6 @@ function! s:do_git_diff_aware_gf(command)
     return a:command
   endif
 endfunction
-
-if s:is_windows
-  function! GitBash()
-      let l:oldlang = $LANG
-      let $LANG = systemlist('"C:/Program Files/Git/usr/bin/locale.exe" -iU')[0]
-
-      let l:oldgvim = $GVIM
-      let l:oldvimserver = $VIM_SERVERNAME
-      let $GVIM = $VIMRUNTIME
-      let $VIM_SERVERNAME = v:servername
-
-      let l:oldvim = $VIM
-      let l:oldvimruntime = $VIMRUNTIME
-      let l:oldmyvimrc = $MYVIMRC
-      let l:oldmygvimrc = $MYGVIMRC
-      let $VIM = ''
-      let $VIMRUNTIME = ''
-      let $MYVIMRC = ''
-      let $MYGVIMRC = ''
-
-      if has('clientserver')
-          let $VIM_SERVERNAME = v:servername
-      endif
-
-      terminal ++close ++curwin C:/Program Files/Git/bin/bash.exe -l
-
-      let $LANG = l:oldlang
-      let $GVIM = l:oldgvim
-      let $VIM_SERVERNAME = l:oldvimserver
-      let $VIM = l:oldvim
-      let $VIMRUNTIME = l:oldvimruntime
-      let $MYVIMRC = l:oldmyvimrc
-      let $MYGVIMRC = l:oldmygvimrc
-  endfunction
-endif
 
 " Mappings "{{{1
 
