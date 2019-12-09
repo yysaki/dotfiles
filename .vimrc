@@ -99,6 +99,7 @@ if dein#load_state(expand($BUNDLE_PATH))
   " lsp
   call dein#add('prabirshrestha/vim-lsp')
   call dein#add('prabirshrestha/async.vim')
+  call dein#add('mattn/vim-lsp-settings', { 'merged': 0 })
 
   " csharp
   call dein#add('OmniSharp/omnisharp-vim')
@@ -157,31 +158,21 @@ endif
 
 "" vim-lsp
 
-if executable('typescript-language-server')
-    autocmd User lsp_setup call lsp#register_server({
-      \ 'name': 'typescript-language-server',
-      \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-      \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-      \ 'whitelist': ['typescript', 'javascript', 'javascript.jsx'],
-      \ })
-endif
-if executable('vls')
-    autocmd User lsp_setup call lsp#register_server({
-      \ 'name': 'vue-language-server',
-      \ 'cmd': {server_info->['vls']},
-      \ 'whitelist': ['vue'],
-      \ })
-endif
+let g:lsp_diagnostics_enabled = 0 " disable diagnostics support for ale.vim
 
-if executable('solargraph')
-    " gem install solargraph
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'solargraph',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
-        \ 'initialization_options': {"diagnostics": "true"},
-        \ 'whitelist': ['ruby'],
-        \ })
-endif
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> <f2> <plug>(lsp-rename)
+    " refer to doc to add more commands
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
 
 " ale.vim
 if dein#tap('ale')
@@ -195,6 +186,7 @@ if dein#tap('ale')
   let g:ale_fixers = {
   \   'javascript': ['prettier', 'eslint'],
   \   'ruby': ['rubocop'],
+  \   'vim': ['vint'],
   \   'vue': ['prettier', 'eslint'],
   \}
   let g:ale_fix_on_save = 1
