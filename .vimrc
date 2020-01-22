@@ -2,6 +2,7 @@
 
 if has('vim_starting')
   set encoding=utf-8
+  scriptencoding utf-8
 
   if !has('gui_running') && exists('&termguicolors') && $COLORTERM ==# 'truecolor'
     let &t_8f = "\e[38;2;%lu;%lu;%lum"
@@ -169,7 +170,7 @@ function! s:on_lsp_buffer_enabled() abort
 endfunction
 
 augroup lsp_install
-    au!
+    autocmd!
     " call s:on_lsp_buffer_enabled only for languages that has the server registered.
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
@@ -622,6 +623,9 @@ set backspace=indent,eol,start
 
 set ambiwidth=double
 
+let g:vim_indent_cont = 0
+
+
 " undofile
 set undofile
 set undodir='~/tmp/vim-undofile'
@@ -657,10 +661,13 @@ augroup vue
   autocmd FileType vue syntax sync fromstart
 augroup END
 
-autocmd FileType *
-\   if &l:omnifunc == ''
-\ |   setlocal omnifunc=syntaxcomplete#Complete
-\ | endif
+augroup omnifunc
+  autocmd!
+  autocmd FileType *
+  \   if &l:omnifunc == ''
+  \ |   setlocal omnifunc=syntaxcomplete#Complete
+  \ | endif
+augroup END
 
 "スペルチェックを有効にする(ただし日本語は除外する)
 set spelllang+=cjk
