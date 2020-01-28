@@ -100,3 +100,6 @@
   encoding = utf-8
 [include]
 	path = ~/.gitconfig.local
+[ghq]
+	root = ~/ghq
+	root = ~/go/src
