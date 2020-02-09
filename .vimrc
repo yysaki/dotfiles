@@ -29,7 +29,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('Shougo/dein.vim')
 
   call dein#add('thinca/vim-qfreplace')
-  call dein#add('tyru/capture.vim')
   call dein#add('vim-jp/vital.vim')
   call dein#add('godlygeek/tabular')
 
@@ -52,7 +51,6 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('edkolev/tmuxline.vim')
 
   " file explorer
-  call dein#add('scrooloose/nerdtree')
   call dein#add('justinmk/vim-dirvish')
   call dein#add('kana/vim-altr')               " <Space>a
 
