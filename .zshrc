@@ -286,10 +286,6 @@ enable-docker-complete() {
     ln -s $etc/docker.zsh-completion $dir/_docker
   fi
 
-  if [ ! -e $dir/_docker-machine ]; then
-    ln -s $etc/docker-machine.zsh-completion $dir/_docker-machine
-  fi
-
   if [ ! -e $dir/_docker-compose ]; then
     ln -s $etc/docker-compose.zsh-completion $dir/_docker-compose
   fi
