@@ -130,6 +130,9 @@ if dein#load_state(expand($BUNDLE_PATH))
   call dein#add('hashivim/vim-terraform')
   call dein#add('juliosueiras/vim-terraform-completion')
 
+  " cypher(neo4j)
+  call dein#add('neo4j-contrib/cypher-vim-syntax')
+
   " lint
   if has('job') && has('channel') && has('timers')
     call dein#add('w0rp/ale')
