@@ -11,11 +11,8 @@ if has('vim_starting')
   endif
 endif
 
-let s:is_windows = has("win32unix") || has ("win64unix") || has("win32") || has("win64")
-
 " dein.vim "{{{1
-let g:vimproc#download_windows_dll = 1
-let $BUNDLE_PATH = s:is_windows ? '~/vimfiles/dein/' : '~/.vim/dein/'
+let $BUNDLE_PATH = '~/.vim/dein/'
 
 if has('vim_starting')
   set runtimepath+=$BUNDLE_PATH/repos/github.com/Shougo/dein.vim
