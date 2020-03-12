@@ -590,12 +590,6 @@ augroup html
   autocmd BufNewFile,BufRead *.html setlocal foldmethod=syntax
 augroup END
 
-augroup vim
-  autocmd!
-  autocmd BufWritePost .vimrc source $MYVIMRC
-  autocmd BufWritePost .gvimrc source $MYGVIMRC
-augroup END
-
 augroup vue
   autocmd!
   autocmd FileType vue syntax sync fromstart
