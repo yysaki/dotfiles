@@ -610,7 +610,7 @@ augroup omnifunc
 augroup END
 
 "スペルチェックを有効にする(ただし日本語は除外する)
-set spelllang+=cjk
+set spelllang& spelllang+=cjk
 " set spell
 
 if !has('gui_running') && &t_Co == 256
