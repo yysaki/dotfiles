@@ -11,6 +11,10 @@ if has('vim_starting')
   endif
 endif
 
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
 " dein.vim "{{{1
 let $BUNDLE_PATH = '~/.vim/dein/'
 
@@ -167,11 +171,8 @@ function! s:on_lsp_buffer_enabled() abort
     " refer to doc to add more commands
 endfunction
 
-augroup lsp_install
-    autocmd!
-    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
-    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
+" call s:on_lsp_buffer_enabled only for languages that has the server registered.
+autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 
 " ale.vim
 if dein#tap('ale')
@@ -206,14 +207,11 @@ let g:quickrun_config['make.test']  = {'command': 'make', 'cmdopt': 'test',  'ou
 let g:quickrun_config['tex']        = {'command': 'make', 'exec' : '%c %o',  'outputter': 'error:buffer:quickfix'}
 
 " Enable omni completion.
-augroup omnifunc
-  autocmd!
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-augroup END
+autocmd MyAutoCmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd MyAutoCmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd MyAutoCmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd MyAutoCmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd MyAutoCmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " terraform
 "
@@ -573,35 +571,22 @@ set undodir='~/tmp/vim-undofile'
 let g:tex_flavor = 'latex'
 
 " 拡張子設定
-augroup filetype
-  autocmd!
+autocmd MyAutoCmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+autocmd MyAutoCmd BufNewFile,BufRead *.{aspx,ascx} set filetype=html
+autocmd MyAutoCmd BufNewFile,BufRead *.{xaml} set filetype=xml
+autocmd MyAutoCmd BufNewFile,BufRead *.ts set filetype=typescript
+autocmd MyAutoCmd BufNewFile,BufRead *.slim setlocal filetype=slim
 
-  autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-  autocmd BufNewFile,BufRead *.{aspx,ascx} set filetype=html
-  autocmd BufNewFile,BufRead *.{xaml} set filetype=xml
-  autocmd BufNewFile,BufRead *.ts set filetype=typescript
-  autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
-augroup END
+autocmd MyAutoCmd BufNewFile,BufRead *.html setlocal tabstop=4 shiftwidth=4
+autocmd MyAutoCmd BufNewFile,BufRead *.html setlocal noexpandtab softtabstop=4
+autocmd MyAutoCmd BufNewFile,BufRead *.html setlocal foldmethod=syntax
 
-augroup html
-  autocmd!
-  autocmd BufNewFile,BufRead *.html setlocal tabstop=4 shiftwidth=4
-  autocmd BufNewFile,BufRead *.html setlocal noexpandtab softtabstop=4
-  autocmd BufNewFile,BufRead *.html setlocal foldmethod=syntax
-augroup END
+autocmd MyAutoCmd FileType vue syntax sync fromstart
 
-augroup vue
-  autocmd!
-  autocmd FileType vue syntax sync fromstart
-augroup END
-
-augroup omnifunc
-  autocmd!
-  autocmd FileType *
-  \   if &l:omnifunc == ''
-  \ |   setlocal omnifunc=syntaxcomplete#Complete
-  \ | endif
-augroup END
+autocmd MyAutoCmd FileType *
+\   if &l:omnifunc == ''
+\ |   setlocal omnifunc=syntaxcomplete#Complete
+\ | endif
 
 "スペルチェックを有効にする(ただし日本語は除外する)
 set spelllang& spelllang+=cjk
