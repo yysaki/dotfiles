@@ -185,7 +185,6 @@ if dein#tap('ale')
   let g:ale_fixers = {
   \   'javascript': ['prettier', 'eslint'],
   \   'ruby': ['rubocop'],
-  \   'vim': ['vint'],
   \   'vue': ['prettier', 'eslint'],
   \}
   let g:ale_fix_on_save = 1
@@ -199,12 +198,12 @@ endif
 " quickrun.vim
 
 let g:quickrun_config = {}
-let g:quickrun_config['_'] = {"runner": "vimproc", "runner/vimproc/updatetime": 60, "split": "below"}
-let g:quickrun_config['make']       = {"command": "make", "exec" : "%c %o",  "outputter": "error:buffer:quickfix"}
-let g:quickrun_config['make.check'] = {"command": "make", "cmdopt": "check", "outputter": "error:buffer:quickfix"}
-let g:quickrun_config['make.run']   = {"command": "make", "cmdopt": "run",   "outputter": "error:buffer:quickfix"}
-let g:quickrun_config['make.test']  = {"command": "make", "cmdopt": "test",  "outputter": "error:buffer:quickfix"}
-let g:quickrun_config['tex']        = {"command": "make", "exec" : "%c %o",  "outputter": "error:buffer:quickfix"}
+let g:quickrun_config['_'] = {'runner': 'vimproc', 'runner/vimproc/updatetime': 60, 'split': 'below'}
+let g:quickrun_config['make']       = {'command': 'make', 'exec' : '%c %o',  'outputter': 'error:buffer:quickfix'}
+let g:quickrun_config['make.check'] = {'command': 'make', 'cmdopt': 'check', 'outputter': 'error:buffer:quickfix'}
+let g:quickrun_config['make.run']   = {'command': 'make', 'cmdopt': 'run',   'outputter': 'error:buffer:quickfix'}
+let g:quickrun_config['make.test']  = {'command': 'make', 'cmdopt': 'test',  'outputter': 'error:buffer:quickfix'}
+let g:quickrun_config['tex']        = {'command': 'make', 'exec' : '%c %o',  'outputter': 'error:buffer:quickfix'}
 
 " Enable omni completion.
 augroup omnifunc
@@ -364,15 +363,15 @@ let g:clever_f_use_migemo = 1
 
 "" vim-surround
 
-let g:surround_{char2nr("-")} = "<% \r %>"
-let g:surround_{char2nr("=")} = "<%= \r %>"
-let g:surround_{char2nr("#")} = "<%# \r %>"
+let g:surround_{char2nr('-')} = '<% \r %>'
+let g:surround_{char2nr('=')} = '<%= \r %>'
+let g:surround_{char2nr('#')} = '<%# \r %>'
 
 "  UltiSnips
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsJumpForwardTrigger='<c-b>'
+let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 
 " OS Type "{{{1
 
@@ -514,7 +513,7 @@ filetype plugin indent on "プラグインをオンにする
 set confirm
 set hidden
 
-if executable("rg")
+if executable('rg')
   set grepprg=rg\ --vimgrep\ --no-heading
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
@@ -536,7 +535,7 @@ set iminsert=0 " 入力モードで自動的に日本語入力を使わない
 set imsearch=0 " 挿入モードで自動的に日本語入力を使わない
 
 syntax on                                "シンタックスハイライト
-set nu                                   "行番号表示
+set number                               "行番号表示
 set expandtab                            "タブにスペースを使う
 set tabstop=2 shiftwidth=2 softtabstop=2 "インデント幅を2文字に
 set helplang=ja,en                       "helpを日本語化, helptags ~/vimfiles/doc/
@@ -571,7 +570,7 @@ let g:vim_indent_cont = 0
 set undofile
 set undodir='~/tmp/vim-undofile'
 
-let g:tex_flavor = "latex"
+let g:tex_flavor = 'latex'
 
 " 拡張子設定
 augroup filetype
