@@ -220,8 +220,8 @@ fi
 # install latest vim. required homebrew installed lua, python3
 if $darwin; then
   function makeInstallLatestVim() {
-    ghq get vim/vim --update;
-    pushd `ghq list vim/vim --full-path`;
+    ghq get --update vim/vim;
+    pushd `ghq list --full-path vim/vim`;
     git checkout master;
 
     make distclean;
