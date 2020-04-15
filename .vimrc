@@ -424,7 +424,7 @@ nnoremap <Space>e  :<C-u>e ++enc=utf-8<CR>
 nnoremap <Space>E  :<C-u>e! ++enc=utf-8<CR>
 
 " gitコマンドのショートカット
-nnoremap <Space>g :<C-u>Git  --paginate 
+nnoremap <Space>g :<C-u>Git -p 
 nnoremap <Space>G :<C-u>Git 
 
 nnoremap <Space>n :<C-u>Gina 
