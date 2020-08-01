@@ -16,22 +16,6 @@ case "$(uname)" in
   MINGW64*) mingw=true;; # work
 esac
 
-case ${UID} in
-  0)
-    PROMPT="%B%{[31m%}%n@%m#%{[m%}%b "
-    RPROMPT="%B%{[32m%}[%~]%{[m%}%b"
-    PROMPT2="%B%{[31m%}%_#%{[m%}%b "
-    SPROMPT="%B%{[31m%}%r is correct? [n,y,a,e]:%{[m%}%b "
-    ;;
-  *)
-    PROMPT="%{[31m%}%n@%m%%%{[m%} "
-    RPROMPT="%{[32m%}[%/]%{[m%}"
-    PROMPT2="%{[31m%}%_%%%{[m%} "
-    SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
-    ;;
-esac
-
-# リポジトリの状態を表示
 autoload -Uz vcs_info
 setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
@@ -40,7 +24,10 @@ zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
 zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
-RPROMPT='${vcs_info_msg_0_} '$RPROMPT
+
+PROMPT=$'${vcs_info_msg_0_}%{[32m%}[%~]%{[m%}\n%{[31m%}%n@%m%%%{[m%} '
+PROMPT2="%{[31m%}%_%%%{[m%} "
+SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
