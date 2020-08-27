@@ -281,9 +281,9 @@ if $darwin; then
   enable-docker-complete
 fi
 
-if type aws_zsh_completer.sh > /dev/null; then
-  source aws_zsh_completer.sh
-fi
+# if type aws_zsh_completer.sh > /dev/null; then
+#   source aws_zsh_completer.sh
+# fi
 
 # zplug
 if [ ! -d ~/.zplug ]; then
