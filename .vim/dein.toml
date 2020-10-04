@@ -1,0 +1,170 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc'
+hook_post_update = '''
+  let g:dein#plugin.build = 'make'
+'''
+
+[[plugins]]
+repo = 'thinca/vim-qfreplace'
+
+[[plugins]]
+repo = 'vim-jp/vital.vim'
+
+[[plugins]]
+repo = 'godlygeek/tabular'
+
+# essential
+[[plugins]]
+repo = 'tpope/vim-unimpaired'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+[[plugins]]
+repo = 'vim-scripts/matchit.zip'
+
+[[plugins]]
+repo = 'vim-scripts/sudo.vim'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+# work as project
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+
+# syntax highlight
+[[plugins]]
+repo = 'vim-scripts/vim-niji'
+
+# colorscheme
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'edkolev/tmuxline.vim'
+
+# file explorer
+[[plugins]]
+repo = 'justinmk/vim-dirvish'
+
+[[plugins]]
+repo = 'kana/vim-altr'
+
+# operator
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'machakann/vim-swap'
+
+# motion
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+
+[[plugins]]
+repo = 'rhysd/clever-f.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-anzu'
+
+[[plugins]]
+repo = 'haya14busa/vim-asterisk'
+
+# tabpage
+[[plugins]]
+repo = 'kana/vim-tabpagecd'
+
+[[plugins]]
+repo = 'kana/vim-tabpagecd'
+
+# japanese
+[[plugins]]
+repo = 'haya14busa/vim-migemo'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'haya14busa/vim-gtrans'
+# (go get github.com/haya14busa/gtrans)
+
+# git
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'lambdalisue/gina.vim'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+# fzf
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = ['fzf']
+
+[[plugins]]
+repo = 'tweekmonster/fzf-filemru'
+
+# textobj-user
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+
+[[plugins]]
+repo = 'kana/vim-textobj-entire'
+
+[[plugins]]
+repo = 'kana/vim-textobj-indent'
+
+[[plugins]]
+repo = 'kana/vim-textobj-line'
+
+[[plugins]]
+repo = 'thinca/vim-textobj-between'
+
+[[plugins]]
+repo = 'thinca/vim-textobj-comment'
+
+# snippet
+[[plugins]]
+repo = 'honza/vim-snippets'
+
+# lsp
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+
+# lint
+[[plugins]]
+repo = 'w0rp/ale'
+if = '''has('job') && has('channel') && has('timers')'''
+
+# howm
+[[plugins]]
+repo = 'fuenor/qfixgrep'
+
+[[plugins]]
+repo = 'fuenor/qfixhowm'
+
+[[plugins]]
+repo = 'kana/vim-fakeclip'
+if = '''has('mac')'''

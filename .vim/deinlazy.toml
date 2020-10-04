@@ -1,0 +1,59 @@
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+on_ft = ['terraform', 'tfvars', 'tfstate']
+
+[[plugins]]
+repo = 'juliosueiras/vim-terraform-completion'
+on_ft = ['terraform', 'tfvars', 'tfstate']
+
+[[plugins]]
+repo = 'hallison/vim-markdown'
+on_ft = ['markdown']
+
+[[plugins]]
+repo = 'ryanolsonx/vim-lsp-typescript'
+on_ft = ['typescript', 'typescript.tsx']
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = ['javascript', 'javascript.jsx']
+
+[[plugins]]
+repo = 'jelera/vim-javascript-syntax'
+on_ft = ['javascript', 'javascript.jsx']
+
+[[plugins]]
+repo = 'slim-template/vim-slim.git'
+on_ft = ['slim']
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'vue']
+
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = 'vue'
+
+[[plugins]]
+repo = 'neo4j-contrib/cypher-vim-syntax'
+on_ft = ['cypher']
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = ['ruby']
+
+[[plugins]]
+repo = 'bumaociyuan/vim-swift'
+on_ft = ['swift']
+
+[[plugins]]
+repo = 'jparise/vim-graphql'
+on_ft = ['graphql']
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+[[plugins]]
+repo = 'OmniSharp/omnisharp-vim'
+on_ft = ['csharp']
