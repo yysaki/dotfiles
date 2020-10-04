@@ -144,6 +144,9 @@ if dein#load_state(s:dein_dir)
   " cypher(neo4j)
   call dein#add('neo4j-contrib/cypher-vim-syntax')
 
+  " toml
+  call dein#add('cespare/vim-toml')
+
   " lint
   if has('job') && has('channel') && has('timers')
     call dein#add('w0rp/ale')
