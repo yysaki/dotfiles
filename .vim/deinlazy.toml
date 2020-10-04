@@ -1,6 +1,9 @@
 [[plugins]]
 repo = 'hashivim/vim-terraform'
 on_ft = ['terraform', 'tfvars', 'tfstate']
+hook_add = '''
+  let g:terraform_fmt_on_save = 1
+'''
 
 [[plugins]]
 repo = 'juliosueiras/vim-terraform-completion'
@@ -29,6 +32,9 @@ on_ft = ['slim']
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'vue']
+hood_add = '''
+  let g:user_emmet_leader_key='<C-z>'
+'''
 
 [[plugins]]
 repo = 'posva/vim-vue'

@@ -50,217 +50,12 @@ endif
 
 " Programming Language Settings {{{2
 
-"" vim-lsp
-
-let g:lsp_diagnostics_enabled = 0 " disable diagnostics support for ale.vim
-
-function! s:on_lsp_buffer_enabled() abort
-    setlocal omnifunc=lsp#complete
-    setlocal signcolumn=yes
-    nmap <buffer> gd <plug>(lsp-definition)
-    nmap <buffer> <f2> <plug>(lsp-rename)
-    " refer to doc to add more commands
-endfunction
-
-" call s:on_lsp_buffer_enabled only for languages that has the server registered.
-autocmd MyAutoCmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-
-" ale.vim
-if dein#tap('ale')
-  let g:ale_lint_on_enter = 0
-
-  nmap <silent> [w <Plug>(ale_previous)
-  nmap <silent> ]w <Plug>(ale_next)
-  nmap <silent> [W <Plug>(ale_toggle)
-  nmap <silent> ]W <Plug>(ale_toggle)
-
-  let g:ale_fixers = {
-  \   'javascript': ['prettier', 'eslint'],
-  \   'ruby': ['rubocop'],
-  \   'vue': ['prettier', 'eslint'],
-  \}
-  let g:ale_fix_on_save = 1
-endif
-
-" lexima.vim
-if dein#tap('lexima.vim')
-  call lexima#add_rule({'char': '<%', 'input_after': '%>'})
-endif
-
-" quickrun.vim
-
-let g:quickrun_config = {}
-let g:quickrun_config['_'] = {'runner': 'vimproc', 'runner/vimproc/updatetime': 60, 'split': 'below'}
-let g:quickrun_config['make']       = {'command': 'make', 'exec' : '%c %o',  'outputter': 'error:buffer:quickfix'}
-let g:quickrun_config['make.check'] = {'command': 'make', 'cmdopt': 'check', 'outputter': 'error:buffer:quickfix'}
-let g:quickrun_config['make.run']   = {'command': 'make', 'cmdopt': 'run',   'outputter': 'error:buffer:quickfix'}
-let g:quickrun_config['make.test']  = {'command': 'make', 'cmdopt': 'test',  'outputter': 'error:buffer:quickfix'}
-let g:quickrun_config['tex']        = {'command': 'make', 'exec' : '%c %o',  'outputter': 'error:buffer:quickfix'}
-
 " Enable omni completion.
 autocmd MyAutoCmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd MyAutoCmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd MyAutoCmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd MyAutoCmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd MyAutoCmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" terraform
-"
-let g:terraform_fmt_on_save = 1
-
-" Plugins Settings {{{2
-"" endwise.vim
-
-let g:endwise_no_mappings=1
-
-"" emmet.vim
-
-let g:user_emmet_leader_key='<C-z>'
-
-" textobj
-let g:textobj_between_no_default_key_mappings = 1
-
-omap iB <Plug>(textobj-between-i)
-omap aB <Plug>(textobj-between-a)
-vmap iB <Plug>(textobj-between-i)
-vmap aB <Plug>(textobj-between-a)
-
-"" vim-swap textobject
-omap i, <Plug>(swap-textobject-i)
-xmap i, <Plug>(swap-textobject-i)
-omap a, <Plug>(swap-textobject-a)
-xmap a, <Plug>(swap-textobject-a)
-
-" lightline.vim
-let g:lightline = {
-\ 'colorscheme': 'wombat',
-\ 'active': {
-\   'left': [ [ 'mode', 'paste' ],
-\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-\ },
-\ 'component_function' : {
-\   'gitbranch': 'fugitive#head'
-\ },
-\ }
-
-" tmuxline.vim
-let g:tmuxline_powerline_separators = 0
-let g:tmuxline_theme = 'lightline'
-let g:tmuxline_preset = {
-      \ 'a'       : '#S',
-      \ 'b'       : ['#(whoami)'],
-      \ 'win'     : ['#I', '#W'],
-      \ 'cwin'    : ['#I', '#W', '#F'],
-      \ 'y'       : ['%Y/%m/%d(%a) %H:%M'],
-      \ 'z'       : '#H',
-      \ 'options' : { 'status-justify': 'left' },
-      \  }
-
-" quickrun.vim
-
-" <Space>q でquickrunする
-silent! map <Space>q <Plug>(quickrun)
-
-"" vim-ref
-
-let g:ref_open                    = 'split'
-let g:ref_refe_cmd                = expand('~/vimfiles/ref/ruby-ref1.9.2/refe-1_9_2')
-
-"" vim-altr
-
-if dein#tap('vim-altr')
-  nmap <Space>a <Plug>(altr-forward)
-  call altr#define('%.xaml', '%.xaml.cs')
-endif
-
-"" QFixHowm
-
-let QFixHowm_Key            = 'g'                             " キーマップリーダー ex.'g,c'
-let QFixMRU_Filename        = '~/.qfixmru'                    " MRUリスト
-let howm_fileencoding       = 'utf-8'
-let howm_fileformat         = 'unix'
-let howm_filename           = '%Y/%m/%Y-%m-%d-%H%M%S.mkd'
-let QFixHowm_FileType       = 'markdown'
-let QFixHowm_Title          = '#'                             " タイトル記号
-let QFixHowm_FoldingPattern = '^[#[]'                         " 折りたたみのパターン
-
-let QFixHowm_ChDir = '~/Dropbox/Files/howm'
-let QFixHowm_RootDir = '~/Dropbox/Files/howm'
-
-nnoremap <silent> g,hh :echo howm_dir<CR>
-nnoremap <silent> g,ha :call HowmChEnv('',            'time', '#')<CR>
-nnoremap <silent> g,hp :call HowmChEnv('private-mkd', 'time', '#')<CR>
-nnoremap <silent> g,hw :call HowmChEnv('work-mkd',    'day',  '#')<CR>
-
-"" vim-easymotion
-
-let g:EasyMotion_do_mapping = 0
-
-nmap s <Plug>(easymotion-overwin-f2)
-
-nmap <Space>s <Plug>(easymotion-bd-f2)
-vmap <Space>s <Plug>(easymotion-bd-f2)
-nmap <Space>S <Plug>(easymotion-overwin-f2)
-vmap <Space>S <Plug>(easymotion-bd-f2)
-
-map <Space>L <Plug>(easymotion-bd-jk)
-nmap <Space>L <Plug>(easymotion-overwin-line)
-
-map  <Space>w <Plug>(easymotion-bd-w)
-nmap <Space>w <Plug>(easymotion-overwin-w)
-
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_use_migemo = 1
-
-"" vim-easy-align'
-
-vmap <Enter> <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-
-"" vim-asterisk vim-anzu
-
-nmap n <Plug>(anzu-n-with-echo)
-nmap N <Plug>(anzu-N-with-echo)
-
-vmap *   <Plug>(asterisk-*)<Plug>(anzu-update-search-status-with-echo)
-vmap #   <Plug>(asterisk-#)<Plug>(anzu-update-search-status-with-echo)
-vmap g*  <Plug>(asterisk-g*)<Plug>(anzu-update-search-status-with-echo)
-vmap g#  <Plug>(asterisk-g#)<Plug>(anzu-update-search-status-with-echo)
-
-nmap *   <Plug>(anzu-star-with-echo)
-nmap #   <Plug>(anzu-sharp-with-echo)
-nmap g*  <Plug>(anzu-star-with-echo)
-nmap g#  <Plug>(anzu-sharp-with-echo)
-
-map z*  <Plug>(asterisk-z*)<Plug>(anzu-update-search-status-with-echo)
-map gz* <Plug>(asterisk-gz*)<Plug>(anzu-update-search-status-with-echo)
-map z#  <Plug>(asterisk-z#)<Plug>(anzu-update-search-status-with-echo)
-map gz# <Plug>(asterisk-gz#)<Plug>(anzu-update-search-status-with-echo)
-
-"" fzf
-
-if dein#tap('fzf.vim')
-  command! -nargs=* -complete=dir Fq call fzf#run(fzf#wrap(
-    \ {'source': 'ghq list --full-path',
-    \  'sink': 'cd' }))
-endif
-nnoremap <silent> <Space>F :<C-u>Fq<CR>
-
-"" clever-f.vim
-
-let g:clever_f_use_migemo = 1
-
-"" vim-surround
-
-let g:surround_{char2nr('-')} = '<% \r %>'
-let g:surround_{char2nr('=')} = '<%= \r %>'
-let g:surround_{char2nr('#')} = '<%# \r %>'
-
-"  UltiSnips
-
-let g:UltiSnipsExpandTrigger='<tab>'
-let g:UltiSnipsJumpForwardTrigger='<c-b>'
-let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 
 " OS Type "{{{1
 
@@ -303,12 +98,10 @@ else
 endif
 
 " fzf.vim
-if dein#tap('fzf.vim')
-  nnoremap <Space>b :<C-u>Buffers<CR>
-  nnoremap <Space>h :<C-u>History<CR>
-  nnoremap <Space>r :<C-u>Rg 
-  nnoremap <Space>f :<C-u>GFiles<CR>
-endif
+nnoremap <Space>b :<C-u>Buffers<CR>
+nnoremap <Space>h :<C-u>History<CR>
+nnoremap <Space>r :<C-u>Rg 
+nnoremap <Space>f :<C-u>GFiles<CR>
 
 " UTF-8 として読み込む
 nnoremap <Space>e  :<C-u>e ++enc=utf-8<CR>
