@@ -15,7 +15,7 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 
-" dein.vim "{{{1
+" Plugins "{{{1
 let s:cache_dir = expand('~/.cache')
 
 if !isdirectory(s:cache_dir)
@@ -32,8 +32,6 @@ if has('vim_starting')
   execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
 
-" Bundles "{{{2
-
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
@@ -48,16 +46,104 @@ if dein#check_install()
   call dein#install()
 endif
 
-" Programming Language Settings {{{2
+" Options "{{{1
 
-" Enable omni completion.
+filetype plugin indent on "プラグインをオンにする
+
+" ファイル処理関連
+set confirm
+set hidden
+
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --no-heading
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+
+" 検索/置換
+set ignorecase
+set infercase
+set smartcase
+set wrapscan
+set incsearch
+
+" ctags用
+set tags=./tags,tags
+
+" 文字コード
+set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932
+
+set iminsert=0 " 入力モードで自動的に日本語入力を使わない
+set imsearch=0 " 挿入モードで自動的に日本語入力を使わない
+
+syntax enable                            "シンタックスハイライト
+set number                               "行番号表示
+set expandtab                            "タブにスペースを使う
+set tabstop=2 shiftwidth=2 softtabstop=2 "インデント幅を2文字に
+set helplang=ja,en                       "helpを日本語化, helptags ~/vimfiles/doc/
+
+"ファイル情報の表示
+set laststatus=2
+set showtabline=2
+
+" 不可視文字の可視化
+set list
+"set listchars=eol:￢,tab:_.
+set listchars=tab:._,eol:$
+
+set hlsearch " 検索結果をハイライト
+
+set mouse=a
+
+set showmatch
+
+set shellslash
+
+set history=10000
+
+set backspace=indent,eol,start
+
+set ambiwidth=double
+
+let g:vim_indent_cont = 0
+
+" undofile
+set undofile
+set undodir='~/tmp/vim-undofile'
+
+let g:tex_flavor = 'latex'
+
+" 拡張子設定
+autocmd MyAutoCmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+autocmd MyAutoCmd BufNewFile,BufRead *.{aspx,ascx} set filetype=html
+autocmd MyAutoCmd BufNewFile,BufRead *.{xaml} set filetype=xml
+autocmd MyAutoCmd BufNewFile,BufRead *.ts set filetype=typescript
+autocmd MyAutoCmd BufNewFile,BufRead *.slim setlocal filetype=slim
+
+autocmd MyAutoCmd BufNewFile,BufRead *.html setlocal tabstop=4 shiftwidth=4
+autocmd MyAutoCmd BufNewFile,BufRead *.html setlocal noexpandtab softtabstop=4
+autocmd MyAutoCmd BufNewFile,BufRead *.html setlocal foldmethod=syntax
+
+autocmd MyAutoCmd FileType vue syntax sync fromstart
+
+autocmd MyAutoCmd FileType *
+\   if &l:omnifunc == ''
+\ |   setlocal omnifunc=syntaxcomplete#Complete
+\ | endif
+
+" omni completion
 autocmd MyAutoCmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd MyAutoCmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd MyAutoCmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd MyAutoCmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd MyAutoCmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-" OS Type "{{{1
+"スペルチェックを有効にする(ただし日本語は除外する)
+set spelllang& spelllang+=cjk
+" set spell
+
+if !has('gui_running') && &t_Co == 256
+  colorscheme iceberg
+end
 
 if has('mac')
   set clipboard=unnamed " クリップボード利用設定
@@ -65,26 +151,6 @@ if has('mac')
     set macmeta
   endif
 endif
-
-" Functions "{{{1
-
-let s:FALSE = 0
-let s:TRUE = !s:FALSE
-
-function! s:do_git_diff_aware_gf(command)
-  let target_path = expand('<cfile>')
-  if target_path =~# '^[ab]/'  " with a peculiar prefix of git-diff(1)?
-    if filereadable(target_path) || isdirectory(target_path)
-      return a:command
-    else
-      " BUGS: Side effect - Cursor position is changed.
-      let [_, c] = searchpos('\f\+', 'cenW')
-      return c . '|' . 'v' . (len(target_path) - 2 - 1) . 'h' . a:command
-    endif
-  else
-    return a:command
-  endif
-endfunction
 
 " Mappings "{{{1
 
@@ -187,98 +253,29 @@ map! <C-Space> <C-@>
 " カーソル下のunixtimeをタイムスタンプに変換
 nmap <Space>d m"ciw<C-r>=strftime("%Y/%m/%d %T", @m)<CR><Esc>
 
-" Generals "{{{1
+" Customize "{{{1
 
-filetype plugin indent on "プラグインをオンにする
+let s:FALSE = 0
+let s:TRUE = !s:FALSE
 
-" ファイル処理関連
-set confirm
-set hidden
+function! s:do_git_diff_aware_gf(command)
+  let target_path = expand('<cfile>')
+  if target_path =~# '^[ab]/'  " with a peculiar prefix of git-diff(1)?
+    if filereadable(target_path) || isdirectory(target_path)
+      return a:command
+    else
+      " BUGS: Side effect - Cursor position is changed.
+      let [_, c] = searchpos('\f\+', 'cenW')
+      return c . '|' . 'v' . (len(target_path) - 2 - 1) . 'h' . a:command
+    endif
+  else
+    return a:command
+  endif
+endfunction
 
-if executable('rg')
-  set grepprg=rg\ --vimgrep\ --no-heading
-  set grepformat=%f:%l:%c:%m,%f:%l:%m
+if filereadable(expand('~/.vimrc.local'))
+  source $HOME/.vimrc.local
 endif
-
-" 検索/置換
-set ignorecase
-set infercase
-set smartcase
-set wrapscan
-set incsearch
-
-" ctags用
-set tags=./tags,tags
-
-" 文字コード
-set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932
-
-set iminsert=0 " 入力モードで自動的に日本語入力を使わない
-set imsearch=0 " 挿入モードで自動的に日本語入力を使わない
-
-syntax on                                "シンタックスハイライト
-set number                               "行番号表示
-set expandtab                            "タブにスペースを使う
-set tabstop=2 shiftwidth=2 softtabstop=2 "インデント幅を2文字に
-set helplang=ja,en                       "helpを日本語化, helptags ~/vimfiles/doc/
-
-"ファイル情報の表示
-set laststatus=2
-set showtabline=2
-
-" 不可視文字の可視化
-set list
-"set listchars=eol:￢,tab:_.
-set listchars=tab:._,eol:$
-
-set hlsearch " 検索結果をハイライト
-
-set mouse=a
-
-set showmatch
-
-set shellslash
-
-set history=10000
-
-set backspace=indent,eol,start
-
-set ambiwidth=double
-
-let g:vim_indent_cont = 0
-
-
-" undofile
-set undofile
-set undodir='~/tmp/vim-undofile'
-
-let g:tex_flavor = 'latex'
-
-" 拡張子設定
-autocmd MyAutoCmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-autocmd MyAutoCmd BufNewFile,BufRead *.{aspx,ascx} set filetype=html
-autocmd MyAutoCmd BufNewFile,BufRead *.{xaml} set filetype=xml
-autocmd MyAutoCmd BufNewFile,BufRead *.ts set filetype=typescript
-autocmd MyAutoCmd BufNewFile,BufRead *.slim setlocal filetype=slim
-
-autocmd MyAutoCmd BufNewFile,BufRead *.html setlocal tabstop=4 shiftwidth=4
-autocmd MyAutoCmd BufNewFile,BufRead *.html setlocal noexpandtab softtabstop=4
-autocmd MyAutoCmd BufNewFile,BufRead *.html setlocal foldmethod=syntax
-
-autocmd MyAutoCmd FileType vue syntax sync fromstart
-
-autocmd MyAutoCmd FileType *
-\   if &l:omnifunc == ''
-\ |   setlocal omnifunc=syntaxcomplete#Complete
-\ | endif
-
-"スペルチェックを有効にする(ただし日本語は除外する)
-set spelllang& spelllang+=cjk
-" set spell
-
-if !has('gui_running') && &t_Co == 256
-  colorscheme iceberg
-end
 
 " __END__  "{{{1
 " vim: expandtab softtabstop=2 shiftwidth=2
