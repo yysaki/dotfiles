@@ -19,18 +19,6 @@ if [ -f /usr/local/bin/rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
-if $mingw; then
-  if ! [ -d ~/vimfiles/dein/repos/github.com/Shougo/dein.vim ]; then
-    echo "echo) get dein"
-    git clone https://github.com/Shougo/dein.vim.git ~/vimfiles/dein/repos/github.com/Shougo/dein.vim
-  fi
-else
-  if ! [ -d ~/.vim/dein/repos/github.com/Shougo/dein.vim ]; then
-    echo "echo) get dein"
-    git clone https://github.com/Shougo/dein.vim.git ~/.vim/dein/repos/github.com/Shougo/dein.vim
-  fi
-fi
-
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
   . ~/.bashrc

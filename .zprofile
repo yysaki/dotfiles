@@ -8,11 +8,6 @@ if [ -d $HOME/.rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
-if ! [ -d ~/.vim/dein/repos/github.com/Shougo/dein.vim ]; then
-  echo "echo) get dein"
-  git clone https://github.com/Shougo/dein.vim.git ~/.vim/dein/repos/github.com/Shougo/dein.vim
-fi
-
 if [ /usr/bin/gcc ]; then
   export CC=/usr/bin/gcc
 fi
