@@ -183,7 +183,7 @@ hook_add = '''
 repo = 'kana/vim-tabpagecd'
 
 [[plugins]]
-repo = 'kana/vim-tabpagecd'
+repo = 'thinca/vim-tabrecent'
 
 # japanese
 [[plugins]]
