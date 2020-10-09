@@ -14,11 +14,6 @@ repo = 'hallison/vim-markdown'
 on_ft = ['markdown']
 
 [[plugins]]
-repo = 'ryanolsonx/vim-lsp-typescript'
-depends = ['vim-lsp', 'async.vim']
-on_ft = ['typescript', 'typescript.tsx']
-
-[[plugins]]
 repo = 'pangloss/vim-javascript'
 on_ft = ['javascript', 'javascript.jsx']
 
