@@ -8,6 +8,8 @@
   helper = cache
 [push]
   default = current
+[pull]
+  ff = only
 [core]
   excludesfile = ~/.gitignore  # globalな.gitignoreの指定
   editor = vim -c \"set fenc=utf-8\"
