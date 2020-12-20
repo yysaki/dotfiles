@@ -259,6 +259,10 @@ fbr() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
+to() {
+  mkdir -p "$(dirname "$1")" && touch "$1";
+}
+
 if type hub > /dev/null 2>&1; then
   eval "$(hub alias -s)"
 fi
