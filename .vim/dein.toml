@@ -293,6 +293,9 @@ hook_add = '''
 
   let g:ale_fixers = {
   \   'javascript': ['prettier', 'eslint'],
+  \   'javascriptreact': ['prettier', 'eslint'],
+  \   'typescript': ['prettier', 'eslint'],
+  \   'typescriptreact': ['prettier', 'eslint'],
   \   'ruby': ['rubocop'],
   \   'vue': ['prettier', 'eslint'],
   \}
