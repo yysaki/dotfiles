@@ -176,6 +176,7 @@ nnoremap <Space>E  :<C-u>e! ++enc=utf-8<CR>
 " gitコマンドのショートカット
 nnoremap <Space>g :<C-u>Git -p 
 nnoremap <Space>G :<C-u>Git 
+nnoremap <Space>l :<C-u>Git -p ls-files<CR>
 
 nnoremap <Space>n :<C-u>Gina 
 nnoremap <Space>N :<C-u>Gina! 
