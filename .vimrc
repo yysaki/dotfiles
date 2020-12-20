@@ -193,6 +193,9 @@ nnoremap <silent> [TABCMD]s :<C-u>tabs<CR>
 nnoremap <silent> [TABCMD]r :<C-u>TabRecent<CR>
 nnoremap          [TABCMD]m :<C-u>tabm
 
+" vim-lsp
+nnoremap <Space>p :<C-u>LspHover<CR>
+
 " git-diff-aware version of gf commands.
 nnoremap <expr> gf  <SID>do_git_diff_aware_gf('gf')
 nnoremap <expr> gF  <SID>do_git_diff_aware_gf('gF')
