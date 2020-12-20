@@ -211,6 +211,7 @@ repo = 'airblade/vim-gitgutter'
 repo = 'junegunn/fzf'
 build = './install --all'
 hook_add = '''
+  let g:fzf_layout = { 'down': '40%' }
   command! -nargs=* -complete=dir Fq call fzf#run(fzf#wrap(
     \ {'source': 'ghq list --full-path',
     \  'sink': 'cd' }))
