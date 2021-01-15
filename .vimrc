@@ -277,6 +277,13 @@ function! s:do_git_diff_aware_gf(command)
   endif
 endfunction
 
+autocmd MyAutoCmd BufWritePre * call <SID>auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
+function! s:auto_mkdir(dir, force)
+  if !isdirectory(a:dir) && (a:force || input(printf('"%s" does not exist. Create? [y/N]', a:dir)) =~? '^y\%[es]$')
+    call mkdir(a:dir, 'p')
+  endif
+endfunction
+
 if filereadable(expand('~/.vimrc.local'))
   source $HOME/.vimrc.local
 endif
