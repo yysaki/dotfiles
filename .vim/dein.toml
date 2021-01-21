@@ -71,6 +71,19 @@ hook_add = '''
   \   'gitbranch': 'fugitive#head'
   \ },
   \ }
+
+  let g:lightline.tab_component_function = {
+  \ 'filename': 'TabFilename',
+  \ 'modified': 'lightline#tab#modified',
+  \ 'readonly': 'lightline#tab#readonly',
+  \ 'tabnum': 'lightline#tab#tabnum' }
+
+  function! TabFilename(n) abort
+    let buflist = tabpagebuflist(a:n)
+    let winnr = tabpagewinnr(a:n)
+    let _ = pathshorten(expand('#'.buflist[winnr - 1].':f'))
+    return _ !=# '' ? _ : '[No Name]'
+  endfunction
 '''
 
 [[plugins]]
