@@ -2,6 +2,7 @@
 .vim/colors/
 .vim/doc/
 .vim/syntax/
+.vim/tmp/
 tmp/
 **/tags
 *~

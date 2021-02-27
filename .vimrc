@@ -106,9 +106,15 @@ set ambiwidth=double
 
 let g:vim_indent_cont = 0
 
-" undofile
+if !isdirectory(expand('~/.vim/tmp'))
+  call mkdir(expand('~/.vim/tmp'), 'p')
+endif
+
+set backupdir=~/.vim/tmp
+set directory=~/.vim/tmp
+
 set undofile
-set undodir='~/tmp/vim-undofile'
+set undodir=~/.vim/tmp
 
 let g:tex_flavor = 'latex'
 
