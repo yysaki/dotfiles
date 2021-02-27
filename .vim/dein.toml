@@ -294,6 +294,12 @@ repo = 'prabirshrestha/async.vim'
 repo = 'mattn/vim-lsp-settings'
 
 [[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
 repo = 'sheerun/vim-polyglot'
 
 # lint
