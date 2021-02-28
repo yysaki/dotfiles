@@ -19,6 +19,7 @@ DOT_FILES="
 .amethyst
 .bash_profile
 .bashrc
+.config/nvim/init.vim
 .gitconfig
 .gitignore
 .gvimrc
@@ -43,6 +44,7 @@ link_dot_file () {
     if $mingw; then
       cp -rf $PWD/$1 ~/$2
     else
+      mkdir -p ~/`dirname $1`
       ln -s $PWD/$1 ~/$2
     fi
   fi
