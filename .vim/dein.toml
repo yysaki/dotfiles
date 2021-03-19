@@ -66,6 +66,9 @@ hook_add = '''
   \ 'active': {
   \   'left': [['mode', 'paste'], ['gitbranch', 'readonly', 'relativepath', 'modified']]
   \ },
+  \ 'inactive': {
+  \   'left': [['relativepath']]
+  \ },
   \ 'component_function': {
   \   'gitbranch': 'fugitive#head'
   \ },
