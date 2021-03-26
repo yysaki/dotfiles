@@ -74,6 +74,7 @@
   md = merge  --no-commit --no-ff # dry-run相当, 確認後 `git merge --abort` すること
   oneline = log --pretty=oneline
   pls = "!f() { git log ${1:-HEAD} --oneline --decorate -- ${2:-.} | peco | awk '{print \"git show \" $1}' | sh ; }; f"
+  push-f = push --force-with-lease
   ra = rebase --abort
   ranking = shortlog -s -n --no-merges
   rb = rebase
