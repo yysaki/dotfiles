@@ -4,8 +4,8 @@ on_ft = ['terraform', 'tfvars', 'tfstate']
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_ft = ['html', 'vue']
-hood_add = '''
+on_ft = ['html', 'vue', 'eruby']
+hook_add = '''
   let g:user_emmet_leader_key='<C-z>'
 '''
 
