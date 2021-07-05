@@ -257,6 +257,9 @@ repo = 'kana/vim-textobj-indent'
 repo = 'kana/vim-textobj-line'
 
 [[plugins]]
+repo = 'kana/vim-textobj-jabraces'
+
+[[plugins]]
 repo = 'thinca/vim-textobj-between'
 hook_add = '''
   let g:textobj_between_no_default_key_mappings = 1
