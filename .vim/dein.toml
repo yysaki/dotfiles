@@ -361,3 +361,6 @@ hook_add = '''
 [[plugins]]
 repo = 'kana/vim-fakeclip'
 if = '''has('mac')'''
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
