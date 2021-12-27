@@ -116,6 +116,7 @@ repo = 'kana/vim-altr'
 hook_add = '''
   nmap <Space>a <Plug>(altr-forward)
   call altr#define('%.xaml', '%.xaml.cs')
+  call altr#define('app/%.rb', 'spec/%_spec.rb')
 '''
 
 # operator
