@@ -283,6 +283,8 @@ repo = 'honza/vim-snippets'
 repo = 'prabirshrestha/vim-lsp'
 hook_add = '''
   " let g:lsp_diagnostics_enabled = 0 " disable diagnostics support for ale.vim
+  let g:lsp_diagnostics_signs_error = {'text': '>>'}
+  let g:lsp_diagnostics_signs_warning = {'text': '--'}
 
   function! s:on_lsp_buffer_enabled() abort
       setlocal omnifunc=lsp#complete
