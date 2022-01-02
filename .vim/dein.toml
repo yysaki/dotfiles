@@ -157,9 +157,6 @@ hook_add = '''
   map <Space>L <Plug>(easymotion-bd-jk)
   nmap <Space>L <Plug>(easymotion-overwin-line)
 
-  map  <Space>w <Plug>(easymotion-bd-w)
-  nmap <Space>w <Plug>(easymotion-overwin-w)
-
   let g:EasyMotion_smartcase = 1
   let g:EasyMotion_use_migemo = 1
 '''
@@ -291,6 +288,11 @@ hook_add = '''
       setlocal signcolumn=yes
       nmap <buffer> gd <plug>(lsp-definition)
       nmap <buffer> <f2> <plug>(lsp-rename)
+      nmap <buffer> [w :<plug>(lsp-previous-diagnostic)
+      nmap <buffer> ]w :<plug>(lsp-next-diagnostic)
+      nmap <buffer> [W :<plug>(lsp-previous-diagnostic-nowrap)
+      nmap <buffer> ]W :<plug>(lsp-next-diagnostic-nowrap)
+      nmap <buffer> <Space>w :<plug>(lsp-document-diagnostics)
       " refer to doc to add more commands
   endfunction
 
