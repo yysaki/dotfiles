@@ -279,7 +279,6 @@ repo = 'honza/vim-snippets'
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 hook_add = '''
-  " let g:lsp_diagnostics_enabled = 0 " disable diagnostics support for ale.vim
   let g:lsp_diagnostics_signs_error = {'text': '>>'}
   let g:lsp_diagnostics_signs_warning = {'text': '--'}
 
@@ -288,11 +287,11 @@ hook_add = '''
       setlocal signcolumn=yes
       nmap <buffer> gd <plug>(lsp-definition)
       nmap <buffer> <f2> <plug>(lsp-rename)
-      nmap <buffer> [w :<plug>(lsp-previous-diagnostic)
-      nmap <buffer> ]w :<plug>(lsp-next-diagnostic)
-      nmap <buffer> [W :<plug>(lsp-previous-diagnostic-nowrap)
-      nmap <buffer> ]W :<plug>(lsp-next-diagnostic-nowrap)
-      nmap <buffer> <Space>w :<plug>(lsp-document-diagnostics)
+      nmap <buffer> [w <plug>(lsp-previous-diagnostic)
+      nmap <buffer> ]w <plug>(lsp-next-diagnostic)
+      nmap <buffer> [W <plug>(lsp-previous-diagnostic-nowrap)
+      nmap <buffer> ]W <plug>(lsp-next-diagnostic-nowrap)
+      nmap <buffer> <Space>w <plug>(lsp-document-diagnostics)
       " refer to doc to add more commands
   endfunction
 
@@ -318,29 +317,6 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
-
-# lint
-# [[plugins]]
-# repo = 'w0rp/ale'
-# if = '''has('job') && has('channel') && has('timers')'''
-# hook_add = '''
-#   let g:ale_lint_on_enter = 0
-#
-#   nmap <silent> [w <Plug>(ale_previous)
-#   nmap <silent> ]w <Plug>(ale_next)
-#   nmap <silent> [W <Plug>(ale_toggle)
-#   nmap <silent> ]W <Plug>(ale_toggle)
-#
-#   let g:ale_fixers = {
-#   \   'javascript': ['prettier', 'eslint'],
-#   \   'javascriptreact': ['prettier', 'eslint'],
-#   \   'typescript': ['prettier', 'eslint'],
-#   \   'typescriptreact': ['prettier', 'eslint'],
-#   \   'ruby': ['rubocop'],
-#   \   'vue': ['prettier', 'eslint'],
-#   \}
-#   let g:ale_fix_on_save = 1
-# '''
 
 # howm
 [[plugins]]
