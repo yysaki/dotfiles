@@ -20,6 +20,7 @@ DOT_FILES="
 .bash_profile
 .bashrc
 .config/nvim/init.vim
+.config/yamllint/config
 .gitconfig
 .gitignore
 .gvimrc
