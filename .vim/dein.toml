@@ -292,6 +292,7 @@ hook_add = '''
       nmap <buffer> [W <plug>(lsp-previous-diagnostic-nowrap)
       nmap <buffer> ]W <plug>(lsp-next-diagnostic-nowrap)
       nmap <buffer> <Space>w <plug>(lsp-document-diagnostics)
+      nnoremap <buffer> <Space>p :<C-u>LspHover --server=typescript-language-server<CR>
       " refer to doc to add more commands
   endfunction
 
