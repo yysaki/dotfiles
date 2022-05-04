@@ -305,6 +305,9 @@ repo = 'prabirshrestha/async.vim'
 
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
+hook_add = '''
+  let g:lsp_settings = { 'typeprof': {'disabled': v:true} }
+'''
 
 [[plugins]]
 repo = 'tsuyoshicho/vim-efm-langserver-settings'
