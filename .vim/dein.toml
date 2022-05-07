@@ -232,6 +232,10 @@ hook_add = '''
     \ {'source': 'ghq list --full-path',
     \  'sink': 'cd' }))
   nnoremap <silent> <Space>F :<C-u>Fq<CR>
+  command! -nargs=* -complete=dir GitLsFiles call fzf#run(fzf#wrap(
+    \ {'source': 'git ls-files | uniq',
+    \  'options': '-m --prompt "GitLsFiles>"' }))
+  nnoremap <Space>f :<C-u>GitLsFiles<CR>
 '''
 
 [[plugins]]

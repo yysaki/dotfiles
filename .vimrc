@@ -173,7 +173,6 @@ endif
 nnoremap <Space>b :<C-u>Buffers<CR>
 nnoremap <Space>h :<C-u>History<CR>
 nnoremap <Space>r :<C-u>Rg 
-nnoremap <Space>f :<C-u>GFiles<CR>
 
 " UTF-8 として読み込む
 nnoremap <Space>e  :<C-u>e ++enc=utf-8<CR>
