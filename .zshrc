@@ -172,6 +172,9 @@ if [ -d $HOME/go ] ; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
+# ripgrep https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#configuration-file
+export RIPGREP_CONFIG_PATH=${HOME}/.config/ripgrep/.ripgreprc
+
 # peco
 pcd () {
   local PCD_FILE=$HOME/.peco/.peco-cd

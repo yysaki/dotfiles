@@ -21,6 +21,7 @@ DOT_FILES="
 .bashrc
 .config/nvim/init.vim
 .config/yamllint/config
+.config/ripgrep/.ripgreprc
 .gitconfig
 .gitignore
 .gvimrc
