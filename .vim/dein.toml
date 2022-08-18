@@ -262,6 +262,9 @@ repo = 'kana/vim-textobj-line'
 repo = 'kana/vim-textobj-jabraces'
 
 [[plugins]]
+repo = 'rhysd/vim-textobj-ruby'
+
+[[plugins]]
 repo = 'thinca/vim-textobj-between'
 hook_add = '''
   let g:textobj_between_no_default_key_mappings = 1
