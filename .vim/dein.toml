@@ -330,6 +330,10 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
 
+# ruby
+[[plugins]]
+repo = 'pocke/rbs.vim'
+
 # howm
 [[plugins]]
 repo = 'fuenor/qfixgrep'
