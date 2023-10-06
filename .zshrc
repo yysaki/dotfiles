@@ -278,10 +278,6 @@ enable-docker-complete() {
   if [ ! -e $dir/_docker ]; then
     ln -s $etc/docker.zsh-completion $dir/_docker
   fi
-
-  if [ ! -e $dir/_docker-compose ]; then
-    ln -s $etc/docker-compose.zsh-completion $dir/_docker-compose
-  fi
 }
 
 if $darwin; then
