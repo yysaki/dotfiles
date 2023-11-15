@@ -293,7 +293,9 @@ if [ ! -d ~/.zplug ]; then
   git clone https://github.com/zplug/zplug ~/.zplug
 fi
 
-if [ -x pyenv ]; then
+if [ -d ~/.pyenv ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
 fi
 
