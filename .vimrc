@@ -149,6 +149,7 @@ set spelllang& spelllang+=cjk
 
 if !has('gui_running') && &t_Co == 256
   colorscheme iceberg
+  set background=dark
 end
 
 if has('mac')
