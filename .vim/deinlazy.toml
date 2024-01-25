@@ -14,6 +14,10 @@ repo = 'neo4j-contrib/cypher-vim-syntax'
 on_ft = ['cypher']
 
 [[plugins]]
+repo = 'hallison/vim-rdoc'
+on_ft = ['rdoc']
+
+[[plugins]]
 repo = 'tpope/vim-rails'
 on_ft = ['ruby']
 
