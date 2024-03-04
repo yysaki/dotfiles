@@ -65,6 +65,13 @@ select-word-style default
 zstyle ':zle:*' word-chars " _-./;@"
 zstyle ':zle:*' word-style unspecified
 
+
+## github
+# require `gh extension install github/gh-copilot`
+copilot() {
+  gh copilot suggest -t shell "$@"
+}
+
 ## set aliases
 if [ -x /usr/bin/dircolors ]; then
   alias ls='ls -F --color=auto'
@@ -94,6 +101,7 @@ alias be='bundle exec'
 alias beg='bundle exec guard'
 alias bn='bundle exec nanoc'
 alias br='bundle exec rails'
+alias c='copilot'
 alias eng='LANG=C LANGUAGE=C LC_ALL=C'
 alias f='find'
 alias g='git'
