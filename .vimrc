@@ -152,11 +152,16 @@ if !has('gui_running') && &t_Co == 256
   set background=dark
 end
 
-if has('mac')
-  set clipboard=unnamed " クリップボード利用設定
+" clipboard設定
+if has('mac') " for macos
+  set clipboard=unnamed
   if has('gui_running')
     set macmeta
   endif
+endif
+
+if exists('$WSLENV') " for WSL
+  autocmd MyAutoCmd TextYankPost * :call system('iconv -t utf16 | clip.exe', @")")
 endif
 
 " Mappings "{{{1
