@@ -297,7 +297,7 @@ if $darwin; then
 fi
 
 if $wsl; then
-  export BROWSER=explorer.exe
+  export BROWSER="powershell.exe start explorer.exe"
 fi
 
 # if type aws_zsh_completer.sh > /dev/null; then
