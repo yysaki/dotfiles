@@ -8,6 +8,7 @@ stty stop undef
 linux=false
 darwin=false
 cygwin=false
+wsl=false
 case "$(uname)" in
   Linux) linux=true;;
   Darwin) darwin=true;;
@@ -15,6 +16,9 @@ case "$(uname)" in
   MINGW32*) mingw=true;; # work
   MINGW64*) mingw=true;; # work
 esac
+if [[ "$(uname -r)" == *microsoft* ]]; then
+  wsl=true
+fi
 
 autoload -Uz vcs_info
 setopt prompt_subst
@@ -282,6 +286,10 @@ enable-docker-complete() {
 
 if $darwin; then
   enable-docker-complete
+fi
+
+if $wsl; then
+  export BROWSER=explorer.exe
 fi
 
 # if type aws_zsh_completer.sh > /dev/null; then
