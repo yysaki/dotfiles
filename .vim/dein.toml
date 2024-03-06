@@ -27,6 +27,9 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'github/copilot.vim'
+
+[[plugins]]
 repo = 'vim-scripts/matchit.zip'
 
 [[plugins]]
