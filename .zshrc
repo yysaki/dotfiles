@@ -220,7 +220,7 @@ if [ -x $GHQ_ROOT/github.com/rupa/z ]; then
 fi
 
 # install latest vim. required homebrew installed lua, python3
-if $darwin; then
+if $darwin || $wsl; then
   function makeInstallLatestVim() {
     ghq get --update vim/vim;
     pushd `ghq list --full-path vim/vim`;
