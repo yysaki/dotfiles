@@ -315,6 +315,11 @@ if [ -d ~/.pyenv ]; then
   eval "$(pyenv init -)"
 fi
 
+# direnv
+if [ -x "$(command -v direnv)" ]; then
+  eval "$(direnv hook zsh)"
+fi
+
 source ~/.zplug/init.zsh
 
 source ${HOME}/.zprofile
