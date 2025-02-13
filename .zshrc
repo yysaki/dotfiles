@@ -320,6 +320,11 @@ if [ -x "$(command -v direnv)" ]; then
   eval "$(direnv hook zsh)"
 fi
 
+# cargo
+if [ -x "$HOME/.cargo/bin" ]; then
+  export PATH=${HOME}/.cargo/bin:$PATH
+fi
+
 source ~/.zplug/init.zsh
 
 source ${HOME}/.zprofile
