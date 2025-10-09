@@ -297,7 +297,8 @@ if $darwin; then
 fi
 
 if $wsl; then
-  export BROWSER="powershell.exe start explorer.exe"
+  export BROWSER='/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'
+  export GH_BROWSER="'/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'"
 fi
 
 # if type aws_zsh_completer.sh > /dev/null; then
