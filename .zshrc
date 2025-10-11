@@ -1,6 +1,6 @@
 export LANG=ja_JP.UTF-8
-autoload -Uz compinit
-compinit -u
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
 
 stty stop undef
 
@@ -329,6 +329,8 @@ fi
 source ~/.zplug/init.zsh
 
 source ${HOME}/.zprofile
+
+[ -f /usr/local/bin/aws_completer ] && complete -C '/usr/local/bin/aws_completer' aws
 
 # __END__  "{{{1
 # vim: expandtab softtabstop=2 shiftwidth=2
