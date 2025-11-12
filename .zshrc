@@ -323,6 +323,12 @@ if command -v aws_completer >/dev/null; then
   complete -C "$(command -v aws_completer)" aws
 fi
 
+if [[ $- =~ "i" ]]; then
+  if [[ -z "$VIM_TERMINAL" ]] && [[ "$TERM_PROGRAM" != "tmux" ]]; then
+    command -v neofetch >/dev/null && neofetch
+  fi
+fi
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # __END__  "{{{1
