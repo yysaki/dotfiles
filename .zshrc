@@ -245,11 +245,6 @@ if $darwin || $wsl; then
   alias vup=makeInstallLatestVim
 fi
 
-ide() {
-  tmux split-window -v -p 30
-  tmux split-window -h -p 33
-}
-
 if [ -f "${HOME}/.zshrc_local" ]; then
   source "${HOME}/.zshrc_local"
 fi
@@ -301,10 +296,6 @@ if $wsl; then
   export GH_BROWSER="'/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'"
 fi
 
-# if type aws_zsh_completer.sh > /dev/null; then
-#   source aws_zsh_completer.sh
-# fi
-
 # zplug
 if [ ! -d ~/.zplug ]; then
   git clone https://github.com/zplug/zplug ~/.zplug
@@ -316,8 +307,7 @@ if [ -d ~/.pyenv ]; then
   eval "$(pyenv init -)"
 fi
 
-# direnv
-if [ -x "$(command -v direnv)" ]; then
+if command -v direnv >/dev/null; then
   eval "$(direnv hook zsh)"
 fi
 
@@ -327,17 +317,14 @@ if [ -x "$HOME/.cargo/bin" ]; then
 fi
 
 source ~/.zplug/init.zsh
-
 source ${HOME}/.zprofile
 
-[ -f /usr/local/bin/aws_completer ] && complete -C '/usr/local/bin/aws_completer' aws
+if command -v aws_completer >/dev/null; then
+  complete -C "$(command -v aws_completer)" aws
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # __END__  "{{{1
 # vim: expandtab softtabstop=2 shiftwidth=2
 # vim: foldmethod=marker
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# tabtab source for packages
-# uninstall by removing these lines
-[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
