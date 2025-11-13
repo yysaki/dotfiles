@@ -65,7 +65,6 @@ select-word-style default
 zstyle ':zle:*' word-chars " _-./;@"
 zstyle ':zle:*' word-style unspecified
 
-
 ## github
 # require `gh extension install github/gh-copilot`
 copilot() {
@@ -281,7 +280,7 @@ fi
 
 enable-docker-complete() {
   etc=/Applications/Docker.app/Contents/Resources/etc
-  dir=/usr/local/share/zsh/site-functions
+  dir=/opt/homebrew/share/zsh/site-functions
   if [ ! -e $dir/_docker ]; then
     ln -s $etc/docker.zsh-completion $dir/_docker
   fi

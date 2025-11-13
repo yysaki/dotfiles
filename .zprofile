@@ -2,6 +2,11 @@
 
 # User specific environment and startup programs
 
+# homebrew
+if [ -d /opt/homebrew/bin ] ; then
+  export PATH=/opt/homebrew/bin/:$PATH
+fi
+
 # rbenv
 if [ -d $HOME/.rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
