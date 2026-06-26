@@ -106,6 +106,8 @@ set ambiwidth=double
 
 let g:vim_indent_cont = 0
 
+set wildoptions=pum
+
 if !isdirectory(expand('~/.vim/tmp'))
   call mkdir(expand('~/.vim/tmp'), 'p')
 endif
