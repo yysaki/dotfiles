@@ -330,6 +330,10 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+if git help -a 2>/dev/null | grep -qw wt; then
+  eval "$(git wt --init zsh)"
+fi
+
 # __END__  "{{{1
 # vim: expandtab softtabstop=2 shiftwidth=2
 # vim: foldmethod=marker
