@@ -1,0 +1,22 @@
+onboarding = false
+
+[theme]
+name = "terminal"
+auto_switch = false
+
+[keys]
+prefix = "ctrl+t"
+
+[ui.toast]
+delivery = "terminal"
+delay_seconds = 1
+
+[ui.sound]
+enabled = true
+
+[experimental]
+switch_ascii_input_source_in_prefix = true
+
+reveal_hidden_cursor_for_cjk_ime = true
+cjk_ime_agents = ["claude"]
+cjk_ime_cursor_shape = "steady_block"

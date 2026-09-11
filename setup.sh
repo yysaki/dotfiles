@@ -19,6 +19,7 @@ DOT_FILES="
 .amethyst
 .bash_profile
 .bashrc
+.config/herdr/config.toml
 .config/nvim/init.vim
 .config/yamllint/config
 .config/ripgrep/.ripgreprc
